@@ -48,9 +48,9 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'dev';
-$db['default']['password'] = '0823248713';
-$db['default']['database'] = 'goodjob';
+$db['default']['username'] = 'iming';
+$db['default']['password'] = 'iming';
+$db['default']['database'] = 'buildthedot_30goodjobstore';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
