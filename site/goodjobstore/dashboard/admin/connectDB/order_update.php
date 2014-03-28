@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<?
+<?php
 	$orderID = $_GET["orderID"];
 	$changeStat = $_GET["changeStat"];
 	$shipNum = $_GET["shipNum"];
@@ -24,9 +24,10 @@
 			break;
 	}
 
-	$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
-	$objDB = mysql_select_db("goodjob") or die("Can't connect Database");
-	mysql_query("SET NAMES utf8",$objCon);
+	include(APPPATH."config/databasecustom.php");
+	// $objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
+	// $objDB = mysql_select_db("goodjob") or die("Can't connect Database");
+	// mysql_query("SET NAMES utf8",$objCon);
 	
 	//--- update order ---
 	$sqlOrder = "UPDATE orders SET status = '$changeStat',shipping_number = '$shipNum' WHERE Order_ID = '$orderID'";

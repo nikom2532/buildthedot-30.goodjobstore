@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<?
+<?php
 	$genProID = $_GET["genProID"];
 	$propertyName = $_GET["propertyName"];
 	$proPrice = $_GET["proPrice"];
@@ -28,9 +28,10 @@
 	$proSaleMax = $_GET["proSaleMax"];
 	$proWeight = $_GET["proWeight"];
 
-	$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
-	$objDB = mysql_select_db("goodjob") or die("Can't connect Database");
-	mysql_query("SET NAMES utf8",$objCon);
+	include(APPPATH."config/databasecustom.php");
+	// $objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
+	// $objDB = mysql_select_db("goodjob") or die("Can't connect Database");
+	// mysql_query("SET NAMES utf8",$objCon);
 	
 	//------- Update Description -------------
 	$strSQL = "UPDATE products SET Property_Name='$propertyName' ,Price_Buy='$proPrice' ,Price_sale='$proPriceTotal' ,Discount_PC='$proDisPC' ,Discount_Num='$proDisNum' ,Qty='$proQty' ,Sale_min='$proSaleMin' ,Sale_max='$proSaleMax' ,Weight='$proWeight' ,Discount_Status='$proDisStat' ,Property_ID='$proPropID' 

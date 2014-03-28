@@ -1,9 +1,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<?
-	$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
-	$objDB = mysql_select_db("goodjob") or die("Can't connect Database");
-	mysql_query("SET NAMES utf8",$objCon);
+<?php
+	include(APPPATH."config/databasecustom.php");
+	// $objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
+	// $objDB = mysql_select_db("goodjob") or die("Can't connect Database");
+	// mysql_query("SET NAMES utf8",$objCon);
 
 	$sql = "SELECT coupon.Coupon_ID,Discount_Status,Discount_PC,Discount_Cash,Start_Date,Expired_Date,status,Cus_ID
 			FROM coupon JOIN coupon_customers
