@@ -64,10 +64,11 @@
 
 	<!-- connect Database -->
 	<script src="<?=base_url()?>public/scripts/ajax.item.java" type="text/javascript"></script>
-	<?
-		$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
-		$objDB = mysql_select_db("goodjob") or die("Can't connect Database");
-		mysql_query("SET NAMES utf8",$objCon);
+	<?php
+		include(APPPATH."config/databasecustom.php");
+		// $objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
+		// $objDB = mysql_select_db("goodjob") or die("Can't connect Database");
+		// mysql_query("SET NAMES utf8",$objCon);
 
 		//------ Product Description -----------
 		$sql = "SELECT *
