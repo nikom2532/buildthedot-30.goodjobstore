@@ -3,7 +3,7 @@
 <!--Permission-->
 
 <?php
-session_start(); //�Դ session
+session_start(); //�Դ session
 $ses_userid =$_SESSION[ses_userid];
 $ses_username = $_SESSION[ses_username];
 if($ses_userid <> session_id() or $ses_username =="")
@@ -21,7 +21,7 @@ exit();
 
 <!--Permission-->
 
-<?
+<?php
 	$subID = $_GET['subID'];
 	$sonID = $_GET['sonID'];
 
@@ -44,9 +44,10 @@ exit();
 				$login = $getemp->getEmail();
 			} 
 
-	$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
-	$objDB = mysql_select_db("goodjob") or die("Can't connect Database");
-	mysql_query("SET NAMES utf8",$objCon);
+	include(APPPATH."config/databasecustom.php");
+	// $objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
+	// $objDB = mysql_select_db("goodjob") or die("Can't connect Database");
+	// mysql_query("SET NAMES utf8",$objCon);
 			
 	$sql = "SELECT Name_En,Name_Th,son_url FROM son_menu WHERE Son_ID = '$sonID'";
 	$result = mysql_query($sql, $objCon) or die(mysql_error());

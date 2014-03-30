@@ -4,7 +4,7 @@
 <!--Permission-->
 
 <?php
-session_start(); //�Դ session
+session_start(); //�Դ session
 $ses_userid =$_SESSION[ses_userid];
 $ses_username = $_SESSION[ses_username];
 if($ses_userid <> session_id() or $ses_username =="")
@@ -38,12 +38,13 @@ exit();
 </head>
 
 <!-- add main category -->
-<?
+<?php
 	if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "frmAddCategoryMain")) 
 	{
-		$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
-		$objDB = mysql_select_db("goodjob") or die("Can't connect Database");
-		mysql_query("SET NAMES utf8",$objCon);
+		include(APPPATH."config/databasecustom.php");
+		// $objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
+		// $objDB = mysql_select_db("goodjob") or die("Can't connect Database");
+		// mysql_query("SET NAMES utf8",$objCon);
 
 		//----- set sort ----
 		$sqlSort = "SELECT main_sort FROM main_menu ORDER BY main_sort DESC LIMIT 1";

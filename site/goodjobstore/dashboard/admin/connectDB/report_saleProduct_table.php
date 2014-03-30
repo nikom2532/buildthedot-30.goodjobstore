@@ -1,16 +1,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
 
-<?
+<?php
 	//-- session for export to excel --
 	session_start(); 
 	unset($_SESSION['report_header']);
 	unset($_SESSION['report_values']);
 	$_SESSION['report_header']=array("Code","Name","Property","Price","DiscountPrice","Qty."); 
 
-	$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
-	$objDB = mysql_select_db("goodjob") or die("Can't connect Database");
-	mysql_query("SET NAMES utf8",$objCon);
+	include(APPPATH."config/databasecustom.php");
+	// $objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
+	// $objDB = mysql_select_db("goodjob") or die("Can't connect Database");
+	// mysql_query("SET NAMES utf8",$objCon);
 	
 	$sqlProduct = "SELECT Product_ID,products.Product_Code,property.name_en,Group_Name_En,Price_Buy,Price_sale 
 					FROM products JOIN product_groups ON products.Product_Code = product_groups.Product_Code
