@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <meta http-equiv=Content-Type content="text/html; charset=utf-8">
 
-<?
+<?php
 	$proCode = $_GET['proCode'];
 	//include_once '../classes/Products.php';
 	//Initialization
@@ -22,9 +22,10 @@
 				$login = $getemp->getEmail();
 			} 
 
-	$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
-	$objDB = mysql_select_db("goodjob") or die("Can't connect Database");
-	mysql_query("SET NAMES utf8",$objCon);
+	include(APPPATH."config/databasecustom.php");
+	// $objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
+	// $objDB = mysql_select_db("goodjob") or die("Can't connect Database");
+	// mysql_query("SET NAMES utf8",$objCon);
 
 	$sqlProGroup = "SELECT * FROM product_groups
 					WHERE Product_Code = '$proCode'";
@@ -33,7 +34,7 @@
 <!--Permission-->
 
 <?php
-session_start(); //�Դ session
+session_start(); //�Դ session
 $ses_userid =$_SESSION[ses_userid];
 $ses_username = $_SESSION[ses_username];
 if($ses_userid <> session_id() or $ses_username =="")

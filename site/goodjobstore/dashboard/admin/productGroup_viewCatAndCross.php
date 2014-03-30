@@ -28,7 +28,7 @@
 <!--Permission-->
 
 <?php
-session_start(); //�Դ session
+session_start(); //�Դ session
 $ses_userid =$_SESSION[ses_userid];
 $ses_username = $_SESSION[ses_username];
 if($ses_userid <> session_id() or $ses_username =="")
@@ -57,10 +57,11 @@ exit();
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
 	<script src="ajax/ajax.productGroup.java"></script>
 
-	<?
-		$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
-		$objDB = mysql_select_db("goodjob") or die("Can't connect Database");
-		mysql_query("SET NAMES utf8",$objCon);			
+	<?php
+		include(APPPATH."config/databasecustom.php");
+		// $objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
+		// $objDB = mysql_select_db("goodjob") or die("Can't connect Database");
+		// mysql_query("SET NAMES utf8",$objCon);			
 
 		//-------- cross sale SELECTED product
 		$sqlCross = "SELECT * FROM cross_sale JOIN product_groups 

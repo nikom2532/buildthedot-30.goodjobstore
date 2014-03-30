@@ -3,7 +3,7 @@
 <!--Permission-->
 
 <?php
-session_start(); //�Դ session
+session_start(); //�Դ session
 $ses_userid =$_SESSION[ses_userid];
 $ses_username = $_SESSION[ses_username];
 if($ses_userid <> session_id() or $ses_username =="")
@@ -58,7 +58,7 @@ exit();
 </head>
 
 <!-- add payment -->
-<?
+<?php
 	if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "frmPayment")) 
 	{
 		$m_payment_EN = $_POST['Payment_En'];
@@ -70,9 +70,10 @@ exit();
 		$m_Descrip_TH = $_POST['Descrip_Th'];
 			$Descrip_TH = str_replace("'","''",$m_Descrip_TH);
 
-		$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
-		$objDB = mysql_select_db("goodjob") or die("Can't connect Database");
-		mysql_query("SET NAMES utf8",$objCon);
+		include(APPPATH."config/databasecustom.php");
+		// $objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
+		// $objDB = mysql_select_db("goodjob") or die("Can't connect Database");
+		// mysql_query("SET NAMES utf8",$objCon);
 
 		$strSQL = "INSERT INTO payments (name_th,name_en,description_th,description_en) 
 					VALUES ('".$payment_TH."','".$payment_EN."','".$Descrip_TH."','".$Descrip_EN."')";

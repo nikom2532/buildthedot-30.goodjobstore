@@ -25,7 +25,7 @@
 <!--Permission-->
 
 <?php
-session_start(); //�Դ session
+session_start(); //�Դ session
 $ses_userid =$_SESSION[ses_userid];
 $ses_username = $_SESSION[ses_username];
 if($ses_userid <> session_id() or $ses_username =="")
@@ -57,7 +57,7 @@ exit();
 </head>
 
 <!-- add product -->
-<?
+<?php
 	if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "frmAddProduct")) 
 	{
 		$productCode = $_POST['Product_Code'];
@@ -83,9 +83,10 @@ exit();
 		$proAtt = $_POST['Product_Attribute'];
 		$proBox = $_POST['Product_Box'];
 
-		$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
-		$objDB = mysql_select_db("goodjob") or die("Can't connect Database");
-		mysql_query("SET NAMES utf8",$objCon);
+		include(APPPATH."config/databasecustom.php");
+		// $objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
+		// $objDB = mysql_select_db("goodjob") or die("Can't connect Database");
+		// mysql_query("SET NAMES utf8",$objCon);
 
 		//********************** check product_code **************************
 		$sqlCheckProCode = "SELECT Product_Code FROM product_groups WHERE Product_Code = '$productCode'";

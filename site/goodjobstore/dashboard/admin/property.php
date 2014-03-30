@@ -25,7 +25,7 @@
 <!--Permission-->
 
 <?php
-session_start(); //�Դ session
+session_start(); //�Դ session
 $ses_userid =$_SESSION[ses_userid];
 $ses_username = $_SESSION[ses_username];
 if($ses_userid <> session_id() or $ses_username =="")
@@ -76,16 +76,17 @@ exit();
 </head>
 
 <!-- add property -->
-<?
+<?php
 	if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "frmAddProperty")) 
 	{
 		$m_Name_EN = $_POST['Prop_En'];
 			$Name_EN = str_replace("'","''",$m_Name_EN);
 		$Name_TH = $_POST['Prop_Th'];
 
-		$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
-		$objDB = mysql_select_db("goodjob") or die("Can't connect Database");
-		mysql_query("SET NAMES utf8",$objCon);
+		include(APPPATH."config/databasecustom.php");
+		// $objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
+		// $objDB = mysql_select_db("goodjob") or die("Can't connect Database");
+		// mysql_query("SET NAMES utf8",$objCon);
 
 		$sql = "INSERT INTO property (name_th,name_en) 
 				VALUES ('".$Name_TH."','".$Name_EN."')";

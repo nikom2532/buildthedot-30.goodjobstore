@@ -24,7 +24,7 @@
 <!--Permission-->
 
 <?php
-session_start(); //�Դ session
+session_start(); //�Դ session
 $ses_userid =$_SESSION[ses_userid];
 $ses_username = $_SESSION[ses_username];
 if($ses_userid <> session_id() or $ses_username =="")
@@ -57,7 +57,7 @@ exit();
 </head>
 
 <!-- add shipper -->
-<?
+<?php
 	if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "frmAddShipper")) 
 	{
 		$m_Name_EN = $_POST['Shipper_En'];
@@ -69,9 +69,10 @@ exit();
 		$m_Descrip_TH = $_POST['Descrip_Th'];
 			$Descrip_TH = str_replace("'","''",$m_Descrip_TH);
 
-		$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
-		$objDB = mysql_select_db("goodjob") or die("Can't connect Database");
-		mysql_query("SET NAMES utf8",$objCon);
+		include(APPPATH."config/databasecustom.php");
+		// $objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
+		// $objDB = mysql_select_db("goodjob") or die("Can't connect Database");
+		// mysql_query("SET NAMES utf8",$objCon);
 
 		$sql = "INSERT INTO how_delivery (Name_Th,Name_En,Description_Th,Description_En) 
 				VALUES ('".$Name_TH."','".$Name_EN."','".$Descrip_TH."','".$Descrip_EN."')";

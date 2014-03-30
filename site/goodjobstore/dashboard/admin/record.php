@@ -24,7 +24,7 @@
 
 <!--Permission-->
 <?php
-session_start(); //�Դ session
+session_start(); //�Դ session
 $ses_userid =$_SESSION[ses_userid];
 $ses_username = $_SESSION[ses_username];
 if($ses_userid <> session_id() or $ses_username =="")
@@ -58,10 +58,11 @@ exit();
 
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
 	<!------------ show table customers ---------->
-	<?
-		$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
-		$objDB = mysql_select_db("goodjob") or die("Can't connect Database");
-		mysql_query("SET NAMES utf8",$objCon);
+	<?php
+		include(APPPATH."config/databasecustom.php");
+		// $objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
+		// $objDB = mysql_select_db("goodjob") or die("Can't connect Database");
+		// mysql_query("SET NAMES utf8",$objCon);
 		
 		$sqlCustomer = "SELECT Cus_ID,FirstName,LastName,Address,Name_En,Postal_Code,Phone_Number,Email 
 						FROM customers JOIN city ON (customers.City_ID=city.City_ID OR customers.City_ID=0)
