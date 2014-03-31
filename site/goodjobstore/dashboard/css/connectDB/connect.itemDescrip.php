@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-	<?
+	<?php
 	$strProID = $_GET["proID"];
 	$strProperty = $_GET["propertyID"];
 	$strColorID = $_GET["colorID"];
@@ -10,9 +10,10 @@
 	if(!$strFilterProp){
 		$strFilterProp = 1;}
 	
-	$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
-	$objDB = mysql_select_db("goodjob") or die("Can't connect Database");
-	mysql_query("SET NAMES utf8",$objCon);
+	include(APPPATH."config/databasecustom.php");
+	// $objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
+	// $objDB = mysql_select_db("goodjob") or die("Can't connect Database");
+	// mysql_query("SET NAMES utf8",$objCon);
 
 	//------ Product Description -----------
 	$sql = "SELECT Product_ID,Product_Code,Pro_Name_Th,Pro_Name_En,Description_Th,Description_En,Price_Buy,Price_sale,Short_msg_Th,Short_msg_En 

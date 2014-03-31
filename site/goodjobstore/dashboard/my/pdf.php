@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<?
+<?php
 
   $orderID = $_GET['orderID'];
   $finalPrice = $_GET['finalPrice'];
@@ -139,9 +139,10 @@ $pdf->AddFont('angsana','','angsa.php');
   $pdf->Text(130,150,iconv( 'UTF-8','cp874',$itemName_0));
   $pdf->Text(130,165, iconv( 'UTF-8','cp874',$shipNameEn));
 
-	$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
-	$objDB = mysql_select_db("goodjob") or die("Can't connect Database");
-	mysql_query("SET NAMES utf8",$objCon);
+	include(APPPATH."config/databasecustom.php");
+	// $objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
+	// $objDB = mysql_select_db("goodjob") or die("Can't connect Database");
+	// mysql_query("SET NAMES utf8",$objCon);
 	
 $sqlGift = "SELECT gift_type FROM order_gifts WHERE Order_ID = '$orderID' AND Product_ID = '$itemID_0'";
 $resultGift = mysql_query($sqlGift, $objCon) or die(mysql_error());

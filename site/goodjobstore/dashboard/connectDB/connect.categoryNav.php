@@ -1,7 +1,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <!-- dollar exchange -->
-<?
+<?php
 	function google_finance_convert($from_Currency, $to_Currency, $amount) 
 	{
 		$amount = urlencode($amount);
@@ -33,7 +33,7 @@
 	}
 ?>
 
-	<?
+	<?php
 		$strPage = $_GET["page"];
 		$strMain_64 = $_GET["mainCat"];
 		$strMain = base64_decode($strMain_64);
@@ -48,9 +48,10 @@
 		$strUrl = $_GET["catUrl"];
 		$language = $_GET["language"];
 
-		$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
-		$objDB = mysql_select_db("goodjob") or die("Can't connect Database");
-		mysql_query("SET NAMES utf8",$objCon);
+		include(APPPATH."config/databasecustom.php");
+		// $objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
+		// $objDB = mysql_select_db("goodjob") or die("Can't connect Database");
+		// mysql_query("SET NAMES utf8",$objCon);
 
 		$sqlRate = "SELECT rate FROM usd_rate LIMIT 1";
 		$resultRate = mysql_query($sqlRate, $objCon) or die(mysql_error());

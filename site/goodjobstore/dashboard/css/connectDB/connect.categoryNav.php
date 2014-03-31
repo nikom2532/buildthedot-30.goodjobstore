@@ -1,14 +1,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<?
+	<?php
 		$strPage = $_GET["page"];
 		$strMain = $_GET["mainCat"];
 		$strSub = $_GET["subCat"];
 		$strMin = $_GET["min"];
 		$strMax = $_GET["max"];
 
-		$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
-		$objDB = mysql_select_db("goodjob") or die("Can't connect Database");
-		mysql_query("SET NAMES utf8",$objCon);
+		include(APPPATH."config/databasecustom.php");
+		// $objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
+		// $objDB = mysql_select_db("goodjob") or die("Can't connect Database");
+		// mysql_query("SET NAMES utf8",$objCon);
 
 		//--- No select Main Category
 		if (!$strMain)
