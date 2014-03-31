@@ -1,0 +1,4 @@
+include(APPPATH."config/databasecustom.php");
+
+
+$hostname_connection = "localhost";
