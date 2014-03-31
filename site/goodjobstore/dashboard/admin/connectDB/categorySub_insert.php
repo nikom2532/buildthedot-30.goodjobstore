@@ -6,10 +6,10 @@
 	$nameTH = $_GET["nameTH"];
 	$subUrl = $_GET["subUrl"];
 
-	include(APPPATH."config/databasecustom.php");
-	// $objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
-	// $objDB = mysql_select_db("goodjob") or die("Can't connect Database");
-	// mysql_query("SET NAMES utf8",$objCon);
+	// include(APPPATH."config/databasecustom.php");
+	$objCon = mysql_connect("localhost","imingcom_arming","cominter") or die(mysql_error());
+	$objDB = mysql_select_db("imingcom_30goodjobstore") or die("Can't connect Database");
+	mysql_query("SET NAMES utf8",$objCon);
 
 	$strSQL = "INSERT INTO sub_menu (Main_ID,Name_En,Name_Th,sub_url) 
 			VALUES ('".$mainID."','".$nameEN."','".$nameTH."','".$subUrl."')";

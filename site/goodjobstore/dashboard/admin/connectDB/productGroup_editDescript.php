@@ -23,10 +23,10 @@
 	$proStatus = $_GET["proStatus"];
 	$proAtt = $_GET["proAtt"];
 
-	include(APPPATH."config/databasecustom.php");
-	// $objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
-	// $objDB = mysql_select_db("goodjob") or die("Can't connect Database");
-	// mysql_query("SET NAMES utf8",$objCon);
+	// include(APPPATH."config/databasecustom.php");
+	$objCon = mysql_connect("localhost","imingcom_arming","cominter") or die(mysql_error());
+	$objDB = mysql_select_db("imingcom_30goodjobstore") or die("Can't connect Database");
+	mysql_query("SET NAMES utf8",$objCon);
 
 //************************ sql Edit Product Groups ***************************
 	$sqlEditProGroup = "UPDATE product_groups SET

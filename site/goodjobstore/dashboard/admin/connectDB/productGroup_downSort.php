@@ -3,10 +3,10 @@
 <?php
 	$proCode = $_GET['proCode'];
 
-	include(APPPATH."config/databasecustom.php");
-	// $objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
-	// $objDB = mysql_select_db("goodjob") or die("Can't connect Database");
-	// mysql_query("SET NAMES utf8",$objCon);
+	// include(APPPATH."config/databasecustom.php");
+	$objCon = mysql_connect("localhost","imingcom_arming","cominter") or die(mysql_error());
+	$objDB = mysql_select_db("imingcom_30goodjobstore") or die("Can't connect Database");
+	mysql_query("SET NAMES utf8",$objCon);
 
 	$sqlTest = "SELECT Product_Code,sort FROM product_groups ORDER BY sort";
 	$resultTest = mysql_query($sqlTest, $objCon) or die(mysql_error());

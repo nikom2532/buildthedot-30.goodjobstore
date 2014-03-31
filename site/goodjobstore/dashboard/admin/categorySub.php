@@ -38,10 +38,10 @@ exit();
 				$login = $getemp->getEmail();
 			} 
 
-	include(APPPATH."config/databasecustom.php");
-	// $objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
-	// $objDB = mysql_select_db("goodjob") or die("Can't connect Database");
-	// mysql_query("SET NAMES utf8",$objCon);
+	// include(APPPATH."config/databasecustom.php");
+	$objCon = mysql_connect("localhost","imingcom_arming","cominter") or die(mysql_error());
+	$objDB = mysql_select_db("imingcom_30goodjobstore") or die("Can't connect Database");
+	mysql_query("SET NAMES utf8",$objCon);
 
 	$sql = "SELECT Name_En FROM main_menu WHERE main_ID = '$mainID'";
 	$result = mysql_query($sql, $objCon) or die(mysql_error());
@@ -66,10 +66,10 @@ exit();
 <?php
 	if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "frmAddCategorySub")) 
 	{
-		include(APPPATH."config/databasecustom.php");
-		// $objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
-		// $objDB = mysql_select_db("goodjob") or die("Can't connect Database");
-		// mysql_query("SET NAMES utf8",$objCon);
+		// include(APPPATH."config/databasecustom.php");
+		$objCon = mysql_connect("localhost","imingcom_arming","cominter") or die(mysql_error());
+		$objDB = mysql_select_db("imingcom_30goodjobstore") or die("Can't connect Database");
+		mysql_query("SET NAMES utf8",$objCon);
 
 		//----- set sort ----
 		$sqlSort = "SELECT Main_ID,sub_sort FROM sub_menu WHERE Main_ID = '$mainID' ORDER BY sub_sort DESC LIMIT 1";

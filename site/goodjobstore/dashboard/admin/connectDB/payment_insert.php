@@ -8,10 +8,10 @@
 	$descrip_EN = str_replace("'","''",$m_descrip_EN);
 	$descrip_TH = $_GET["descrip_TH"];
 
-	include(APPPATH."config/databasecustom.php");
-	// $objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
-	// $objDB = mysql_select_db("goodjob") or die("Can't connect Database");
-	// mysql_query("SET NAMES utf8",$objCon);
+	// include(APPPATH."config/databasecustom.php");
+	$objCon = mysql_connect("localhost","imingcom_arming","cominter") or die(mysql_error());
+	$objDB = mysql_select_db("imingcom_30goodjobstore") or die("Can't connect Database");
+	mysql_query("SET NAMES utf8",$objCon);
 
 	$strSQL = "INSERT INTO payments (name_th,name_en,description_th,description_en) 
 				VALUES ('".$payment_TH."','".$payment_EN."','".$descrip_TH."','".$descrip_EN."')";

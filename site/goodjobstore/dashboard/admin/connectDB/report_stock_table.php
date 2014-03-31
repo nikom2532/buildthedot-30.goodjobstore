@@ -8,10 +8,10 @@
 	unset($_SESSION['report_values']);
 	$_SESSION['report_header']=array("Code","Name","Property","Qty."); 
 
-	include(APPPATH."config/databasecustom.php");
-	// $objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
-	// $objDB = mysql_select_db("goodjob") or die("Can't connect Database");
-	// mysql_query("SET NAMES utf8",$objCon);
+	// include(APPPATH."config/databasecustom.php");
+	$objCon = mysql_connect("localhost","imingcom_arming","cominter") or die(mysql_error());
+	$objDB = mysql_select_db("imingcom_30goodjobstore") or die("Can't connect Database");
+	mysql_query("SET NAMES utf8",$objCon);
 
 	$sqlStock = "SELECT products.Product_Code,product_groups.Group_Name_En,property.name_en,products.Qty 
 				FROM products JOIN product_groups ON products.Product_Code = product_groups.Product_Code

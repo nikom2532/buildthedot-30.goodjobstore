@@ -59,10 +59,10 @@ exit();
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
 	<!------------ show table customers ---------->
 	<?php
-		include(APPPATH."config/databasecustom.php");
-		// $objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
-		// $objDB = mysql_select_db("goodjob") or die("Can't connect Database");
-		// mysql_query("SET NAMES utf8",$objCon);
+		// include(APPPATH."config/databasecustom.php");
+		$objCon = mysql_connect("localhost","imingcom_arming","cominter") or die(mysql_error());
+		$objDB = mysql_select_db("imingcom_30goodjobstore") or die("Can't connect Database");
+		mysql_query("SET NAMES utf8",$objCon);
 		
 		$sqlCustomer = "SELECT Cus_ID,FirstName,LastName,Address,Name_En,Postal_Code,Phone_Number,Email 
 						FROM customers JOIN city ON (customers.City_ID=city.City_ID OR customers.City_ID=0)

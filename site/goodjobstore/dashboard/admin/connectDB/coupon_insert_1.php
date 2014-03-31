@@ -9,10 +9,10 @@
 	$exp_year = $_GET["exp_year"];
 	$exp_date = $exp_year."-".$exp_month."-".$exp_day;
 
-	include(APPPATH."config/databasecustom.php");
-	// $objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
-	// $objDB = mysql_select_db("goodjob") or die("Can't connect Database");
-	// mysql_query("SET NAMES utf8",$objCon);
+	// include(APPPATH."config/databasecustom.php");
+	$objCon = mysql_connect("localhost","imingcom_arming","cominter") or die(mysql_error());
+	$objDB = mysql_select_db("imingcom_30goodjobstore") or die("Can't connect Database");
+	mysql_query("SET NAMES utf8",$objCon);
 
 	
 	$sqlRunCoupon = "SELECT run_coupon FROM coupon ORDER BY run_coupon DESC LIMIT 1";
