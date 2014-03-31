@@ -1,6 +1,9 @@
 include(APPPATH."config/databasecustom.php");
 
 $objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
+$objCon = mysql_connect("localhost","imingcom_arming","cominter") or die(mysql_error());
+$objCon = mysql_connect("localhost","iming","iming") or die(mysql_error());
+
 
 $hostname_connection = "localhost";
 
