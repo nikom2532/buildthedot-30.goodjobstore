@@ -15,6 +15,8 @@
 |
 */
 // $config['base_url']	= '';
+// $config['base_url']	= 'http://arming/30.GoodjobStore/buildthedot-30.goodjobstore/site/goodjobstore';
+// $config['base_url']	= 'localhost/30.GoodjobStore/buildthedot-30.goodjobstore/site/goodjobstore/';
 $config['base_url']	= 'http://'.$_SERVER['SERVER_NAME'].':105';
 
 /*
