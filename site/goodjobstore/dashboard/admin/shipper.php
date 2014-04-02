@@ -70,8 +70,8 @@ exit();
 			$Descrip_TH = str_replace("'","''",$m_Descrip_TH);
 
 		// include(APPPATH."config/databasecustom.php");
-		$objCon = mysql_connect("localhost","imingcom_arming","cominter") or die(mysql_error());
-		$objDB = mysql_select_db("imingcom_30goodjobstore") or die("Can't connect Database");
+		$objCon = mysql_connect("localhost","iming","iming") or die(mysql_error());
+		$objDB = mysql_select_db("buildthedot_30goodjobstore") or die("Can't connect Database");
 		mysql_query("SET NAMES utf8",$objCon);
 
 		$sql = "INSERT INTO how_delivery (Name_Th,Name_En,Description_Th,Description_En) 

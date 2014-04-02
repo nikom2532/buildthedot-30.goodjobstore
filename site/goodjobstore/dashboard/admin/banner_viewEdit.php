@@ -43,8 +43,8 @@ exit();
 			} 
 
 	// include(APPPATH."config/databasecustom.php");
-	$objCon = mysql_connect("localhost","imingcom_arming","cominter") or die(mysql_error());
-	$objDB = mysql_select_db("imingcom_30goodjobstore") or die("Can't connect Database");
+	$objCon = mysql_connect("localhost","iming","iming") or die(mysql_error());
+	$objDB = mysql_select_db("buildthedot_30goodjobstore") or die("Can't connect Database");
 	mysql_query("SET NAMES utf8",$objCon);
 
 	$sql = "SELECT * FROM banner WHERE banner_id = $bannerID";
@@ -63,9 +63,9 @@ exit();
 	 
 	// ส่วนกำหนดการเชื่อมต่อฐานข้อมูล
 	$hostname_connection = "localhost";
-	$database_connection = "imingcom_30goodjobstore";
-	$username_connection = "imingcom_arming";
-	$password_connection = "cominter";
+	$database_connection = "buildthedot_30goodjobstore";
+	$username_connection = "iming";
+	$password_connection = "iming";
 	$connection = mysql_pconnect($hostname_connection, $username_connection, $password_connection)
 			or trigger_error(mysql_error(),E_USER_ERROR); 
 	mysql_query( "SET NAMES UTF8" ) ;

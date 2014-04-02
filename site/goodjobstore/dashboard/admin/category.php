@@ -42,8 +42,8 @@ exit();
 	if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "frmAddCategoryMain")) 
 	{
 		// include(APPPATH."config/databasecustom.php");
-		$objCon = mysql_connect("localhost","imingcom_arming","cominter") or die(mysql_error());
-		$objDB = mysql_select_db("imingcom_30goodjobstore") or die("Can't connect Database");
+		$objCon = mysql_connect("localhost","iming","iming") or die(mysql_error());
+		$objDB = mysql_select_db("buildthedot_30goodjobstore") or die("Can't connect Database");
 		mysql_query("SET NAMES utf8",$objCon);
 
 		//----- set sort ----

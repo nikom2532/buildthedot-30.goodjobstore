@@ -9,8 +9,8 @@
 	$_SESSION['report_header']=array("Code","Name","Property","Price","DiscountPrice","Qty."); 
 
 	// include(APPPATH."config/databasecustom.php");
-	$objCon = mysql_connect("localhost","imingcom_arming","cominter") or die(mysql_error());
-	$objDB = mysql_select_db("imingcom_30goodjobstore") or die("Can't connect Database");
+	$objCon = mysql_connect("localhost","iming","iming") or die(mysql_error());
+	$objDB = mysql_select_db("buildthedot_30goodjobstore") or die("Can't connect Database");
 	mysql_query("SET NAMES utf8",$objCon);
 	
 	$sqlProduct = "SELECT Product_ID,products.Product_Code,property.name_en,Group_Name_En,Price_Buy,Price_sale 

@@ -44,8 +44,8 @@ exit();
 
 <?php
 	// include(APPPATH."config/databasecustom.php");
-	$objCon = mysql_connect("localhost","imingcom_arming","cominter") or die(mysql_error());
-	$objDB = mysql_select_db("imingcom_30goodjobstore") or die("Can't connect Database");
+	$objCon = mysql_connect("localhost","iming","iming") or die(mysql_error());
+	$objDB = mysql_select_db("buildthedot_30goodjobstore") or die("Can't connect Database");
 	mysql_query("SET NAMES utf8",$objCon);
 
 	$strSQL = "SELECT Payment_Th,Payment_En,Delivery_Th,Delivery_En FROM shopping_guide WHERE Guide_ID=1";

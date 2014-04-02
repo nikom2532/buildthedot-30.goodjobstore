@@ -140,8 +140,8 @@ $pdf->AddFont('angsana','','angsa.php');
   $pdf->Text(130,165, iconv( 'UTF-8','cp874',$shipNameEn));
 
 	// include(APPPATH."config/databasecustom.php");
-	$objCon = mysql_connect("localhost","imingcom_arming","cominter") or die(mysql_error());
-	$objDB = mysql_select_db("imingcom_30goodjobstore") or die("Can't connect Database");
+	$objCon = mysql_connect("localhost","iming","iming") or die(mysql_error());
+	$objDB = mysql_select_db("buildthedot_30goodjobstore") or die("Can't connect Database");
 	mysql_query("SET NAMES utf8",$objCon);
 	
 $sqlGift = "SELECT gift_type FROM order_gifts WHERE Order_ID = '$orderID' AND Product_ID = '$itemID_0'";

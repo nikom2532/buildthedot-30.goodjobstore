@@ -5,8 +5,8 @@
 	$proCode = $_GET["proCode"];
 
 	// include(APPPATH."config/databasecustom.php");
-	$objCon = mysql_connect("localhost","imingcom_arming","cominter") or die(mysql_error());
-	$objDB = mysql_select_db("imingcom_30goodjobstore") or die("Can't connect Database");
+	$objCon = mysql_connect("localhost","iming","iming") or die(mysql_error());
+	$objDB = mysql_select_db("buildthedot_30goodjobstore") or die("Can't connect Database");
 	mysql_query("SET NAMES utf8",$objCon);
 
 	$strDelSQL = "UPDATE images SET primary_product = '0' WHERE primary_product = '1' AND Product_Code = '$proCode'";
