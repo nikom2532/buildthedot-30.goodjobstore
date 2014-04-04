@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <meta http-equiv=Content-Type content="text/html; charset=utf-8">
 <?php
-session_start(); //ï¿½Ô´ session
+session_start(); //à»Ô´ session
 $ses_userid =$_SESSION[ses_userid];
 $ses_username = $_SESSION[ses_username];
 if($ses_userid <> session_id() or $ses_username =="")
@@ -121,7 +121,7 @@ exit();
 										<tr>
 											<td style="width:150px;">Weight Start</td>
 											<td style="width:15px;"><img src="../images/dot.gif" /></td>
-											<td style="width:-ï¿½0px;"><input type='text' name='weight_start' value="<?=$weightStart?>"></td>
+											<td style="width:-¨0px;"><input type='text' name='weight_start' value="<?=$weightStart?>"></td>
 										</tr>
 																				<tr><td><br></td></tr>
 

@@ -20,7 +20,7 @@ exit();
 ?>
 
 <!--Permission-->
-<?php
+<?
 	$mainID = $_GET['mainID'];
 
 	//include_once '../classes/Products.php';
@@ -42,7 +42,6 @@ exit();
 				$login = $getemp->getEmail();
 			} 
 	
-	// include(APPPATH."config/databasecustom.php");
 	$objCon = mysql_connect("localhost","iming","iming") or die(mysql_error());
 	$objDB = mysql_select_db("buildthedot_30goodjobstore") or die("Can't connect Database");
 	mysql_query("SET NAMES utf8",$objCon);
@@ -70,7 +69,7 @@ exit();
 </head>
 
 <!-- edit main category -->
-<?php
+<?
 	if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "frmAddCategoryMain")) 
 	{
 		$m_NameEN = $_POST['nameEN'];
@@ -112,8 +111,8 @@ exit();
 		<div id="content">
 		    <div id="leftcolum">
 									<b><a href="order.php">Order</a></b>
-								<?php if($_SESSION[ses_status] == "Super Admin") 
-			{ ?>
+								<?if($_SESSION[ses_status] == "Super Admin") 
+			{?>
 								<!-- End Admin -->
 									<b><br><br><a href="saleReport.php">Sale Report</a>
 									<br><br><a href="record.php">Customer Record</a>

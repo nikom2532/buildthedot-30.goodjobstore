@@ -1,12 +1,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<?php
+<?
 	$howID = $_GET['m_howID'];
 	$weightStart = $_GET['m_weightStart'];
 	$weightEnd = $_GET['m_weightEnd'];
 	$price = $_GET['m_rangePrice'];
 
-	// include(APPPATH."config/databasecustom.php");
 	$objCon = mysql_connect("localhost","iming","iming") or die(mysql_error());
 	$objDB = mysql_select_db("buildthedot_30goodjobstore") or die("Can't connect Database");
 	mysql_query("SET NAMES utf8",$objCon);

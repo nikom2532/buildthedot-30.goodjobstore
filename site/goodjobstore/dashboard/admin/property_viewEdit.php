@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <meta http-equiv=Content-Type content="text/html; charset=utf-8">
 
-<?php
+<?
 	$propID = $_GET['propID'];
 
 	//include_once '../classes/Products.php';
@@ -24,7 +24,6 @@
 			} 
 
 	//--- connect database ---
-		// include(APPPATH."config/databasecustom.php");
 		$objCon = mysql_connect("localhost","iming","iming") or die(mysql_error());
 		$objDB = mysql_select_db("buildthedot_30goodjobstore") or die("Can't connect Database");
 		mysql_query("SET NAMES utf8",$objCon);

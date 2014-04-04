@@ -76,14 +76,13 @@ exit();
 </head>
 
 <!-- add property -->
-<?php
+<?
 	if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "frmAddProperty")) 
 	{
 		$m_Name_EN = $_POST['Prop_En'];
 			$Name_EN = str_replace("'","''",$m_Name_EN);
 		$Name_TH = $_POST['Prop_Th'];
 
-		// include(APPPATH."config/databasecustom.php");
 		$objCon = mysql_connect("localhost","iming","iming") or die(mysql_error());
 		$objDB = mysql_select_db("buildthedot_30goodjobstore") or die("Can't connect Database");
 		mysql_query("SET NAMES utf8",$objCon);

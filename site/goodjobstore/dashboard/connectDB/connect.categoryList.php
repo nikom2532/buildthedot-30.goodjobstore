@@ -1,7 +1,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <!-- dollar exchange -->
-<?php
+<?
 	function google_finance_convert($from_Currency, $to_Currency, $amount) 
 	{
 		$amount = urlencode($amount);
@@ -33,7 +33,7 @@
 	}
 ?>
 
-	<?php
+	<?
 		//session_start();
 		$strPage = $_GET["page"];
 		$strMain_64 = $_GET["mainCat"];
@@ -49,7 +49,6 @@
 		$strUrl = $_GET["catUrl"];
 		$language = $_GET["language"];
 
-		// include(APPPATH."config/databasecustom.php");
 		$objCon = mysql_connect("localhost","iming","iming") or die(mysql_error());
 		$objDB = mysql_select_db("buildthedot_30goodjobstore") or die("Can't connect Database");
 		mysql_query("SET NAMES utf8",$objCon);
@@ -164,7 +163,7 @@
 	?>
 
 	<div id="itemWrapper" class="clearfix">
-<?php
+<?
 	while ($data = mysql_fetch_array($resultPage))
 	{
 
@@ -194,7 +193,7 @@
 			</div> <!-- holder_wrap -->
 			<div class="itemProductName"><?=($language=='TH')?$data['Group_Name_Th']:$data['Group_Name_En'];?></div> 
 			<div class="itemPrice">
-				<?php
+				<?
 					if($language=='EN')
 						echo "US$ ".cal_rate($rate, $price, 1);
 					else
@@ -202,7 +201,7 @@
 				?>
 			</div>
 		</div>  <!-- item -->
-<?php
+<?
 	}
 ?>
 	</div>  <!-- itemWrapper -->

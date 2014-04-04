@@ -1,7 +1,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <!-- dollar exchange -->
-<?php
+<?
 	function google_finance_convert($from_Currency, $to_Currency, $amount) 
 	{
 		$amount = urlencode($amount);
@@ -22,12 +22,13 @@
 
 		return sprintf("%02.2f", $converted);
 	}
-	
+?>
+
+	<?
 		$strPage = $_GET["page"];
 		$strKeyword = $_GET["keyword"];
 		$language = $_GET["language"];
 
-		// include(APPPATH."config/databasecustom.php");
 		$objCon = mysql_connect("localhost","iming","iming") or die(mysql_error());
 		$objDB = mysql_select_db("buildthedot_30goodjobstore") or die("Can't connect Database");
 		mysql_query("SET NAMES utf8",$objCon);
@@ -68,7 +69,7 @@
 	?>
 
 	<div id="itemWrapper" class="clearfix">
-<?php
+<?
 	while ($data = mysql_fetch_array($resultPage))
 	{
 

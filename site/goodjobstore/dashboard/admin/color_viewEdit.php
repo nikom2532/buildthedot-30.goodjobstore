@@ -20,7 +20,7 @@ exit();
 ?>
 
 <!--Permission-->
-<?php
+<?
 	$colorID = $_GET['colorID'];
 	$nameEN = $_GET['nameEN'];
 	$nameTH = $_GET['nameTH'];
@@ -44,7 +44,6 @@ exit();
 				$login = $getemp->getEmail();
 			} 
 
-	// include(APPPATH."config/databasecustom.php");
 	$objCon = mysql_connect("localhost","iming","iming") or die(mysql_error());
 	$objDB = mysql_select_db("buildthedot_30goodjobstore") or die("Can't connect Database");
 	mysql_query("SET NAMES utf8",$objCon);
@@ -60,7 +59,7 @@ exit();
 ?>
 
 <!-------------------------------- Upload Images (php) ------------------------>						
-<?php
+<?
 	// Include คลาส class.upload.php เข้ามา เพื่อจัดการรูปภาพ
 	require_once('classes/class.upload.php') ;
 	 

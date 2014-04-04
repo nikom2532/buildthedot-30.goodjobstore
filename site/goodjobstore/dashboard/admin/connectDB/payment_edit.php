@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<?php
+<?
 	$paymentID = $_GET["paymentID"];
 	$m_payment_EN = $_GET["payment_EN"];
 	$payment_EN = str_replace("'","''",$m_payment_EN);
@@ -9,7 +9,6 @@
 	$descrip_EN = str_replace("'","''",$m_descrip_EN);
 	$descrip_TH = $_GET["descrip_TH"];
 
-	// include(APPPATH."config/databasecustom.php");
 	$objCon = mysql_connect("localhost","iming","iming") or die(mysql_error());
 	$objDB = mysql_select_db("buildthedot_30goodjobstore") or die("Can't connect Database");
 	mysql_query("SET NAMES utf8",$objCon);

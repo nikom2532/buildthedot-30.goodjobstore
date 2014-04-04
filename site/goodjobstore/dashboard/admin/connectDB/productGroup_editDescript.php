@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<?php
+<?
 	$proCode = $_GET["proCode"];
 	$productCode = $_GET["productCode"];
 	$m_proNameEN = $_GET["proNameEN"];
@@ -23,7 +23,6 @@
 	$proStatus = $_GET["proStatus"];
 	$proAtt = $_GET["proAtt"];
 
-	// include(APPPATH."config/databasecustom.php");
 	$objCon = mysql_connect("localhost","iming","iming") or die(mysql_error());
 	$objDB = mysql_select_db("buildthedot_30goodjobstore") or die("Can't connect Database");
 	mysql_query("SET NAMES utf8",$objCon);

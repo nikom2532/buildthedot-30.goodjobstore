@@ -58,8 +58,7 @@ exit();
 
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
 	<!------------ show table customers ---------->
-	<?php
-		// include(APPPATH."config/databasecustom.php");
+	<?
 		$objCon = mysql_connect("localhost","iming","iming") or die(mysql_error());
 		$objDB = mysql_select_db("buildthedot_30goodjobstore") or die("Can't connect Database");
 		mysql_query("SET NAMES utf8",$objCon);

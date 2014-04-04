@@ -10,6 +10,18 @@ $objDB = mysql_select_db("buildthedot_30goodjobstore") or die("Can't connect Dat
 
 ----------------
 
+mysql_connect("localhost","dev","0823248713");
+mysql_connect("localhost","imingcom_arming","cominter");
+mysql_connect("localhost","iming","iming");
+
+mysql_select_db("goodjob",$con);
+mysql_select_db("base",$con);
+
+mysql_select_db("imingcom_30goodjobstore",$con);
+mysql_select_db("buildthedot_30goodjobstore",$con);
+
+----------------
+
 $hostname_connection = "localhost";
 $database_connection = "goodjob";
 $username_connection = "dev";

@@ -20,7 +20,7 @@ exit();
 ?>
 
 <!--Permission-->
-<?php
+<?
 	$slide_ID = $_GET['slide_ID'];
 
 	//include_once '../classes/Products.php';
@@ -42,7 +42,6 @@ exit();
 				$login = $getemp->getEmail();
 			} 
 
-	// include(APPPATH."config/databasecustom.php");
 	$objCon = mysql_connect("localhost","iming","iming") or die(mysql_error());
 	$objDB = mysql_select_db("buildthedot_30goodjobstore") or die("Can't connect Database");
 	mysql_query("SET NAMES utf8",$objCon);
@@ -58,7 +57,7 @@ exit();
 ?>
 
 <!-------------------------------- Upload Images (php) ------------------------>						
-<?php
+<?
 	// Include คลาส class.upload.php เข้ามา เพื่อจัดการรูปภาพ
 	require_once('classes/class.upload.php') ;
 	 

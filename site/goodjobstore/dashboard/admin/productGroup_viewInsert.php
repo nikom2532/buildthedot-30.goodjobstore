@@ -57,7 +57,7 @@ exit();
 </head>
 
 <!-- add product -->
-<?php
+<?
 	if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "frmAddProduct")) 
 	{
 		$productCode = $_POST['Product_Code'];
@@ -83,7 +83,6 @@ exit();
 		$proAtt = $_POST['Product_Attribute'];
 		$proBox = $_POST['Product_Box'];
 
-		// include(APPPATH."config/databasecustom.php");
 		$objCon = mysql_connect("localhost","iming","iming") or die(mysql_error());
 		$objDB = mysql_select_db("buildthedot_30goodjobstore") or die("Can't connect Database");
 		mysql_query("SET NAMES utf8",$objCon);

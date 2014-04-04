@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<?php
+<?
 
   $orderID = $_GET['orderID'];
   $finalPrice = $_GET['finalPrice'];
@@ -139,7 +139,6 @@ $pdf->AddFont('angsana','','angsa.php');
   $pdf->Text(130,150,iconv( 'UTF-8','cp874',$itemName_0));
   $pdf->Text(130,165, iconv( 'UTF-8','cp874',$shipNameEn));
 
-	// include(APPPATH."config/databasecustom.php");
 	$objCon = mysql_connect("localhost","iming","iming") or die(mysql_error());
 	$objDB = mysql_select_db("buildthedot_30goodjobstore") or die("Can't connect Database");
 	mysql_query("SET NAMES utf8",$objCon);

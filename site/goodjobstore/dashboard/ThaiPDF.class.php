@@ -2,7 +2,7 @@
 
 /**********************************************************
 ThaiPDF
-๏ฟฝ๏ฟฝ: ๏ฟฝัญ๏ฟฝ๏ฟฝ  ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝัง <banchar_pa@yahoo.com>
+โดย: บัญชา  ปะสีละเตสัง <banchar_pa@yahoo.com>
 
 Credits:
 - Olivier Plathey
@@ -37,12 +37,12 @@ function AddThaiFont($font="") {
 		}
 		else {
 			echo "<div style=\"width:350px;background-color:#ffffcc;color:green;border:solid 1px red;padding:5px;\">";
-			echo "<font size=\"+1\" color=red>๏ฟฝ๏ฟฝรก๏ฟฝหน๏ฟฝ๏ฟฝอน๏ฟฝ๏ฟฝิด๏ฟฝ๏ฟฝาด</font><br />๏ฟฝ๏ฟฝ๏ฟฝอฟอน๏ฟฝ๏ฟฝ๏ฟฝยท๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝรถ๏ฟฝ๏ฟฝหน๏ฟฝ๏ฟฝ๏ฟฝ:<br />";
+			echo "<font size=\"+1\" color=red>การกำหนดฟอนต์ผิดพลาด</font><br />ชื่อฟอนต์ไทยที่สามารถกำหนดได้:<br />";
 			$keys = array_keys($thaifonts);
 			for($i=0; $i<count($keys);$i++) {
 				echo "- {$keys[$i]} <br />";
 			}
-			echo "<br />[๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝะบุช๏ฟฝิด๏ฟฝอน๏ฟฝ๏ฟฝ ๏ฟฝ๏ฟฝาต๏ฟฝอง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ]";
+			echo "<br />[หรือไม่ระบุชนิดฟอนต์ ถ้าต้องการเพิ่มทั้งหมด]";
 			echo "</div>";
 			exit;
 		}
@@ -56,7 +56,7 @@ function AddThaiFont($font="") {
 		$i = $fontvalues[$j] . "i.php";
 		$this->AddFont($fontnames[$j], '', $n);
 		$this->AddFont($fontnames[$j], 'B', $b);
-		if($fontnames[$j]!="tahoma") {						// Tahoma ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝีต๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝยง
+		if($fontnames[$j]!="tahoma") {						// Tahoma ไม่มีตัวเอียง
 			$this->AddFont($fontnames[$j], 'I', $i);			
 		}
 	}		
@@ -73,9 +73,9 @@ function WriteLn($h, $text) {
 function Header() { }
 
 //Page No. settings
-private $pn_align = "center";		//๏ฟฝ๏ฟฝรจัด๏ฟฝาง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝลขหน๏ฟฝ๏ฟฝ
-private $pn_prefix = "Page";	  	//๏ฟฝำท๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝลขหน๏ฟฝ๏ฟฝ ๏ฟฝ๏ฟฝ "หน๏ฟฝ๏ฟฝ", "Page"
-private $pn_sep = "/";				//๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝาง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝลขหน๏ฟฝาปัจ๏ฟฝุบัน๏ฟฝับ๏ฟฝำนวนหน๏ฟฝาท๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ ๏ฟฝ๏ฟฝ 1/5
+private $pn_align = "center";		//การจัดวางหมายเลขหน้า
+private $pn_prefix = "Page";	  	//คำที่อยู่ก่อนหมายเลขหน้า เช่น "หน้า", "Page"
+private $pn_sep = "/";				//ตัวแบ่งระหว่างหมายเลขหน้าปัจจุบันกับจำนวนหน้าทั้งหมด เช่น 1/5
 private $pn_ffamily = "arial";
 private $pn_fstyle = "I";
 private $pn_fsize = "10";
@@ -92,7 +92,7 @@ function SetPageNo($align, $prefix_str, $separator,$font_family, $font_style, $f
 }
 
 function Footer() {
-	if(!$this->pn_show) {		//๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝเซต๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอด setPageNo() ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอง๏ฟฝสด๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝลขหน๏ฟฝ๏ฟฝ
+	if(!$this->pn_show) {		//ถ้้าไม่ได้เซตค่าให้เมธอด setPageNo() ไม่ต้องแสดงหมายเลขหน้า
 		return;					
 	}
 	$this->SetAutoPageBreak(true, 20);
@@ -190,8 +190,8 @@ function PDF($orientation='P', $unit='mm', $format='A4') {
 //html parser
 
 function writeHTML($html) {
-	$pat = ">[[:space:]]{1,}<";							// <-- ๏ฟฝ๏ฟฝ๏ฟฝ Bug
-	$html = eregi_replace($pat, "><", $html);		// <-- ๏ฟฝ๏ฟฝ๏ฟฝ Bug
+	$pat = ">[[:space:]]{1,}<";							// <-- แก้ไข Bug
+	$html = eregi_replace($pat, "><", $html);		// <-- แก้ไข Bug
 	
     $html=strip_tags($html,"<b><u><i><a><img><p><br><strong><em><font><tr><blockquote><hr><td><tr><table><sup>"); //remove all unsupported tags
     $html=str_replace("\n",'',$html); //replace carriage returns by spaces
@@ -276,7 +276,7 @@ function OpenTag($tag, $attr) {
 				$this->tdheight=8; // Set to your own height if you need bigger fixed cells (old value is 6)
 			}
             if(!empty($attr['ALIGN'])) {
-                $align=strtoupper($attr['ALIGN']);   	// <-- ๏ฟฝ๏ฟฝ๏ฟฝ Bug
+                $align=strtoupper($attr['ALIGN']);   	// <-- แก้ไข Bug
                 if($align=='LEFT')  {
 					$this->tdalign='L';
 				}
@@ -328,7 +328,7 @@ function OpenTag($tag, $attr) {
             $this->HREF=$attr['HREF'];
             break;
         case 'IMG':
-            if(isset($attr['SRC'])) {															// <-- ๏ฟฝ๏ฟฝ๏ฟฝ Bug
+            if(isset($attr['SRC'])) {															// <-- แก้ไข Bug
 				//if((isset($attr['WIDTH']) || isset($attr['HEIGHT']))) {
                	 	if(!isset($attr['WIDTH'])) {
                     	$attr['WIDTH'] = 0;

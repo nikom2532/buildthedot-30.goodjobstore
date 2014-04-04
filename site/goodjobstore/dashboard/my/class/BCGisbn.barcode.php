@@ -13,8 +13,8 @@
  *
  *--------------------------------------------------------------------
  * Revision History
- * v2.0.0	23 apr	2008	Jean-Sï¿½bastien Goupil	New Version Update
- * v1.2.5	13 apr	2007	Jean-Sï¿½bastien Goupil
+ * v2.0.0	23 apr	2008	Jean-Sébastien Goupil	New Version Update
+ * v1.2.5	13 apr	2007	Jean-Sébastien Goupil
  *--------------------------------------------------------------------
  * $Id: BCGisbn.barcode.php,v 1.6 2010/02/14 00:25:14 jsgoupil Exp $
  * PHP5-Revision: 1.7

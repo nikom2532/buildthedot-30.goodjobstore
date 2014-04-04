@@ -1,5 +1,5 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<?php
+	<?
 		$strPage = $_GET["page"];
 		$strMain_64 = $_GET["mainCat"];
 		$strMain = base64_decode($strMain_64);
@@ -14,7 +14,6 @@
 		$strUrl = $_GET["catUrl"];
 		$language = $_GET["language"];
 
-		// include(APPPATH."config/databasecustom.php");
 		$objCon = mysql_connect("localhost","iming","iming") or die(mysql_error());
 		$objDB = mysql_select_db("buildthedot_30goodjobstore") or die("Can't connect Database");
 		mysql_query("SET NAMES utf8",$objCon);
