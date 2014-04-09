@@ -424,8 +424,9 @@
 										$queryDimension = $this->db->query($sqlDimension)->result();
 										foreach($queryDimension as $valueDimension)
 										{
-											if($valueDimension->Group_width==NULL OR $valueDimension->Group_width==0 OR $valueDimension->Group_length==NULL OR $valueDimension->Group_length==0 OR $valueDimension->Group_height==NULL OR $valueDimension->Group_height==0 OR $valueDimension->gift_box==0)
+											if($valueDimension->Group_width==NULL OR $valueDimension->Group_width==0.0 OR $valueDimension->Group_length==NULL OR $valueDimension->Group_length==0.0 OR $valueDimension->Group_height==NULL OR $valueDimension->Group_height==0 OR $valueDimension->gift_box==0){
 												$TotalWeightDimension += $valueDimension->Weight * $result->order_item_Qty;
+											}
 											else
 											{
 												$newWeight = ($valueDimension->Group_width * $valueDimension->Group_length * $valueDimension->Group_height * 120 )/ 500000;
@@ -439,6 +440,15 @@
 								<?php endforeach; ?>
 
 								<?
+									//#########################################
+									/* $fluctuationYearly คือค่าที่เปลี่ยนแปลง หลังจาก ค่าต้นฉพับ ในปี 2012 */
+									// $fluctuationYearly จะเพิ่มขึ้นปีละ 15% ต่อปี
+									// $fluctuationYearly --> 2013 = 1.15 เท่า ของ Rate ปี 2012
+									// $fluctuationYearly --> 2014 = 1.31 เท่า ของ Rate ปี 2012
+									$fluctuationYearly = 1.31;
+									
+									//#########################################
+								
 									$sqlUPS = "SELECT ups_type.Type_ID, type_name, price, price_saver
 												FROM ups_rate JOIN ups_service ON ups_rate.Zone_ID=ups_service.Zone_ID
 												JOIN ups_type ON ups_service.Type_ID=ups_type.Type_ID";
@@ -481,7 +491,7 @@
 											<?
 												if($valueUPS->Type_ID==3)
 												{
-													$expressPrice = number_format($valueUPS->price * $FuelSurcharge, 2);
+													$expressPrice = number_format(($valueUPS->price * $FuelSurcharge * $fluctuationYearly), 2);
 													if(LANG=='EN')
 														echo "US$ ".google_finance_convert("THB", "USD", $expressPrice);
 													else
@@ -489,7 +499,7 @@
 												}
 												else if($valueUPS->Type_ID==4)
 												{
-													$saverPrice = number_format($valueUPS->price_saver * $FuelSurcharge, 2);
+													$saverPrice = number_format($valueUPS->price_saver * $FuelSurcharge * $fluctuationYearly, 2);
 													if(LANG=='EN')
 														echo "US$ ".google_finance_convert("THB", "USD", $saverPrice);
 													else
