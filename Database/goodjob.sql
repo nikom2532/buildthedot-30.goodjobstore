@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 2.11.9.6
+-- version 4.0.6deb1
 -- http://www.phpmyadmin.net
 --
--- Host: localhost:3306
--- Generation Time: Mar 22, 2014 at 06:25 PM
--- Server version: 5.0.95
--- PHP Version: 5.2.6
+-- Host: localhost
+-- Generation Time: Apr 11, 2014 at 09:34 AM
+-- Server version: 5.5.35-0ubuntu0.13.10.2
+-- PHP Version: 5.5.3-1ubuntu2.2
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -16,7 +17,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `goodjob`
+-- Database: `buildthedot_30goodjobstore`
 --
 
 -- --------------------------------------------------------
@@ -26,10 +27,10 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 --
 
 CREATE TABLE IF NOT EXISTS `attributes` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `th` varchar(255) NOT NULL,
   `en` varchar(255) NOT NULL,
-  PRIMARY KEY  (`id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
@@ -48,16 +49,11 @@ INSERT INTO `attributes` (`id`, `th`, `en`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `background` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `path` varchar(255) NOT NULL,
-  `status` int(11) NOT NULL default '0' COMMENT '0.)Disable, 1.)Enable',
-  PRIMARY KEY  (`id`)
+  `status` int(11) NOT NULL DEFAULT '0' COMMENT '0.)Disable, 1.)Enable',
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
-
---
--- Dumping data for table `background`
---
-
 
 -- --------------------------------------------------------
 
@@ -66,12 +62,12 @@ CREATE TABLE IF NOT EXISTS `background` (
 --
 
 CREATE TABLE IF NOT EXISTS `banner` (
-  `banner_id` int(11) NOT NULL auto_increment,
+  `banner_id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
-  `path` varchar(255) default NULL,
-  `url` varchar(255) default NULL,
-  `status` int(11) default '0' COMMENT '0.Disable, 1.Enable',
-  PRIMARY KEY  (`banner_id`)
+  `path` varchar(255) DEFAULT NULL,
+  `url` varchar(255) DEFAULT NULL,
+  `status` int(11) DEFAULT '0' COMMENT '0.Disable, 1.Enable',
+  PRIMARY KEY (`banner_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
 
 --
@@ -93,11 +89,11 @@ INSERT INTO `banner` (`banner_id`, `name`, `path`, `url`, `status`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `banner_notice` (
-  `id` int(11) NOT NULL auto_increment,
-  `name` varchar(255) default NULL,
-  `path` varchar(255) default NULL,
-  `status` int(11) default '0' COMMENT '0.)Disable, 1.)Enable',
-  PRIMARY KEY  (`id`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `path` varchar(255) DEFAULT NULL,
+  `status` int(11) DEFAULT '0' COMMENT '0.)Disable, 1.)Enable',
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
@@ -114,15 +110,15 @@ INSERT INTO `banner_notice` (`id`, `name`, `path`, `status`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `cart` (
-  `Cart_ID` int(11) NOT NULL auto_increment,
-  `Cus_ID` varchar(50) collate utf8_unicode_ci default NULL,
-  `Color_ID` int(11) default NULL,
-  `Product_ID` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `Session_ID` varchar(255) collate utf8_unicode_ci default NULL,
-  `Qty` int(11) default '1',
+  `Cart_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Cus_ID` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Color_ID` int(11) DEFAULT NULL,
+  `Product_ID` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `Session_ID` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Qty` int(11) DEFAULT '1',
   `Create_Date` date NOT NULL,
-  PRIMARY KEY  (`Cart_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2159 ;
+  PRIMARY KEY (`Cart_ID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2163 ;
 
 --
 -- Dumping data for table `cart`
@@ -1255,7 +1251,9 @@ INSERT INTO `cart` (`Cart_ID`, `Cus_ID`, `Color_ID`, `Product_ID`, `Session_ID`,
 (2154, NULL, 29, 'PR000093', 'c509c1a9b171c8d77dc4d3ff0de105df', 1, '2014-03-21'),
 (2155, NULL, 5, 'PR000142', 'c509c1a9b171c8d77dc4d3ff0de105df', 1, '2014-03-21'),
 (2157, NULL, 5, 'PR000090', 'f9dc322ab8277a99a1d0b4a37a9f5917', 1, '2014-03-22'),
-(2158, NULL, 33, 'PR000352', '455854d1a1fefff5473b1d76a7e9a387', 1, '2014-03-22');
+(2158, NULL, 33, 'PR000352', '455854d1a1fefff5473b1d76a7e9a387', 1, '2014-03-22'),
+(2159, '00256', 33, 'PR000346', NULL, 1, '2014-04-04'),
+(2162, '00254', 33, 'PR000346', NULL, 3, '2014-04-08');
 
 -- --------------------------------------------------------
 
@@ -1264,11 +1262,11 @@ INSERT INTO `cart` (`Cart_ID`, `Cus_ID`, `Color_ID`, `Product_ID`, `Session_ID`,
 --
 
 CREATE TABLE IF NOT EXISTS `category_products` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `Sub_ID` int(11) NOT NULL,
-  `Product_Code` varchar(20) character set utf8 collate utf8_unicode_ci NOT NULL,
+  `Product_Code` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `Level` int(11) NOT NULL,
-  PRIMARY KEY  (`id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=916 ;
 
 --
@@ -1879,10 +1877,10 @@ INSERT INTO `category_products` (`id`, `Sub_ID`, `Product_Code`, `Level`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `city` (
-  `City_ID` int(11) NOT NULL auto_increment,
-  `Name_Th` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `Name_En` varchar(50) collate utf8_unicode_ci NOT NULL,
-  PRIMARY KEY  (`City_ID`)
+  `City_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Name_Th` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `Name_En` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`City_ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=89 ;
 
 --
@@ -1976,11 +1974,11 @@ INSERT INTO `city` (`City_ID`, `Name_Th`, `Name_En`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `color` (
-  `Color_ID` int(11) NOT NULL auto_increment,
-  `Name_TH` varchar(50) character set utf8 collate utf8_unicode_ci default NULL,
-  `Name_EN` varchar(50) character set utf8 collate utf8_unicode_ci default NULL,
-  `path` varchar(255) default NULL,
-  PRIMARY KEY  (`Color_ID`)
+  `Color_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Name_TH` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Name_EN` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `path` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`Color_ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=64 ;
 
 --
@@ -2023,9 +2021,9 @@ INSERT INTO `color` (`Color_ID`, `Name_TH`, `Name_EN`, `path`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `country` (
-  `Country_ID` int(5) NOT NULL auto_increment,
+  `Country_ID` int(5) NOT NULL AUTO_INCREMENT,
   `country_name` varchar(100) NOT NULL,
-  `country_name_th` varchar(100) character set utf8 collate utf8_unicode_ci default NULL,
+  `country_name_th` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `ISO2_alpha` varchar(2) NOT NULL,
   `ISO3_alpha` varchar(3) NOT NULL,
   `IANA_internet` varchar(4) NOT NULL,
@@ -2033,7 +2031,7 @@ CREATE TABLE IF NOT EXISTS `country` (
   `IOC_olympic` varchar(4) NOT NULL,
   `UN_ISO_numeric` varchar(4) NOT NULL,
   `ITU_calling` varchar(6) NOT NULL,
-  PRIMARY KEY  (`Country_ID`)
+  PRIMARY KEY (`Country_ID`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=258 ;
 
 --
@@ -2303,16 +2301,16 @@ INSERT INTO `country` (`Country_ID`, `country_name`, `country_name_th`, `ISO2_al
 --
 
 CREATE TABLE IF NOT EXISTS `coupon` (
-  `Coupon_ID` varchar(50) character set utf8 NOT NULL,
-  `Discount_PC` float default NULL,
-  `Discount_Cash` float default NULL,
+  `Coupon_ID` varchar(50) CHARACTER SET utf8 NOT NULL,
+  `Discount_PC` float DEFAULT NULL,
+  `Discount_Cash` float DEFAULT NULL,
   `Start_Date` date NOT NULL,
   `Expired_Date` date NOT NULL,
-  `Db_Min` int(11) default NULL,
-  `Db_Max` int(11) default NULL,
-  `Discount_Status` int(11) default NULL COMMENT '0=disable, 1=pc, 2=cash',
-  `run_coupon` int(11) default NULL,
-  PRIMARY KEY  (`Coupon_ID`)
+  `Db_Min` int(11) DEFAULT NULL,
+  `Db_Max` int(11) DEFAULT NULL,
+  `Discount_Status` int(11) DEFAULT NULL COMMENT '0=disable, 1=pc, 2=cash',
+  `run_coupon` int(11) DEFAULT NULL,
+  PRIMARY KEY (`Coupon_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -2915,12 +2913,12 @@ INSERT INTO `coupon` (`Coupon_ID`, `Discount_PC`, `Discount_Cash`, `Start_Date`,
 --
 
 CREATE TABLE IF NOT EXISTS `coupon_customers` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `Cus_ID` varchar(255) NOT NULL,
   `Coupon_ID` varchar(255) NOT NULL,
   `created_at` date NOT NULL,
-  `status` int(11) NOT NULL default '1' COMMENT '0=ใช้แล้ว,  1=ยังไม่ได้ใช้ ',
-  PRIMARY KEY  (`id`)
+  `status` int(11) NOT NULL DEFAULT '1' COMMENT '0=ใช้แล้ว,  1=ยังไม่ได้ใช้ ',
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=698 ;
 
 --
@@ -3530,9 +3528,9 @@ INSERT INTO `coupon_customers` (`id`, `Cus_ID`, `Coupon_ID`, `created_at`, `stat
 
 CREATE TABLE IF NOT EXISTS `cross_color` (
   `Cross_Color_ID` int(11) NOT NULL,
-  `Color_ID` int(11) default NULL,
-  `Product_ID` varchar(50) character set utf8 collate utf8_unicode_ci default NULL,
-  PRIMARY KEY  (`Cross_Color_ID`)
+  `Color_ID` int(11) DEFAULT NULL,
+  `Product_ID` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`Cross_Color_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -3552,13 +3550,13 @@ INSERT INTO `cross_color` (`Cross_Color_ID`, `Color_ID`, `Product_ID`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `cross_property` (
-  `ID` int(11) NOT NULL auto_increment,
-  `Product_ID` varchar(50) character set utf8 collate utf8_unicode_ci NOT NULL,
-  `Property_ID` varchar(50) character set utf8 collate utf8_unicode_ci NOT NULL,
-  `Color_ID` int(50) default NULL,
-  `Price` float default NULL,
-  `Qty` int(11) default NULL,
-  PRIMARY KEY  (`ID`)
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Product_ID` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `Property_ID` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `Color_ID` int(50) DEFAULT NULL,
+  `Price` float DEFAULT NULL,
+  `Qty` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=29 ;
 
 --
@@ -3584,10 +3582,10 @@ INSERT INTO `cross_property` (`ID`, `Product_ID`, `Property_ID`, `Color_ID`, `Pr
 --
 
 CREATE TABLE IF NOT EXISTS `cross_sale` (
-  `Cross_ID` int(11) NOT NULL auto_increment,
-  `Product_Code` varchar(20) collate utf8_unicode_ci default NULL,
-  `Product_Cross_Code` varchar(20) collate utf8_unicode_ci default NULL,
-  PRIMARY KEY  (`Cross_ID`)
+  `Cross_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Product_Code` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Product_Cross_Code` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`Cross_ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=663 ;
 
 --
@@ -3965,20 +3963,20 @@ INSERT INTO `cross_sale` (`Cross_ID`, `Product_Code`, `Product_Cross_Code`) VALU
 --
 
 CREATE TABLE IF NOT EXISTS `customers` (
-  `Cus_ID` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `FirstName` varchar(50) collate utf8_unicode_ci default NULL,
-  `LastName` varchar(50) collate utf8_unicode_ci default NULL,
-  `Address` varchar(50) collate utf8_unicode_ci default NULL,
-  `City_ID` int(11) default '0',
-  `Country_ID` int(11) default '0',
-  `City_Name` varchar(255) collate utf8_unicode_ci default NULL,
-  `Postal_Code` varchar(50) collate utf8_unicode_ci default NULL,
-  `Phone_Number` varchar(50) collate utf8_unicode_ci default NULL,
-  `Email` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `Password` varchar(50) collate utf8_unicode_ci NOT NULL,
+  `Cus_ID` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `FirstName` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `LastName` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Address` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `City_ID` int(11) DEFAULT '0',
+  `Country_ID` int(11) DEFAULT '0',
+  `City_Name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Postal_Code` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Phone_Number` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `Password` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `newsletter` int(11) NOT NULL,
-  `created_at` datetime default NULL,
-  PRIMARY KEY  (`Cus_ID`)
+  `created_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`Cus_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -4225,7 +4223,8 @@ INSERT INTO `customers` (`Cus_ID`, `FirstName`, `LastName`, `Address`, `City_ID`
 ('00250', 'So Fan', 'Liu', 'Flat C, 18/F, Wang Fung Building, Fau Tsoi Street,', 88, 102, 'China', '0000', '91300661', 'kayliu@dairy-farm.com.hk', 'Apple123', 0, '2014-03-20 15:37:31'),
 ('00251', 'Ekaterina', 'Panikanova', 'via Federico Rosazza,21 scA', 88, 112, 'Rome', '00153', '00393347989648', 'katerina.panikanova@gmail.com', 'micromosaico', 0, '2014-03-20 20:30:05'),
 ('00252', 'Hsin-Chih', 'Chang', 'No.46, Fenggong Central Rd., Shengang Dist.', 88, 102, 'Taichung City', '42942', '+886911003966', 'ccx0916@gmail.com', 'cc66668888', 1, '2014-03-21 08:43:43'),
-('00253', 'Hsin-Chih', 'Chang', 'No.46, Fenggong Central Rd., Shengang Dist.,', 88, 218, 'Taichung City', '42942', '+886911003966', 'bclcmomo@hotmail.com', 'cc66668888', 1, '2014-03-21 13:49:27');
+('00253', 'Hsin-Chih', 'Chang', 'No.46, Fenggong Central Rd., Shengang Dist.,', 88, 218, 'Taichung City', '42942', '+886911003966', 'bclcmomo@hotmail.com', 'cc66668888', 1, '2014-03-21 13:49:27'),
+('00254', '1', '1', '1', 88, 0, '1', '1', '1', 'nikom2532@gmail.com', 'cominter', 1, '2014-04-04 18:20:49');
 
 -- --------------------------------------------------------
 
@@ -4234,16 +4233,11 @@ INSERT INTO `customers` (`Cus_ID`, `FirstName`, `LastName`, `Address`, `City_ID`
 --
 
 CREATE TABLE IF NOT EXISTS `effects` (
-  `EF_ID` int(11) NOT NULL auto_increment,
-  `Coupon_ID` varchar(50) collate utf8_unicode_ci NOT NULL,
+  `EF_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Coupon_ID` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `ProductType_ID` int(11) NOT NULL,
-  PRIMARY KEY  (`EF_ID`)
+  PRIMARY KEY (`EF_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `effects`
---
-
 
 -- --------------------------------------------------------
 
@@ -4252,17 +4246,17 @@ CREATE TABLE IF NOT EXISTS `effects` (
 --
 
 CREATE TABLE IF NOT EXISTS `employees` (
-  `Emp_ID` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `FirstName` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `LastName` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `Address` varchar(500) collate utf8_unicode_ci NOT NULL,
+  `Emp_ID` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `FirstName` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `LastName` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `Address` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
   `City_ID` int(11) NOT NULL,
-  `Postal_Code` varchar(10) collate utf8_unicode_ci NOT NULL,
-  `Phone_Number` varchar(50) collate utf8_unicode_ci default NULL,
+  `Postal_Code` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `Phone_Number` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `Position_ID` int(11) NOT NULL COMMENT '1.Super Admin, 2.Admin, 3.General User',
-  `Email` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `Password` varchar(50) collate utf8_unicode_ci NOT NULL,
-  PRIMARY KEY  (`Emp_ID`)
+  `Email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `Password` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`Emp_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -4281,10 +4275,10 @@ INSERT INTO `employees` (`Emp_ID`, `FirstName`, `LastName`, `Address`, `City_ID`
 --
 
 CREATE TABLE IF NOT EXISTS `free_shipping` (
-  `id` int(11) NOT NULL auto_increment,
-  `min_price` float NOT NULL default '0',
-  `status` int(11) NOT NULL default '0' COMMENT '0.)Disable, 1.)Enable',
-  PRIMARY KEY  (`id`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `min_price` float NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0' COMMENT '0.)Disable, 1.)Enable',
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
@@ -4301,9 +4295,9 @@ INSERT INTO `free_shipping` (`id`, `min_price`, `status`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `groups` (
-  `Group_ID` int(11) NOT NULL auto_increment,
-  `Name` varchar(50) collate utf8_unicode_ci NOT NULL,
-  PRIMARY KEY  (`Group_ID`)
+  `Group_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`Group_ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
 
 --
@@ -4320,10 +4314,10 @@ INSERT INTO `groups` (`Group_ID`, `Name`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `group_item` (
-  `Group_Item_ID` int(11) NOT NULL auto_increment,
-  `Group_ID` int(11) default NULL,
-  `Cus_ID` varchar(50) collate utf8_unicode_ci default NULL,
-  PRIMARY KEY  (`Group_Item_ID`)
+  `Group_Item_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Group_ID` int(11) DEFAULT NULL,
+  `Cus_ID` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`Group_Item_ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
 
 --
@@ -4341,10 +4335,10 @@ INSERT INTO `group_item` (`Group_Item_ID`, `Group_ID`, `Cus_ID`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `have_option` (
-  `Have_ID` int(11) NOT NULL auto_increment,
-  `Order_ID` varchar(50) collate utf8_unicode_ci default NULL,
-  `Option_ID` int(11) default NULL,
-  PRIMARY KEY  (`Have_ID`)
+  `Have_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Order_ID` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Option_ID` int(11) DEFAULT NULL,
+  PRIMARY KEY (`Have_ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=987 ;
 
 --
@@ -4498,7 +4492,7 @@ INSERT INTO `have_option` (`Have_ID`, `Order_ID`, `Option_ID`) VALUES
 
 CREATE TABLE IF NOT EXISTS `hot_sale` (
   `Product_ID` varchar(50) NOT NULL,
-  `Product_Code` varchar(20) character set utf8 collate utf8_unicode_ci NOT NULL,
+  `Product_Code` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `Pro_Name_En` varchar(50) NOT NULL,
   `Property_Name` varchar(255) NOT NULL,
   `Price` float NOT NULL,
@@ -4766,12 +4760,12 @@ INSERT INTO `hot_sale` (`Product_ID`, `Product_Code`, `Pro_Name_En`, `Property_N
 --
 
 CREATE TABLE IF NOT EXISTS `how_delivery` (
-  `How_ID` int(11) NOT NULL auto_increment,
-  `Name_Th` varchar(50) collate utf8_unicode_ci default NULL,
-  `Name_En` varchar(50) collate utf8_unicode_ci default NULL,
-  `Description_Th` text collate utf8_unicode_ci,
-  `Description_En` text collate utf8_unicode_ci,
-  PRIMARY KEY  (`How_ID`)
+  `How_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Name_Th` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Name_En` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Description_Th` text COLLATE utf8_unicode_ci,
+  `Description_En` text COLLATE utf8_unicode_ci,
+  PRIMARY KEY (`How_ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
 
 --
@@ -4789,20 +4783,20 @@ INSERT INTO `how_delivery` (`How_ID`, `Name_Th`, `Name_En`, `Description_Th`, `D
 --
 
 CREATE TABLE IF NOT EXISTS `images` (
-  `Image_ID` int(11) NOT NULL auto_increment,
-  `primary_product` int(11) default '0' COMMENT '0.)non-primary 1.)primary',
-  `Product_ID` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `Product_Code` varchar(20) collate utf8_unicode_ci default NULL,
-  `Mode` varchar(50) collate utf8_unicode_ci default NULL,
-  `Status` varchar(50) collate utf8_unicode_ci default NULL,
-  `Path` varchar(100) collate utf8_unicode_ci default NULL,
-  `Path_Small` varchar(100) collate utf8_unicode_ci default NULL,
-  `Thumbnail_path` varchar(100) collate utf8_unicode_ci default NULL,
-  `Create_Date` date default NULL,
-  `Level` int(11) NOT NULL default '0',
-  `Color_ID` int(11) default NULL,
-  `Property_ID` int(11) default NULL,
-  PRIMARY KEY  (`Image_ID`)
+  `Image_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `primary_product` int(11) DEFAULT '0' COMMENT '0.)non-primary 1.)primary',
+  `Product_ID` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `Product_Code` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Mode` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Status` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Path` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Path_Small` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Thumbnail_path` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Create_Date` date DEFAULT NULL,
+  `Level` int(11) NOT NULL DEFAULT '0',
+  `Color_ID` int(11) DEFAULT NULL,
+  `Property_ID` int(11) DEFAULT NULL,
+  PRIMARY KEY (`Image_ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1978 ;
 
 --
@@ -5776,15 +5770,15 @@ INSERT INTO `images` (`Image_ID`, `primary_product`, `Product_ID`, `Product_Code
 --
 
 CREATE TABLE IF NOT EXISTS `main_menu` (
-  `main_ID` int(11) NOT NULL auto_increment,
-  `Name_Th` varchar(50) collate utf8_unicode_ci default NULL,
-  `Name_En` varchar(50) collate utf8_unicode_ci default NULL,
-  `Target` varchar(50) collate utf8_unicode_ci default NULL,
-  `Level` int(11) default '1',
-  `Sub_Flag` int(11) default NULL,
-  `main_url` varchar(100) collate utf8_unicode_ci NOT NULL,
-  `main_sort` int(11) default NULL,
-  PRIMARY KEY  (`main_ID`)
+  `main_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Name_Th` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Name_En` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Target` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Level` int(11) DEFAULT '1',
+  `Sub_Flag` int(11) DEFAULT NULL,
+  `main_url` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `main_sort` int(11) DEFAULT NULL,
+  PRIMARY KEY (`main_ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=26 ;
 
 --
@@ -5807,23 +5801,23 @@ INSERT INTO `main_menu` (`main_ID`, `Name_Th`, `Name_En`, `Target`, `Level`, `Su
 --
 
 CREATE TABLE IF NOT EXISTS `orders` (
-  `Order_ID` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `Cus_ID` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `Coupon_ID` varchar(50) collate utf8_unicode_ci default NULL,
-  `Total_Price` float default NULL,
-  `Discount_Price` float default NULL,
-  `Order_Status` int(11) default '0' COMMENT '0.non-confirm, 1.confirm',
-  `How_ID` int(11) NOT NULL default '1',
-  `Total_Weight` float default NULL,
+  `Order_ID` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `Cus_ID` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `Coupon_ID` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Total_Price` float DEFAULT NULL,
+  `Discount_Price` float DEFAULT NULL,
+  `Order_Status` int(11) DEFAULT '0' COMMENT '0.non-confirm, 1.confirm',
+  `How_ID` int(11) NOT NULL DEFAULT '1',
+  `Total_Weight` float DEFAULT NULL,
   `payment_id` int(11) NOT NULL,
-  `status` int(11) NOT NULL default '1' COMMENT '1.Pending, 2.Payment Received, 3.Shipped, 4.Refund, 5.Cancel',
-  `shipping_number` varchar(50) collate utf8_unicode_ci default NULL,
+  `status` int(11) NOT NULL DEFAULT '1' COMMENT '1.Pending, 2.Payment Received, 3.Shipped, 4.Refund, 5.Cancel',
+  `shipping_number` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `Final_Price` float NOT NULL,
-  `created_at` datetime default NULL,
-  `service_price` float default NULL,
-  `shipping_price` float default NULL,
-  `shipped_mail` int(11) default NULL,
-  PRIMARY KEY  (`Order_ID`)
+  `created_at` datetime DEFAULT NULL,
+  `service_price` float DEFAULT NULL,
+  `shipping_price` float DEFAULT NULL,
+  `shipped_mail` int(11) DEFAULT NULL,
+  PRIMARY KEY (`Order_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -6070,7 +6064,9 @@ INSERT INTO `orders` (`Order_ID`, `Cus_ID`, `Coupon_ID`, `Total_Price`, `Discoun
 ('002502003141538', '00250', NULL, 5390, NULL, 0, 0, 1.29, 0, 1, NULL, 5390, NULL, 0, NULL, NULL),
 ('002512003142052', '00251', NULL, 1950, NULL, 0, 4, 0.32, 3, 1, NULL, 3429.36, NULL, 0, 1479.36, NULL),
 ('002522103140845', '00252', NULL, 750, NULL, 0, 0, 0.5, 0, 1, NULL, 750, NULL, 0, NULL, NULL),
-('002532103141354', '00253', NULL, 750, NULL, 0, 2, 0.5, 0, 1, NULL, 807, NULL, 0, 57, NULL);
+('002532103141354', '00253', NULL, 750, NULL, 0, 2, 0.5, 0, 1, NULL, 807, NULL, 0, 57, NULL),
+('002540404141900', '00254', NULL, 5550, NULL, 0, 4, 2.85, 14, 1, NULL, 8263.63, NULL, 0, 2713.63, NULL),
+('002560404141817', '00256', NULL, 1850, NULL, 0, 1, 0.95, 0, 1, NULL, 1850, NULL, 0, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -6079,11 +6075,11 @@ INSERT INTO `orders` (`Order_ID`, `Cus_ID`, `Coupon_ID`, `Total_Price`, `Discoun
 --
 
 CREATE TABLE IF NOT EXISTS `order_gifts` (
-  `id` int(11) unsigned NOT NULL auto_increment,
-  `Order_ID` varchar(50) character set utf8 collate utf8_unicode_ci NOT NULL,
-  `Product_ID` varchar(50) character set utf8 collate utf8_unicode_ci default NULL,
-  `gift_type` int(11) default NULL,
-  PRIMARY KEY  (`id`)
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `Order_ID` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `Product_ID` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `gift_type` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=121 ;
 
 --
@@ -6118,19 +6114,19 @@ INSERT INTO `order_gifts` (`id`, `Order_ID`, `Product_ID`, `gift_type`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `order_item` (
-  `Item_ID` int(11) NOT NULL auto_increment,
-  `Order_ID` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `Product_ID` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `gift` int(2) default '0',
+  `Item_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Order_ID` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `Product_ID` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `gift` int(2) DEFAULT '0',
   `Qty` int(11) NOT NULL,
   `Color_ID` int(11) NOT NULL,
-  `Total_Price` float default NULL,
-  `Dis_Price` float default NULL,
-  `Create_Date` date default NULL,
-  `Discount_Flag` int(11) default NULL,
-  `Status` varchar(50) collate utf8_unicode_ci default NULL,
-  PRIMARY KEY  (`Item_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=47496 ;
+  `Total_Price` float DEFAULT NULL,
+  `Dis_Price` float DEFAULT NULL,
+  `Create_Date` date DEFAULT NULL,
+  `Discount_Flag` int(11) DEFAULT NULL,
+  `Status` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`Item_ID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=48130 ;
 
 --
 -- Dumping data for table `order_item`
@@ -6565,7 +6561,9 @@ INSERT INTO `order_item` (`Item_ID`, `Order_ID`, `Product_ID`, `gift`, `Qty`, `C
 (47428, '002502003141538', 'PR000142', 0, 1, 4, 1490, NULL, '2014-03-20', NULL, 'Pending'),
 (47466, '002512003142052', 'PR000273', 0, 1, 1, 1950, NULL, '2014-03-20', NULL, 'Pending'),
 (47484, '002522103140845', 'PR000150', 0, 1, 5, 750, NULL, '2014-03-21', NULL, 'Pending'),
-(47495, '002532103141354', 'PR000150', 0, 1, 5, 750, NULL, '2014-03-21', NULL, 'Pending');
+(47495, '002532103141354', 'PR000150', 0, 1, 5, 750, NULL, '2014-03-21', NULL, 'Pending'),
+(47498, '002560404141817', 'PR000346', 0, 1, 33, 1850, NULL, '2014-04-04', NULL, 'Pending'),
+(48129, '002540404141900', 'PR000346', 0, 3, 33, 5550, NULL, '2014-04-11', NULL, 'Pending');
 
 -- --------------------------------------------------------
 
@@ -6574,17 +6572,12 @@ INSERT INTO `order_item` (`Item_ID`, `Order_ID`, `Product_ID`, `gift`, `Qty`, `C
 --
 
 CREATE TABLE IF NOT EXISTS `order_item_gift` (
-  `Gift_ID` int(11) NOT NULL auto_increment,
+  `Gift_ID` int(11) NOT NULL AUTO_INCREMENT,
   `Order_ID` varchar(50) NOT NULL,
   `Product_ID` varchar(50) NOT NULL,
   `gift` int(2) NOT NULL,
-  PRIMARY KEY  (`Gift_ID`)
+  PRIMARY KEY (`Gift_ID`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
-
---
--- Dumping data for table `order_item_gift`
---
-
 
 -- --------------------------------------------------------
 
@@ -6593,13 +6586,13 @@ CREATE TABLE IF NOT EXISTS `order_item_gift` (
 --
 
 CREATE TABLE IF NOT EXISTS `payments` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name_th` varchar(255) NOT NULL,
   `name_en` varchar(255) NOT NULL,
   `description_th` text NOT NULL,
   `description_en` text NOT NULL,
   `picture_path` varchar(255) NOT NULL,
-  PRIMARY KEY  (`id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
 
 --
@@ -6619,9 +6612,9 @@ INSERT INTO `payments` (`id`, `name_th`, `name_en`, `description_th`, `descripti
 --
 
 CREATE TABLE IF NOT EXISTS `permission` (
-  `Permission_ID` int(11) NOT NULL auto_increment,
-  `Permission` int(3) NOT NULL default '100',
-  PRIMARY KEY  (`Permission_ID`)
+  `Permission_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Permission` int(3) NOT NULL DEFAULT '100',
+  PRIMARY KEY (`Permission_ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
 
 --
@@ -6639,10 +6632,10 @@ INSERT INTO `permission` (`Permission_ID`, `Permission`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `positions` (
-  `Position_ID` int(11) NOT NULL auto_increment,
-  `Position_name` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `Permission_ID` int(11) default NULL,
-  PRIMARY KEY  (`Position_ID`)
+  `Position_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Position_name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `Permission_ID` int(11) DEFAULT NULL,
+  PRIMARY KEY (`Position_ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
 
 --
@@ -6660,36 +6653,36 @@ INSERT INTO `positions` (`Position_ID`, `Position_name`, `Permission_ID`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `products` (
-  `Product_ID` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `Product_Code` varchar(20) collate utf8_unicode_ci default NULL,
-  `Property_Name` varchar(255) collate utf8_unicode_ci default NULL,
-  `Property_path` varchar(100) collate utf8_unicode_ci default NULL,
-  `Pro_Name_Th` varchar(50) collate utf8_unicode_ci default NULL,
-  `Pro_Name_En` varchar(50) collate utf8_unicode_ci default NULL,
-  `Description_Th` text collate utf8_unicode_ci,
-  `Description_En` text collate utf8_unicode_ci,
-  `Size` varchar(50) collate utf8_unicode_ci default NULL,
-  `Property_Th` varchar(50) collate utf8_unicode_ci default NULL,
-  `Property_En` varchar(50) collate utf8_unicode_ci default NULL,
-  `Price_Buy` float NOT NULL default '0',
-  `Price_sale` float NOT NULL default '0',
-  `Discount_PC` float NOT NULL default '0',
-  `Discount_Num` float NOT NULL default '0',
-  `Short_msg_Th` varchar(100) collate utf8_unicode_ci default NULL,
-  `Short_msg_En` varchar(100) collate utf8_unicode_ci default NULL,
-  `Qty` int(11) unsigned default '0',
-  `Sale_min` int(11) default NULL,
-  `Sale_max` int(11) default NULL,
-  `KeyWord` varchar(100) collate utf8_unicode_ci default NULL,
-  `Weight` float default NULL,
-  `Url_Th` varchar(100) collate utf8_unicode_ci default NULL,
-  `Url_En` varchar(100) collate utf8_unicode_ci default NULL,
-  `Discount_Status` int(11) NOT NULL default '0' COMMENT '0.)no-discount 1.)discount',
-  `Product_Status` int(11) default NULL COMMENT '0.Unpublic, 1.Public',
-  `attribute_id` int(11) default '0' COMMENT '1.new/2.hot/3.sale',
-  `Property_ID` int(11) default NULL,
-  `gift_box` int(2) default '1' COMMENT '0.)gift bag, 1.)gift box',
-  PRIMARY KEY  (`Product_ID`)
+  `Product_ID` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `Product_Code` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Property_Name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Property_path` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Pro_Name_Th` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Pro_Name_En` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Description_Th` text COLLATE utf8_unicode_ci,
+  `Description_En` text COLLATE utf8_unicode_ci,
+  `Size` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Property_Th` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Property_En` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Price_Buy` float NOT NULL DEFAULT '0',
+  `Price_sale` float NOT NULL DEFAULT '0',
+  `Discount_PC` float NOT NULL DEFAULT '0',
+  `Discount_Num` float NOT NULL DEFAULT '0',
+  `Short_msg_Th` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Short_msg_En` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Qty` int(11) unsigned DEFAULT '0',
+  `Sale_min` int(11) DEFAULT NULL,
+  `Sale_max` int(11) DEFAULT NULL,
+  `KeyWord` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Weight` float DEFAULT NULL,
+  `Url_Th` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Url_En` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Discount_Status` int(11) NOT NULL DEFAULT '0' COMMENT '0.)no-discount 1.)discount',
+  `Product_Status` int(11) DEFAULT NULL COMMENT '0.Unpublic, 1.Public',
+  `attribute_id` int(11) DEFAULT '0' COMMENT '1.new/2.hot/3.sale',
+  `Property_ID` int(11) DEFAULT NULL,
+  `gift_box` int(2) DEFAULT '1' COMMENT '0.)gift bag, 1.)gift box',
+  PRIMARY KEY (`Product_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -6930,7 +6923,7 @@ INSERT INTO `products` (`Product_ID`, `Product_Code`, `Property_Name`, `Property
 ('PR000343', '6453-A6', '', NULL, 'BASIC /  Organizer-A6', 'BASIC /  Organizer-A6', '<p>\r\n	จัดการวันของคุณอย่างสบายๆ ด้วยออแกไนซ์เซอร์ทำจากหนังสีสบายตา เรียบง่าย แต่แฝงความเก๋ไม่เหมือนใคร&nbsp;</p>\r\n', '<p>\r\n	Simple organizer ever! with super plain cover gives you a soft, mellow feeling which will basically simplify your day.</p>\r\n<p>\r\n	<strong><em>DETAILS :</em></strong></p>\r\n<ul style="padding-top: 0px; padding-right: 40px; padding-bottom: 0px; padding-left: 40px; ">\r\n	<li>\r\n		material : Synthetic leather / PU / Recycled leather</li>\r\n	<li>\r\n		size : 14.5 x 20.5 CM</li>\r\n</ul>\r\n', '', NULL, NULL, 750, 0, 0, 0, '', '', 9, 1, 10, 'BASIC Organizer-A6', 0.37, '', 'basic-organizer-a6', 0, 1, 1, 15, 0),
 ('PR000344', '6413-J', '', NULL, 'FLUTED / Organizer Junior', 'FLUTED / Organizer Junior', '<p>\r\n	ออแกไนเซอร์ที่ให้ทั้งความโก้หรูแต่สะดวกในการใช้ ด้วยกระดูกงูพร้อมกระดาษสบายตา ที่ช่วยจัดการแต่ละวันของคุณได้อย่างง่ายดายและเรียบง่าย</p>\r\n', '<p>\r\n	Arrange your day nice and orderly with our sophisticated design fluted pattern organizer. Practical usage help you simplify your schedule.</p>\r\n<p>\r\n	<strong><em>DETAILS :</em></strong></p>\r\n<ul style="padding-top: 0px; padding-right: 40px; padding-bottom: 0px; padding-left: 40px; ">\r\n	<li>\r\n		material : PU / Genuine leather</li>\r\n	<li>\r\n		size : 8 x 12.5 CM</li>\r\n</ul>\r\n', '', NULL, NULL, 550, 0, 0, 0, '', '', 10, 1, 10, 'FLUTED Organizer Junior', 0.34, '', 'fluted-organizer-junior', 0, 1, 0, 15, 0),
 ('PR000345', '6481', '', NULL, 'BASIC / Screwpost Portfolio-A4 ', 'BASIC / Screwpost Portfolio-A4 ', '<p>\r\n	<strong><var>DETAILS :</var></strong></p>\r\n<ul>\r\n	<li>\r\n		size : 24.5 x 32 x 1.8 cm. &nbsp; &nbsp; &nbsp;&nbsp;</li>\r\n</ul>\r\n', '<p>\r\n	Don&rsquo;t waste your time, as simple as possible and easy to use our <strong>portfolios</strong> allow you to have a better view on your pictures.</p>\r\n<p>\r\n	&nbsp;</p>\r\n<p>\r\n	<strong><var>DETAILS :</var></strong></p>\r\n<ul>\r\n	<li>\r\n		size : 24.5 x 32 x 1.8 cm. &nbsp; &nbsp; &nbsp;</li>\r\n</ul>\r\n', '', NULL, NULL, 890, 0, 0, 0, '', '', 16, 1, 10, 'Screwpost Portfolio-A4 ', 0.55, '', 'basic-screwpost-portfolio-a4', 0, 1, 1, 15, 0),
-('PR000346', '6482', '', NULL, 'BASIC / Screwpost Portfolio-A3', 'BASIC / Screwpost Portfolio-A3', '', '<p>\r\n	Don&rsquo;t waste your time... As simple as possible and easy to use our <strong>portfolios</strong> allow you to have a better view on your pictures.</p>\r\n<p>\r\n	&nbsp;</p>\r\n', '', NULL, NULL, 1850, 0, 0, 0, '', '', 19, 1, 10, 'Screwpost Portfolio-A3', 0.95, '', 'basic-screwpost-portfolio-a3', 0, 1, 1, 15, 0);
+('PR000346', '6482', '', NULL, 'BASIC / Screwpost Portfolio-A3', 'BASIC / Screwpost Portfolio-A3', '', '<p>\r\n	Don&rsquo;t waste your time... As simple as possible and easy to use our <strong>portfolios</strong> allow you to have a better view on your pictures.</p>\r\n<p>\r\n	&nbsp;</p>\r\n', '', NULL, NULL, 1850, 0, 0, 0, '', '', 19, 1, 10, 'Screwpost Portfolio-A3', 0.95, '', 'basic-screwpost-portfolio-a3', 0, 1, 1, 15, 1);
 INSERT INTO `products` (`Product_ID`, `Product_Code`, `Property_Name`, `Property_path`, `Pro_Name_Th`, `Pro_Name_En`, `Description_Th`, `Description_En`, `Size`, `Property_Th`, `Property_En`, `Price_Buy`, `Price_sale`, `Discount_PC`, `Discount_Num`, `Short_msg_Th`, `Short_msg_En`, `Qty`, `Sale_min`, `Sale_max`, `KeyWord`, `Weight`, `Url_Th`, `Url_En`, `Discount_Status`, `Product_Status`, `attribute_id`, `Property_ID`, `gift_box`) VALUES
 ('PR000347', '1101', '', NULL, 'กระดาษร่างชนิดม้วน 1ฟุต x20หลา สีขาว', 'Sketch paper roll 12inch x 20y white', '<p>\r\n	<span style="color: rgb(0, 0, 0); font-family: Verdana, Arial, Helvetica, sans-serif; line-height: 1.5em; font-size: 12px;">กระดาษร่าง และ สเกตช์ ชนิดม้วน พกพาสะดวก จึงทำให้กลายเป็นสินค้าที่ขาดไม่ได้สำหรับสถาปนิก วิศวกร นักวาดภาพประกอบ และ นักเรียนศิลปะ&nbsp;</span></p>\r\n<p style="margin-top: 0px; margin-right: 0px; margin-bottom: 8px; padding: 5px 0px; border: 0px; line-height: 1.5em; color: rgb(0, 0, 0); font-family: Verdana, Arial, Helvetica, sans-serif;">\r\n	<span style="line-height: 1.5em; font-size: 12px;">มีสีอ่อนสบายตา&nbsp;</span><strong style="line-height: 1.5em; font-size: 12px; margin: 0px; padding: 0px; border: 0px;">รองรับการเขียนได้ทั้งดินสอ ปากกาหมึกซึม มาร์คเกอร์&nbsp;</strong><strong style="line-height: 1.5em; font-size: 12px; margin: 0px; padding: 0px; border: 0px;">หมึก ชอล์ก</strong><span style="line-height: 1.5em; font-size: 12px;">ความเหนียวของวัสดุพิเศษทำให้กระดาษทนทานในการขึง ดึง แต่ยังคงความโปร่งใสที่สามารถมองทะลุไปได้ถึง 3-4 ชั้น</span></p>\r\n<p style="margin: 0px 0px 8px; padding: 5px 0px; border: 0px; line-height: 1.5em; color: rgb(0, 0, 0); font-family: Verdana, Arial, Helvetica, sans-serif;">\r\n	<span style="font-size: 12px;">(ขายเป็นม้วน) ขนาด&nbsp;</span>กว้าง x ยาว : 12 นิ้ว x 20 หลา</p>\r\n', '<p>\r\n	<span style="color: rgb(0, 0, 0); font-family: Verdana, Arial, Helvetica, sans-serif; line-height: 1.5em; font-size: 12px;">This Soft Tone sketch paper is ideal for the&nbsp;architect, engineer, illustrator and student.It responds beautifully&nbsp;to pencil, ink, chalk or felt tip markers. Fortified to withstand considerable handling and yet transparent enough to read an original through 3 or 4&nbsp;sheets over an original.</span></p>\r\n<p style="margin: 0px 0px 8px; padding: 5px 0px; border: 0px; line-height: 1.5em; color: rgb(0, 0, 0); font-family: Verdana, Arial, Helvetica, sans-serif;">\r\n	WxD: 12&rdquo; x 20 Yards</p>\r\n<div>\r\n	&nbsp;</div>\r\n', '', NULL, NULL, 245, 0, 0, 0, '', '', 10, 1, 10, 'sketch paper roll', 0.22, '', 'tracing-sketch-paper-12-20-white', 0, 1, 0, 27, 1),
 ('PR000348', '1101', '', NULL, 'กระดาษร่างชนิดม้วน 1ฟุต x20หลา สีขาว', 'Sketch paper roll 12inch x 20y white', '<p>\r\n	<span style="color: rgb(0, 0, 0); font-family: Verdana, Arial, Helvetica, sans-serif; line-height: 1.5em; font-size: 12px;">กระดาษร่าง และ สเกตช์ ชนิดม้วน พกพาสะดวก จึงทำให้กลายเป็นสินค้าที่ขาดไม่ได้สำหรับสถาปนิก วิศวกร นักวาดภาพประกอบ และ นักเรียนศิลปะ&nbsp;</span></p>\r\n<p style="margin-top: 0px; margin-right: 0px; margin-bottom: 8px; padding: 5px 0px; border: 0px; line-height: 1.5em; color: rgb(0, 0, 0); font-family: Verdana, Arial, Helvetica, sans-serif;">\r\n	<span style="line-height: 1.5em; font-size: 12px;">มีสีอ่อนสบายตา&nbsp;</span><strong style="line-height: 1.5em; font-size: 12px; margin: 0px; padding: 0px; border: 0px;">รองรับการเขียนได้ทั้งดินสอ ปากกาหมึกซึม มาร์คเกอร์&nbsp;</strong><strong style="line-height: 1.5em; font-size: 12px; margin: 0px; padding: 0px; border: 0px;">หมึก ชอล์ก</strong><span style="line-height: 1.5em; font-size: 12px;">ความเหนียวของวัสดุพิเศษทำให้กระดาษทนทานในการขึง ดึง แต่ยังคงความโปร่งใสที่สามารถมองทะลุไปได้ถึง 3-4 ชั้น</span></p>\r\n<p style="margin: 0px 0px 8px; padding: 5px 0px; border: 0px; line-height: 1.5em; color: rgb(0, 0, 0); font-family: Verdana, Arial, Helvetica, sans-serif;">\r\n	<span style="font-size: 12px;">(ขายเป็นม้วน) ขนาด&nbsp;</span>กว้าง x ยาว : 12 นิ้ว x 20 หลา</p>\r\n', '<p>\r\n	<span style="color: rgb(0, 0, 0); font-family: Verdana, Arial, Helvetica, sans-serif; line-height: 1.5em; font-size: 12px;">This Soft Tone sketch paper is ideal for the&nbsp;architect, engineer, illustrator and student.It responds beautifully&nbsp;to pencil, ink, chalk or felt tip markers. Fortified to withstand considerable handling and yet transparent enough to read an original through 3 or 4&nbsp;sheets over an original.</span></p>\r\n<p style="margin: 0px 0px 8px; padding: 5px 0px; border: 0px; line-height: 1.5em; color: rgb(0, 0, 0); font-family: Verdana, Arial, Helvetica, sans-serif;">\r\n	WxD: 12&rdquo; x 20 Yards</p>\r\n<div>\r\n	&nbsp;</div>\r\n', '', NULL, NULL, 245, 0, 0, 0, '', '', 10, 1, 10, 'sketch paper roll', 0.22, '', 'tracing-sketch-paper-12-20-white', 0, 1, 0, 27, 1),
@@ -6960,25 +6953,25 @@ INSERT INTO `products` (`Product_ID`, `Product_Code`, `Property_Name`, `Property
 --
 
 CREATE TABLE IF NOT EXISTS `product_groups` (
-  `Product_Code` varchar(20) character set utf8 collate utf8_unicode_ci NOT NULL,
-  `Group_Name_Th` varchar(50) character set utf8 collate utf8_unicode_ci default NULL,
-  `Group_Name_En` varchar(50) character set utf8 collate utf8_unicode_ci default NULL,
-  `Group_Description_Th` text character set utf8 collate utf8_unicode_ci,
-  `Group_Description_En` text character set utf8 collate utf8_unicode_ci,
-  `Group_Size` varchar(50) character set utf8 collate utf8_unicode_ci default NULL,
-  `Group_width` float(7,1) default NULL,
-  `Group_length` float(7,1) default NULL,
-  `Group_height` float(7,1) default NULL,
-  `price_default` float default NULL,
-  `Group_msg_Th` varchar(100) character set utf8 collate utf8_unicode_ci default NULL,
-  `Group_msg_En` varchar(100) character set utf8 collate utf8_unicode_ci default NULL,
-  `Group_KeyWord` varchar(100) character set utf8 collate utf8_unicode_ci default NULL,
-  `Group_Url_Th` varchar(100) character set utf8 collate utf8_unicode_ci default NULL,
-  `Group_Url_En` varchar(100) character set utf8 collate utf8_unicode_ci default NULL,
-  `Group_Status` int(11) default NULL,
-  `Group_attribute_id` int(11) default '0' COMMENT '1.)New 2.)Hot 3.)Sale',
-  `sort` int(11) default NULL,
-  `Group_gift_box` int(2) default '1' COMMENT '0.)gift bag, 1.)gift box'
+  `Product_Code` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `Group_Name_Th` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Group_Name_En` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Group_Description_Th` text CHARACTER SET utf8 COLLATE utf8_unicode_ci,
+  `Group_Description_En` text CHARACTER SET utf8 COLLATE utf8_unicode_ci,
+  `Group_Size` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Group_width` float(7,1) DEFAULT NULL,
+  `Group_length` float(7,1) DEFAULT NULL,
+  `Group_height` float(7,1) DEFAULT NULL,
+  `price_default` float DEFAULT NULL,
+  `Group_msg_Th` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Group_msg_En` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Group_KeyWord` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Group_Url_Th` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Group_Url_En` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Group_Status` int(11) DEFAULT NULL,
+  `Group_attribute_id` int(11) DEFAULT '0' COMMENT '1.)New 2.)Hot 3.)Sale',
+  `sort` int(11) DEFAULT NULL,
+  `Group_gift_box` int(2) DEFAULT '1' COMMENT '0.)gift bag, 1.)gift box'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
@@ -7033,7 +7026,7 @@ INSERT INTO `product_groups` (`Product_Code`, `Group_Name_Th`, `Group_Name_En`, 
 ('6367', 'B-mail / Business Card Holder-120', 'B-mail / Business Card Holder-120', '<p>\r\n	ที่ใส่นามบัตรรูปทรงเหมือนจดหมาย ที่มีความจุนามบัตรถึง 120 ใบ&nbsp;</p>\r\n', '<p>\r\n	Traditional manilla envelope lookalike business card holder with capacity of 120 card load, a must have for every collector!</p>\r\n<p>\r\n	<strong><em>DETAILS :</em></strong></p>\r\n<ul style="padding-top: 0px; padding-right: 40px; padding-bottom: 0px; padding-left: 40px; ">\r\n	<li>\r\n		material : Synthetic leather / PU / Genuine leather</li>\r\n	<li>\r\n		size : 11.5x20&nbsp; CM</li>\r\n</ul>\r\n', '', 11.5, 20.0, 2.0, 0, 'B-mail / Business Card Holder-120', 'B-mail / Business Card Holder-120', 'B-mail Business Card Holder 120', '', 'b-mail-business-card-holder-120', 1, 0, 48, 0),
 ('6368', 'DOTS / Business Card Holder-120', 'DOTS / Business Card Holder-120', '', '<p>\r\n	3 DOTS simple business card holder with semicircular die cut flat pocket. Pull and press the pins will differentiate your day.</p>\r\n<p>\r\n	<strong><em>DETAILS :</em></strong></p>\r\n<ul style="padding-top: 0px; padding-right: 40px; padding-bottom: 0px; padding-left: 40px; ">\r\n	<li>\r\n		material : Synthetic leather / PU / Genuine leather</li>\r\n	<li>\r\n		size : 11.5 x 20</li>\r\n</ul>\r\n', '', 11.5, 20.0, 0.0, 0, 'DOTS / Business Card Holder-120', 'DOTS / Business Card Holder-120', 'DOTS Business Card Holder-120', '', 'dots-business-card-holder-120', 1, 0, 88, 0),
 ('6380', 'BLOSSOM / Wine Holder', 'BLOSSOM / Wine Holder', '<p>\r\n	ที่ใส่ไวน์รูปแบบแปลกใหม่ วัตถุดิบวงกลมพับสามเหลี่ยมเย็บมือ จนเกิดขอบสร้างลายดอกไม้สามมิติเก๋ไก๋ไม่ซ้ำใครสะดุดตาทุกที่ที่วาง เพิ่มความสนุกสนานให้การดื่มไวน์ทุกครั้ง&nbsp;</p>\r\n<p>\r\n	รายละเอียด</p>\r\n<ul>\r\n	<li>\r\n		ขนาด : 12.5 x 12.5 x 31 ซม.</li>\r\n</ul>\r\n', '<p>\r\n	Won numerous awards including the Gmark Award from Japan and PM Export Award from Thailand, this wine carrier guarantees you the &ldquo;super unique&rdquo; style suits with every chic occasion. Let&#39;s get party started!</p>\r\n<p>\r\n	DETAILS:</p>\r\n<ul>\r\n	<li>\r\n		material : Synthetic leather</li>\r\n	<li>\r\n		size : 12.5 x 12.5 x 31 cm.</li>\r\n</ul>\r\n', '', 12.5, 12.5, 31.0, 0, 'GOOD DESIGN Award (G-mark)', 'GOOD DESIGN Award (G-mark)', 'Blossom Wine Holder', '', 'blossom-wine-holder', 1, 2, 29, 1),
-('6482', 'BASIC / Screwpost Portfolio-A3', 'BASIC / Screwpost Portfolio-A3', '', '<p>\r\n	Don&rsquo;t waste your time... As simple as possible and easy to use our <strong>portfolios</strong> allow you to have a better view on your pictures.</p>\r\n<p>\r\n	&nbsp;</p>\r\n', '', 44.7, 32.2, 1.9, 0, '', '', 'Screwpost Portfolio-A3', '', 'basic-screwpost-portfolio-a3', 1, 1, 5, 0),
+('6482', 'BASIC / Screwpost Portfolio-A3', 'BASIC / Screwpost Portfolio-A3', '', '<p>\r\n	Don&rsquo;t waste your time... As simple as possible and easy to use our <strong>portfolios</strong> allow you to have a better view on your pictures.</p>\r\n<p>\r\n	&nbsp;</p>\r\n', '', 44.7, 32.2, 1.9, 0, '', '', 'Screwpost Portfolio-A3', '', 'basic-screwpost-portfolio-a3', 1, 1, 5, 1),
 ('6128', 'DOTS A5 Notepad Holder', 'DOTS A5 Notepad Holder', '<p>\r\n	สมุดจดพร้อมปกติดแน่นด้วยหมุด สะดวกในการใช้</p>\r\n<p>\r\n	<strong>รายละเอียด</strong></p>\r\n<ul style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-size: 12px; list-style-type: none; list-style-position: initial; list-style-image: initial; ">\r\n	<li style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-size: 12px; list-style-type: disc; list-style-position: inside; ">\r\n		วัสดุ : &nbsp;PVC / PU / หนัง</li>\r\n	<li style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-size: 12px; list-style-type: disc; list-style-position: inside; ">\r\n		ขนาด &nbsp;: &nbsp;16x22 &nbsp;ซม.</li>\r\n	<li style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-size: 12px; list-style-type: disc; list-style-position: inside; ">\r\n		ที่ปิด : หมุดโลหะ</li>\r\n</ul>\r\n', '<p>\r\n	Simple style 3 DOTS notepad holder, made from one piece material composed of 4 practical thin pockets.&nbsp;</p>\r\n<p>\r\n	<strong style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-size: 12px; "><em style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-size: 12px; ">DETAILS :</em></strong></p>\r\n<ul style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 40px; padding-bottom: 0px; padding-left: 40px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-size: 12px; list-style-type: none; list-style-position: initial; list-style-image: initial; ">\r\n	<li style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-size: 12px; list-style-type: disc; list-style-position: inside; ">\r\n		material : Synthetic leather / PU / Genuine leather</li>\r\n	<li style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-size: 12px; list-style-type: disc; list-style-position: inside; ">\r\n		size :&nbsp;16 x 22 &nbsp;CM</li>\r\n	<li style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-size: 12px; list-style-type: disc; list-style-position: inside; ">\r\n		closure : pin</li>\r\n</ul>\r\n', '', 16.0, 22.0, 3.0, 0, 'DOTS A5 Notepad Holder', 'DOTS A5 Notepad Holder', 'DOTS A5 Notepad Holder', '', 'dots-a5-notepad-holder', 1, 0, 54, 0),
 ('6244', 'Flat / Document Bag-A3', 'Flat / Document Bag-A3', '<p>\r\n	กระเป๋ารูปทรงแบน เรียบ เก๋ ดูมั่นคง ที่มีพื้นที่ในการใส่ของอย่างพอดีและจำกัด ทำให้รูปทรงของกระเป๋าเพอร์เฟ็คอยู่เสมอ&nbsp;</p>\r\n<p>\r\n	<strong>รายละเอียด</strong></p>\r\n<ul style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-size: 12px; list-style-type: none; list-style-position: initial; list-style-image: initial; ">\r\n	<li style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-size: 12px; list-style-type: disc; list-style-position: inside; ">\r\n		วัสดุ : PVC, PU</li>\r\n	<li style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-size: 12px; list-style-type: disc; list-style-position: inside; ">\r\n		ที่จับสแตนเลส</li>\r\n	<li style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-size: 12px; list-style-type: disc; list-style-position: inside; ">\r\n		ขนาด : 40 x 46 x 3 ซม.</li>\r\n</ul>\r\n', '<p>\r\n	With limited space controlling the shape, this flat handbag brings out automatically your sharp, smart and steady character.</p>\r\n<p>\r\n	<i><strong style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-size: 12px; ">DETAILS</strong></i></p>\r\n<ul style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-size: 12px; list-style-type: none; list-style-position: initial; list-style-image: initial; ">\r\n	<li style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-size: 12px; list-style-type: disc; list-style-position: inside; ">\r\n		Material : PU - Synthetic leather&nbsp;</li>\r\n	<li style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-size: 12px; list-style-type: disc; list-style-position: inside; ">\r\n		Stainless hand-held</li>\r\n	<li style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-size: 12px; list-style-type: disc; list-style-position: inside; ">\r\n		Dimensions : 40 x 46 x 3 CM&nbsp;</li>\r\n</ul>\r\n<p>\r\n	&nbsp;</p>\r\n', '', 40.0, 46.0, 3.0, 0, '', '', 'Flat Document Bag A3', '', 'flat-document-bag-a3', 1, 0, 92, 1),
 ('6265', 'FLAT / Document Bag-A4', 'FLAT / Document Bag-A4', '<p>\r\n	กระเป๋ารูปทรงแบน เรียบ เก๋ ดูมั่นคง ที่มีพื้นที่ในการใส่ของอย่างพอดีและจำกัด ทำให้รูปทรงของกระเป๋าเพอร์เฟ็คอยู่เสมอ&nbsp;</p>\r\n', '<p>\r\n	With limited space controlling the shape, this flat handbag brings out automatically your sharp, smart and steady character.</p>\r\n<p>\r\n	<strong><em>DETAILS :</em></strong></p>\r\n<ul style="padding-top: 0px; padding-right: 40px; padding-bottom: 0px; padding-left: 40px; ">\r\n	<li>\r\n		material : PU - Synthetic leather&nbsp;</li>\r\n	<li>\r\n		size : 34 x 39 x 3 CM</li>\r\n</ul>\r\n', '', 34.0, 39.0, 3.0, 0, '', '', 'FLAT Document Bag A4', '', 'flat-document-bag-a4', 1, 0, 91, 1),
@@ -7171,16 +7164,16 @@ INSERT INTO `product_groups` (`Product_Code`, `Group_Name_Th`, `Group_Name_En`, 
 --
 
 CREATE TABLE IF NOT EXISTS `promotions` (
-  `id` int(11) NOT NULL auto_increment,
-  `name_en` varchar(255) default NULL,
-  `name_th` varchar(255) default NULL,
-  `type` int(11) default NULL COMMENT '1.JPG , 2.GIF , 3.SWF',
-  `path` varchar(255) default NULL,
-  `sort` int(11) default NULL,
-  `status` int(11) default '1' COMMENT '0.Disable, 1.Enable',
-  `created_at` datetime default NULL,
-  `updated_at` datetime default NULL,
-  PRIMARY KEY  (`id`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name_en` varchar(255) DEFAULT NULL,
+  `name_th` varchar(255) DEFAULT NULL,
+  `type` int(11) DEFAULT NULL COMMENT '1.JPG , 2.GIF , 3.SWF',
+  `path` varchar(255) DEFAULT NULL,
+  `sort` int(11) DEFAULT NULL,
+  `status` int(11) DEFAULT '1' COMMENT '0.Disable, 1.Enable',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=23 ;
 
 --
@@ -7197,10 +7190,10 @@ INSERT INTO `promotions` (`id`, `name_en`, `name_th`, `type`, `path`, `sort`, `s
 --
 
 CREATE TABLE IF NOT EXISTS `property` (
-  `prop_id` int(11) NOT NULL auto_increment,
-  `name_th` varchar(255) default NULL,
-  `name_en` varchar(255) default NULL,
-  PRIMARY KEY  (`prop_id`)
+  `prop_id` int(11) NOT NULL AUTO_INCREMENT,
+  `name_th` varchar(255) DEFAULT NULL,
+  `name_en` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`prop_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=35 ;
 
 --
@@ -7227,20 +7220,15 @@ INSERT INTO `property` (`prop_id`, `name_th`, `name_en`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `property_images` (
-  `id` int(11) NOT NULL auto_increment,
-  `Property_ID` int(11) default NULL,
-  `Product_ID` varchar(50) default NULL,
-  `price_add` float default NULL,
-  `qty` int(11) default NULL,
-  `path` varchar(255) default NULL,
-  `prop_id` varchar(11) default NULL,
-  PRIMARY KEY  (`id`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `Property_ID` int(11) DEFAULT NULL,
+  `Product_ID` varchar(50) DEFAULT NULL,
+  `price_add` float DEFAULT NULL,
+  `qty` int(11) DEFAULT NULL,
+  `path` varchar(255) DEFAULT NULL,
+  `prop_id` varchar(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
-
---
--- Dumping data for table `property_images`
---
-
 
 -- --------------------------------------------------------
 
@@ -7249,18 +7237,13 @@ CREATE TABLE IF NOT EXISTS `property_images` (
 --
 
 CREATE TABLE IF NOT EXISTS `questions` (
-  `Question_ID` int(11) NOT NULL auto_increment,
-  `Product_ID` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `Email` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `Question` varchar(500) collate utf8_unicode_ci default NULL,
-  `Answer` text collate utf8_unicode_ci,
-  PRIMARY KEY  (`Question_ID`)
+  `Question_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Product_ID` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `Email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `Question` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Answer` text COLLATE utf8_unicode_ci,
+  PRIMARY KEY (`Question_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `questions`
---
-
 
 -- --------------------------------------------------------
 
@@ -7269,13 +7252,13 @@ CREATE TABLE IF NOT EXISTS `questions` (
 --
 
 CREATE TABLE IF NOT EXISTS `range_weight` (
-  `Range_ID` int(11) NOT NULL auto_increment,
+  `Range_ID` int(11) NOT NULL AUTO_INCREMENT,
   `How_ID` int(11) NOT NULL,
-  `Weight_Start` float default NULL,
-  `Weight_End` float default NULL,
-  `Size` varchar(50) collate utf8_unicode_ci default NULL,
-  `Price` float default NULL,
-  PRIMARY KEY  (`Range_ID`)
+  `Weight_Start` float DEFAULT NULL,
+  `Weight_End` float DEFAULT NULL,
+  `Size` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Price` float DEFAULT NULL,
+  PRIMARY KEY (`Range_ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=28 ;
 
 --
@@ -7307,18 +7290,18 @@ INSERT INTO `range_weight` (`Range_ID`, `How_ID`, `Weight_Start`, `Weight_End`, 
 --
 
 CREATE TABLE IF NOT EXISTS `shipping` (
-  `Shipping_ID` int(11) NOT NULL auto_increment,
-  `Cus_ID` varchar(50) collate utf8_unicode_ci default NULL,
-  `s_FirstName` varchar(50) collate utf8_unicode_ci default NULL,
-  `s_LastName` varchar(50) collate utf8_unicode_ci default NULL,
-  `s_Address` varchar(50) collate utf8_unicode_ci default NULL,
-  `s_City_ID` int(11) default NULL,
-  `s_Country_ID` int(11) default '0',
-  `s_City_Name` varchar(255) collate utf8_unicode_ci default NULL,
-  `s_Postal_Code` varchar(50) collate utf8_unicode_ci default NULL,
-  `s_Phone_Number` varchar(50) collate utf8_unicode_ci default NULL,
-  PRIMARY KEY  (`Shipping_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=259 ;
+  `Shipping_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Cus_ID` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `s_FirstName` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `s_LastName` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `s_Address` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `s_City_ID` int(11) DEFAULT NULL,
+  `s_Country_ID` int(11) DEFAULT '0',
+  `s_City_Name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `s_Postal_Code` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `s_Phone_Number` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`Shipping_ID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=260 ;
 
 --
 -- Dumping data for table `shipping`
@@ -7579,7 +7562,8 @@ INSERT INTO `shipping` (`Shipping_ID`, `Cus_ID`, `s_FirstName`, `s_LastName`, `s
 (255, NULL, 'Hsin-Chih', 'Chang', 'No.46, Fenggong Central Rd., Shengang Dist.,', 88, 218, 'Taichung City', '42942', '+886911003966'),
 (256, NULL, 'Hsin-Chih', 'Chang', 'No.46, Fenggong Central Rd., Shengang Dist.,', 88, 218, 'Taichung City', '42942', '+886911003966'),
 (257, NULL, 'Hsin-Chih', 'Chang', 'No.34, Ln. 222, Sec. 2, Yahuan Rd., Daya Dist.,', 88, 218, 'Taichung City', '428', '+886911003966'),
-(258, '00253', 'Hsin-Chih', 'Chang', 'No.46, Fenggong Central Rd., Shengang Dist.,', 88, 218, 'Taichung City', '42942', '+886911003966');
+(258, '00253', 'Hsin-Chih', 'Chang', 'No.46, Fenggong Central Rd., Shengang Dist.,', 88, 218, 'Taichung City', '42942', '+886911003966'),
+(259, '00254', '1', '1', '1', 88, 24, '1', '1', '1');
 
 -- --------------------------------------------------------
 
@@ -7588,11 +7572,11 @@ INSERT INTO `shipping` (`Shipping_ID`, `Cus_ID`, `s_FirstName`, `s_LastName`, `s
 --
 
 CREATE TABLE IF NOT EXISTS `shipping_option` (
-  `Option_ID` int(11) NOT NULL auto_increment,
-  `Name_Th` varchar(50) collate utf8_unicode_ci default NULL,
-  `Name_En` varchar(50) collate utf8_unicode_ci default NULL,
-  `Price` float default NULL,
-  PRIMARY KEY  (`Option_ID`)
+  `Option_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Name_Th` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Name_En` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Price` float DEFAULT NULL,
+  PRIMARY KEY (`Option_ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
 
 --
@@ -7610,20 +7594,20 @@ INSERT INTO `shipping_option` (`Option_ID`, `Name_Th`, `Name_En`, `Price`) VALUE
 --
 
 CREATE TABLE IF NOT EXISTS `shopping_guide` (
-  `Guide_ID` int(11) NOT NULL auto_increment,
-  `About_Us_Th` text collate utf8_unicode_ci,
-  `About_Us_En` text collate utf8_unicode_ci,
-  `Payment_Th` text collate utf8_unicode_ci,
-  `Payment_En` text collate utf8_unicode_ci,
-  `Delivery_Th` text collate utf8_unicode_ci,
-  `Delivery_En` text collate utf8_unicode_ci,
-  `Return_Change_Th` text collate utf8_unicode_ci,
-  `Return_Change_En` text collate utf8_unicode_ci,
-  `Technologie_Th` text collate utf8_unicode_ci,
-  `Technologie_En` text collate utf8_unicode_ci,
-  `FAQ_Th` text collate utf8_unicode_ci,
-  `FAQ_En` text collate utf8_unicode_ci,
-  PRIMARY KEY  (`Guide_ID`)
+  `Guide_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `About_Us_Th` text COLLATE utf8_unicode_ci,
+  `About_Us_En` text COLLATE utf8_unicode_ci,
+  `Payment_Th` text COLLATE utf8_unicode_ci,
+  `Payment_En` text COLLATE utf8_unicode_ci,
+  `Delivery_Th` text COLLATE utf8_unicode_ci,
+  `Delivery_En` text COLLATE utf8_unicode_ci,
+  `Return_Change_Th` text COLLATE utf8_unicode_ci,
+  `Return_Change_En` text COLLATE utf8_unicode_ci,
+  `Technologie_Th` text COLLATE utf8_unicode_ci,
+  `Technologie_En` text COLLATE utf8_unicode_ci,
+  `FAQ_Th` text COLLATE utf8_unicode_ci,
+  `FAQ_En` text COLLATE utf8_unicode_ci,
+  PRIMARY KEY (`Guide_ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 --
@@ -7640,12 +7624,12 @@ INSERT INTO `shopping_guide` (`Guide_ID`, `About_Us_Th`, `About_Us_En`, `Payment
 --
 
 CREATE TABLE IF NOT EXISTS `slide` (
-  `slideID` int(11) NOT NULL auto_increment,
+  `slideID` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
-  `path` varchar(255) default NULL,
-  `status` int(11) default '1',
-  `url` varchar(255) default NULL,
-  PRIMARY KEY  (`slideID`)
+  `path` varchar(255) DEFAULT NULL,
+  `status` int(11) DEFAULT '1',
+  `url` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`slideID`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=37 ;
 
 --
@@ -7681,13 +7665,13 @@ INSERT INTO `slide` (`slideID`, `name`, `path`, `status`, `url`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `son_menu` (
-  `Son_ID` int(11) NOT NULL auto_increment,
+  `Son_ID` int(11) NOT NULL AUTO_INCREMENT,
   `Sub_ID` int(11) NOT NULL,
   `Name_Th` varchar(50) NOT NULL,
   `Name_En` varchar(50) NOT NULL,
-  `Level` int(11) NOT NULL default '3',
+  `Level` int(11) NOT NULL DEFAULT '3',
   `son_url` varchar(100) NOT NULL,
-  PRIMARY KEY  (`Son_ID`)
+  PRIMARY KEY (`Son_ID`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=43 ;
 
 --
@@ -7715,13 +7699,13 @@ INSERT INTO `son_menu` (`Son_ID`, `Sub_ID`, `Name_Th`, `Name_En`, `Level`, `son_
 --
 
 CREATE TABLE IF NOT EXISTS `stock_notifications` (
-  `id` int(11) NOT NULL auto_increment,
-  `Cus_ID` varchar(50) character set utf8 collate utf8_unicode_ci default NULL,
-  `Product_ID` varchar(50) character set utf8 collate utf8_unicode_ci NOT NULL,
-  `email` varchar(255) character set utf8 collate utf8_unicode_ci NOT NULL,
-  `status` int(11) default '1',
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `Cus_ID` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Product_ID` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `status` int(11) DEFAULT '1',
   `created_at` date NOT NULL,
-  PRIMARY KEY  (`id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=20 ;
 
 --
@@ -7749,17 +7733,17 @@ INSERT INTO `stock_notifications` (`id`, `Cus_ID`, `Product_ID`, `email`, `statu
 --
 
 CREATE TABLE IF NOT EXISTS `sub_menu` (
-  `Sub_ID` int(11) NOT NULL auto_increment,
+  `Sub_ID` int(11) NOT NULL AUTO_INCREMENT,
   `Main_ID` int(11) NOT NULL,
-  `Name_Th` varchar(50) collate utf8_unicode_ci default NULL,
-  `Name_En` varchar(50) collate utf8_unicode_ci default NULL,
-  `Target` varchar(50) collate utf8_unicode_ci default NULL,
-  `Level` int(11) default '2',
-  `FK_Sub_ID` int(11) default NULL,
-  `Sub_Flag` int(11) default NULL,
-  `sub_url` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `sub_sort` float default NULL,
-  PRIMARY KEY  (`Sub_ID`)
+  `Name_Th` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Name_En` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Target` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Level` int(11) DEFAULT '2',
+  `FK_Sub_ID` int(11) DEFAULT NULL,
+  `Sub_Flag` int(11) DEFAULT NULL,
+  `sub_url` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sub_sort` float DEFAULT NULL,
+  PRIMARY KEY (`Sub_ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=86 ;
 
 --
@@ -7805,13 +7789,13 @@ INSERT INTO `sub_menu` (`Sub_ID`, `Main_ID`, `Name_Th`, `Name_En`, `Target`, `Le
 --
 
 CREATE TABLE IF NOT EXISTS `thumb_menu` (
-  `Thumb_ID` int(11) NOT NULL auto_increment,
+  `Thumb_ID` int(11) NOT NULL AUTO_INCREMENT,
   `Son_ID` int(11) NOT NULL,
   `Name_Th` varchar(50) NOT NULL,
   `Name_En` varchar(50) NOT NULL,
-  `Level` int(11) NOT NULL default '4',
+  `Level` int(11) NOT NULL DEFAULT '4',
   `thumb_url` varchar(100) NOT NULL,
-  PRIMARY KEY  (`Thumb_ID`)
+  PRIMARY KEY (`Thumb_ID`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
@@ -7832,16 +7816,11 @@ INSERT INTO `thumb_menu` (`Thumb_ID`, `Son_ID`, `Name_Th`, `Name_En`, `Level`, `
 --
 
 CREATE TABLE IF NOT EXISTS `type_item` (
-  `Type_ID` int(11) NOT NULL auto_increment,
-  `Product_ID` varchar(50) collate utf8_unicode_ci NOT NULL,
+  `Type_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Product_ID` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `ProductType_ID` int(11) NOT NULL,
-  PRIMARY KEY  (`Type_ID`)
+  PRIMARY KEY (`Type_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `type_item`
---
-
 
 -- --------------------------------------------------------
 
@@ -7850,13 +7829,13 @@ CREATE TABLE IF NOT EXISTS `type_item` (
 --
 
 CREATE TABLE IF NOT EXISTS `ups_rate` (
-  `Rate_ID` int(11) NOT NULL auto_increment,
+  `Rate_ID` int(11) NOT NULL AUTO_INCREMENT,
   `Zone_ID` int(11) NOT NULL,
   `weight_min` float NOT NULL,
   `weight_max` float NOT NULL,
   `price` float NOT NULL,
   `price_saver` float NOT NULL,
-  PRIMARY KEY  (`Rate_ID`)
+  PRIMARY KEY (`Rate_ID`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=687 ;
 
 --
@@ -8556,11 +8535,11 @@ INSERT INTO `ups_rate` (`Rate_ID`, `Zone_ID`, `weight_min`, `weight_max`, `price
 --
 
 CREATE TABLE IF NOT EXISTS `ups_service` (
-  `Service_ID` int(11) NOT NULL auto_increment,
+  `Service_ID` int(11) NOT NULL AUTO_INCREMENT,
   `Country_ID` int(11) NOT NULL,
   `Type_ID` int(11) NOT NULL,
   `Zone_ID` int(11) NOT NULL,
-  PRIMARY KEY  (`Service_ID`)
+  PRIMARY KEY (`Service_ID`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=457 ;
 
 --
@@ -8590,9 +8569,9 @@ INSERT INTO `ups_service` (`Service_ID`, `Country_ID`, `Type_ID`, `Zone_ID`) VAL
 (22, 12, 4, 9),
 (23, 6, 3, 0),
 (24, 6, 4, 8),
-(451, 201, 3, 0),
-(452, 201, 4, 0),
-(454, 218, 4, 0),
+(451, 201, 3, 1),
+(452, 201, 4, 1),
+(454, 218, 4, 2),
 (453, 218, 3, 0),
 (29, 14, 3, 0),
 (30, 14, 4, 9),
@@ -8627,7 +8606,7 @@ INSERT INTO `ups_service` (`Service_ID`, `Country_ID`, `Type_ID`, `Zone_ID`) VAL
 (59, 19, 3, 0),
 (60, 19, 4, 9),
 (61, 28, 3, 0),
-(62, 28, 4, 4),
+(62, 28, 4, 1),
 (63, 31, 3, 0),
 (64, 31, 4, 9),
 (65, 23, 3, 0),
@@ -8667,7 +8646,7 @@ INSERT INTO `ups_service` (`Service_ID`, `Country_ID`, `Type_ID`, `Zone_ID`) VAL
 (99, 61, 3, 9),
 (100, 61, 4, 9),
 (101, 85, 3, 0),
-(102, 85, 4, 0),
+(102, 85, 4, 6),
 (103, 63, 3, 0),
 (104, 63, 4, 9),
 (450, 186, 4, 9),
@@ -8746,7 +8725,7 @@ INSERT INTO `ups_service` (`Service_ID`, `Country_ID`, `Type_ID`, `Zone_ID`) VAL
 (180, 99, 4, 9),
 (181, 103, 3, 9),
 (182, 103, 4, 9),
-(446, 121, 4, 0),
+(446, 121, 4, 2),
 (445, 121, 3, 0),
 (185, 109, 3, 17),
 (186, 109, 4, 17),
@@ -8766,8 +8745,8 @@ INSERT INTO `ups_service` (`Service_ID`, `Country_ID`, `Type_ID`, `Zone_ID`) VAL
 (200, 113, 4, 9),
 (201, 116, 3, 9),
 (202, 116, 4, 9),
-(440, 62, 4, 0),
-(439, 62, 3, 0),
+(440, 62, 4, 7),
+(439, 62, 3, 7),
 (205, 118, 3, 0),
 (206, 118, 4, 9),
 (207, 123, 3, 0),
@@ -8898,8 +8877,8 @@ INSERT INTO `ups_service` (`Service_ID`, `Country_ID`, `Type_ID`, `Zone_ID`) VAL
 (332, 198, 4, 9),
 (333, 257, 3, 0),
 (334, 257, 4, 9),
-(431, 102, 3, 0),
-(432, 102, 4, 0),
+(431, 102, 3, 1),
+(432, 102, 4, 1),
 (337, 187, 3, 0),
 (338, 187, 4, 9),
 (339, 196, 3, 8),
@@ -8950,8 +8929,8 @@ INSERT INTO `ups_service` (`Service_ID`, `Country_ID`, `Type_ID`, `Zone_ID`) VAL
 (384, 227, 4, 9),
 (385, 232, 3, 0),
 (386, 232, 4, 8),
-(428, 162, 4, 11),
-(427, 162, 3, 11),
+(428, 162, 4, 3),
+(427, 162, 3, 3),
 (389, 221, 3, 0),
 (390, 221, 4, 9),
 (391, 234, 3, 0),
@@ -8959,7 +8938,7 @@ INSERT INTO `ups_service` (`Service_ID`, `Country_ID`, `Type_ID`, `Zone_ID`) VAL
 (393, 233, 3, 0),
 (394, 233, 4, 9),
 (426, 16, 4, 11),
-(425, 16, 3, 0),
+(425, 16, 3, 3),
 (397, 239, 3, 0),
 (398, 239, 4, 9),
 (399, 240, 3, 0),
@@ -9017,9 +8996,9 @@ INSERT INTO `ups_type` (`Type_ID`, `type_name`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `usd_rate` (
-  `id` int(3) NOT NULL auto_increment,
+  `id` int(3) NOT NULL AUTO_INCREMENT,
   `rate` float NOT NULL,
-  PRIMARY KEY  (`id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
@@ -9036,14 +9015,14 @@ INSERT INTO `usd_rate` (`id`, `rate`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `wish_list` (
-  `WL_ID` int(11) NOT NULL auto_increment,
-  `Cus_ID` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `Color_ID` int(11) default NULL,
-  `Product_ID` varchar(50) collate utf8_unicode_ci NOT NULL,
+  `WL_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Cus_ID` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `Color_ID` int(11) DEFAULT NULL,
+  `Product_ID` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `Create_Date` date NOT NULL,
-  `Comment` text collate utf8_unicode_ci,
-  `Qty` int(11) default NULL,
-  PRIMARY KEY  (`WL_ID`)
+  `Comment` text COLLATE utf8_unicode_ci,
+  `Qty` int(11) DEFAULT NULL,
+  PRIMARY KEY (`WL_ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=111 ;
 
 --
@@ -9113,9 +9092,9 @@ INSERT INTO `wish_list` (`WL_ID`, `Cus_ID`, `Color_ID`, `Product_ID`, `Create_Da
 --
 
 CREATE TABLE IF NOT EXISTS `zone` (
-  `Zone_ID` int(11) NOT NULL auto_increment,
-  `zone_name` varchar(100) character set utf8 collate utf8_unicode_ci NOT NULL,
-  PRIMARY KEY  (`Zone_ID`)
+  `Zone_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `zone_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`Zone_ID`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=24 ;
 
 --
@@ -9146,3 +9125,7 @@ INSERT INTO `zone` (`Zone_ID`, `zone_name`) VALUES
 (21, 'BH'),
 (22, 'Israel'),
 (23, 'Canada');
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
