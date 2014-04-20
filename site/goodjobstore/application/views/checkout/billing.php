@@ -122,7 +122,7 @@
 		// $fluctuationYearly จะเพิ่มขึ้นปีละ 15% ต่อปี
 		// $fluctuationYearly --> 2013 = 1.15 เท่า ของ Rate ปี 2012
 		// $fluctuationYearly --> 2014 = 1.31 เท่า ของ Rate ปี 2012
-		$fluctuationYearly = 1.31;
+		$fluctuationYearly = 1.20;
 		
 		//#########################################
 	?>
@@ -512,6 +512,7 @@
 									<?if($upsRows==0){?><tr><td colspan='3'><!--<font color='red'>not available</font>--></td></tr><?}?>
 							</tbody>
 						</table>
+						<?php echo $sqlUPS; ?>
 					</div>
 					<input type="hidden" name="Order_ID" value="<?=$order->Order_ID?>" />
 					<input id="update" type="submit" name="updateTotal" value="Update Total">

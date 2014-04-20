@@ -15,7 +15,7 @@
 		// $fluctuationYearly จะเพิ่มขึ้นปีละ 15% ต่อปี
 		// $fluctuationYearly --> 2013 = 1.15 เท่า ของ Rate ปี 2012
 		// $fluctuationYearly --> 2014 = 1.31 เท่า ของ Rate ปี 2012
-		$fluctuationYearly = 1.31;
+		$fluctuationYearly = 1.20;
 		
 		//#########################################
 	?>
