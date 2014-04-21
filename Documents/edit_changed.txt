@@ -17,6 +17,8 @@ mysql_connect("localhost","iming","iming");
 mysql_select_db("goodjob",$con);
 mysql_select_db("base",$con);
 
+
+mysql_select_db("goodjob",$con);
 mysql_select_db("imingcom_30goodjobstore",$con);
 mysql_select_db("buildthedot_30goodjobstore",$con);
 
