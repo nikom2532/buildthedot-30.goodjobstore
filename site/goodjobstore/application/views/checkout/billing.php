@@ -512,7 +512,7 @@
 									<?if($upsRows==0){?><tr><td colspan='3'><!--<font color='red'>not available</font>--></td></tr><?}?>
 							</tbody>
 						</table>
-						<?php echo $sqlUPS; ?>
+						<?php //echo $sqlUPS; ?>
 					</div>
 					<input type="hidden" name="Order_ID" value="<?=$order->Order_ID?>" />
 					<input id="update" type="submit" name="updateTotal" value="Update Total">

@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 11, 2014 at 09:34 AM
+-- Generation Time: Apr 22, 2014 at 08:17 AM
 -- Server version: 5.5.35-0ubuntu0.13.10.2
--- PHP Version: 5.5.3-1ubuntu2.2
+-- PHP Version: 5.5.3-1ubuntu2.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -118,7 +118,7 @@ CREATE TABLE IF NOT EXISTS `cart` (
   `Qty` int(11) DEFAULT '1',
   `Create_Date` date NOT NULL,
   PRIMARY KEY (`Cart_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2163 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2164 ;
 
 --
 -- Dumping data for table `cart`
@@ -1253,7 +1253,7 @@ INSERT INTO `cart` (`Cart_ID`, `Cus_ID`, `Color_ID`, `Product_ID`, `Session_ID`,
 (2157, NULL, 5, 'PR000090', 'f9dc322ab8277a99a1d0b4a37a9f5917', 1, '2014-03-22'),
 (2158, NULL, 33, 'PR000352', '455854d1a1fefff5473b1d76a7e9a387', 1, '2014-03-22'),
 (2159, '00256', 33, 'PR000346', NULL, 1, '2014-04-04'),
-(2162, '00254', 33, 'PR000346', NULL, 3, '2014-04-08');
+(2163, '00254', 4, 'PR000092', NULL, 1, '2014-04-17');
 
 -- --------------------------------------------------------
 
@@ -4224,7 +4224,7 @@ INSERT INTO `customers` (`Cus_ID`, `FirstName`, `LastName`, `Address`, `City_ID`
 ('00251', 'Ekaterina', 'Panikanova', 'via Federico Rosazza,21 scA', 88, 112, 'Rome', '00153', '00393347989648', 'katerina.panikanova@gmail.com', 'micromosaico', 0, '2014-03-20 20:30:05'),
 ('00252', 'Hsin-Chih', 'Chang', 'No.46, Fenggong Central Rd., Shengang Dist.', 88, 102, 'Taichung City', '42942', '+886911003966', 'ccx0916@gmail.com', 'cc66668888', 1, '2014-03-21 08:43:43'),
 ('00253', 'Hsin-Chih', 'Chang', 'No.46, Fenggong Central Rd., Shengang Dist.,', 88, 218, 'Taichung City', '42942', '+886911003966', 'bclcmomo@hotmail.com', 'cc66668888', 1, '2014-03-21 13:49:27'),
-('00254', '1', '1', '1', 88, 0, '1', '1', '1', 'nikom2532@gmail.com', 'cominter', 1, '2014-04-04 18:20:49');
+('00254', 'Arming', 'Huang', '1', 88, 0, '1', '1', '1', 'nikom2532@gmail.com', 'cominter', 1, '2014-04-04 18:20:49');
 
 -- --------------------------------------------------------
 
@@ -6065,7 +6065,7 @@ INSERT INTO `orders` (`Order_ID`, `Cus_ID`, `Coupon_ID`, `Total_Price`, `Discoun
 ('002512003142052', '00251', NULL, 1950, NULL, 0, 4, 0.32, 3, 1, NULL, 3429.36, NULL, 0, 1479.36, NULL),
 ('002522103140845', '00252', NULL, 750, NULL, 0, 0, 0.5, 0, 1, NULL, 750, NULL, 0, NULL, NULL),
 ('002532103141354', '00253', NULL, 750, NULL, 0, 2, 0.5, 0, 1, NULL, 807, NULL, 0, 57, NULL),
-('002540404141900', '00254', NULL, 5550, NULL, 0, 4, 2.85, 14, 1, NULL, 8263.63, NULL, 0, 2713.63, NULL),
+('002540404141900', '00254', NULL, 2900, NULL, 0, 0, 0.92, 14, 1, NULL, 2900, NULL, 0, NULL, NULL),
 ('002560404141817', '00256', NULL, 1850, NULL, 0, 1, 0.95, 0, 1, NULL, 1850, NULL, 0, 0, NULL);
 
 -- --------------------------------------------------------
@@ -6126,7 +6126,7 @@ CREATE TABLE IF NOT EXISTS `order_item` (
   `Discount_Flag` int(11) DEFAULT NULL,
   `Status` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`Item_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=48130 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=48236 ;
 
 --
 -- Dumping data for table `order_item`
@@ -6563,7 +6563,7 @@ INSERT INTO `order_item` (`Item_ID`, `Order_ID`, `Product_ID`, `gift`, `Qty`, `C
 (47484, '002522103140845', 'PR000150', 0, 1, 5, 750, NULL, '2014-03-21', NULL, 'Pending'),
 (47495, '002532103141354', 'PR000150', 0, 1, 5, 750, NULL, '2014-03-21', NULL, 'Pending'),
 (47498, '002560404141817', 'PR000346', 0, 1, 33, 1850, NULL, '2014-04-04', NULL, 'Pending'),
-(48129, '002540404141900', 'PR000346', 0, 3, 33, 5550, NULL, '2014-04-11', NULL, 'Pending');
+(48235, '002540404141900', 'PR000092', 0, 1, 4, 2900, NULL, '2014-04-22', NULL, 'Pending');
 
 -- --------------------------------------------------------
 
@@ -7563,7 +7563,7 @@ INSERT INTO `shipping` (`Shipping_ID`, `Cus_ID`, `s_FirstName`, `s_LastName`, `s
 (256, NULL, 'Hsin-Chih', 'Chang', 'No.46, Fenggong Central Rd., Shengang Dist.,', 88, 218, 'Taichung City', '42942', '+886911003966'),
 (257, NULL, 'Hsin-Chih', 'Chang', 'No.34, Ln. 222, Sec. 2, Yahuan Rd., Daya Dist.,', 88, 218, 'Taichung City', '428', '+886911003966'),
 (258, '00253', 'Hsin-Chih', 'Chang', 'No.46, Fenggong Central Rd., Shengang Dist.,', 88, 218, 'Taichung City', '42942', '+886911003966'),
-(259, '00254', '1', '1', '1', 88, 24, '1', '1', '1');
+(259, '00254', 'Arming', 'Huang', '1', 88, 114, '1', '1', '1');
 
 -- --------------------------------------------------------
 
@@ -8729,8 +8729,8 @@ INSERT INTO `ups_service` (`Service_ID`, `Country_ID`, `Type_ID`, `Zone_ID`) VAL
 (445, 121, 3, 0),
 (185, 109, 3, 17),
 (186, 109, 4, 17),
-(443, 114, 3, 0),
-(444, 114, 4, 0),
+(443, 114, 3, 2),
+(444, 114, 4, 2),
 (189, 105, 3, 13),
 (190, 105, 4, 13),
 (191, 108, 3, 0),
