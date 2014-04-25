@@ -449,31 +449,32 @@
 								<?php endforeach; ?>
 
 								<?php
-									$sqlUPS = "SELECT ups_type.Type_ID, type_name, price, price_saver
-												FROM ups_rate JOIN ups_service ON ups_rate.Zone_ID=ups_service.Zone_ID
-												JOIN ups_type ON ups_service.Type_ID=ups_type.Type_ID";
-									if($has_ship==1)
-										$sqlUPS .= " WHERE (weight_min < $TotalWeightDimension AND $TotalWeightDimension <= weight_max)
-													AND ups_service.Country_ID=$users->s_Country_ID";
-									else
-										$sqlUPS .= " WHERE (weight_min < $order->Total_Weight AND $order->Total_Weight <= weight_max)
-													AND ups_service.Country_ID='222'";
+								$sqlUPS = "SELECT ups_type.Type_ID, type_name, price, price_saver
+											FROM ups_rate JOIN ups_service ON ups_rate.Zone_ID=ups_service.Zone_ID
+											JOIN ups_type ON ups_service.Type_ID=ups_type.Type_ID";
+								if($has_ship==1)
+									$sqlUPS .= " WHERE (weight_min < $TotalWeightDimension AND $TotalWeightDimension <= weight_max)
+												AND ups_service.Country_ID=$users->s_Country_ID";
+								else
+									$sqlUPS .= " WHERE (weight_min < $order->Total_Weight AND $order->Total_Weight <= weight_max)
+												AND ups_service.Country_ID='222'";
 /*
-									$sqlUPS = "SELECT ups_type.Type_ID, type_name, price, price_saver
-												FROM ups_rate JOIN ups_service ON ups_rate.Zone_ID=ups_service.Zone_ID
-												JOIN ups_type ON ups_service.Type_ID=ups_type.Type_ID
-												WHERE (weight_min < $order->Total_Weight AND $order->Total_Weight <= weight_max)";
-									if($has_ship==1)
-										$sqlUPS .= " AND ups_service.Country_ID=$users->s_Country_ID";
-									else
-										$sqlUPS .= " AND ups_service.Country_ID='222'";
+								$sqlUPS = "SELECT ups_type.Type_ID, type_name, price, price_saver
+											FROM ups_rate JOIN ups_service ON ups_rate.Zone_ID=ups_service.Zone_ID
+											JOIN ups_type ON ups_service.Type_ID=ups_type.Type_ID
+											WHERE (weight_min < $order->Total_Weight AND $order->Total_Weight <= weight_max)";
+								if($has_ship==1)
+									$sqlUPS .= " AND ups_service.Country_ID=$users->s_Country_ID";
+								else
+									$sqlUPS .= " AND ups_service.Country_ID='222'";
 */
-									$queryUPS = $this->db->query($sqlUPS)->result();
-									$upsRows = 0;
-									foreach($queryUPS as $valueUPS)
-									{
-										$upsRows += 1;
-									?>
+								$queryUPS = $this->db->query($sqlUPS)->result();
+								$upsRows = 0;
+									
+								foreach($queryUPS as $valueUPS)
+								{
+									$upsRows += 1;
+?>
 									<tr class="tcl">
 										<?if(set_value('s_Country_ID', '')!='222' OR $has_ship==0 OR ($has_ship==1 AND set_value('s_Country_ID','')=='0'))
 										{
@@ -491,7 +492,12 @@
 											<?
 												if($valueUPS->Type_ID==3)
 												{
-													$expressPrice = number_format(($valueUPS->price * $FuelSurcharge * $fluctuationYearly), 2);
+													if($TotalWeightDimension <= 20.0){
+														$expressPrice = number_format(($valueUPS->price * $FuelSurcharge * $fluctuationYearly), 2);
+													}
+													else{
+														$expressPrice = number_format(($valueUPS->price * $TotalWeightDimension * $FuelSurcharge * $fluctuationYearly), 2);
+													}
 													if(LANG=='EN')
 														echo "US$ ".google_finance_convert("THB", "USD", $expressPrice);
 													else
@@ -499,7 +505,12 @@
 												}
 												else if($valueUPS->Type_ID==4)
 												{
-													$saverPrice = number_format($valueUPS->price_saver * $FuelSurcharge * $fluctuationYearly, 2);
+													if($TotalWeightDimension <= 20.0){
+														$saverPrice = number_format($valueUPS->price_saver * $FuelSurcharge * $fluctuationYearly, 2);
+													}
+													else{
+														$saverPrice = number_format($valueUPS->price_saver * $TotalWeightDimensions * $FuelSurcharge * $fluctuationYearly, 2);
+													}
 													if(LANG=='EN')
 														echo "US$ ".google_finance_convert("THB", "USD", $saverPrice);
 													else
@@ -508,8 +519,11 @@
 											?>
 										</td>
 									</tr>
-									<?}?>
-									<?if($upsRows==0){?><tr><td colspan='3'><!--<font color='red'>not available</font>--></td></tr><?}?>
+<?php 
+									if($upsRows==0){?><tr><td colspan='3'><!--<font color='red'>not available</font>--></td></tr><?php 
+									}
+								}
+?>
 							</tbody>
 						</table>
 						<?php //echo $sqlUPS; ?>
