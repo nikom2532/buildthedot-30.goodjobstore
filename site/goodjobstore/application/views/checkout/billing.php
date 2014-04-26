@@ -124,6 +124,8 @@
 		// $fluctuationYearly --> 2014 = 1.31 เท่า ของ Rate ปี 2012
 		$fluctuationYearly = 1.20;
 		
+		$TotalWeightDimension = 0;
+		
 		//#########################################
 	?>
 		<!-- Body Section -->
@@ -423,7 +425,6 @@
 
 								<?
 									$FuelSurcharge = 1.21;
-									$TotalWeightDimension = 0;
 								?>
 								<?php foreach($order_items as $result): ?>
 									<?
@@ -509,7 +510,7 @@
 														$saverPrice = number_format($valueUPS->price_saver * $FuelSurcharge * $fluctuationYearly, 2);
 													}
 													else{
-														$saverPrice = number_format($valueUPS->price_saver * $TotalWeightDimensions * $FuelSurcharge * $fluctuationYearly, 2);
+														$saverPrice = number_format($valueUPS->price_saver * $TotalWeightDimension * $FuelSurcharge * $fluctuationYearly, 2);
 													}
 													if(LANG=='EN')
 														echo "US$ ".google_finance_convert("THB", "USD", $saverPrice);
@@ -526,7 +527,7 @@
 ?>
 							</tbody>
 						</table>
-						<?php //echo $sqlUPS; ?>
+						<?php echo $sqlUPS; ?>
 					</div>
 					<input type="hidden" name="Order_ID" value="<?=$order->Order_ID?>" />
 					<input id="update" type="submit" name="updateTotal" value="Update Total">
@@ -665,26 +666,32 @@
 						<tr>
 							<td>Shipping</td>
 							<td style="text-align: right; padding-right: 50px;">
-								<?
+								<?php
 									//$exShipping = number_format(cal_range_weight($order->How_ID, $order->Total_Weight), 2);
 									//$exShipping = number_format($order->shipping_price, 2);
 
 //if($disQTY >= 3 AND ($order->How_ID==3 OR $order->How_ID==4))
 //	$discountShipping = cal_range_weight($order->How_ID, $TotalWeightDimension)*(90/100) * $FuelSurcharge;
 //else 
-if($order->How_ID==3 OR $order->How_ID==4)
-	$discountShipping = cal_range_weight($order->How_ID, $TotalWeightDimension) * $FuelSurcharge * $fluctuationYearly;
-else
-	$discountShipping = cal_range_weight($order->How_ID, $order->Total_Weight);
-$exShipping = number_format($discountShipping, 2);
-
-									if(LANG=='EN')
-										echo "US$ ".google_finance_convert("THB", "USD", $exShipping);
-									else
-										echo $exShipping." ฿";
+								if($order->How_ID==3 OR $order->How_ID==4){
+									if($TotalWeightDimension <= 20){
+										$discountShipping = cal_range_weight($order->How_ID, $TotalWeightDimension) * $FuelSurcharge * $fluctuationYearly;
+									}
+									else{
+										$discountShipping = cal_range_weight($order->How_ID, $TotalWeightDimension) * $TotalWeightDimension * $FuelSurcharge * $fluctuationYearly;
+									}
+								}
+								else{
+									$discountShipping = cal_range_weight($order->How_ID, $order->Total_Weight);
+								}
+								$exShipping = number_format($discountShipping, 2);
+								if(LANG=='EN')
+									echo "US$ ".google_finance_convert("THB", "USD", $exShipping);
+								else
+									echo $exShipping." ฿";
 								?>
 							</td>
-							<td></td>
+							<td><?php //echo $discountShipping; ?></td>
 						</tr>
 						<tr>
 							<td>Services</td>
