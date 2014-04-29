@@ -8526,7 +8526,37 @@ INSERT INTO `ups_rate` (`Rate_ID`, `Zone_ID`, `weight_min`, `weight_max`, `price
 (683, 1, 20, 44, 143.4, 135),
 (684, 1, 44, 45, 124.8, 117.6),
 (685, 1, 45, 70, 124.8, 117.6),
-(686, 1, 70, 71, 109.8, 103.8);
+(686, 1, 70, 71, 109.8, 103.8),
+(687, 1, 20, 44, 153, 144.6),
+(688, 2, 20, 44, 247.2, 233.4),
+(689, 3, 20, 44, 256.8, 242.4),
+(690, 4, 20, 44, 282, 265.8),
+(691, 5, 20, 44, 354.6, 334.8),
+(692, 7, 20, 44, 540, 509.4),
+(693, 8, 20, 44, 564.6, 532.8),
+(694, 9, 20, 44, 636, 600),
+(695, 10, 20, 44, 163.2, 154.2),
+(696, 6, 20, 44, 199.18, 187.99);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ups_rate_fluctuationyearly`
+--
+
+CREATE TABLE IF NOT EXISTS `ups_rate_fluctuationyearly` (
+  `id` int(200) NOT NULL AUTO_INCREMENT,
+  `year` year(4) NOT NULL,
+  `rate` double NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `ups_rate_fluctuationyearly`
+--
+
+INSERT INTO `ups_rate_fluctuationyearly` (`id`, `year`, `rate`) VALUES
+(1, 2012, 1.2);
 
 -- --------------------------------------------------------
 

@@ -88,51 +88,44 @@ exit();
 		   	</div>
 			<div id="dashboard"> 
 
-					<div class="viewport">
-						<div class="overview">
-							<h2>Order Status</h2>
-												<div style="text-align:center;">
-
-						 	
-								<table>
-									<form name="frmFilterStatus">
-										<tr style="height:30px;">
-											<td style="width:70px;">Status</td>
-											<td style="width:15px;"><img src="../images/dot.gif" /></td>
-											<td>
-												<select name="filter_status" onchange="filterStatus()">
-													<option value="0">Show all</option>
-													<option value="1">Pending</option>
-													<option value="2">Payment Received</option>
-													<option value="3">Shipped</option>
-													<option value="4">Refund</option>
-													<option value="5">Cancel</option>
-												</select>
-											</td>
-										</tr>
-										<tr>
-											<td><br></td>
-										</tr>
-									</form>		
-										<tr>
-											<td style="width:70px;">Search</td>
-											<td style="width:15px;"><img src="../images/dot.gif" /></td>
-											<td><input type="text" id="orderSearch" onKeyPress="javascript:if(event.keyCode==13)searchOrder();"></td>
-											<td><input type="button" value="search" style="width:70px;" onclick="searchOrder();"></td>
-										</tr>
-										<tr>
-											<td><br></td>
-										</tr>
-									</tbody>
-								</table>
+				<div class="viewport">
+					<div class="overview">
+						<h2>UPS Rate</h2>
+						<div style="text-align:center;">
+							<table>
+								<tr>
+									<td style="width:70px;">UPS Rate</td>
+									<td style="width:15px;"><img src="../images/dot.gif" /></td>
+									<td><input type="text" id="orderSearch" onKeyPress="javascript:if(event.keyCode==13)searchOrder();"></td>
+									<td><input type="button" value="search" style="width:70px;" onclick="searchOrder();"></td>
+								</tr>
+								<tr>
+									<form action="UPS_rate_fluctuationYearly_proc.php" name="UPS_rate_form" method="post" >
+										<td style="width:70px;">UPS Rate</td>
+										<td style="width:15px;"><img src="../images/dot.gif" /></td>
+										<td>
+											<input type="text" name="ups_rate" id="ups_rate" value="<?php
+											$objCon = @mysql_connect("localhost","iming","iming") or die(mysql_error());
+											$objDB = @mysql_select_db("buildthedot_30goodjobstore") or die("Can't connect Database");
+											mysql_query("SET NAMES utf8",$objCon);
+											$sql_ups_rate_fluctuationyearly = "
+												SELECT `rate`
+												FROM  `ups_rate_fluctuationyearly` 
+												WHERE  `year` = 2014;
+											";
+											$result_ups_rate_fluctuationyearly = @mysql_query($sql_ups_rate_fluctuationyearly, $objCon) or die(mysql_error());
+											while($rs_ups_rate_fluctuationyearly = @mysql_fetch_array($result_ups_rate_fluctuationyearly)){
+												echo $rs_ups_rate_fluctuationyearly["rate"];
+											}
+											?>">
+										</td>
+										
+										<td><input type="submit" value="Submit" style="width:70px;" ></td>
+									</form>
+								</tr>
+								<tr><td><br /></td></tr>
+							</table>
 							<div id="line"></div>
-							<div style="width: 800px; height: 400px; overflow: auto; padding: 5px">
-
-							<div id="order_content">
-									<script>viewTable('0','');</script>
-								<!-- table show order -->
-							</div>
-							</div>
 						</div>
 					</div>
 				</div>	
