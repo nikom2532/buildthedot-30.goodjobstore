@@ -8556,7 +8556,7 @@ CREATE TABLE IF NOT EXISTS `ups_rate_fluctuationyearly` (
 --
 
 INSERT INTO `ups_rate_fluctuationyearly` (`id`, `year`, `rate`) VALUES
-(1, 2012, 1.2);
+(1, 2014, 1.2);
 
 -- --------------------------------------------------------
 
