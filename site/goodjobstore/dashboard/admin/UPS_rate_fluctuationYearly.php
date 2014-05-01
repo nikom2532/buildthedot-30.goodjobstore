@@ -99,19 +99,19 @@ exit();
 										<td style="width:15px;"><img src="../images/dot.gif" /></td>
 										<td>
 											<input type="text" name="ups_rate" id="ups_rate" value="<?php
-											$objCon = @mysql_connect("localhost","iming","iming") or die(mysql_error());
-											$objDB = @mysql_select_db("buildthedot_30goodjobstore") or die("Can't connect Database");
+											$objCon = mysql_connect("localhost","iming","iming") or die(mysql_error());
+											$objDB = mysql_select_db("buildthedot_30goodjobstore") or die("Can't connect Database");
 											mysql_query("SET NAMES utf8",$objCon);
 											$sql_ups_rate_fluctuationyearly = "
 												SELECT `rate`
 												FROM  `ups_rate_fluctuationyearly` 
 												WHERE  `year` = 2014;
 											";
-											$result_ups_rate_fluctuationyearly = @mysql_query($sql_ups_rate_fluctuationyearly, $objCon) or die(mysql_error());
-											while($rs_ups_rate_fluctuationyearly = @mysql_fetch_array($result_ups_rate_fluctuationyearly)){
+											$result_ups_rate_fluctuationyearly = mysql_query($sql_ups_rate_fluctuationyearly, $objCon) or die(mysql_error());
+											while($rs_ups_rate_fluctuationyearly = mysql_fetch_array($result_ups_rate_fluctuationyearly)){
 												echo $rs_ups_rate_fluctuationyearly["rate"];
 											}
-											?>" onKeyPress="javascript:if(event.keyCode==13) document.getElementById("UPS_rate_form").submit();">
+											?>" onKeyPress="javascript: if(event.keyCode==13){ document.getElementById("UPS_rate_form").submit(); }">
 										</td>
 										
 										<td><input type="submit" value="Submit" style="width:70px;" ></td>

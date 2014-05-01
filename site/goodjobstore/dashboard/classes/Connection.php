@@ -11,9 +11,10 @@ class Connection
 	function __construct()
 	{
 		$this->servername="localhost";
-		$this->username="dev";
-		$this->password="0823248713";
-		$this->dabasename="goodjob";
+		$this->username="iming";
+		$this->password="iming";
+		$this->dabasename="buildthedot_30goodjobstore";
+
 	}
 
 	function __destruct()
