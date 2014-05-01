@@ -59,6 +59,23 @@ $password_connection = "iming";
 		$this->dabasename="buildthedot_30goodjobstore";
 
 ----------------
+
+$this->servername="localhost";
+$this->username="dev";
+$this->password="0823248713";
+$this->dabasename="goodjob";
+
+$this->servername="localhost";
+$this->username="imingcom_arming";
+$this->password="cominter";
+$this->dabasename="imingcom_30goodjobstore";
+
+$this->servername="localhost";
+$this->username="iming";
+$this->password="iming";
+$this->dabasename="buildthedot_30goodjobstore";
+
+----------------
 $connection = mysql_pconnect($hostname_connection, $username_connection, $password_connection)
 		or trigger_error(mysql_error(),E_USER_ERROR); 
 mysql_query( "SET NAMES UTF8" ) ;
