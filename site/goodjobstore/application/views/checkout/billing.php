@@ -122,7 +122,26 @@
 		// $fluctuationYearly จะเพิ่มขึ้นปีละ 15% ต่อปี
 		// $fluctuationYearly --> 2013 = 1.15 เท่า ของ Rate ปี 2012
 		// $fluctuationYearly --> 2014 = 1.31 เท่า ของ Rate ปี 2012
-		$fluctuationYearly = 1.20;
+		
+		
+		//#########################################
+		//Read $fluctuationYearly from Database
+		$objCon = mysql_connect("localhost","iming","iming") or die(mysql_error());
+		$objDB = mysql_select_db("buildthedot_30goodjobstore") or die("Can't connect Database");
+		mysql_query("SET NAMES utf8",$objCon);
+		$sql_ups_rate_fluctuationyearly = "
+			SELECT `rate`
+			FROM  `ups_rate_fluctuationyearly` 
+			WHERE  `year` = 2014;
+		";
+		$result_ups_rate_fluctuationyearly = mysql_query($sql_ups_rate_fluctuationyearly, $objCon) or die(mysql_error());
+		while($rs_ups_rate_fluctuationyearly = mysql_fetch_array($result_ups_rate_fluctuationyearly)){
+			$fluctuationYearly = $rs_ups_rate_fluctuationyearly["rate"];
+		}
+		if(!($rs_ups_rate_fluctuationyearly = mysql_fetch_array($result_ups_rate_fluctuationyearly))){
+			$fluctuationYearly = 1.20;
+		}
+		//#########################################
 		
 		$TotalWeightDimension = 0;
 		
