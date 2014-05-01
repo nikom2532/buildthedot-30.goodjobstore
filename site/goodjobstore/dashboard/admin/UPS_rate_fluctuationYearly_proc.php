@@ -17,18 +17,18 @@ echo "<br><a href=index.php>Back</a>";
 exit();
 }
 
-$UPS_rate = $_POST["UPS_rate"];
+$ups_rate = $_POST["ups_rate"];
 
 $objCon = @mysql_connect("localhost","iming","iming") or die(mysql_error());
 $objDB = @mysql_select_db("buildthedot_30goodjobstore") or die("Can't connect Database");
 mysql_query("SET NAMES utf8",$objCon);
 
-$sql = "
+echo $sql = "
 	UPDATE `ups_rate_fluctuationyearly` 
-	SET  `rate` =  {$UPS_rate} 
-	WHERE  `ups_rate_fluctuationyearly`.`id` =1;
+	SET  `rate` =  {$ups_rate} 
+	WHERE  `ups_rate_fluctuationyearly`.`year` = 2014;
 ";
 @mysql_query($sql, $objCon) or die(mysql_error());
 
-header("location: ./UPS_rate.php");
+header("location: ./UPS_rate_fluctuationYearly.php");
 ?>

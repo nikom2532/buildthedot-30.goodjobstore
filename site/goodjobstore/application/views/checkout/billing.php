@@ -527,7 +527,8 @@
 ?>
 							</tbody>
 						</table>
-						<?php echo $sqlUPS; ?>
+						<?php //echo $sqlUPS; ?>
+						<?php echo "[สำหรับ Test] Weight = ".$TotalWeightDimension." Kg."; ?>
 					</div>
 					<input type="hidden" name="Order_ID" value="<?=$order->Order_ID?>" />
 					<input id="update" type="submit" name="updateTotal" value="Update Total">

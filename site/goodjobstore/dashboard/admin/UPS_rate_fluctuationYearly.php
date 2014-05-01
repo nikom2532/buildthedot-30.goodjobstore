@@ -94,13 +94,7 @@ exit();
 						<div style="text-align:center;">
 							<table>
 								<tr>
-									<td style="width:70px;">UPS Rate</td>
-									<td style="width:15px;"><img src="../images/dot.gif" /></td>
-									<td><input type="text" id="orderSearch" onKeyPress="javascript:if(event.keyCode==13)searchOrder();"></td>
-									<td><input type="button" value="search" style="width:70px;" onclick="searchOrder();"></td>
-								</tr>
-								<tr>
-									<form action="UPS_rate_fluctuationYearly_proc.php" name="UPS_rate_form" method="post" >
+									<form action="UPS_rate_fluctuationYearly_proc.php" name="UPS_rate_form" id="UPS_rate_form" method="post" >
 										<td style="width:70px;">UPS Rate</td>
 										<td style="width:15px;"><img src="../images/dot.gif" /></td>
 										<td>
@@ -117,7 +111,7 @@ exit();
 											while($rs_ups_rate_fluctuationyearly = @mysql_fetch_array($result_ups_rate_fluctuationyearly)){
 												echo $rs_ups_rate_fluctuationyearly["rate"];
 											}
-											?>">
+											?>" onKeyPress="javascript:if(event.keyCode==13) document.getElementById("UPS_rate_form").submit();">
 										</td>
 										
 										<td><input type="submit" value="Submit" style="width:70px;" ></td>
