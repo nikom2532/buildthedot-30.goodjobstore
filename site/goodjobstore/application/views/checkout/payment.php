@@ -15,8 +15,25 @@
 		// $fluctuationYearly จะเพิ่มขึ้นปีละ 15% ต่อปี
 		// $fluctuationYearly --> 2013 = 1.15 เท่า ของ Rate ปี 2012
 		// $fluctuationYearly --> 2014 = 1.31 เท่า ของ Rate ปี 2012
-		$fluctuationYearly = 1.20;
 		
+		
+		//#########################################
+		//Read $fluctuationYearly from Database
+		$objCon = mysql_connect("localhost","iming","iming") or die(mysql_error());
+		$objDB = mysql_select_db("buildthedot_30goodjobstore") or die("Can't connect Database");
+		mysql_query("SET NAMES utf8",$objCon);
+		$sql_ups_rate_fluctuationyearly = "
+			SELECT `rate`
+			FROM  `ups_rate_fluctuationyearly` 
+			WHERE  `year` = 2014;
+		";
+		$result_ups_rate_fluctuationyearly = mysql_query($sql_ups_rate_fluctuationyearly, $objCon) or die(mysql_error());
+		while($rs_ups_rate_fluctuationyearly = mysql_fetch_array($result_ups_rate_fluctuationyearly)){
+			$fluctuationYearly = $rs_ups_rate_fluctuationyearly["rate"];
+		}
+		if(!($rs_ups_rate_fluctuationyearly = mysql_fetch_array($result_ups_rate_fluctuationyearly))){
+			$fluctuationYearly = 1.20;
+		}
 		//#########################################
 	?>
 		<!-- Body Section -->
@@ -211,18 +228,25 @@
 //if($disQTY >= 3 AND ($order->How_ID==3 OR $order->How_ID==4))
 //	$discountShipping = cal_range_weight($order->How_ID, $TotalWeightDimension)*(90/100) * $FuelSurcharge;
 //else 
-if($order->How_ID==3 OR $order->How_ID==4)
-	$discountShipping = cal_range_weight($order->How_ID, $TotalWeightDimension) * $FuelSurcharge * $fluctuationYearly;
-else
+if($order->How_ID==3 OR $order->How_ID==4){
+	if($TotalWeightDimension <= 20.0){
+		$discountShipping = cal_range_weight($order->How_ID, $TotalWeightDimension) * $FuelSurcharge * $fluctuationYearly;
+	}
+	else{
+		$discountShipping = cal_range_weight($order->How_ID, $TotalWeightDimension) * $TotalWeightDimension * $FuelSurcharge * $fluctuationYearly;
+	}
+}
+else{
 	$discountShipping = cal_range_weight($order->How_ID, $order->Total_Weight);
+}
 $exShipping = number_format($discountShipping, 2);
 									if(LANG=='EN')
 										echo "US$ ".google_finance_convert("THB", "USD", $exShipping);
 									else
 										echo $exShipping." ฿";
 								?>
+							<td><?php echo $TotalWeightDimension; ?></td>
 							</td>
-							<td></td>
 						</tr>
 						<tr>
 							<td height="30px">Services</td>
