@@ -885,39 +885,7 @@ class Checkout extends MY_Controller
 // 			
 			// send_mail_helper($email_arr2);
 			
-			//############################
-			
-			// $email_arr = array(
-				// 'from' => 'arming@i-ming.com',
-				// 'to' => 'arming@i-ming.com',
-				// 'subject' => 'GOODJOB Order Confirmation',
-				// 'message' => $msg,
-				// 'attach' => $Order_ID
-			// );
-// 			
-			// $config = Array(
-			  // 'protocol' => 'smtp',
-			  // 'smtp_host' => 'mail.i-ming.com',
-			  // 'smtp_user' => 'arming@i-ming.com',
-			  // 'smtp_pass' => 'nikombangkok7487438',
-			  // 'mailtype' => 'html',
-			  // 'wordwrap' => TRUE
-			// );
-// 
-			// $this->email->initialize($config);
-// 
-			// $this->email->set_newline("\r\n");
-			// $this->email->from($email_arr['from']);
-			// $this->email->to($email_arr['to']);
-			// $this->email->subject($email_arr['subject']);
-			// $this->email->message($email_arr['message']);
-// 
-			// $attach = $email_arr['attach'];
-			// $this->email->attach("public/pdf/{$attach}.pdf");
-// 
-			// $this->email->send();
-			
-			//############################################################
+			//#############################
 			
 			$email_arr = array(
 				'from' => 'arming@i-ming.com',
