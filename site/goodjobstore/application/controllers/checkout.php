@@ -837,15 +837,15 @@ class Checkout extends MY_Controller
 
 			$msg = $this->load->view('mail/order_confirmation_direct_deposit', $data, TRUE);
 
-			$email_arr = array(
-				'from' => 'contact@goodjobstore.com',
-				'to' => $data['customer']->Email,
-				'subject' => 'GOODJOB Order Confirmation',
-				'message' => $msg,
-				'attach' => $Order_ID
-			);
-
-			send_mail_helper($email_arr);
+			// $email_arr = array(
+				// 'from' => 'contact@goodjobstore.com',
+				// 'to' => $data['customer']->Email,
+				// 'subject' => 'GOODJOB Order Confirmation',
+				// 'message' => $msg,
+				// 'attach' => $Order_ID
+			// );
+// 
+			// send_mail_helper($email_arr);
 			
 			/*$config = Array(
 			  'protocol' => 'smtp',
@@ -867,14 +867,99 @@ class Checkout extends MY_Controller
 
 			$this->email->send();*/
 
-			$email_arr1 = array(
-				'from' => 'contact@goodjobstore.com',
-				'to' => 'contact@goodjobstore.com',
+			// $email_arr1 = array(
+				// 'from' => 'contact@goodjobstore.com',
+				// 'to' => 'contact@goodjobstore.com',
+				// 'subject' => 'GOODJOB Order Confirmation',
+				// 'message' => $msg
+			// );
+			
+			//#############################
+			
+			// $email_arr2 = array(
+				// 'from' => 'arming@i-ming.com',
+				// 'to' => 'arming@i-ming.com',
+				// 'subject' => 'GOODJOB Order Confirmation',
+				// 'message' => $msg
+			// );
+// 			
+			// send_mail_helper($email_arr2);
+			
+			//############################
+			
+			// $email_arr = array(
+				// 'from' => 'arming@i-ming.com',
+				// 'to' => 'arming@i-ming.com',
+				// 'subject' => 'GOODJOB Order Confirmation',
+				// 'message' => $msg,
+				// 'attach' => $Order_ID
+			// );
+// 			
+			// $config = Array(
+			  // 'protocol' => 'smtp',
+			  // 'smtp_host' => 'mail.i-ming.com',
+			  // 'smtp_user' => 'arming@i-ming.com',
+			  // 'smtp_pass' => 'nikombangkok7487438',
+			  // 'mailtype' => 'html',
+			  // 'wordwrap' => TRUE
+			// );
+// 
+			// $this->email->initialize($config);
+// 
+			// $this->email->set_newline("\r\n");
+			// $this->email->from($email_arr['from']);
+			// $this->email->to($email_arr['to']);
+			// $this->email->subject($email_arr['subject']);
+			// $this->email->message($email_arr['message']);
+// 
+			// $attach = $email_arr['attach'];
+			// $this->email->attach("public/pdf/{$attach}.pdf");
+// 
+			// $this->email->send();
+			
+			//############################################################
+			
+			$email_arr = array(
+				'from' => 'arming@i-ming.com',
+				'to' => $data['customer']->Email,
 				'subject' => 'GOODJOB Order Confirmation',
-				'message' => $msg
+				'message' => $msg,
+				'attach' => $Order_ID
 			);
-
-			send_mail_helper($email_arr1);
+			
+			$config = Array(
+			  'protocol' => 'smtp',
+			  'smtp_host' => 'mail.i-ming.com',
+			  'smtp_user' => 'arming@i-ming.com',
+			  'smtp_pass' => 'nikombangkok7487438',
+			  'mailtype' => 'html',
+			  'wordwrap' => TRUE
+			);
+			
+			$ci = get_instance();
+			$ci->load->library('email');
+			$config['protocol'] = "smtp";
+			$config['smtp_host'] = "mail.i-ming.com";
+			$config['smtp_port'] = "25";
+			$config['smtp_user'] = "arming@i-ming.com"; 
+			$config['smtp_pass'] = "nikombangkok7487438";
+			$config['charset'] = "utf-8";
+			$config['mailtype'] = "html";
+			$config['newline'] = "\r\n";
+			
+			$ci->email->initialize($config);
+			
+			$ci->email->from($email_arr['from'], 'GOODJOB');
+			$list = array($email_arr['to']);
+			$ci->email->to($list);
+			$this->email->reply_to($email_arr['to'], 'Arming Huang');
+			$ci->email->subject($email_arr['subject']);
+			$ci->email->message($email_arr['message']);
+			
+			$attach = $email_arr['attach'];
+			$ci->email->attach("public/pdf/{$attach}.pdf");
+			
+			$ci->email->send();
 		}
 	}
 
