@@ -928,6 +928,16 @@ class Checkout extends MY_Controller
 			$ci->email->attach("public/pdf/{$attach}.pdf");
 			
 			$ci->email->send();
+			
+			//---------------------
+			
+			$email_arr1 = array(
+				'from' => 'contact@goodjobstore.com',
+				'to' => 'contact@goodjobstore.com',
+				'subject' => 'GOODJOB Order Confirmation',
+				'message' => $msg
+			);
+			
 		}
 	}
 
