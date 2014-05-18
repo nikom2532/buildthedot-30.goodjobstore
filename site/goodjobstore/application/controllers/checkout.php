@@ -887,9 +887,72 @@ class Checkout extends MY_Controller
 			
 			//#############################
 			
+			//For goodjobstore.com
+			$email_arr = array(
+				'from' => 'admin@goodjobstore.com',
+				'to' => $data['customer']->Email,
+				'subject' => 'GOODJOB Order Confirmation',
+				'message' => $msg,
+				'attach' => $Order_ID
+			);
+			
+			$email_arr1 = array(
+				'from' => 'admin@goodjobstore.com',
+				'to' => 'contact@goodjobstore.com',
+				'subject' => 'GOODJOB Order Confirmation',
+				'message' => $msg,
+				'attach' => $Order_ID
+			);
+			
+			$config = Array(
+			  'protocol' => 'smtp',
+			  'smtp_host' => 'mail.goodjobstore.com',
+			  'smtp_user' => 'admin@goodjobstore.com',
+			  'smtp_pass' => 'GOODJOB2005+',
+			  'mailtype' => 'html',
+			  'wordwrap' => TRUE
+			);
+			
+			$ci = get_instance();
+			$ci->load->library('email');
+			$config['protocol'] = "smtp";
+			$config['smtp_host'] = "mail.goodjobstore.com";
+			$config['smtp_port'] = "25";
+			$config['smtp_user'] = "admin@goodjobstore.com"; 
+			$config['smtp_pass'] = "GOODJOB2005+";
+			$config['charset'] = "utf-8";
+			$config['mailtype'] = "html";
+			$config['newline'] = "\r\n";
+			
+			$ci->email->initialize($config);
+			
+			$ci->email->from($email_arr['from'], 'GOODJOB');
+			$list = array($email_arr['to']);
+			$ci->email->to($list);
+			$this->email->reply_to($email_arr['to'], 'Arming Huang');
+			$ci->email->subject($email_arr['subject']);
+			$ci->email->message($email_arr['message']);
+			
+			$attach = $email_arr['attach'];
+			$ci->email->attach("public/pdf/{$attach}.pdf");
+			
+			$ci->email->send();
+			
+			//---------------------
+			
+			/*
+			//For i-ming.com
 			$email_arr = array(
 				'from' => 'arming@i-ming.com',
 				'to' => $data['customer']->Email,
+				'subject' => 'GOODJOB Order Confirmation',
+				'message' => $msg,
+				'attach' => $Order_ID
+			);
+			
+			$email_arr1 = array(
+				'from' => 'arming@i-ming.com',',
+				'to' => 'arming@i-ming.com',',
 				'subject' => 'GOODJOB Order Confirmation',
 				'message' => $msg,
 				'attach' => $Order_ID
@@ -924,20 +987,13 @@ class Checkout extends MY_Controller
 			$ci->email->subject($email_arr['subject']);
 			$ci->email->message($email_arr['message']);
 			
-			$attach = $email_arr['attach'];
-			$ci->email->attach("public/pdf/{$attach}.pdf");
+			// $attach = $email_arr['attach'];
+			// $ci->email->attach("public/pdf/{$attach}.pdf");
 			
 			$ci->email->send();
 			
+			*/
 			//---------------------
-			
-			$email_arr1 = array(
-				'from' => 'contact@goodjobstore.com',
-				'to' => 'contact@goodjobstore.com',
-				'subject' => 'GOODJOB Order Confirmation',
-				'message' => $msg
-			);
-			
 		}
 	}
 
