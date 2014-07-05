@@ -8,8 +8,8 @@
 		$Descrip_EN_64 = str_replace("'","''",$m_Descrip_EN);
 		$Descrip_EN = base64_decode($Descrip_EN_64);
 	$Descrip_TH = $_GET["descripTH"];
-	$objCon = mysql_connect("localhost","iming","iming") or die(mysql_error());
-	$objDB = mysql_select_db("buildthedot_30goodjobstore") or die("Can't connect Database");
+	$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
+	$objDB = mysql_select_db("goodjob") or die("Can't connect Database");
 	mysql_query("SET NAMES utf8",$objCon);
 
 	$sql = "INSERT INTO how_delivery (Name_Th,Name_En,Description_Th,Description_En) 

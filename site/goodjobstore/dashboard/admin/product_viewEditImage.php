@@ -48,8 +48,8 @@ exit();
 <!--Permission-->
 
 <?
-	$objCon = mysql_connect("localhost","iming","iming") or die(mysql_error());
-	$objDB = mysql_select_db("buildthedot_30goodjobstore") or die("Can't connect Database");
+	$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
+	$objDB = mysql_select_db("goodjob") or die("Can't connect Database");
 	mysql_query("SET NAMES utf8",$objCon);		
 	
 	//----- Color -----
@@ -88,9 +88,9 @@ exit();
 	 
 	// ส่วนกำหนดการเชื่อมต่อฐานข้อมูล
 	$hostname_connection = "localhost";
-	$database_connection = "buildthedot_30goodjobstore";
-	$username_connection = "iming";
-	$password_connection = "iming";
+	$database_connection = "goodjob";
+	$username_connection = "dev";
+	$password_connection = "0823248713";
 	$connection = mysql_pconnect($hostname_connection, $username_connection, $password_connection)
 			or trigger_error(mysql_error(),E_USER_ERROR); 
 	mysql_query( "SET NAMES UTF8" ) ;

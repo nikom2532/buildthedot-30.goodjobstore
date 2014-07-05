@@ -28,7 +28,7 @@
 <!--Permission-->
 
 <?php
-session_start(); //�Դ session
+session_start(); //�Դ session
 $ses_userid =$_SESSION[ses_userid];
 $ses_username = $_SESSION[ses_username];
 if($ses_userid <> session_id() or $ses_username =="")
@@ -58,8 +58,8 @@ exit();
 	<script src="ajax/ajax.productGroup.java"></script>
 
 	<?
-		$objCon = mysql_connect("localhost","iming","iming") or die(mysql_error());
-		$objDB = mysql_select_db("buildthedot_30goodjobstore") or die("Can't connect Database");
+		$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
+		$objDB = mysql_select_db("goodjob") or die("Can't connect Database");
 		mysql_query("SET NAMES utf8",$objCon);			
 
 		//-------- cross sale SELECTED product
