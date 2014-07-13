@@ -136,6 +136,9 @@ class Checkout extends MY_Controller
 		$Cus_ID = $this->session->userdata('customer')->Cus_ID;
 
 		$data['order_items'] = $this->_get_order_item_data($Order_ID);
+		
+		// var_dump($data['order_items']);
+		// exit;
 
 		$data['order'] = $this->db->get_where('orders', array('Order_ID'=>$Order_ID))->row();
 
@@ -153,6 +156,8 @@ class Checkout extends MY_Controller
 		$data['order'] = $this->db->get_where('orders', array('Order_ID'=>$Order_ID))->row();
 		//var_dump($order);
 		$this->template->view('checkout/redirect_payment');
+		echo "string";
+		exit;
 	}
 
 	function confirmation()
