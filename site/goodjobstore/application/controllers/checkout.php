@@ -156,8 +156,8 @@ class Checkout extends MY_Controller
 		$data['order'] = $this->db->get_where('orders', array('Order_ID'=>$Order_ID))->row();
 		//var_dump($order);
 		$this->template->view('checkout/redirect_payment');
-		echo "string";
-		exit;
+		// echo "string";
+		// exit;
 	}
 
 	function confirmation()
