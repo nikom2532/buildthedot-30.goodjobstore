@@ -468,6 +468,10 @@
 									else
 										$sqlUPS .= " AND ups_service.Country_ID='222'";
 */
+									// * For test
+									// echo $sqlUPS;
+									// **********
+									
 									$queryUPS = $this->db->query($sqlUPS)->result();
 									$upsRows = 0;
 									foreach($queryUPS as $valueUPS)
@@ -658,10 +662,24 @@
 //if($disQTY >= 3 AND ($order->How_ID==3 OR $order->How_ID==4))
 //	$discountShipping = cal_range_weight($order->How_ID, $TotalWeightDimension)*(90/100) * $FuelSurcharge;
 //else 
-if($order->How_ID==3 OR $order->How_ID==4)
-	$discountShipping = cal_range_weight($order->How_ID, $TotalWeightDimension) * $FuelSurcharge * $fluctuationYearly;
-else
-	$discountShipping = cal_range_weight($order->How_ID, $order->Total_Weight);
+if($order->How_ID==3 OR $order->How_ID==4){
+	
+	
+	if($TotalWeightDimension > 20.0){
+		$discountShipping = $TotalWeightDimension * cal_range_weight($order->How_ID, $TotalWeightDimension) * $FuelSurcharge * $fluctuationYearly;
+	}
+	else{
+		$discountShipping = cal_range_weight($order->How_ID, $TotalWeightDimension) * $FuelSurcharge * $fluctuationYearly;
+	}
+}
+else{
+	if($TotalWeightDimension > 20.0){
+		$discountShipping = $TotalWeightDimension * cal_range_weight($order->How_ID, $order->Total_Weight);
+	}
+	else{
+		$discountShipping = cal_range_weight($order->How_ID, $order->Total_Weight);
+	}
+}
 $exShipping = number_format($discountShipping, 2);
 
 									if(LANG=='EN')
