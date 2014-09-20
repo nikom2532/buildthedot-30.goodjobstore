@@ -183,7 +183,7 @@
 						<tr>
 							<td height="30px">Shipping</td>
 							<td style="text-align: right; padding-right: 50px;">
-								<?
+								<?php
 									//$exShipping = number_format(cal_range_weight($order->How_ID, $order->Total_Weight), 2);
 									//$exShipping = number_format($order->shipping_price, 2);
 
@@ -222,7 +222,9 @@ $exShipping = number_format($discountShipping, 2);
 										echo $exShipping." ฿";
 								?>
 							</td>
-							<td></td>
+							<td><?php 
+							echo $exShipping;
+							// echo $TotalWeightDimension; ?></td>
 						</tr>
 						<tr>
 							<td height="30px">Services</td>
