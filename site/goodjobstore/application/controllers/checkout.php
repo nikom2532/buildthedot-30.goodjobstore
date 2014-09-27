@@ -770,6 +770,7 @@ class Checkout extends MY_Controller
 			
 			//#############################
 			
+			// ##### Ming แก้ Version ใหม่ #####
 			//For goodjobstore.com
 			$email_arr = array(
 				'from' => 'contact@goodjobstore.com',
@@ -819,7 +820,7 @@ class Checkout extends MY_Controller
 			$ci->email->message($email_arr['message']);
 			
 			$attach = $email_arr['attach'];
-			$ci->email->attach("public/pdf/{$attach}.pdf");
+			//$ci->email->attach("public/pdf/{$attach}.pdf");
 			
 			$ci->email->send();
 			
@@ -837,11 +838,11 @@ class Checkout extends MY_Controller
 			$ci2->email->message($email_arr1['message']);
 			
 			$attach = $email_arr1['attach'];
-			$ci2->email->attach("public/pdf/{$attach}.pdf");
+			//$ci2->email->attach("public/pdf/{$attach}.pdf");
 			
 			$ci2->email->send();
 			
-			
+			// ##### <END> Ming แก้ Version ใหม่ #####
 			//---------------------
 			
 		}
