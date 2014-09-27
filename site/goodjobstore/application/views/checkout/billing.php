@@ -495,7 +495,13 @@
 											<?
 												if($valueUPS->Type_ID==3)
 												{
-													$expressPrice = number_format(($valueUPS->price * $FuelSurcharge * $fluctuationYearly), 2);
+													if($TotalWeightDimension > 20.0){
+														$expressPrice = number_format(($valueUPS->price * $FuelSurcharge * $fluctuationYearly * $TotalWeightDimension), 2);
+													}
+													else{
+														$expressPrice = number_format(($valueUPS->price * $FuelSurcharge * $fluctuationYearly), 2);
+													}
+													
 													if(LANG=='EN')
 														echo "US$ ".google_finance_convert("THB", "USD", $expressPrice);
 													else
@@ -503,7 +509,13 @@
 												}
 												else if($valueUPS->Type_ID==4)
 												{
-													$saverPrice = number_format($valueUPS->price_saver * $FuelSurcharge * $fluctuationYearly, 2);
+													if($TotalWeightDimension > 20.0){
+														$saverPrice = number_format(($valueUPS->price_saver * $FuelSurcharge * $fluctuationYearly * $TotalWeightDimension), 2);
+													}
+													else{
+														$saverPrice = number_format(($valueUPS->price_saver * $FuelSurcharge * $fluctuationYearly), 2);
+													}
+													
 													if(LANG=='EN')
 														echo "US$ ".google_finance_convert("THB", "USD", $saverPrice);
 													else
