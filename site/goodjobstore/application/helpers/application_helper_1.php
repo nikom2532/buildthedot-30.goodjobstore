@@ -255,10 +255,20 @@ function send_mail_helper($email_arr=NULL)
 	  'wordwrap' => TRUE
 	);*/
 
+	// $config = Array(
+	  // 'protocol' => 'smtp',
+	  // 'smtp_host' => 'smtpweb.netdesignhost.com',
+	  // 'mailtype' => 'html',
+	  // 'wordwrap' => TRUE
+	// );
+	
 	$config = Array(
 	  'protocol' => 'smtp',
-	  'smtp_host' => 'smtpweb.netdesignhost.com',
+	  'smtp_host' => 'mail.goodjobstore.com',
+	  'smtp_user' => 'contact@goodjobstore.com',
+	  'smtp_pass' => 'tcatnoc1+',
 	  'mailtype' => 'html',
+	  'smtp_auth' => TRUE,
 	  'wordwrap' => TRUE
 	);
 
@@ -269,6 +279,7 @@ function send_mail_helper($email_arr=NULL)
 	$ci->email->to($email_arr['to']);
 	$ci->email->subject($email_arr['subject']);
 	$ci->email->message($email_arr['message']);
+	
 
 	$ci->email->send();
 

@@ -753,7 +753,8 @@ class Checkout extends MY_Controller
 				'from' => 'contact@goodjobstore.com',
 				'to' => $data['customer']->Email,
 				'subject' => 'GOODJOB Order Confirmation',
-				'message' => $msg
+				//'message' => $msg
+				'message' => "test"
 			);
 
 			send_mail_helper($email_arr);
@@ -762,14 +763,15 @@ class Checkout extends MY_Controller
 				'from' => 'contact@goodjobstore.com',
 				'to' => 'contact@goodjobstore.com',
 				'subject' => 'GOODJOB Order Confirmation',
-				'message' => $msg
+				// 'message' => $msg
+				'message' => "test"
 			);
 
 			send_mail_helper($email_arr1);
 			*/
 			
 			//#############################
-			
+			///*
 			// ##### Ming แก้ Version ใหม่ #####
 			//For goodjobstore.com
 			$email_arr = array(
@@ -790,6 +792,7 @@ class Checkout extends MY_Controller
 			
 			$config = Array(
 			  'protocol' => 'smtp',
+			  'smtp_auth' => TRUE,
 			  'smtp_host' => 'mail.goodjobstore.com',
 			  'smtp_user' => 'contact@goodjobstore.com',
 			  'smtp_pass' => 'tcatnoc1+',
@@ -800,6 +803,7 @@ class Checkout extends MY_Controller
 			$ci = get_instance();
 			$ci->load->library('email');
 			$config['protocol'] = "smtp";
+			$config['smtp_auth'] = TRUE;
 			$config['smtp_host'] = "mail.goodjobstore.com";
 			$config['smtp_port'] = "25";
 			$config['smtp_user'] = "contact@goodjobstore.com"; 
@@ -841,10 +845,50 @@ class Checkout extends MY_Controller
 			//$ci2->email->attach("public/pdf/{$attach}.pdf");
 			
 			$ci2->email->send();
-			
+			//*/
 			// ##### <END> Ming แก้ Version ใหม่ #####
 			//---------------------
 			
+			//################# 3 ####################
+			/*
+			$email_arr = array(
+				'from' => 'contact@goodjobstore.com',
+				'to' => 'nikom2532@gmail.com',
+				'subject' => 'GOODJOB Order Confirmation',
+				'message' => "test",
+				'attach' => $Order_ID
+			);
+			
+			$ci = get_instance();
+			$ci->load->library('email');
+			$config['protocol'] = "smtp";
+			$config['smtp_auth'] = TRUE;
+			$config['smtp_host'] = "mail.goodjobstore.com";
+			$config['smtp_port'] = "25";
+			$config['smtp_user'] = "contact@goodjobstore.com"; 
+			$config['smtp_pass'] = "tcatnoc1+";
+			$config['charset'] = "utf-8";
+			$config['mailtype'] = "html";
+			$config['newline'] = "\r\n";
+			
+			
+			$ci->email->initialize($config);
+			
+			//send to the customer
+			$ci->email->from($email_arr['from'], 'GOODJOB');
+			$list = array($email_arr['to']);
+			$ci->email->to($list);
+			// $this->email->reply_to($email_arr['to'], 'User');
+			$this->email->reply_to($email_arr['to']);
+			$ci->email->subject($email_arr['subject']);
+			$ci->email->message($email_arr['message']);
+			
+			$attach = $email_arr['attach'];
+			$ci->email->attach("public/pdf/{$attach}.pdf");
+			
+			$ci->email->send();
+			*/
+			//################# end 3 ####################
 		}
 	}
 

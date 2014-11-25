@@ -369,6 +369,7 @@ function send_mail_helper($email_arr=NULL)
 
 	$config = Array(
 	  'protocol' => 'smtp',
+	  'smtp_auth' => TRUE,
 	  'smtp_host' => 'mail.goodjobstore.com',
 	  'smtp_user' => 'contact@goodjobstore.com',
 	  'smtp_pass' => 'tcatnoc1',
