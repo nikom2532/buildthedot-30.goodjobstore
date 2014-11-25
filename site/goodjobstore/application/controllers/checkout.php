@@ -771,7 +771,7 @@ class Checkout extends MY_Controller
 			*/
 			
 			//#############################
-			///*
+			/*
 			// ##### Ming แก้ Version ใหม่ #####
 			//For goodjobstore.com
 			$email_arr = array(
@@ -845,14 +845,14 @@ class Checkout extends MY_Controller
 			//$ci2->email->attach("public/pdf/{$attach}.pdf");
 			
 			$ci2->email->send();
-			//*/
+			*/
 			// ##### <END> Ming แก้ Version ใหม่ #####
 			//---------------------
 			
 			//################# 3 ####################
 			/*
 			$email_arr = array(
-				'from' => 'contact@goodjobstore.com',
+				'from' => 'contact@g$order->Order_IDoodjobstore.com',
 				'to' => 'nikom2532@gmail.com',
 				'subject' => 'GOODJOB Order Confirmation',
 				'message' => "test",
@@ -889,6 +889,34 @@ class Checkout extends MY_Controller
 			$ci->email->send();
 			*/
 			//################# end 3 ####################
+			
+			
+			
+			// ############## SMTP PHP Mailer ####################
+			// mail_with_smtp.inc.php
+			
+			include('mail_with_smtp.inc.php');
+
+	        $lsFrom = 'contact@goodjobstore.com';
+	        $lsFromName = 'GOODJOB';
+	
+	        $lsTo = 'nikom2532@gmail.com';
+	        
+	        $lsSubject = 'GOODJOB Order Confirmation';
+	
+	        $lsMessage = $msg;
+	
+	        $email_cc = array();
+	
+	        $email_bcc = array();
+	        
+	        $file_attach = "public/pdf/" .$attach. ".pdf";
+			
+			$file_attach = "";
+	
+	        lps_smtpmail( $lsFrom , $lsFromName , $lsTo , $lsSubject, $lsMessage , $email_cc , $email_bcc , $file_attach );
+			
+			// ############## End SMTP PHP Mailer ####################
 		}
 	}
 
