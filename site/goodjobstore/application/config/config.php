@@ -14,10 +14,7 @@
 | path to your installation.
 |
 */
-// $config['base_url']	= '';
-// $config['base_url']	= 'http://arming/30.GoodjobStore/buildthedot-30.goodjobstore/site/goodjobstore';
-// $config['base_url']	= 'localhost/30.GoodjobStore/buildthedot-30.goodjobstore/site/goodjobstore/';
-$config['base_url']	= 'http://'.$_SERVER['SERVER_NAME'].':105';
+$config['base_url']	= '';
 
 /*
 |--------------------------------------------------------------------------
@@ -29,8 +26,7 @@ $config['base_url']	= 'http://'.$_SERVER['SERVER_NAME'].':105';
 | variable so that it is blank.
 |
 */
-// $config['index_page'] = is_file(FCPATH . '.htaccess') ? '' : 'index.php';
-$config['index_page'] = '';
+$config['index_page'] = is_file(FCPATH . '.htaccess') ? '' : 'index.php';
 
 /*
 |--------------------------------------------------------------------------
