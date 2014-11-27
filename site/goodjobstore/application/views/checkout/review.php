@@ -284,10 +284,6 @@
 
 					</tbody>
 				</table>
-<?php 
-					// echo $order->payment_id; 
-					// echo $customer->Email;
-?>
 				<?php set_final_price($order->Final_Price, $order->Order_ID, $order->service_price, $order->shipping_price); ?>
 			</div>
 		</div>

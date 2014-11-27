@@ -30,18 +30,18 @@ class CI_Email {
 
 	var	$useragent		= "CodeIgniter";
 	var	$mailpath		= "/usr/sbin/sendmail";	// Sendmail path
-	var	$protocol		= "mail";	// mail/sendmail/smtp
-	var	$smtp_host		= "";		// SMTP Server.  Example: mail.earthlink.net
-	var	$smtp_user		= "";		// SMTP Username
-	var	$smtp_pass		= "";		// SMTP Password
+	var	$protocol		= "SMTP";	// mail/sendmail/smtp
+	var	$smtp_host		= "mail.goodjobstore.com";		// SMTP Server.  Example: mail.earthlink.net
+	var	$smtp_user		= "admin@goodjobstore.com";		// SMTP Username
+	var	$smtp_pass		= "GOODJOB2005+";		// SMTP Password
 	var	$smtp_port		= "25";		// SMTP Port
-	var	$smtp_timeout	= 5;		// SMTP Timeout in seconds
+	var	$smtp_timeout	= 60;		// SMTP Timeout in seconds
 	var	$wordwrap		= TRUE;		// TRUE/FALSE  Turns word-wrap on/off
 	var	$wrapchars		= "76";		// Number of characters to wrap at.
 	var	$mailtype		= "text";	// text/html  Defines email formatting
 	var	$charset		= "utf-8";	// Default char set: iso-8859-1 or us-ascii
 	var	$multipart		= "mixed";	// "mixed" (in the body) or "related" (separate)
-	var $alt_message	= '';		// Alternative message for HTML emails
+	var $alt_message	= 'ddddddd';		// Alternative message for HTML emails
 	var	$validate		= FALSE;	// TRUE/FALSE.  Enables email validation
 	var	$priority		= "3";		// Default priority (1 - 5)
 	var	$newline		= "\n";		// Default newline. "\r\n" or "\n" (Use "\r\n" to comply with RFC 822)
@@ -52,16 +52,16 @@ class CI_Email {
 	var	$bcc_batch_mode	= FALSE;	// TRUE/FALSE  Turns on/off Bcc batch feature
 	var	$bcc_batch_size	= 200;		// If bcc_batch_mode = TRUE, sets max number of Bccs in each batch
 	var $_safe_mode		= FALSE;
-	var	$_subject		= "";
-	var	$_body			= "";
-	var	$_finalbody		= "";
+	var	$_subject		= "dd";
+	var	$_body			= "dd";
+	var	$_finalbody		= "dd";
 	var	$_alt_boundary	= "";
 	var	$_atc_boundary	= "";
 	var	$_header_str	= "";
-	var	$_smtp_connect	= "";
+	var	$_smtp_connect	= "27.254.40.100";
 	var	$_encoding		= "8bit";
 	var $_IP			= FALSE;
-	var	$_smtp_auth		= FALSE;
+	var	$_smtp_auth		= TRUE;
 	var $_replyto_flag	= FALSE;
 	var	$_debug_msg		= array();
 	var	$_recipients	= array();
@@ -1671,7 +1671,16 @@ class CI_Email {
 										$errno,
 										$errstr,
 										$this->smtp_timeout);
-
+		// var_dump($this->smtp_host);
+		// echo "<br />";
+		// var_dump($this->smtp_port);
+		// echo "<br />";
+		// var_dump($errno);
+		// echo "<br />";
+		// var_dump($errstr);
+		// echo "<br />";
+		// var_dump($this->smtp_timeout);
+		// exit;
 		if ( ! is_resource($this->_smtp_connect))
 		{
 			$this->_set_error_message('lang:email_smtp_error', $errno." ".$errstr);

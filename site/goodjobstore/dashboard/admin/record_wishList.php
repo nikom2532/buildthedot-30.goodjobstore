@@ -26,7 +26,7 @@
 <!--Permission-->
 
 <?php
-session_start(); //�Դ session
+session_start(); //�Դ session
 $ses_userid =$_SESSION[ses_userid];
 $ses_username = $_SESSION[ses_username];
 if($ses_userid <> session_id() or $ses_username =="")
@@ -57,8 +57,8 @@ exit();
 
 <!-- connect database -->
 <?
-	$objCon = mysql_connect("localhost","iming","iming") or die(mysql_error());
-	$objDB = mysql_select_db("buildthedot_30goodjobstore") or die("Can't connect Database");
+	$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
+	$objDB = mysql_select_db("goodjob") or die("Can't connect Database");
 	mysql_query("SET NAMES utf8",$objCon);
 
 	$sql = "SELECT products.Product_ID,products.Product_Code,Pro_Name_En,property.name_en,Thumbnail_path,Size,wish_list.Qty
