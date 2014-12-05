@@ -70,8 +70,8 @@ exit();
 		$m_Descrip_TH = $_POST['Descrip_Th'];
 			$Descrip_TH = str_replace("'","''",$m_Descrip_TH);
 
-		$objCon = mysql_connect("localhost","iming","iming") or die(mysql_error());
-		$objDB = mysql_select_db("buildthedot_30goodjobstore") or die("Can't connect Database");
+		$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
+		$objDB = mysql_select_db("goodjob") or die("Can't connect Database");
 		mysql_query("SET NAMES utf8",$objCon);
 
 		$strSQL = "INSERT INTO payments (name_th,name_en,description_th,description_en) 

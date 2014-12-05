@@ -22,9 +22,9 @@ else if ( empty( $password ) )
 }
 else
 {                                               //ถ้ากรอกข้อมูลทั้งหมดแล้วให้ทำงานดังนี้
-	$con	=	mysql_connect("localhost","imingcom_arming","cominter");
+	$con	=	mysql_connect("localhost","dev","0823248713");
 	if(!$con) {	echo "Not connect"; }
-	mysql_select_db("imingcom_30goodjobstore",$con);
+	mysql_select_db("goodjob",$con);
 	$check_log = mysql_query("select * from employees where Email ='$username' and Password ='$password' ");                           //ใช้ภาษา SQL ตรวจสอบข้อมูลในฐานข้อมูล
 	$num = mysql_num_rows($check_log);
 	//ให้เอาค่าที่ได้ออกมาประกาศเป็นตัวแปรชื่อ $num

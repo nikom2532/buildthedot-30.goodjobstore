@@ -11,9 +11,9 @@ class Connection
 	function __construct()
 	{
 		$this->servername="localhost";
-		$this->username="imingcom_arming";
-		$this->password="cominter";
-		$this->dabasename="imingcom_30goodjobstore";
+		$this->username="dev";
+		$this->password="0823248713";
+		$this->dabasename="goodjob";
 
 	}
 

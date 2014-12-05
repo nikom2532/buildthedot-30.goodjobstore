@@ -3,8 +3,8 @@
 <?
 	$Name_EN = $_GET["prop_en"];
 	$Name_TH = $_GET["prop_th"];
-	$objCon = mysql_connect("localhost","imingcom_arming","cominter") or die(mysql_error());
-	$objDB = mysql_select_db("imingcom_30goodjobstore") or die("Can't connect Database");
+	$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
+	$objDB = mysql_select_db("goodjob") or die("Can't connect Database");
 	mysql_query("SET NAMES utf8",$objCon);
 
 	$sql = "INSERT INTO property (name_th,name_en) 
