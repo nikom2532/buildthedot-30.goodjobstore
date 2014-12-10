@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<?
+<?php
 	$freeshipID = $_GET["freeshipID"];
 	$changePrice = $_GET["changePrice"];
 	$changeStatus = $_GET["changeStatus"];

@@ -1,11 +1,11 @@
 
-	<link rel="stylesheet" type="text/css" href="<?=base_url()?>public/css/reset.css">
-	<link rel="stylesheet" type="text/css" href="<?=base_url()?>public/css/mainstyle.css">
-	<link rel="stylesheet" type="text/css" href="<?=base_url()?>public/css/admin.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>public/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>public/css/mainstyle.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>public/css/admin.css">
 
-		<script src="<?=base_url()?>public/scripts/jquery-1.6.js" type="text/javascript"></script>
+		<script src="<?php echo base_url()?>public/scripts/jquery-1.6.js" type="text/javascript"></script>
 		<!-- tinyscrollbar -->
-	<script type="text/javascript" src="<?=base_url()?>public/scripts/jquery.tinyscrollbar.min.js"></script>
+	<script type="text/javascript" src="<?php echo base_url()?>public/scripts/jquery.tinyscrollbar.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$('#scrollbar1').tinyscrollbar();	
@@ -14,7 +14,7 @@
 	<!-- tinyscrollbar -->
 
 
-<?
+<?php
 	$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
 	$objDB = mysql_select_db("goodjob") or die("Can't connect Database");
 	mysql_query("SET NAMES utf8",$objCon);
@@ -40,16 +40,16 @@
 			</div>
 
 			<div id="centercolum" >
-						<h2><?=(LANG=='TH')?'เกี่ยวกับเรา':"About Us";?></h2>
+						<h2><?php echo (LANG=='TH')?'เกี่ยวกับเรา':"About Us";?></h2>
 
 						<div id="scrollbar1" class="clearfix" style="width:420px;">
 					<div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
 						
-				<?
+				<?php
 				while ($data=mysql_fetch_array($result))
-				{?><div class="viewport" style="width:400px">
+				{ ?><div class="viewport" style="width:400px">
 							<div class="overview" >
-					<?
+					<?php
 					if(LANG=='TH')
 						echo $data['About_Us_Th'];
 					else
@@ -57,7 +57,7 @@
 					?></div>  <!-- overview -->
 						</div>  <!-- viewport -->
 				</div> <!-- scrollbar1 -->
-				<?}?>
+				<?php } ?>
 		    </div>
 		
 		        	
@@ -65,7 +65,7 @@
 				<iframe width="345px" height="240px" src="http://www.youtube.com/embed/CTbivc87XKs" frameborder="0" allowfullscreen></iframe>
 				<div id="blockContact">
 					<h2>GET IN TOUCH</h2>
-					<?=form_open('mail/get_in_touch')?>
+					<?php echo form_open('mail/get_in_touch')?>
 	              		<table id="tblContact" width="360" border="0" cellspacing="0" cellpadding="2" style="border: none;">
 	                  		<tbody>
 	                  			<tr>
@@ -98,7 +98,7 @@
 	                  			</tr>
 	                			</tbody>
 	                	</table>
-	                <?=form_close()?>
+	                <?php echo form_close()?>
 	            </div>
 
 			</div>

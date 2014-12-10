@@ -26,7 +26,7 @@ exit();
 
 
 <!-------------------------------- Upload Images (php) ------------------------>						
-<?
+<?php
 	// Include คลาส class.upload.php เข้ามา เพื่อจัดการรูปภาพ
 	require_once('classes/class.upload.php') ;
 	 
@@ -125,8 +125,8 @@ exit();
 <!--menu-->
 
 									<b><a href="order.php">Order</a></b>
-								<?if($_SESSION[ses_status] == "Super Admin") 
-			{?>
+								<?php if($_SESSION[ses_status] == "Super Admin") 
+			{ ?>
 								<!-- End Admin -->
 									<b><br><br><a href="saleReport.php">Sale Report</a>
 									<br><br><a href="UPS_rate_fluctuationYearly.php">UPS Rate</a>
@@ -147,7 +147,7 @@ exit();
 									<br><br><a href="shopGuide_main.php">Shopping Guide</a>
 									<br><br><a href="privacy.php">Permission</a>
 									<br><br><a href="usdRate.php">USD Rate</a></b>
-			<?}?>	
+			<?php } ?>	
 
 <!--menu-->
 		   	</div>

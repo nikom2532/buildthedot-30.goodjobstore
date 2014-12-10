@@ -21,7 +21,7 @@ exit();
 
 <!--Permission-->
 
-<?
+<?php
 	//include_once '../classes/Products.php';
 	//Initialization
 	include_once '../classes/Employees.php';
@@ -58,7 +58,7 @@ exit();
 </head>
 
 <!-- add payment -->
-<?
+<?php
 	if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "frmPayment")) 
 	{
 		$m_payment_EN = $_POST['Payment_En'];
@@ -110,8 +110,8 @@ exit();
 			  <!--menu-->
 
 									<b><a href="order.php">Order</a></b>
-								<?if($_SESSION[ses_status] == "Super Admin") 
-			{?>
+								<?php if($_SESSION[ses_status] == "Super Admin") 
+			{ ?>
 								<!-- End Admin -->
 									<b><br><br><a href="saleReport.php">Sale Report</a>
 									<br><br><a href="record.php">Customer Record</a>
@@ -131,7 +131,7 @@ exit();
 									<br><br><a href="shopGuide_main.php">Shopping Guide</a>
 									<br><br><a href="privacy.php">Permission</a>
 									<br><br><a href="usdRate.php">USD Rate</a></b>
-			<?}?>	
+			<?php } ?>	
 
 <!--menu-->
 

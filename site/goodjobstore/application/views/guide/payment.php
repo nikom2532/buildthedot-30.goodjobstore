@@ -1,11 +1,11 @@
 
-	<link rel="stylesheet" type="text/css" href="<?=base_url()?>public/css/reset.css">
-	<link rel="stylesheet" type="text/css" href="<?=base_url()?>public/css/mainstyle.css">
-	<link rel="stylesheet" type="text/css" href="<?=base_url()?>public/css/admin.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>public/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>public/css/mainstyle.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>public/css/admin.css">
 
-	<script src="<?=base_url()?>public/scripts/jquery-1.6.js" type="text/javascript"></script>
+	<script src="<?php echo base_url()?>public/scripts/jquery-1.6.js" type="text/javascript"></script>
 		<!-- tinyscrollbar -->
-	<script type="text/javascript" src="<?=base_url()?>public/scripts/jquery.tinyscrollbar.min.js"></script>
+	<script type="text/javascript" src="<?php echo base_url()?>public/scripts/jquery.tinyscrollbar.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$('#scrollbar1').tinyscrollbar();	
@@ -14,7 +14,7 @@
 	<!-- tinyscrollbar -->
 
 
-<?
+<?php
 	$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
 	$objDB = mysql_select_db("goodjob") or die("Can't connect Database");
 	mysql_query("SET NAMES utf8",$objCon);
@@ -44,10 +44,10 @@
 				
 						<div class="viewport">
 							<div class="overview" style="width:750px">
-			<h2><?=(LANG=='TH')?'วิธีการชำระเงิน':"Payment";?></h2>
+			<h2><?php echo (LANG=='TH')?'วิธีการชำระเงิน':"Payment";?></h2>
 				
 				<span style="line-height:18px; font-size:12px">
-				<?
+				<?php
 				while ($data=mysql_fetch_array($result))
 				{
 					if(LANG=='TH')
@@ -60,8 +60,8 @@
 				<div id="line"></div><br><br>
 				<span style="line-height:18px; font-size:12px">
 
-			<h2><?=(LANG=='TH')?'การส่งสินค้า':"Delivery";?></h2>
-				<?
+			<h2><?php echo (LANG=='TH')?'การส่งสินค้า':"Delivery";?></h2>
+				<?php
 					if(LANG=='TH')
 						echo $data['Delivery_Th'];
 					else

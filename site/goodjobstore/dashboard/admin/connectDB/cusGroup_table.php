@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<?
+<?php
 	$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
 	$objDB = mysql_select_db("goodjob") or die("Can't connect Database");
 	mysql_query("SET NAMES utf8",$objCon);
@@ -20,22 +20,22 @@
 			<td></td>
 			<td></td>
 		</tr>
-		<?
+		<?php
 		while ($data=mysql_fetch_array($result))
-		{?>
+		{ ?>
 			<tr>
-				<td style="text-align:center;"><?=$data['Name']?></td>
+				<td style="text-align:center;"><?php echo $data['Name']?></td>
 				<td>
 					<input type="button" value="Member" 
-					onclick="window.location.href='cusGroup_member.php?groupID=<?=$data['Group_ID']?>&groupName=<?=$data['Name']?>'"
+					onclick="window.location.href='cusGroup_member.php?groupID=<?php echo $data['Group_ID']?>&groupName=<?php echo $data['Name']?>'"
 					style="width:60px">
 				</td>
 				<td>
 					<input type="button" value="Edit" 
-					onclick="window.location.href='cusGroup_viewEdit.php?groupID=<?=$data['Group_ID']?>&groupName=<?=$data['Name']?>'"
+					onclick="window.location.href='cusGroup_viewEdit.php?groupID=<?php echo $data['Group_ID']?>&groupName=<?php echo $data['Name']?>'"
 					style="width:60px"></td>
-				<td><input type="button" value="Delete" onclick="deleteGroup(<?=$data['Group_ID']?>);" style="width:60px"></td>
+				<td><input type="button" value="Delete" onclick="deleteGroup(<?php echo $data['Group_ID']?>);" style="width:60px"></td>
 			</tr>
-		<?}?>
+		<?php } ?>
 	</tbody>
 </table>

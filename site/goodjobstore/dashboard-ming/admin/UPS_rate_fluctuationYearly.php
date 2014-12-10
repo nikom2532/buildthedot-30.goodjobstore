@@ -62,8 +62,8 @@ exit();
 		<div id="content">
 		    <div id="leftcolum">
 			  							<b><a href="order.php">Order</a></b>
-			<?if($_SESSION[ses_status] == "Super Admin") 
-			{?>
+			<?php if($_SESSION[ses_status] == "Super Admin") 
+			{ ?>
 								<!-- End Admin -->
 									<b><br><br><a href="saleReport.php">Sale Report</a>
 									<br><br><a href="UPS_rate_fluctuationYearly.php">UPS Rate</a>
@@ -84,7 +84,7 @@ exit();
 									<br><br><a href="shopGuide_main.php">Shopping Guide</a>
 									<br><br><a href="privacy.php">Permission</a>
 									<br><br><a href="usdRate.php">USD Rate</a></b>
-			<?}?>	
+			<?php } ?>	
 		   	</div>
 			<div id="dashboard"> 
 

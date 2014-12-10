@@ -3,7 +3,7 @@
 <!--Permission-->
 
 <?php
-session_start(); //�Դ session
+session_start(); //�Դ session
 $ses_userid =$_SESSION[ses_userid];
 $ses_username = $_SESSION[ses_username];
 if($ses_userid <> session_id() or $ses_username =="")
@@ -20,7 +20,7 @@ exit();
 ?>
 
 <!--Permission-->
-<?
+<?php
 	$orderID = $_GET['orderID'];
 	$cusID = $_GET['cusID'];
 
@@ -132,8 +132,8 @@ exit();
 <!--menu-->
 
 									<b><a href="order.php">Order</a></b>
-								<?if($_SESSION[ses_status] == "Super Admin") 
-			{?>
+								<?php if($_SESSION[ses_status] == "Super Admin") 
+			{ ?>
 								<!-- End Admin -->
 									<b><br><br><a href="saleReport.php">Sale Report</a>
 									<br><br><a href="record.php">Customer Record</a>
@@ -153,7 +153,7 @@ exit();
 									<br><br><a href="shopGuide_main.php">Shopping Guide</a>
 									<br><br><a href="privacy.php">Permission</a>
 									<br><br><a href="usdRate.php">USD Rate</a></b>
-			<?}?>	
+			<?php } ?>	
 
 <!--menu-->
 		   	</div>
@@ -161,36 +161,36 @@ exit();
 
 					<div class="viewport">
 						<div class="overview">
-							<h2>Order: <?=$orderID?></h2>
+							<h2>Order: <?php echo $orderID?></h2>
 
-							<br>Customer ID: <?=$cusID?>
-							<?while($dataCus=mysql_fetch_array($resultCus))
-							{?>
-								<br>Name: <?=$dataCus['FirstName']?> <?=$dataCus['LastName']?>
-								<br>E-mail: <?=$dataCus['Email']?>
-								<br>Tel: <?=$dataCus['Phone_Number']?>
-							<?}?>
+							<br>Customer ID: <?php echo $cusID?>
+							<?php while($dataCus=mysql_fetch_array($resultCus))
+							{ ?>
+								<br>Name: <?php echo $dataCus['FirstName']?> <?php echo $dataCus['LastName']?>
+								<br>E-mail: <?php echo $dataCus['Email']?>
+								<br>Tel: <?php echo $dataCus['Phone_Number']?>
+							<?php } ?>
 							<br><br><br>
-							<?while($dataShip=mysql_fetch_array($resultShip))
-							{?>
-								<br>Shipping Name: <?=$dataShip['s_FirstName']?> <?=$dataShip['s_LastName']?> 
-								<br>Shipping Address: <?=$dataShip['s_Address']?>
-								<br>City: <?=$dataShip['Name_Th']?>
-								<br>Postcode: <?=$dataShip['s_Postal_Code']?>
-								<br>Tel: <?=$dataShip['s_Phone_Number']?>
-							<?}
+							<?php while($dataShip=mysql_fetch_array($resultShip))
+							{ ?>
+								<br>Shipping Name: <?php echo $dataShip['s_FirstName']?> <?php echo $dataShip['s_LastName']?> 
+								<br>Shipping Address: <?php echo $dataShip['s_Address']?>
+								<br>City: <?php echo $dataShip['Name_Th']?>
+								<br>Postcode: <?php echo $dataShip['s_Postal_Code']?>
+								<br>Tel: <?php echo $dataShip['s_Phone_Number']?>
+							<?php } 
 							while($dataShipMet=mysql_fetch_array($resultShipMet))
-							{?>
-								<br>Shipping Method: <?=$dataShipMet['Name_En']?>
-							<?}
+							{ ?>
+								<br>Shipping Method: <?php echo $dataShipMet['Name_En']?>
+							<?php } 
 							while($dataPayMet=mysql_fetch_array($resultPayMet))
-							{?>
-								<br>Payment Method: <?=$dataPayMet['name_en']?>
-							<?}?>
-							<br>Gift warp: <?=(!$gift)?NO:YES;?>
-							<br>Invoice: <?=(!$invoice)?NO:YES;?>
+							{ ?>
+								<br>Payment Method: <?php echo $dataPayMet['name_en']?>
+							<?php } ?>
+							<br>Gift warp: <?php echo (!$gift)?NO:YES;?>
+							<br>Invoice: <?php echo (!$invoice)?NO:YES;?>
 							<br><br>
-							<input type="button" value="Back" onclick="window.location.href='record_order.php?cusID=<?=$cusID?>'" style="width:60px">
+							<input type="button" value="Back" onclick="window.location.href='record_order.php?cusID=<?php echo $cusID?>'" style="width:60px">
 							<br><br>
 							<div id="line"></div>
 
@@ -208,30 +208,30 @@ exit();
 											<td>Price</td>
 											<td>Total Price</td>
 										</tr>
-										<?$i=1;
+										<?php $i=1;
 										while ($dataItem=mysql_fetch_array($resultItem))
-										{?>
-											<?=($i%2==1)?'<tr style="background-color:#DDDDDD;">':'<tr style="background-color:#EEEEEE;">'?>
-												<td style="text-align:center;"><?=$dataItem['Product_Code']?></td>
-												<td style="text-align:center;"><img src="../../public/<?=$dataItem['Thumbnail_path']?>"></td>
-												<td style="text-align:center;"><?=$dataItem['Pro_Name_En']?></td>
-												<td style="text-align:center;"><?=$dataItem['Name_EN']?></td>
-												<td style="text-align:center;"><?=$dataItem['Qty']?></td>
-												<td style="text-align:right;"><?=($dataItem['Price_sale']==0)?$dataItem['Price_Buy']:$dataItem['Price_sale'];?></td>
-												<td style="text-align:right;"><?=$dataItem['Total_Price']?></td>
+										{ ?>
+											<?php echo ($i%2==1)?'<tr style="background-color:#DDDDDD;">':'<tr style="background-color:#EEEEEE;">'?>
+												<td style="text-align:center;"><?php echo $dataItem['Product_Code']?></td>
+												<td style="text-align:center;"><img src="../../public/<?php echo $dataItem['Thumbnail_path']?>"></td>
+												<td style="text-align:center;"><?php echo $dataItem['Pro_Name_En']?></td>
+												<td style="text-align:center;"><?php echo $dataItem['Name_EN']?></td>
+												<td style="text-align:center;"><?php echo $dataItem['Qty']?></td>
+												<td style="text-align:right;"><?php echo ($dataItem['Price_sale']==0)?$dataItem['Price_Buy']:$dataItem['Price_sale'];?></td>
+												<td style="text-align:right;"><?php echo $dataItem['Total_Price']?></td>
 											</tr>
-										<?$i++;
+										<?php $i++;
 										}?>
 									</tbody>
 								</table>
 							</div>
-							<?while($dataPrice=mysql_fetch_array($resultPrice))
-							{?>
-								<br>Products Total: <b><?=$dataPrice['Total_Price']?></b> Bath.
-								<br>Shipping Price: <b><?=$dataPrice['shipping_price']?></b> Bath.
-								<br>Service Price: <b><?=$dataPrice['service_price']?></b> Bath.
-								<br>Total: <b><?=$dataPrice['Final_Price']?></b> Bath.
-							<?}?>
+							<?php while($dataPrice=mysql_fetch_array($resultPrice))
+							{ ?>
+								<br>Products Total: <b><?php echo $dataPrice['Total_Price']?></b> Bath.
+								<br>Shipping Price: <b><?php echo $dataPrice['shipping_price']?></b> Bath.
+								<br>Service Price: <b><?php echo $dataPrice['service_price']?></b> Bath.
+								<br>Total: <b><?php echo $dataPrice['Final_Price']?></b> Bath.
+							<?php } ?>
 						</div>
 					</div>
 			</div>

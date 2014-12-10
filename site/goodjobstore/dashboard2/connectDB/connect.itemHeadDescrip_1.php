@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<?
+<?php
 	$proID = $_GET['proID'];
 	$colorID = $_GET['colorID'];
 	$proCode = $_GET['proCode'];
@@ -28,22 +28,22 @@
 	
 ?>
 
-	<?
+	<?php
 	while ($data=mysql_fetch_array($result))
-	{?>
-		<div id="product_id"><?=$data['Product_Code']?><?=$data['Property_Name']?></div>
+	{ ?>
+		<div id="product_id"><?php echo $data['Product_Code']?><?php echo $data['Property_Name']?></div>
 		<div id="product_line"></div>
 		<div id="product_price">
 
-		<?if($data['Price_sale']!=0)
-		{?>	
-			<span style="text-decoration: line-through; "><?echo($data['Price_Buy'])?></span> ฿&nbsp&nbsp&nbsp&nbsp<span style="color:red">SALES&nbsp
-			<?echo($data['Price_sale'])?> ฿   </span>  
+		<?php if($data['Price_sale']!=0)
+		{ ?>	
+			<span style="text-decoration: line-through; "><?php echo($data['Price_Buy'])?></span> ฿&nbsp&nbsp&nbsp&nbsp<span style="color:red">SALES&nbsp
+			<?php echo($data['Price_sale'])?> ฿   </span>  
 			</span><br /></span>
-		<?}
+		<?php } 
 		else if ($data['Price_sale']==0)
-		{?>
-			<?echo($data['Price_Buy'])?> ฿<br />
-		<?}
+		{ ?>
+			<?php echo($data['Price_Buy'])?> ฿<br />
+		<?php } 
 	}?>
 </div>  <!-- product_price -->

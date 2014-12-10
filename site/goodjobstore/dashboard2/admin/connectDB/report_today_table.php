@@ -1,7 +1,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
 
-<?
+<?php
 	//-- session for export to excel --
 	session_start(); 
 	unset($_SESSION['report_header']);
@@ -50,29 +50,29 @@
 			<td style="text-align:right; width:70px;">Price</td>
 		</tr>
 		<form name="frmTableOrder">
-			<?	$i=0;
+			<?php	$i=0;
 			while ($dataToday=mysql_fetch_array($resultToday))
-			{?>
+			{ ?>
 				<tr style="height:20px;">
 					<td>
-						<a href="order_detail.php?orderID=<?=$dataToday['Order_ID']?>&cusID=<?=$dataToday['Cus_ID']?>&backTo=1">
-						<?=$dataToday['Order_ID']?></a></td>
-							<?$_SESSION['report_values'][$i][0]="#".$dataToday['Order_ID'];?>
-					<td><?=$dataToday['created_at']?></td>
-							<?$_SESSION['report_values'][$i][1]=$dataToday['created_at'];?>
-					<td><?=$dataToday['Final_Price']?></td>
-						<?$TotalPrice += $dataToday['Final_Price']?>
-							<?$_SESSION['report_values'][$i][2]=$dataToday['Final_Price'];?>
+						<a href="order_detail.php?orderID=<?php echo $dataToday['Order_ID']?>&cusID=<?php echo $dataToday['Cus_ID']?>&backTo=1">
+						<?php echo $dataToday['Order_ID']?></a></td>
+							<?php $_SESSION['report_values'][$i][0]="#".$dataToday['Order_ID'];?>
+					<td><?php echo $dataToday['created_at']?></td>
+							<?php $_SESSION['report_values'][$i][1]=$dataToday['created_at'];?>
+					<td><?php echo $dataToday['Final_Price']?></td>
+						<?php $TotalPrice += $dataToday['Final_Price']?>
+							<?php $_SESSION['report_values'][$i][2]=$dataToday['Final_Price'];?>
 				</tr>
-			<?	$i++;
+			<?php	$i++;
 			}?>
 		</form>
 		<tr><td><br></td></tr>
 		<tr>
-			<td colspan="3" style="text-align:right;">Total Price: <b><?=$TotalPrice?></b> Bath.</td>
-							<?$_SESSION['report_values'][$i][0]=" ";?>
-							<?$_SESSION['report_values'][$i][1]="Total Price";?>
-							<?$_SESSION['report_values'][$i][2]=$TotalPrice;?>
+			<td colspan="3" style="text-align:right;">Total Price: <b><?php echo $TotalPrice?></b> Bath.</td>
+							<?php $_SESSION['report_values'][$i][0]=" ";?>
+							<?php $_SESSION['report_values'][$i][1]="Total Price";?>
+							<?php $_SESSION['report_values'][$i][2]=$TotalPrice;?>
 		</tr>
 	</tbody>
 </table>

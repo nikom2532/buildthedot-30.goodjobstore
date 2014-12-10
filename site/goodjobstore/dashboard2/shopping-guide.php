@@ -17,12 +17,12 @@
 		//build menu with DIV ID="myslidemenu" on page:
 		droplinemenu.buildmenu("droplinetabs1")
 	</script>
-	 <?include("script-menu.php");?>
+	 <?phpinclude("script-menu.php");?>
 </head>
 <body>
 	<div id="aboutus">
 		<!-- Header Section -->
-		<? include("header.php"); ?>
+		<?php include("header.php"); ?>
 
 		<!-- Body Section -->
 		<div id="title_head">
@@ -97,7 +97,7 @@
 			</div>
 		</div>                
 		<!-- Footer Section -->
-		<? include("footer.php"); ?>
+		<?php include("footer.php"); ?>
 
 	</div>
 	

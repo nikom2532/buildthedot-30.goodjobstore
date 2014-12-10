@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-	<?
+	<?php
 		$strProCode = $_GET["proCode"];
 		$strFilterColor = $_GET["filterColor"];
 		$strProID = $_GET["proID"];
@@ -32,15 +32,15 @@
 
 <!------------------------------------------------------------->
 
-	<?
+	<?php
 	while ($data=mysql_fetch_array($result))
 	{
 	?>
 		<div id="testbeta"></div> 
 		<div class="clearfix" id="new_data">
-			<a href="../../public/<?=$data['Path']?>" class="jqzoom" id="testjqzoom" rel='gal1'  title="" >
-				<img id="input_pic" onmouseover="javascript:testtest();" src="../../public/<?=$data['Path_Small']?>"  title="">
+			<a href="../../public/<?php echo $data['Path']?>" class="jqzoom" id="testjqzoom" rel='gal1'  title="" >
+				<img id="input_pic" onmouseover="javascript:testtest();" src="../../public/<?php echo $data['Path_Small']?>"  title="">
 			</a>
 		</div>  <!-- new_data -->
 		<br/>
-<?}?>
+<?php } ?>

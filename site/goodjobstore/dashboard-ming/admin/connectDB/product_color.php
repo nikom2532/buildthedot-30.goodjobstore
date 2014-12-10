@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<?
+<?php
 	$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
 	$objDB = mysql_select_db("goodjob") or die("Can't connect Database");
 	mysql_query("SET NAMES utf8",$objCon);		
@@ -13,9 +13,9 @@
 
 <select name="selectColor">
 	<option value=""><-- Please Select Color --></option>
-	<?
+	<?php
 	while ($data=mysql_fetch_array($resultColor))
-	{?>
-		<option value="<?=$data['Color_ID']?>"><?=$data['Name_EN']?></option>
-	<?}?>
+	{ ?>
+		<option value="<?php echo $data['Color_ID']?>"><?php echo $data['Name_EN']?></option>
+	<?php } ?>
 </select>

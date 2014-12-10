@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<?
+<?php
 	$productCode = $_GET["productCode"];
 	$m_proNameEN = $_GET["proNameEN"];
 		$proNameEN = str_replace("'","''",$m_proNameEN);

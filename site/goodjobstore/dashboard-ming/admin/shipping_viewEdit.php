@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <meta http-equiv=Content-Type content="text/html; charset=utf-8">
 <?php
-session_start(); //à»Ô´ session
+session_start(); //ï¿½Ô´ session
 $ses_userid =$_SESSION[ses_userid];
 $ses_username = $_SESSION[ses_username];
 if($ses_userid <> session_id() or $ses_username =="")
@@ -16,7 +16,7 @@ echo "<br><a href=index.php>Back</a>";
 exit();
 }
 ?>
-<?
+<?php
 	$rangeID = $_GET['rangeID'];
 	$weightStart = $_GET['weightStart'];
 	$weightEnd = $_GET['weightEnd'];
@@ -59,7 +59,7 @@ exit();
 </head>
 <body>
 	<script>
-		viewTable(<?=$howID?>);
+		viewTable(<?php echo $howID?>);
 	</script>
 <!--logout-->
 
@@ -85,8 +85,8 @@ exit();
 			<!--menu-->
 
 									<b><a href="order.php">Order</a></b>
-								<?if($_SESSION[ses_status] == "Super Admin") 
-			{?>
+								<?php if($_SESSION[ses_status] == "Super Admin") 
+			{ ?>
 								<!-- End Admin -->
 									<b><br><br><a href="saleReport.php">Sale Report</a>
 									<br><br><a href="record.php">Customer Record</a>
@@ -106,7 +106,7 @@ exit();
 									<br><br><a href="shopGuide_main.php">Shopping Guide</a>
 									<br><br><a href="privacy.php">Permission</a>
 									<br><br><a href="usdRate.php">USD Rate</a></b>
-			<?}?>	
+			<?php } ?>	
 
 <!--menu-->
 		   	</div>
@@ -121,27 +121,27 @@ exit();
 										<tr>
 											<td style="width:150px;">Weight Start</td>
 											<td style="width:15px;"><img src="../images/dot.gif" /></td>
-											<td style="width:-¨0px;"><input type='text' name='weight_start' value="<?=$weightStart?>"></td>
+											<td style="width:-ï¿½0px;"><input type='text' name='weight_start' value="<?php echo $weightStart?>"></td>
 										</tr>
 																				<tr><td><br></td></tr>
 
 										<tr>
 											<td>Weight End</td>
 											<td><img src="../images/dot.gif" /></td>
-											<td><input type='text' name='weight_end' value="<?=$weightEnd?>"></td>
+											<td><input type='text' name='weight_end' value="<?php echo $weightEnd?>"></td>
 										</tr>
 										<tr><td><br></td></tr>
 										<tr>
 											<td>Price</td>
 											<td><img src="../images/dot.gif" /></td>
-											<td><input type='text' name='price' value="<?=$rangePrice?>"></td>
+											<td><input type='text' name='price' value="<?php echo $rangePrice?>"></td>
 										</tr>
 																				<tr><td><br></td></tr>
 
 									</tbody>
 								</table>
 								
-								<input type='button' value='Edit' onclick="editShipping(<?=$rangeID?>);" style="width:60px">
+								<input type='button' value='Edit' onclick="editShipping(<?php echo $rangeID?>);" style="width:60px">
 								<input type='button' value='Back' onclick="window.location.href='shipper.php'" style="width:60px">
 							</form>		
 							<br><br>

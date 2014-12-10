@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <meta http-equiv=Content-Type content="text/html; charset=utf-8">
 
-<?
+<?php
 	//include_once '../classes/Products.php';
 	//Initialization
 	include_once '../classes/Employees.php';
@@ -42,7 +42,7 @@ exit();
 <!--end Permission-->
 
 <!--Export excel-->
-<?
+<?php
 	unset($_SESSION['report_header']);
 	unset($_SESSION['report_values']);
 	$_SESSION['report_header']=array("ID","Name","Address","City","Post Code","Phone Number","Email"); 
@@ -58,7 +58,7 @@ exit();
 
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
 	<!------------ show table customers ---------->
-	<?
+	<?php
 		$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
 		$objDB = mysql_select_db("goodjob") or die("Can't connect Database");
 		mysql_query("SET NAMES utf8",$objCon);
@@ -95,8 +95,8 @@ exit();
 	<!--menu-->
 
 									<b><a href="order.php">Order</a></b>
-								<?if($_SESSION[ses_status] == "Super Admin") 
-			{?>
+								<?php if($_SESSION[ses_status] == "Super Admin") 
+			{ ?>
 								<!-- End Admin -->
 									<b><br><br><a href="saleReport.php">Sale Report</a>
 									<br><br><a href="UPS_rate_fluctuationYearly.php">UPS Rate</a>
@@ -117,7 +117,7 @@ exit();
 									<br><br><a href="shopGuide_main.php">Shopping Guide</a>
 									<br><br><a href="privacy.php">Permission</a>
 									<br><br><a href="usdRate.php">USD Rate</a></b>
-			<?}?>	
+			<?php } ?>	
 
 <!--menu-->
 		   	</div>
@@ -140,40 +140,40 @@ exit();
 									<td></td>
 									<td></td>
 								</tr>
-								<?	$i=0;
+								<?php	$i=0;
 								while ($dataCustomer=mysql_fetch_array($resultCustomer))
-								{?>
+								{ ?>
 									<tr>
-										<td style="text-align:center;"><?=$dataCustomer['Cus_ID']?></td>
-											<?
+										<td style="text-align:center;"><?php echo $dataCustomer['Cus_ID']?></td>
+											<?php
 												$_SESSION['report_values'][$i][0]="#".$dataCustomer['Cus_ID'];
 											?>
 										<td style="text-align:center;">
-											<?=$dataCustomer['FirstName']?> <?=$dataCustomer['LastName']?>
-											<?$_SESSION['report_values'][$i][1]=$dataCustomer['FirstName']." ".$dataCustomer['LastName'];?>
+											<?php echo $dataCustomer['FirstName']?> <?php echo $dataCustomer['LastName']?>
+											<?php $_SESSION['report_values'][$i][1]=$dataCustomer['FirstName']." ".$dataCustomer['LastName'];?>
 										</td>
 
-											<?$_SESSION['report_values'][$i][2]=$dataCustomer['Address'];?>
-											<?$_SESSION['report_values'][$i][3]=$dataCustomer['Name_En'];?>
-											<?$_SESSION['report_values'][$i][4]=$dataCustomer['Postal_Code'];?>
-											<?$_SESSION['report_values'][$i][5]="#".$dataCustomer['Phone_Number'];?>
+											<?php $_SESSION['report_values'][$i][2]=$dataCustomer['Address'];?>
+											<?php $_SESSION['report_values'][$i][3]=$dataCustomer['Name_En'];?>
+											<?php $_SESSION['report_values'][$i][4]=$dataCustomer['Postal_Code'];?>
+											<?php $_SESSION['report_values'][$i][5]="#".$dataCustomer['Phone_Number'];?>
 
-										<td style="text-align:center;"><?=$dataCustomer['Email']?></td>
-											<?$_SESSION['report_values'][$i][6]=$dataCustomer['Email'];?>
+										<td style="text-align:center;"><?php echo $dataCustomer['Email']?></td>
+											<?php $_SESSION['report_values'][$i][6]=$dataCustomer['Email'];?>
 										<td>
 											<input type="button" value="Order" style="width:60px;" 
-											onclick="window.location.href='record_order.php?cusID=<?=$dataCustomer['Cus_ID']?>'">
+											onclick="window.location.href='record_order.php?cusID=<?php echo $dataCustomer['Cus_ID']?>'">
 										</td>
 										<td>
 											<input type="button" value="Cart" style="width:60px;"
-											onclick="window.location.href='record_cart.php?cusID=<?=$dataCustomer['Cus_ID']?>'">
+											onclick="window.location.href='record_cart.php?cusID=<?php echo $dataCustomer['Cus_ID']?>'">
 										</td>
 										<td>
 											<input type="button" value="Wish List" style="width:80px;"
-											onclick="window.location.href='record_wishList.php?cusID=<?=$dataCustomer['Cus_ID']?>'">
+											onclick="window.location.href='record_wishList.php?cusID=<?php echo $dataCustomer['Cus_ID']?>'">
 										</td>
 									<tr>
-								<?	$i++;
+								<?php	$i++;
 								}?>
 							</table>
 						</div>

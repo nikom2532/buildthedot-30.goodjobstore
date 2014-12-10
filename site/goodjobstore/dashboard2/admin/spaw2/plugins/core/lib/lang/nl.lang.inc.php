@@ -24,7 +24,7 @@ $spaw_lang_data = array(
     'title' => 'Knippen'
   ),
   'copy' => array(
-    'title' => 'Kopiëren'
+    'title' => 'Kopiï¿½ren'
   ),
   'paste' => array(
     'title' => 'Plakken'
@@ -77,10 +77,10 @@ $spaw_lang_data = array(
     'error_height_nan' => 'Hoogte is geen getal',
   ),
   'inserthorizontalrule' => array(
-    'title' => 'Horizontale liniëring'
+    'title' => 'Horizontale liniï¿½ring'
   ),
   'table_create' => array(
-    'title' => 'Tabel crëeren'
+    'title' => 'Tabel crï¿½eren'
   ),
   'table_prop' => array(
     'title' => 'Tabel eigenschappen',

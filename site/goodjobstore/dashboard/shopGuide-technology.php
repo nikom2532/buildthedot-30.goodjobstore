@@ -23,7 +23,7 @@
 		});
 	</script>
 
-<?
+<?php
 	$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
 	$objDB = mysql_select_db("goodjob") or die("Can't connect Database");
 	mysql_query("SET NAMES utf8",$objCon);
@@ -40,8 +40,8 @@
 			<div class="logo"><a href ="../"><img src="images/logo.jpg" /></a></div>
 			<div class="right">
 				<ul class="member_style">
-					<li class="line"><a href="<?=$link?>?id=<?=$id?>"><?=$login?></a></li> 
-					<li><a href="../admin/"><?=$logout?></a></li>
+					<li class="line"><a href="<?php echo $link?>?id=<?php echo $id?>"><?php echo $login?></a></li> 
+					<li><a href="../admin/"><?php echo $logout?></a></li>
 				</ul>
 			</div>
 		</div>
@@ -62,7 +62,7 @@
 			<div id="centercolum">
 				<h2>Technology</h2>
 				<br>
-				<?
+				<?php
 				while ($data=mysql_fetch_array($result))
 				{
 					echo $data['Technologie_En'];

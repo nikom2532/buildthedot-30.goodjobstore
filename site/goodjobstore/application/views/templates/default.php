@@ -12,18 +12,18 @@
 	<!--[if IE 9 ]>    <html class="ie"> <![endif]-->
 	<!--[if (gt IE 9)|!(IE)]><!--> <html class=""> <!--<![endif]-->
 
-	<link rel="icon" type="<?=base_url()?>public/image/vnd.microsoft.icon" href="<?=base_url()?>public/images/favicon.png">
-	<link rel="stylesheet" type="text/css" href="<?=base_url()?>public/css/background.php">
-	<link rel="stylesheet" type="text/css" href="<?=base_url()?>public/css/reset.css">
-	<link rel="stylesheet" type="text/css" href="<?=base_url()?>public/css/mainstyle.css">
-	<link rel="stylesheet" type="text/css" href="<?=base_url()?>public/css/menu.css">
-	<link rel="stylesheet" type="text/css" href="<?=base_url()?>public/css/slidestyle.css">
-	<link rel="stylesheet" type="text/css" href="<?=base_url()?>public/css/default.css">
-	<link rel="stylesheet" type="text/css" href="<?=base_url()?>public/css/nivo-slider.css">
+	<link rel="icon" type="<?php echo base_url()?>public/image/vnd.microsoft.icon" href="<?php echo base_url()?>public/images/favicon.png">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>public/css/background.php">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>public/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>public/css/mainstyle.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>public/css/menu.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>public/css/slidestyle.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>public/css/default.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>public/css/nivo-slider.css">
 	
-	<script type="text/javascript" src="<?=base_url()?>public/scripts/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="<?php echo base_url()?>public/scripts/jquery-1.7.2.min.js"></script>
 
-	<!-- <script type="text/javascript" src="<?=base_url()?>public/scripts/droplinemenu.js"></script>
+	<!-- <script type="text/javascript" src="<?php echo base_url()?>public/scripts/droplinemenu.js"></script>
 	<script type="text/javascript">
 		droplinemenu.buildmenu("droplinetabs1")
 	</script> -->
@@ -39,8 +39,8 @@
 	
 
 	<!-- START jQuery & Menu Style Code -->
-	<link rel="stylesheet" type="text/css" href="<?=base_url()?>public/css/ddsmoothmenu.css" />
-	<script type="text/javascript" src="<?=base_url()?>public/scripts/ddsmoothmenu.js"></script>
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>public/css/ddsmoothmenu.css" />
+	<script type="text/javascript" src="<?php echo base_url()?>public/scripts/ddsmoothmenu.js"></script>
 
 		<script type="text/javascript">
 		ddsmoothmenu.init({
@@ -73,16 +73,16 @@
 <body>
 	<div id="wrapper">
 		<!-- Header Section -->
-		<?=$this->load->view('templates/header')?>
+		<?php echo $this->load->view('templates/header')?>
 		<?php if(!$this->session->userdata('lang')): ?>
-			<?//=$this->load->view('templates/overlay')?>
+			<?php//=$this->load->view('templates/overlay')?>
 		<?php endif; ?>
 		
 		<!-- Body Section -->
-		<?=$contents?>
+		<?php echo $contents?>
 
 		<!-- Footer Section -->
-		<?=$this->load->view('templates/footer')?>
+		<?php echo $this->load->view('templates/footer')?>
 	</div>
 </body>
 </html>

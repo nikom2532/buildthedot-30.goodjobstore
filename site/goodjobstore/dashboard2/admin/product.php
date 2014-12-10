@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <meta http-equiv=Content-Type content="text/html; charset=utf-8">
 
-<?
+<?php
 	$proCode = $_GET['proCode'];
 	//include_once '../classes/Products.php';
 	//Initialization
@@ -60,7 +60,7 @@ exit();
 		} 
 	</script>	
 
-<?
+<?php
 	$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
 	$objDB = mysql_select_db("goodjob") or die("Can't connect Database");
 	mysql_query("SET NAMES utf8",$objCon);
@@ -111,8 +111,8 @@ exit();
 	<!--menu-->
 
 									<b><a href="order.php">Order</a></b>
-								<?if($_SESSION[ses_status] == "Super Admin") 
-			{?>
+								<?php if($_SESSION[ses_status] == "Super Admin") 
+			{ ?>
 								<!-- End Admin -->
 									<b><br><br><a href="saleReport.php">Sale Report</a>
 									<br><br><a href="record.php">Customer Record</a>
@@ -132,7 +132,7 @@ exit();
 									<br><br><a href="shopGuide_main.php">Shopping Guide</a>
 									<br><br><a href="privacy.php">Permission</a>
 									<br><br><a href="usdRate.php">USD Rate</a></b>
-			<?}?>	
+			<?php } ?>	
 
 <!--menu-->
 			    
@@ -141,7 +141,7 @@ exit();
 			
 					<div class="viewport">
 						<div class="overview">
-							<h2>Add -- <?=$proCode?> -- Product</h2>
+							<h2>Add -- <?php echo $proCode?> -- Product</h2>
 						 	<form name="frmAddProduct">
 							<div style="width: 800px; height: 400px; overflow: auto; padding: 5px">
 								<table style="width:400px">
@@ -160,11 +160,11 @@ exit();
 											<td><img src="../images/dot.gif" /><PRE>          </pre></td>
 											<td>
 												<select name="selectProperty"\>
-													<?
+													<?php
 													while ($dataProperty=mysql_fetch_array($resultProperty))
-													{?>
-														<option value="<?=$dataProperty['prop_id']?>"><?=$dataProperty['name_en']?></option>
-													<?}?>
+													{ ?>
+														<option value="<?php echo $dataProperty['prop_id']?>"><?php echo $dataProperty['name_en']?></option>
+													<?php } ?>
 												</select>
 											</td>
 										</tr>
@@ -243,8 +243,8 @@ exit();
 						
 					</div>
 				</div>	
-				<input type='button' value='Next' onclick="addProduct('<?=$genProID?>','<?=$proCode?>');" style="width:60px;">
-								<input type='button' value='Cancel' onclick="window.location.href='viewProduct.php?proCode=<?=$proCode?>'" style="width:60px;">
+				<input type='button' value='Next' onclick="addProduct('<?php echo $genProID?>','<?php echo $proCode?>');" style="width:60px;">
+								<input type='button' value='Cancel' onclick="window.location.href='viewProduct.php?proCode=<?php echo $proCode?>'" style="width:60px;">
 								<input type="hidden" name="MM_insert" value="frmAddProduct" />
 							</form>	<!-- End Content -->  
 			</div>

@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<?
+<?php
 	$paymentID = $_GET["paymentID"];
 	$m_payment_EN = $_GET["payment_EN"];
 	$payment_EN = str_replace("'","''",$m_payment_EN);

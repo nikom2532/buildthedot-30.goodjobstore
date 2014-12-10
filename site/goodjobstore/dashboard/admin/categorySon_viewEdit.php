@@ -3,7 +3,7 @@
 <!--Permission-->
 
 <?php
-session_start(); //�Դ session
+session_start(); //�Դ session
 $ses_userid =$_SESSION[ses_userid];
 $ses_username = $_SESSION[ses_username];
 if($ses_userid <> session_id() or $ses_username =="")
@@ -21,7 +21,7 @@ exit();
 
 <!--Permission-->
 
-<?
+<?php
 	$subID = $_GET['subID'];
 	$sonID = $_GET['sonID'];
 
@@ -89,7 +89,7 @@ exit();
 </head>
 <body>
 	<script>
-		viewTable('<?=$subID?>');
+		viewTable('<?php echo $subID?>');
 	</script>
 <!--logout-->
 
@@ -115,8 +115,8 @@ exit();
 <!--menu-->
 
 									<b><a href="order.php">Order</a></b>
-								<?if($_SESSION[ses_status] == "Super Admin") 
-			{?>
+								<?php if($_SESSION[ses_status] == "Super Admin") 
+			{ ?>
 								<!-- End Admin -->
 									<b><br><br><a href="saleReport.php">Sale Report</a>
 									<br><br><a href="record.php">Customer Record</a>
@@ -136,7 +136,7 @@ exit();
 									<br><br><a href="shopGuide_main.php">Shopping Guide</a>
 									<br><br><a href="privacy.php">Permission</a>
 									<br><br><a href="usdRate.php">USD Rate</a></b>
-			<?}?>	
+			<?php } ?>	
 
 <!--menu-->
 		   	</div>
@@ -147,9 +147,9 @@ exit();
 							<h2>Edit Son Category</h2>
 								<h3>
 									&nbsp;&nbsp;&nbsp;&nbsp;
-									<?=$nameSubEN?><br>
+									<?php echo $nameSubEN?><br>
 									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									<?=$nameEN?>
+									<?php echo $nameEN?>
 								</h3><br>
 						 	<form name="frmAddCategorySon">
 								<table>
@@ -157,17 +157,17 @@ exit();
 										<tr style="height:30px;">
 											<td style="width:70px;">Son [En]</td>
 											<td style="width:15px;"><img src="../images/dot.gif" /></td>
-											<td><input type='text' name='nameEN' value="<?=$nameEN?>"></td>
+											<td><input type='text' name='nameEN' value="<?php echo $nameEN?>"></td>
 										</tr>
 										<tr style="height:30px;">
 											<td style="width:70px;">Son [Th]</td>
 											<td style="width:15px;"><img src="../images/dot.gif" /></td>
-											<td><input type='text' name='nameTH' value="<?=$nameTH?>"></td>
+											<td><input type='text' name='nameTH' value="<?php echo $nameTH?>"></td>
 										</tr>
 										<tr style="height:30px;">
 											<td style="width:70px;">Url</td>
 											<td style="width:15px;"><img src="../images/dot.gif" /></td>
-											<td><input type='text' name='sonUrl' value="<?=$sonUrl?>"></td>
+											<td><input type='text' name='sonUrl' value="<?php echo $sonUrl?>"></td>
 										</tr>
 										<tr>
 											<td><br></td>
@@ -175,7 +175,7 @@ exit();
 									</tbody>
 								</table>
 								<input type='button' value='Edit' 
-								onclick="editCategorySon(<?=$subID?>,<?=$sonID?>);" style="width:60px">
+								onclick="editCategorySon(<?php echo $subID?>,<?php echo $sonID?>);" style="width:60px">
 								<input type='button' value='Cancel' onclick="window.location.href='category.php'" style="width:60px">
 
 								<!--<input type='button' value='Cancel' onclick="window.location.href='mainBO.php'" style="width:60px">-->

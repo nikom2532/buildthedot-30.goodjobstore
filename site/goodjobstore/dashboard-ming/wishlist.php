@@ -51,13 +51,13 @@
 			$('#scrollbar_order').tinyscrollbar();	
 		});
 	</script>	
-	<?include("script-menu.php");?>
+	<?phpinclude("script-menu.php");?>
 	<link rel="stylesheet" type="text/css" href="css/menu.css">
 </head>
 <body>
 	<div id="wrapper">
 		<!-- Header Section -->
-		<? include("header.php"); ?>
+		<?php include("header.php"); ?>
 
 		<!-- Body Section -->
 		<div id="title_head">
@@ -66,12 +66,12 @@
 		<div id="content">
 		    <div id="leftcolum">
 			   <ul>
-					<li><a href="notification.php?id=<?=$get_cusid?>">Notification</a></li>
-					<li><a href="my-info.php?id=<?=$get_cusid?>">My info</a></li>
-					<li><a href="order-history.php?id=<?=$get_cusid?>">Order History</a></li>
-					<li><a class="active" href="wishlist.php?id=<?=$get_cusid?>">Wishlist</a></li>
-					<li><a href="shopping-cart.php?id=<?=$get_cusid?>">My cart</a></li>
-					<li><a href="my-coupon.php?id=<?=$get_cusid?>">My coupon</a></li>
+					<li><a href="notification.php?id=<?php echo $get_cusid?>">Notification</a></li>
+					<li><a href="my-info.php?id=<?php echo $get_cusid?>">My info</a></li>
+					<li><a href="order-history.php?id=<?php echo $get_cusid?>">Order History</a></li>
+					<li><a class="active" href="wishlist.php?id=<?php echo $get_cusid?>">Wishlist</a></li>
+					<li><a href="shopping-cart.php?id=<?php echo $get_cusid?>">My cart</a></li>
+					<li><a href="my-coupon.php?id=<?php echo $get_cusid?>">My coupon</a></li>
 				</ul>
 		   	</div>
 			<div id="withlist"> 
@@ -242,7 +242,7 @@
 			</div>
 		</div>                
 		<!-- Footer Section -->
-		<? include("footer.php"); ?>
+		<?php include("footer.php"); ?>
 
 	</div>
 </body>

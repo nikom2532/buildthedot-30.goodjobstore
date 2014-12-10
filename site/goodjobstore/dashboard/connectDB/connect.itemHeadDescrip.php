@@ -1,7 +1,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <!-- dollar exchange -->
-<?
+<?php
 	function google_finance_convert($from_Currency, $to_Currency, $amount) 
 	{
 		$amount = urlencode($amount);
@@ -31,7 +31,7 @@
 	}
 ?>
 
-<?
+<?php
 	$proID = $_GET['proID'];
 	$colorID = $_GET['colorID'];
 	$proCode = $_GET['proCode'];
@@ -67,17 +67,17 @@
 	
 ?>
 
-	<?
+	<?php
 	while ($data=mysql_fetch_array($result))
-	{?>
-		<div id="product_id"><?=$data['Product_Code']?><?=$data['Property_Name']?></div>
+	{ ?>
+		<div id="product_id"><?php echo $data['Product_Code']?><?php echo $data['Property_Name']?></div>
 		<div id="product_line"></div>
 		<div id="product_price">
 
-		<?if($data['Price_sale']!=0)
-		{?>	
+		<?php if($data['Price_sale']!=0)
+		{ ?>	
 			<span style="text-decoration: line-through; ">
-				<?
+				<?php
 					if($language=='EN')
 						echo "US$ ".cal_rate($rate, $data['Price_Buy']);
 					else
@@ -87,7 +87,7 @@
 			&nbsp&nbsp&nbsp&nbsp
 			<span style="color:red">
 				SALES&nbsp
-				<?
+				<?php
 					if($language=='EN')
 						echo "US$ ".cal_rate($rate, $data['Price_sale']);
 					else
@@ -95,15 +95,15 @@
 				?>
 			</span>  
 			</span><br /></span>
-		<?}
+		<?php } 
 		else if ($data['Price_sale']==0)
-		{?>
-			<?
+		{ ?>
+			<?php
 				if($language=='EN')
 					echo "US$ ".cal_rate($rate, $data['Price_Buy']); 
 				else
 					echo $data['Price_Buy']." ฿";
 			?><br>
-		<?}
+		<?php } 
 	}?>
 </div>  <!-- product_price -->

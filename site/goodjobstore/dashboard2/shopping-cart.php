@@ -30,7 +30,7 @@
 <body>
 	<div id="wrapper">
 		<!-- Header Section -->
-		<? include("header.php"); ?>
+		<?php include("header.php"); ?>
 
 		<!-- Body Section -->
 		<div id="sc_title_head">
@@ -183,7 +183,7 @@
 		<div id="sc_space">               
 		</div>
 		<!-- Footer Section -->
-		<? include("footer.php"); ?>
+		<?php include("footer.php"); ?>
 		
 	</div>
 	

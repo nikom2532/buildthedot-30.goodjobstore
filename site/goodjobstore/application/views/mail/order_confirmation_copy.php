@@ -11,7 +11,7 @@
 <p><img src="http://online.goodjobstore.com/public/images/order_confirmation.jpg" alt="logo" width="804" height="139" />
 </p>
 <p>&nbsp;</p>
-<p style="font-size: 12px; color: #999; font-family: Tahoma, Geneva, sans-serif;">Hi <?=$customer->FirstName?> <?=$customer->LastName?></p>
+<p style="font-size: 12px; color: #999; font-family: Tahoma, Geneva, sans-serif;">Hi <?php echo $customer->FirstName?> <?php echo $customer->LastName?></p>
 <p style="font-size: 12px; color: #999; font-family: Tahoma, Geneva, sans-serif;">Thank you for your order. We're pretty sure you can remember what you ordered but just in case here are some details to remind you.<br />
 </p>
 <p style="font-size: 12px; color: #999; font-family: Tahoma, Geneva, sans-serif;"> You have chosen to pay by PayPal, please keep your payment evidence that issue by PayPal Bank for recognition until goods has been recieved<br />
@@ -22,8 +22,8 @@ Your order will be shipped out to you upon confirmation of your payment. </p>
       <td colspan="2"><strong style="font-size:14px; font-family: Tahoma, Geneva, sans-serif;">PRODUCT DETAILS</strong></td>
     </tr>
     <tr>
-      <td width="81%"> <strong>Order Number</strong>: <?=$order->Order_ID?> </td>
-      <td width="17%"><div align="left" style="text-align: right"><?=date('d/m/Y')?></div></td>
+      <td width="81%"> <strong>Order Number</strong>: <?php echo $order->Order_ID?> </td>
+      <td width="17%"><div align="left" style="text-align: right"><?php echo date('d/m/Y')?></div></td>
     </tr>
     <tr>
       <td colspan="2"><table border="0" cellpadding="0" cellspacing="0" width="100%">
@@ -53,10 +53,10 @@ Your order will be shipped out to you upon confirmation of your payment. </p>
 			<?php //$count_item = count($order_items) ?>
 			<?php foreach($order_items as $result): ?>
           <tr style="font-size: 12px; color: #999; font-family: Tahoma, Geneva, sans-serif;">
-            <td valign="top"><img src="http://online.goodjobstore.com/public/<?=$result->images_Thumbnail_path?>" alt="" /><br/><br/></td>
-            <td valign="top"><?=$result->products_Pro_Name_En?> x <?=$result->order_item_Qty?></td>
-            <td valign="top"><?=$result->color_Name_EN?></td>
-            <td align="right" valign="top"><?=number_format($result->order_item_Total_Price)?> ฿</td>
+            <td valign="top"><img src="http://online.goodjobstore.com/public/<?php echo $result->images_Thumbnail_path?>" alt="" /><br/><br/></td>
+            <td valign="top"><?php echo $result->products_Pro_Name_En?> x <?php echo $result->order_item_Qty?></td>
+            <td valign="top"><?php echo $result->color_Name_EN?></td>
+            <td align="right" valign="top"><?php echo number_format($result->order_item_Total_Price)?> ฿</td>
             <td align="right" valign="top"><br /></td>
             </tr>
             <?php $order_item_total_price = $order_item_total_price + $result->order_item_Total_Price ?>
@@ -67,23 +67,23 @@ Your order will be shipped out to you upon confirmation of your payment. </p>
           <tr>
             <td colspan="3"> </td>
             <td align="right" width="108" style="font-size: 12px; color: #999; font-family: Tahoma, Geneva, sans-serif;">Subtotal<br /></td>
-            <td align="right" width="120" style="font-size: 12px; color: #999; font-family: Tahoma, Geneva, sans-serif;"><?=number_format($order->Total_Price)?> ฿<br /></td>
+            <td align="right" width="120" style="font-size: 12px; color: #999; font-family: Tahoma, Geneva, sans-serif;"><?php echo number_format($order->Total_Price)?> ฿<br /></td>
             </tr>
           <tr>
             <td colspan="3"> </td>
             <td align="right" width="108" style="font-size: 12px; color: #999; font-family: Tahoma, Geneva, sans-serif;">Shipping<br /></td>
-            <td align="right" width="120" style="font-size: 12px; color: #999; font-family: Tahoma, Geneva, sans-serif;"><?=number_format(cal_range_weight($order->How_ID, $order->Total_Weight))?> ฿<br /></td>
+            <td align="right" width="120" style="font-size: 12px; color: #999; font-family: Tahoma, Geneva, sans-serif;"><?php echo number_format(cal_range_weight($order->How_ID, $order->Total_Weight))?> ฿<br /></td>
             </tr>
           <tr>
             <td colspan="3"> </td>
             <td align="right" width="108" style="font-size: 12px; color: #999; font-family: Tahoma, Geneva, sans-serif;">Services<br /></td>
-            <td align="right" width="120" style="font-size: 12px; color: #999; font-family: Tahoma, Geneva, sans-serif;"><?=number_format(cal_price_option($order->Order_ID))?> ฿<br /></td>
+            <td align="right" width="120" style="font-size: 12px; color: #999; font-family: Tahoma, Geneva, sans-serif;"><?php echo number_format(cal_price_option($order->Order_ID))?> ฿<br /></td>
             </tr>
           <tr>
             <td colspan="3"> </td>
             <td align="right" width="108" style="font-size: 12px;  font-family: Tahoma, Geneva, sans-serif;"><strong>Total THB<br />
               </strong></td>
-            <td align="right" width="120" style="font-size: 12px;  font-family: Tahoma, Geneva, sans-serif;"><strong><?=number_format($order->Total_Price + cal_range_weight($order->How_ID, $order->Total_Weight) + cal_price_option($order->Order_ID))?> ฿<br />
+            <td align="right" width="120" style="font-size: 12px;  font-family: Tahoma, Geneva, sans-serif;"><strong><?php echo number_format($order->Total_Price + cal_range_weight($order->How_ID, $order->Total_Weight) + cal_price_option($order->Order_ID))?> ฿<br />
               </strong></td>
             </tr>
           </tbody>
@@ -105,7 +105,7 @@ Your order will be shipped out to you upon confirmation of your payment. </p>
     </tr>
     <tr>
       <?php $shipping_method = get_shipping_method($order->How_ID);?>
-      <td style="font-size: 14px; font-family: Tahoma, Geneva, sans-serif;"><strong>Shipping Method</strong>: <?=(LANG=='TH')?$shipping_method->Name_Th:$shipping_method->Name_En;?></td>
+      <td style="font-size: 14px; font-family: Tahoma, Geneva, sans-serif;"><strong>Shipping Method</strong>: <?php echo (LANG=='TH')?$shipping_method->Name_Th:$shipping_method->Name_En;?></td>
       <td align="right" style="font-size: 14px;  font-family: Tahoma, Geneva, sans-serif;"><strong>Est. Delivery Time: 7 - 21 day delivery </strong><br /></td>
     </tr>
     <tr>
@@ -114,17 +114,17 @@ Your order will be shipped out to you upon confirmation of your payment. </p>
     </tr>
     <tr>
       <td style="font-size: 12px; color: #999; font-family: Tahoma, Geneva, sans-serif;">
-        <?=$shipping->s_Address?><br />
-        <?=show_city_from_id($shipping->s_City_ID)?><br />
+        <?php echo $shipping->s_Address?><br />
+        <?php echo show_city_from_id($shipping->s_City_ID)?><br />
         <br />
-        <?=$shipping->s_Postal_Code?><br />
+        <?php echo $shipping->s_Postal_Code?><br />
         <br />
         Thailand<br /></td>
       <td style="font-size: 12px; color: #999; font-family: Tahoma, Geneva, sans-serif;">
-        <?=$customer->Address?><br />
-        <?=show_city_from_id($customer->City_ID)?><br />
+        <?php echo $customer->Address?><br />
+        <?php echo show_city_from_id($customer->City_ID)?><br />
         <br />
-        <?=$customer->Postal_Code?><br />
+        <?php echo $customer->Postal_Code?><br />
         <br />
         Thailand<br /></td>
     </tr>

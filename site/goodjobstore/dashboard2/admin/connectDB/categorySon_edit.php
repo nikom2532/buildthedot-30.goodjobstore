@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<?
+<?php
 	$sonID = $_GET['sonID'];
 	$nameEN = $_GET['nameEN'];
 	$nameTH = $_GET['nameTH'];

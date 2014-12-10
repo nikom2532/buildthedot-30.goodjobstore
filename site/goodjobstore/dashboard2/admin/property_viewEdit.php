@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <meta http-equiv=Content-Type content="text/html; charset=utf-8">
 
-<?
+<?php
 	$propID = $_GET['propID'];
 
 	//include_once '../classes/Products.php';
@@ -91,7 +91,7 @@ exit();
 </head>
 
 <!-- edit property -->
-<?
+<?php
 	if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "frmEditProperty")) 
 	{
 		$m_Name_EN = $_POST['Prop_En'];
@@ -134,8 +134,8 @@ exit();
 <!--menu-->
 
 									<b><a href="order.php">Order</a></b>
-								<?if($_SESSION[ses_status] == "Super Admin") 
-			{?>
+								<?php if($_SESSION[ses_status] == "Super Admin") 
+			{ ?>
 								<!-- End Admin -->
 									<b><br><br><a href="saleReport.php">Sale Report</a>
 									<br><br><a href="record.php">Customer Record</a>
@@ -155,7 +155,7 @@ exit();
 									<br><br><a href="shopGuide_main.php">Shopping Guide</a>
 									<br><br><a href="privacy.php">Permission</a>
 									<br><br><a href="usdRate.php">USD Rate</a></b>
-			<?}?>	
+			<?php } ?>	
 
 <!--menu-->
 		   	</div>
@@ -171,12 +171,12 @@ exit();
 										<tr style="height:30px;">
 											<td style="width:150px;">Property [En]</td>
 											<td style="width:15px;"><img src="../images/dot.gif" /></td>
-											<td style="width:300px;"><input type='text' name='Prop_En' value="<?=$nameEN?>"></td>
+											<td style="width:300px;"><input type='text' name='Prop_En' value="<?php echo $nameEN?>"></td>
 										</tr>
 										<tr style="height:30px;">
 											<td>Property [Th]</td>
 											<td><img src="../images/dot.gif" /></td>
-											<td><input type='text' name='Prop_Th' value="<?=$nameTH?>"></td>
+											<td><input type='text' name='Prop_Th' value="<?php echo $nameTH?>"></td>
 										</tr>
 									</tbody>
 								</table>

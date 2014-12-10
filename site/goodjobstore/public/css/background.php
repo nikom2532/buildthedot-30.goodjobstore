@@ -20,5 +20,5 @@ body {
 	font-family: Verdana, Arial, Helvetica, Sans-Serif;
 	color: #5D717E;
 	background-color: #DDD;
-	background-image:url(../images/<?=$background_path?>) !important;
+	background-image:url(../images/<?php echo $background_path?>) !important;
 }

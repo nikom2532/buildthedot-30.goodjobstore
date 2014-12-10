@@ -7,7 +7,7 @@
  *
  *--------------------------------------------------------------------
  * Revision History
- * v2.1.0	8  nov	2009	Jean-Sébastien Goupil
+ * v2.1.0	8  nov	2009	Jean-Sï¿½bastien Goupil
  *--------------------------------------------------------------------
  * $Id: BCGDraw.php,v 1.1 2009/11/09 04:15:10 jsgoupil Exp $
  * PHP5-Revision: 1.1

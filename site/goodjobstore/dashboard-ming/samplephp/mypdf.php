@@ -19,10 +19,10 @@ $pdf->Rect(145, 40, 60, 50, "D");
 
 $pdf->SetTextColor(255,255,255);
 $pdf->SetFont("iris","B",15);
-$pdf->Text(50,45,"ÃÒÂ¡ÒÃÊÔ¹¤éÒ");
-$pdf->Text(120,45,"ÃÒ¤Ò (ºÒ·)");
+$pdf->Text(50,45,"ï¿½ï¿½Â¡ï¿½ï¿½ï¿½Ô¹ï¿½ï¿½ï¿½");
+$pdf->Text(120,45,"ï¿½Ò¤ï¿½ (ï¿½Ò·)");
 
-/*Product Data ¶éÒÇ¹ÅÙ»àÍÒ 54 ä»ºÇ¡·ÕÅÐ 5 ¹Ð*/
+/*Product Data ï¿½ï¿½ï¿½Ç¹ï¿½Ù»ï¿½ï¿½ï¿½ 54 ä»ºÇ¡ï¿½ï¿½ï¿½ï¿½ 5 ï¿½ï¿½*/
 $pdf->SetTextColor(0,0,0);
 $pdf->SetFont("iris","B",15);
 $pdf->Text(15,54,"product");
@@ -32,8 +32,8 @@ $pdf->Text(120,54,"price");
 
 $pdf->SetTextColor(0,0,0);
 $pdf->SetFont("iris","",14);
-$pdf->Text(150,45,"ª×èÍÅÙ¡¤éÒ : ");
-$pdf->Text(150,50,"·ÕèÍÂÙè : ");
+$pdf->Text(150,45,"ï¿½ï¿½ï¿½ï¿½ï¿½Ù¡ï¿½ï¿½ï¿½ : ");
+$pdf->Text(150,50,"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : ");
 
 $pdf->SetXY(163,41);
 $pdf->MultiCell( 30  , 5 , iconv( 'UTF-8','cp874' , 'Customer' ) );
@@ -41,9 +41,9 @@ $pdf->SetXY(157,46);
 $pdf->MultiCell( 45  , 5 , iconv( 'UTF-8','cp874' , 'AddressAddressAddressAddressAddressAddressAddressAddressAddressAddressAddress' ) );
 
 
-$pdf->Text(150,65,"ËÁÒÂàÅ¢ÅÙ¡¤éÒ : ");
+$pdf->Text(150,65,"ï¿½ï¿½ï¿½ï¿½ï¿½Å¢ï¿½Ù¡ï¿½ï¿½ï¿½ : ");
 $pdf->Rect(150,66, 47, 5, "D");
-$pdf->Text(150,80,"ËÁÒÂàÅ¢¤ÓÊÑè§«×éÍ : ");
+$pdf->Text(150,80,"ï¿½ï¿½ï¿½ï¿½ï¿½Å¢ï¿½ï¿½ï¿½ï¿½è§«ï¿½ï¿½ï¿½ : ");
 $pdf->Rect(150,81, 47, 5, "D");
 
 $pdf->SetXY(150,66);
@@ -55,8 +55,8 @@ $pdf->MultiCell( 30  , 5 , iconv( 'UTF-8','cp874' , 'Order No.' ) );
 $pdf->Rect(10,139, 130, 9, "DF");
 $pdf->SetTextColor(255,255,255);
 $pdf->SetFont("iris","B",15);
-$pdf->Text(15,145,"ÃÇÁà§Ô¹·ÕèµéÍ§ªÓÃÐ·Ñé§ÊÔé¹");
-$pdf->Text(130,145,"ºÒ·");
+$pdf->Text(15,145,"ï¿½ï¿½ï¿½ï¿½Ô¹ï¿½ï¿½ï¿½ï¿½Í§ï¿½ï¿½ï¿½Ð·ï¿½ï¿½ï¿½ï¿½ï¿½");
+$pdf->Text(130,145,"ï¿½Ò·");
 
 $pdf->SetFont("iris","B",15);
 $pdf->SetTextColor(255,255,255);

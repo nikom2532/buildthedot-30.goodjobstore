@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<?
+<?php
 	$proCode = $_GET["proCode"];
 	$subID = $_GET["subID"];
 	$lvl = $_GET["lvl"];

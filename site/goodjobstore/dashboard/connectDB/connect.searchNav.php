@@ -1,5 +1,5 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<?
+	<?php
 		$strPage = $_GET["page"];
 		$strKeyword = $_GET["keyword"];
 		$language = $_GET["language"];

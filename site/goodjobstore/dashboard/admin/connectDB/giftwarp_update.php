@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<?
+<?php
 	$optionID = $_GET["optionID"];
 	$changePrice = $_GET["changePrice"];
 

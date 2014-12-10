@@ -1,11 +1,11 @@
 
-	<link rel="stylesheet" type="text/css" href="<?=base_url()?>public/css/reset.css">
-	<link rel="stylesheet" type="text/css" href="<?=base_url()?>public/css/mainstyle.css">
-	<link rel="stylesheet" type="text/css" href="<?=base_url()?>public/css/admin.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>public/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>public/css/mainstyle.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>public/css/admin.css">
 
-			<script src="<?=base_url()?>public/scripts/jquery-1.6.js" type="text/javascript"></script>
+			<script src="<?php echo base_url()?>public/scripts/jquery-1.6.js" type="text/javascript"></script>
 		<!-- tinyscrollbar -->
-	<script type="text/javascript" src="<?=base_url()?>public/scripts/jquery.tinyscrollbar.min.js"></script>
+	<script type="text/javascript" src="<?php echo base_url()?>public/scripts/jquery.tinyscrollbar.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$('#scrollbar1').tinyscrollbar();	
@@ -13,7 +13,7 @@
 	</script>
 	<!-- tinyscrollbar -->
 
-<?
+<?php
 	$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
 	$objDB = mysql_select_db("goodjob") or die("Can't connect Database");
 	mysql_query("SET NAMES utf8",$objCon);
@@ -45,7 +45,7 @@
 							<div class="overview">
 				<h2>FAQ</h2>
 				<br>
-				<?
+				<?php
 				while ($data=mysql_fetch_array($result))
 				{
 					if(LANG=='TH')

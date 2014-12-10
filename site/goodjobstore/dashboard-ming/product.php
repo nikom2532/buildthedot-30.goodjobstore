@@ -1,4 +1,4 @@
-<? 
+<?php 
 	session_start();
 	include_once 'classes/Products.php';
 	include_once 'classes/Cross_Sale.php';
@@ -68,7 +68,7 @@
 			$('#scrollbar1').tinyscrollbar();	
 		});
 	</script>	
-	<?include("script-menu.php");?>
+	<?phpinclude("script-menu.php");?>
 </head>
 <body>
 	<div id="fb-root"></div>
@@ -82,7 +82,7 @@
 		}(document, 'script', 'facebook-jssdk'));</script>
 	<div id="wrapper">
 		<!-- Header Section -->
-		<? include("header.php"); ?>
+		<?php include("header.php"); ?>
 
 		<!-- Body Section -->
 		<div id="product_content">
@@ -115,11 +115,11 @@
 				<div id="product_head">
 					<div class="left">
 						<div class="fb-like" data-href="http://online.goodjobstore.com/product.php" data-send="false" data-layout="button_count" data-width="200" data-show-faces="false"></div>						
-						<h1 class="product_name"><?=$getproduct_name?></h1>
-						<div id="product_id"><?=$getproduct_code?></div>
+						<h1 class="product_name"><?php echo $getproduct_name?></h1>
+						<div id="product_id"><?php echo $getproduct_code?></div>
 						<div id="product_line"></div>
 						<div id="product_price">
-						<?=$getproduct_price?> ฿<br />
+						<?php echo $getproduct_price?> ฿<br />
 						<!--instead of <span style="text-decoration: line-through;">4,271 ฿</span><br />-->
 						</div>
 					</div>
@@ -139,7 +139,7 @@
 						<div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
 						<div class="viewport">
 						 	<div class="overview">
-							<?=$getProduct_description?>
+							<?php echo $getProduct_description?>
 							<!--<h1>"Simplicity is the ultimate sophistication"  Leonardo da Vinci﻿</h1>
 							<p>The original case series "Stingray" is made of two circular sheets of tissue. And in order to create a functional amount of inside the front part of the designers affixed a triangular aluminum clip. 
 							The reverse side is designed to minimize the distance between the bag and its owner honored.
@@ -173,7 +173,7 @@
 							<tbody>
 								<tr>
 									<td>
-										<a href='wishlist.php?product_id=<?php echo $product->getProduct_ID();?>&color_id=<?= $color_id ?>' class="wishlist_button">ADD TO WISHLIST</a>
+										<a href='wishlist.php?product_id=<?php echo $product->getProduct_ID();?>&color_id=<?php echo  $color_id ?>' class="wishlist_button">ADD TO WISHLIST</a>
 										<a href="#" class="add_button">+ ADD TO CART</a>
 									</td>
 									<td></td>
@@ -202,7 +202,7 @@
 			</div>
 		</div>
 		<!-- Footer Section -->
-		<? include("footer.php"); ?>
+		<?php include("footer.php"); ?>
 	</div>
 
 

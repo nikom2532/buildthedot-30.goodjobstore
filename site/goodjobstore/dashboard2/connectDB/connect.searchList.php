@@ -1,7 +1,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <!-- dollar exchange -->
-<?
+<?php
 	function google_finance_convert($from_Currency, $to_Currency, $amount) 
 	{
 		$amount = urlencode($amount);
@@ -24,7 +24,7 @@
 	}
 ?>
 
-	<?
+	<?php
 		$strPage = $_GET["page"];
 		$strKeyword = $_GET["keyword"];
 		$language = $_GET["language"];
@@ -69,7 +69,7 @@
 	?>
 
 	<div id="itemWrapper" class="clearfix">
-<?
+<?php
 	while ($data = mysql_fetch_array($resultPage))
 	{
 
@@ -81,25 +81,25 @@
 		<div class="item">
 			<div class="holder_wrap">  
 				<div class="holder_wrap_img"> 
-					<a href="../category/<?=(!$data['Url_En'])?$data['Pro_Name_En']:$data['Url_En']?>" style="text-decoration:none">
-						<img src="<?=$data['Path_Small']?>" style="width:155px; height:116px;" />
+					<a href="../category/<?php echo (!$data['Url_En'])?$data['Pro_Name_En']:$data['Url_En']?>" style="text-decoration:none">
+						<img src="<?php echo $data['Path_Small']?>" style="width:155px; height:116px;" />
 					</a>
 					<div class="inner_position_right">
-					<? if($data['Qty']==0): ?>
+					<?php if($data['Qty']==0): ?>
 							<img src="../public/images/out_of_stock.png" />
-					<? elseif($data['attribute_id']==1): ?>
+					<?php elseif($data['attribute_id']==1): ?>
 							<img src="../public/images/new_item.png" />
-					<? elseif($data['attribute_id']==2): ?>
+					<?php elseif($data['attribute_id']==2): ?>
 							<img src="../public/images/hot_item.png" />
-					<? elseif($data['attribute_id']==3): ?>
+					<?php elseif($data['attribute_id']==3): ?>
 							<img src="../public/images/sale_item.png" />
-					<? endif; ?>
+					<?php endif; ?>
 					</div>  <!-- inner_position_right  -->
 				</div>  <!-- holder_wrap_img -->
 			</div> <!-- holder_wrap -->
-			<div class="itemProductName"><?=($language=='TH')?$data['Pro_Name_Th']:$data['Pro_Name_En'];?></div> 
+			<div class="itemProductName"><?php echo ($language=='TH')?$data['Pro_Name_Th']:$data['Pro_Name_En'];?></div> 
 			<div class="itemPrice">
-				<?
+				<?php
 					if($language=='EN')
 						echo "US$ ".google_finance_convert("THB", "USD", $price);
 					else
@@ -107,7 +107,7 @@
 				?>
 			</div>
 		</div>  <!-- item -->
-<?
+<?php
 	}
 ?>
 	</div>  <!-- itemWrapper -->

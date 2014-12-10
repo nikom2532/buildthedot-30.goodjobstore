@@ -7,16 +7,16 @@
 </head>
 
 <body>
-<p><span style="font-size: 12px; color: #999; font-family: Tahoma, Geneva, sans-serif;">Hi,<?=$customer->FirstName?> <?=$customer->LastName?>.</span></p>
+<p><span style="font-size: 12px; color: #999; font-family: Tahoma, Geneva, sans-serif;">Hi,<?php echo $customer->FirstName?> <?php echo $customer->LastName?>.</span></p>
 <p><span style="font-size: 12px; color: #999; font-family: Tahoma, Geneva, sans-serif;">Thank you for your order. We're pretty sure you can remember what you ordered but just in case, here are your shipping number.</span></p>
-<strong><?=$order->shipping_number?></Strong>
+<strong><?php echo $order->shipping_number?></Strong>
 
 <p><span style="font-size: 12px; color: #999; font-family: Tahoma, Geneva, sans-serif;">You can track your order 24/7 on <a href="http://track.thailandpost.co.th/trackinternet/Default.aspx?lang=t">TRACK &amp; TRACE</a> system, just&nbsp;input &nbsp;number which show on above,  then click the &quot;Track&quot; button.</span></p>
-<?
+<?php
 if($order->How_ID==3 or $order->How_ID==4)
-{?>
+{ ?>
 <p><span style="font-size: 12px; color: #999; font-family: Tahoma, Geneva, sans-serif;">You can track your order 24/7 on <a href="http://www.ups.com/WebTracking/track?loc=en_TH&WT.svl=PriNav">TRACK &amp; TRACE</a> system, just&nbsp;input &nbsp;number which show on above,  then click the &quot;Track&quot; button.</span></p>
-<?}?>
+<?php } ?>
 <table border="0" cellspacing="0" cellpadding="0" width="73%">
   <tr>
     <td></td>

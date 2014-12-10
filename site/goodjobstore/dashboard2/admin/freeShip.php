@@ -20,7 +20,7 @@ exit();
 ?>
 
 <!--Permission-->
-<?
+<?php
 	//include_once '../classes/Products.php';
 	//Initialization
 	include_once '../classes/Employees.php';
@@ -53,7 +53,7 @@ exit();
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
 </head>
 
-<?
+<?php
 	$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
 	$objDB = mysql_select_db("goodjob") or die("Can't connect Database");
 	mysql_query("SET NAMES utf8",$objCon);
@@ -91,8 +91,8 @@ exit();
 	<!--menu-->
 
 									<b><a href="order.php">Order</a></b>
-								<?if($_SESSION[ses_status] == "Super Admin") 
-			{?>
+								<?php if($_SESSION[ses_status] == "Super Admin") 
+			{ ?>
 								<!-- End Admin -->
 									<b><br><br><a href="saleReport.php">Sale Report</a>
 									<br><br><a href="record.php">Customer Record</a>
@@ -112,7 +112,7 @@ exit();
 									<br><br><a href="shopGuide_main.php">Shopping Guide</a>
 									<br><br><a href="privacy.php">Permission</a>
 									<br><br><a href="usdRate.php">USD Rate</a></b>
-			<?}?>	
+			<?php } ?>	
 
 <!--menu-->
 		   	</div>
@@ -126,18 +126,18 @@ exit();
 <div style="width: 800px; height: 400px; overflow: auto; padding: 5px">
 							<div id="freeShip_content">
 								<table style="width:70%; border-collapse:collapse;">
-									<?while ($data=mysql_fetch_array($result))
-									{?>
+									<?php while ($data=mysql_fetch_array($result))
+									{ ?>
 										<tr>
 											<td style="width:30%;">Free shipping</td>
 											<td style="width:10px;"><img src="../images/dot.gif" /></td>
-											<td style="width:20%;"><input type="text" id="minPrice" value="<?=$data['min_price']?>"></td>
+											<td style="width:20%;"><input type="text" id="minPrice" value="<?php echo $data['min_price']?>"></td>
 											<td style="width:100px; text-align:center;"><input type="checkbox" id="free_status" value="1"
-												<?if($data['status']==1){?>checked<?}?>
+												<?php if($data['status']==1){ ?>checked<?php } ?>
 											> Enable</td>
-											<td><input type="button" value="Update" onclick="updateFreeShip('<?=$data['id']?>');" style="width:60px"></td>
+											<td><input type="button" value="Update" onclick="updateFreeShip('<?php echo $data['id']?>');" style="width:60px"></td>
 										</tr>
-									<?}?>
+									<?php } ?>
 								</table>
 							</div>
 						</div>

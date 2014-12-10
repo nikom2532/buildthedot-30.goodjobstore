@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <meta http-equiv=Content-Type content="text/html; charset=utf-8">
 
-<?
+<?php
 	$proID = $_GET['genProID'];
 	$proCode = $_GET['proCode'];
 	$propertyName = $_GET['propertyName'];
@@ -49,7 +49,7 @@ exit();
 <!--Permission-->
 
 <!-------------------------------- Upload Images (php) ------------------------>						
-<?
+<?php
 	//------------ connect database ----------
 	$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
 	$objDB = mysql_select_db("goodjob") or die("Can't connect Database");
@@ -144,8 +144,8 @@ exit();
 <!--menu-->
 
 									<b><a href="order.php">Order</a></b>
-								<?if($_SESSION[ses_status] == "Super Admin") 
-			{?>
+								<?php if($_SESSION[ses_status] == "Super Admin") 
+			{ ?>
 								<!-- End Admin -->
 									<b><br><br><a href="saleReport.php">Sale Report</a>
 									<br><br><a href="record.php">Customer Record</a>
@@ -165,7 +165,7 @@ exit();
 									<br><br><a href="shopGuide_main.php">Shopping Guide</a>
 									<br><br><a href="privacy.php">Permission</a>
 									<br><br><a href="usdRate.php">USD Rate</a></b>
-			<?}?>	
+			<?php } ?>	
 
 <!--menu-->
 
@@ -174,7 +174,7 @@ exit();
 	
 					<div class="viewport">
 						<div class="overview">
-							<h2>Add -- <?=$proCode?><?=$propertyName?> -- Property Image</h2>
+							<h2>Add -- <?php echo $proCode?><?php echo $propertyName?> -- Property Image</h2>
 
 
 <!------------------------- Upload Image (form) ----------------->
@@ -205,20 +205,20 @@ exit();
 										<td></td>
 										<td></td>
 									</tr>
-									<?
+									<?php
 									while ($data=mysql_fetch_array($result))
-									{?>
+									{ ?>
 										<tr>
 											<td style="text-align:center;">
-											<?if($data['Property_path']!=NULL){?>
-												<img src="../../public/<?=$data['Property_path']?>"><?}?>
+											<?php if($data['Property_path']!=NULL){ ?>
+												<img src="../../public/<?php echo $data['Property_path']?>"><?php } ?>
 											</td>
 										</tr>
-									<?}?>
+									<?php } ?>
 								</table>
 							</div><br><br>
 							<div id="line"></div>
-		<input type="button" value="Submit" style="width:60px;" onclick="window.location.href='viewProduct.php?proCode=<?=$proCode?>'">
+		<input type="button" value="Submit" style="width:60px;" onclick="window.location.href='viewProduct.php?proCode=<?php echo $proCode?>'">
 							</div>
 					</div>
 				</div>	

@@ -238,8 +238,8 @@ idTb.style.display='none';
 			<div class="logo"><a href ="../"><img src="../images/logo.jpg" /></a></div>
 			<div class="right">
 				<ul class="member_style">
-					<li class="line"><a href="<?=$link?>?id=<?=$id?>"><?=$login?></a></li> 
-					<li><a href="../admin/"><?=$logout?></a></li>
+					<li class="line"><a href="<?php echo $link?>?id=<?php echo $id?>"><?php echo $login?></a></li> 
+					<li><a href="../admin/"><?php echo $logout?></a></li>
 				</ul>
 			</div>
 		</div>
@@ -251,13 +251,13 @@ idTb.style.display='none';
 		<div id="content">
 		    <div id="leftcolum">
 			    <ul>
-			        <li><a href="profile.php?id=<?=$get_empid?>">Profile</a></li>
-			        <li><a href="category.php?id=<?=$get_empid?>">Category</a></li>
-			        <li><a href="sub-category.php?id=<?=$get_empid?>">Sub Category</a></li>
-					<li><a class="active" href="product.php?id=<?=$get_empid?>">Product</a></li>
-					<li><a href="employee.php?id=<?=$get_empid?>">Employee</a></li>
-					<li><a href="customer.php?id=<?=$get_empid?>">Customer</a></li>
-					<li><a href="Shopping Guide.php?id=<?=$get_empid?>">Shopping Guide</a></li>
+			        <li><a href="profile.php?id=<?php echo $get_empid?>">Profile</a></li>
+			        <li><a href="category.php?id=<?php echo $get_empid?>">Category</a></li>
+			        <li><a href="sub-category.php?id=<?php echo $get_empid?>">Sub Category</a></li>
+					<li><a class="active" href="product.php?id=<?php echo $get_empid?>">Product</a></li>
+					<li><a href="employee.php?id=<?php echo $get_empid?>">Employee</a></li>
+					<li><a href="customer.php?id=<?php echo $get_empid?>">Customer</a></li>
+					<li><a href="Shopping Guide.php?id=<?php echo $get_empid?>">Shopping Guide</a></li>
 			    </ul>
 		   	</div>
 			<div id="dashboard"> 
@@ -327,7 +327,7 @@ idTb.style.display='none';
 								<td>
 									<select name="color">
 									<option value=""><-- Please Select Color --></option>
-									<? echo $color->getcolor();?>
+									<?php echo $color->getcolor();?>
 									</select>
 								</td>
 							</tr>
@@ -338,7 +338,7 @@ idTb.style.display='none';
 								<td>
 									<select name="property">
 									<option value=""><-- Please Select Property --></option>
-									<? echo $property->getproperty();?>
+									<?php echo $property->getproperty();?>
 									</select>
 								</td>
 							</tr>
@@ -362,7 +362,7 @@ idTb.style.display='none';
 								<td>
 									<select name="cross1">
 									<option value=""><-- Please Select Cross Product 1--></option>
-									<? echo $cross->getcross();?>
+									<?php echo $cross->getcross();?>
 									</select>
 									
 								</td>
@@ -375,7 +375,7 @@ idTb.style.display='none';
 								<td>
 									<select name="cross2">
 									<option value=""><-- Please Select Cross Product 2--></option>
-									<? echo $cross->getcross();?>
+									<?php echo $cross->getcross();?>
 									</select>
 									
 								</td>
@@ -388,7 +388,7 @@ idTb.style.display='none';
 								<td>
 									<select name="cross3">
 									<option value=""><-- Please Select Cross Product 3--></option>
-									<? echo $cross->getcross();?>
+									<?php echo $cross->getcross();?>
 									</select>
 									
 								</td>
@@ -401,7 +401,7 @@ idTb.style.display='none';
 								<td>
 									<select name="cross4">
 									<option value=""><-- Please Select Cross Product 4--></option>
-									<? echo $cross->getcross();?>
+									<?php echo $cross->getcross();?>
 									</select>
 									
 								</td>

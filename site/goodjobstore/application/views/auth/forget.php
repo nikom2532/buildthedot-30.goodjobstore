@@ -32,11 +32,11 @@
  </head>
 
  <body>
- 	<?=form_open('mail/forget')?>
+ 	<?php echo form_open('mail/forget')?>
 	<div style="height:100px; margin:10px 0px 10px 7px">
 		<div class="emailText">Please enter your email:</div>
 		<input type="text" class="inputBox" name="email"><input class="submitButton" type="submit" value="Send">
 	</div>
-	<?=form_close()?>
+	<?php echo form_close()?>
  </body>
 </html>

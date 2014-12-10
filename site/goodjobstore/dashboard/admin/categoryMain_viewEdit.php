@@ -3,7 +3,7 @@
 <!--Permission-->
 
 <?php
-session_start(); //�Դ session
+session_start(); //�Դ session
 $ses_userid =$_SESSION[ses_userid];
 $ses_username = $_SESSION[ses_username];
 if($ses_userid <> session_id() or $ses_username =="")
@@ -20,7 +20,7 @@ exit();
 ?>
 
 <!--Permission-->
-<?
+<?php
 	$mainID = $_GET['mainID'];
 
 	//include_once '../classes/Products.php';
@@ -69,7 +69,7 @@ exit();
 </head>
 
 <!-- edit main category -->
-<?
+<?php
 	if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "frmAddCategoryMain")) 
 	{
 		$m_NameEN = $_POST['nameEN'];
@@ -111,8 +111,8 @@ exit();
 		<div id="content">
 		    <div id="leftcolum">
 									<b><a href="order.php">Order</a></b>
-								<?if($_SESSION[ses_status] == "Super Admin") 
-			{?>
+								<?php if($_SESSION[ses_status] == "Super Admin") 
+			{ ?>
 								<!-- End Admin -->
 									<b><br><br><a href="saleReport.php">Sale Report</a>
 									<br><br><a href="record.php">Customer Record</a>
@@ -132,7 +132,7 @@ exit();
 									<br><br><a href="shopGuide_main.php">Shopping Guide</a>
 									<br><br><a href="privacy.php">Permission</a>
 									<br><br><a href="usdRate.php">USD Rate</a></b>
-			<?}?>	
+			<?php } ?>	
 		   	</div>
 			<div id="dashboard"> 
 			
@@ -141,7 +141,7 @@ exit();
 							<h2>Edit Main Category</h2>
 							<h3>
 									&nbsp;&nbsp;&nbsp;&nbsp;
-									<?=$nameEN?>
+									<?php echo $nameEN?>
 							</h3>
 						 	<form action="" method="post" enctype="multipart/form-data" name="frmAddCategoryMain" id="frmAddCategoryMain">
 								<table>
@@ -149,17 +149,17 @@ exit();
 										<tr style="height:30px;">
 											<td style="width:70px;">Main [En]</td>
 											<td style="width:15px;"><img src="../images/dot.gif" /></td>
-											<td><input type='text' name='nameEN' value="<?=$nameEN?>"></td>
+											<td><input type='text' name='nameEN' value="<?php echo $nameEN?>"></td>
 										</tr>
 										<tr style="height:30px;">
 											<td style="width:70px;">Main [Th]</td>
 											<td style="width:15px;"><img src="../images/dot.gif" /></td>
-											<td><input type='text' name='nameTH' value="<?=$nameTH?>"></td>
+											<td><input type='text' name='nameTH' value="<?php echo $nameTH?>"></td>
 										</tr>
 										<tr style="height:30px;">
 											<td style="width:70px;">Url</td>
 											<td style="width:15px;"><img src="../images/dot.gif" /></td>
-											<td><input type='text' name='mainUrl' value="<?=$mainUrl?>"></td>
+											<td><input type='text' name='mainUrl' value="<?php echo $mainUrl?>"></td>
 										</tr>
 										<tr>
 											<td><br></td>

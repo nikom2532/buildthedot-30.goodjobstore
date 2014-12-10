@@ -77,8 +77,8 @@ $link = 'profile.php';
 			<div class="logo"><a href ="../"><img src="../images/logo.jpg" /></a></div>
 			<div class="right">
 				<ul class="member_style">
-					<li class="line"><a href="<?=$link?>?id=<?=$id?>"><?=$login?></a></li> 
-					<li><a href="logout.php"><?=$logout?></a></li>
+					<li class="line"><a href="<?php echo $link?>?id=<?php echo $id?>"><?php echo $login?></a></li> 
+					<li><a href="logout.php"><?php echo $logout?></a></li>
 				</ul>
 			</div>
 		</div>
@@ -90,13 +90,13 @@ $link = 'profile.php';
 		<div id="content">
 		    <div id="leftcolum">
 			    <ul>
-			        <li><a class="active" href="profile.php?id=<?=$get_empid?>">Profile</a></li>
-			        <li><a href="category.php?id=<?=$get_empid?>">Category</a></li>
-			        <li><a href="sub-category.php?id=<?=$get_empid?>">Sub Category</a></li>
-					<li><a href="Products.php?id=<?=$get_empid?>">Product</a></li>
-					<li><a href="employee.php?id=<?=$get_empid?>">Employee</a></li>
-					<li><a href="customer.php?id=<?=$get_empid?>">Customer</a></li>
-					<li><a href="Shopping Guide.php?id=<?=$get_empid?>">Shopping Guide</a></li>
+			        <li><a class="active" href="profile.php?id=<?php echo $get_empid?>">Profile</a></li>
+			        <li><a href="category.php?id=<?php echo $get_empid?>">Category</a></li>
+			        <li><a href="sub-category.php?id=<?php echo $get_empid?>">Sub Category</a></li>
+					<li><a href="Products.php?id=<?php echo $get_empid?>">Product</a></li>
+					<li><a href="employee.php?id=<?php echo $get_empid?>">Employee</a></li>
+					<li><a href="customer.php?id=<?php echo $get_empid?>">Customer</a></li>
+					<li><a href="Shopping Guide.php?id=<?php echo $get_empid?>">Shopping Guide</a></li>
 			    </ul>
 		   	</div>
 			<div id="dashboard"> 
@@ -111,39 +111,39 @@ $link = 'profile.php';
 					</div>
 					<div class="viewport">
 						 <div class="overview">
-						 	<h2><?=$login?> Profile</h2>
+						 	<h2><?php echo $login?> Profile</h2>
 						 	<form action="" method="" name="">
 					<table>
 						<tbody>
 							<tr>
 								<td width="100px">E-mail</td>
 								<td width="30px"><img src="images/dot.gif" /></td>
-								<td><input type="text" name="email" value="<?=$getemail?>"/></td>
+								<td><input type="text" name="email" value="<?php echo $getemail?>"/></td>
 							</tr>
 							<tr>
 								<td>First name</td>
 								<td><img src="images/dot.gif" /></td>
-								<td><input type="text" name="fistName" value="<?=$getfirstname?>"/></td>
+								<td><input type="text" name="fistName" value="<?php echo $getfirstname?>"/></td>
 							</tr>
 							<tr>
 								<td>Last name</td>
 								<td><img src="images/dot.gif" /></td>
-								<td><input type="text" name="lastName" value="<?=$getlastname?>" /></td>
+								<td><input type="text" name="lastName" value="<?php echo $getlastname?>" /></td>
 							</tr>
 							<tr>
 								<td>Phone number</td>
 								<td><img src="images/dot.gif" /></td>
-								<td><input type="text" name="phonNumber" value="<?=$getphonenumber?>" /></td>
+								<td><input type="text" name="phonNumber" value="<?php echo $getphonenumber?>" /></td>
 							</tr>
 							<tr>
 								<td>Address</td>
 								<td><img src="images/dot.gif" /></td>
-								<td><input type="text" name="address" value="<?=$getaddress?>" /></td>
+								<td><input type="text" name="address" value="<?php echo $getaddress?>" /></td>
 							</tr>
 							<tr>
 									<td>Postal code</td>
 									<td><img src="images/dot.gif" /></td>
-									<td><input type="text" name="postCode" value="<?=$getpostal?>"/></td>
+									<td><input type="text" name="postCode" value="<?php echo $getpostal?>"/></td>
 							</tr>
 							<tr>
 								<td>

@@ -1,7 +1,7 @@
-<link rel="stylesheet" type="text/css" href="<?=base_url()?>public/css/login.css">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>public/css/login.css">
 
 <!-- START jqueryPopUp -->
-<script language="javascript" src="<?=base_url()?>public/scripts/modal.popup.js"></script>
+<script language="javascript" src="<?php echo base_url()?>public/scripts/modal.popup.js"></script>
 <script language="javascript">
     $(document).ready(function() {
             
@@ -11,14 +11,14 @@
 		var width = 350; 										//Use an integer (in pixels)
 		var padding = 10;										//Use an integer (in pixels)
 		var backgroundColor = '#FFFFFF'; 						//Use any hex code
-		var source = '<?=site_url()?>auth/forget'; 	//Refer to any page on your server, external pages are not valid e.g. http://www.google.co.uk
+		var source = '<?php echo site_url()?>auth/forget'; 	//Refer to any page on your server, external pages are not valid e.g. http://www.google.co.uk
 		var borderColor = '#333333'; 							//Use any hex code
 		var borderWeight = 4; 									//Use an integer (in pixels)
 		var borderRadius = 5; 									//Use an integer (in pixels)
 		var fadeOutTime = 300; 									//Use any integer, 0 = no fade
 		var disableColor = '#666666'; 							//Use any hex code
 		var disableOpacity = 40; 								//Valid range 0-100
-		var loadingImage = '<?=base_url()?>public/images/popupLoading.gif';		//Use relative path from this page
+		var loadingImage = '<?php echo base_url()?>public/images/popupLoading.gif';		//Use relative path from this page
 			
 		//This method initialises the modal popup
         $(".modal").click(function() {
@@ -59,14 +59,14 @@
 								echo '</font>';
 							}
 						?>
-					<?=form_open('auth/verify')?>
+					<?php echo form_open('auth/verify')?>
 						<div id="textbox_name">Email</div>
 						<input type="text" name="email" />
 						<div id="textbox_name">Password</div>
 						<input type="password" name="password" />
 						<div class="forgetpassword"><a class="modal" href="javascript:void(0);">Forget your password?</a></div>
 						<input type="submit" name="sign_in" value="SIGN IN" class="button"/>
-					<?=form_close()?>
+					<?php echo form_close()?>
 				</span>
 			</div>
 			<div id="signup">
@@ -84,7 +84,7 @@
 								echo '</font>';
 							}
 						?>
-					<?=form_open('auth/registration')?>
+					<?php echo form_open('auth/registration')?>
 						<div id="textbox_name">Email</div>
 						<input type="text" name="Email" />
 						<div id="textbox_name">Password</div>
@@ -97,7 +97,7 @@
 							<input type="checkbox" name="newsletter" value="1" /> Sign me up for newsletter.
 							<div class="register_button"><input type="submit" name="sign_up" value="Register Now" class="button"/></div>
 						</div>
-					<?=form_close()?>
+					<?php echo form_close()?>
 				</span>
 			</div>
 		</div>

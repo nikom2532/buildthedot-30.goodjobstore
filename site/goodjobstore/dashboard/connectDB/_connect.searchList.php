@@ -1,5 +1,5 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<?
+	<?php
 		$strPage = $_GET["page"];
 		$strKeyword = $_GET["keyword"];
 
@@ -44,17 +44,17 @@
 
 	<table>
 		<tbody>
-				<?
+				<?php
 				$i=0;
 				while ($data = mysql_fetch_array($resultPage))
 				{
 				?>
-					<? if($i%4==0){?>
+					<?php if($i%4==0){ ?>
 						<tr>
-					<?}?>
+					<?php } ?>
 							<td>
-								<a href="../category/<?=(!$data['Url_En'])?$data['Pro_Name_En']:$data['Url_En']?>" style="text-decoration:none">
-									<img src="<?=$data['Path_Small']?>" style="width:155px; height:116px;" />
+								<a href="../category/<?php echo (!$data['Url_En'])?$data['Pro_Name_En']:$data['Url_En']?>" style="text-decoration:none">
+									<img src="<?php echo $data['Path_Small']?>" style="width:155px; height:116px;" />
 									<?php if($data['attribute_id']==1): ?>
 										<img style="position:relative;left:-70px;" width="40px" src="../public/images/new_item.png" />
 									<?php elseif($data['attribute_id']==2): ?>
@@ -63,23 +63,23 @@
 										<img style="position:relative;left:-70px;" width="40px" src="../public/images/sale_item.png" />
 									<?php endif; ?>
 								</a>
-								<div class="product_name"><?=$data['Pro_Name_En']?></div>
+								<div class="product_name"><?php echo $data['Pro_Name_En']?></div>
 								<!--****** Thai Language ******-->
-						<!--	<div class="product_name"><?=$data['Pro_Name_Th']?></div>	-->
+						<!--	<div class="product_name"><?php echo $data['Pro_Name_Th']?></div>	-->
 								
-								<?if($data['Price_sale']!=0)
-								{?>
-									<div class="price"><?=$data['Price_sale']?> ฿</div>
-								<?}
+								<?php if($data['Price_sale']!=0)
+								{ ?>
+									<div class="price"><?php echo $data['Price_sale']?> ฿</div>
+								<?php } 
 								else if($data['Price_sale']==0)
-								{?>
-									<div class="price"><?=$data['Price_Buy']?> ฿</div>
-								<?}?>
+								{ ?>
+									<div class="price"><?php echo $data['Price_Buy']?> ฿</div>
+								<?php } ?>
 							</td>
-					<? if($i%4==3){?>
+					<?php if($i%4==3){ ?>
 						</tr>
-					<?}?>
-				<?
+					<?php } ?>
+				<?php
 				$i++;
 				}?>
 		</tbody>

@@ -3,7 +3,7 @@
 <!--Permission-->
 
 <?php
-session_start(); //�Դ session
+session_start(); //�Դ session
 $ses_userid =$_SESSION[ses_userid];
 $ses_username = $_SESSION[ses_username];
 if($ses_userid <> session_id() or $ses_username =="")
@@ -20,7 +20,7 @@ exit();
 ?>
 
 <!--Permission-->
-<?
+<?php
 	$howID = $_GET['howID'];
 
 	//include_once '../classes/Products.php';
@@ -63,7 +63,7 @@ exit();
 </head>
 
 <!-- add shipper -->
-<?
+<?php
 	if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "frmAddShipper")) 
 	{
 		$m_Name_EN = $_POST['Shipper_En'];
@@ -114,8 +114,8 @@ exit();
 <!--menu-->
 
 									<b><a href="order.php">Order</a></b>
-								<?if($_SESSION[ses_status] == "Super Admin") 
-			{?>
+								<?php if($_SESSION[ses_status] == "Super Admin") 
+			{ ?>
 								<!-- End Admin -->
 									<b><br><br><a href="saleReport.php">Sale Report</a>
 									<br><br><a href="record.php">Customer Record</a>
@@ -135,7 +135,7 @@ exit();
 									<br><br><a href="shopGuide_main.php">Shopping Guide</a>
 									<br><br><a href="privacy.php">Permission</a>
 									<br><br><a href="usdRate.php">USD Rate</a></b>
-			<?}?>	
+			<?php } ?>	
 
 <!--menu-->
 		   	</div>
@@ -147,21 +147,21 @@ exit();
 														<div style="height:1000px;width:800px;Serif;overflow-y:auto;overflow-x: hidden;">
 
 						 	<form action="" method="post" enctype="multipart/form-data" name="frmAddShipper" id="frmAddShipper"	>
-							<?
+							<?php
 							while ($data=mysql_fetch_array($result))
-							{?>
+							{ ?>
 								<table>
 									<tr>
 										<td style="width:150px;">Shipper [En]</td>
 										<td style="width:15px;"><img src="../images/dot.gif" /></td>
-										<td style="width:300px;"><input type='text' name='Shipper_En'value="<?=$data['Name_En']?>"></td>
+										<td style="width:300px;"><input type='text' name='Shipper_En'value="<?php echo $data['Name_En']?>"></td>
 					
 									</tr>
 									 <tr><td><br></td></tr>
 									<tr>
 										<td>Shipper [Th]</td>
 										<td><img src="../images/dot.gif" /></td>
-										<td><input type='text' name='Shipper_Th' value="<?=$data['Name_Th']?>"></td>
+										<td><input type='text' name='Shipper_Th' value="<?php echo $data['Name_Th']?>"></td>
 									</tr>
 									<tr>
 									</table>
@@ -170,7 +170,7 @@ exit();
 									<table>
 										
 										<td>
-											<textarea name="Descrip_En" id="Descrip_En" style="width:450px;height:200px;"/><?=$data['Description_En']?></textarea>
+											<textarea name="Descrip_En" id="Descrip_En" style="width:450px;height:200px;"/><?php echo $data['Description_En']?></textarea>
 											<!--CKEDITOR-->
 <script type="text/javascript">
 	CKEDITOR.replace( 'Descrip_En' );
@@ -183,7 +183,7 @@ exit();
 									<br>Description [Th]     <img src="../images/dot.gif" style="padding-left:5.0em;" /><br><br>
 									<table>
 										
-										<td><textarea name="Descrip_Th" id="Descrip_Th" style="width:450px;height:200px;"/><?=$data['Description_Th']?></textarea>
+										<td><textarea name="Descrip_Th" id="Descrip_Th" style="width:450px;height:200px;"/><?php echo $data['Description_Th']?></textarea>
 																					<!--CKEDITOR-->
 <script type="text/javascript">
 	CKEDITOR.replace( 'Descrip_Th' );
@@ -192,7 +192,7 @@ exit();
 										</td>
 									</tr>
 								</table>
-							<?}?>
+							<?php } ?>
 										<br>
 								<input type='submit' value='Edit' style="width:60px">
 								<input type="hidden" name="MM_insert" value="frmAddShipper" />

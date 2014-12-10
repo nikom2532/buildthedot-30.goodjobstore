@@ -2,7 +2,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 
-<?
+<?php
 	//include_once '../classes/Products.php';
 	//Initialization
 	include_once '../classes/Employees.php';
@@ -23,7 +23,7 @@
 			} 
 ?>
 
-<?
+<?php
 	$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
 	$objDB = mysql_select_db("goodjob") or die("Can't connect Database");
 	mysql_query("SET NAMES utf8",$objCon);
@@ -63,8 +63,8 @@
 			<div class="logo"><a href ="../"><img src="../images/logo.jpg" /></a></div>
 			<div class="right">
 				<ul class="member_style">
-					<li class="line"><a href="<?=$link?>?id=<?=$id?>"><?=$login?></a></li> 
-					<li><a href="../admin/"><?=$logout?></a></li>
+					<li class="line"><a href="<?php echo $link?>?id=<?php echo $id?>"><?php echo $login?></a></li> 
+					<li><a href="../admin/"><?php echo $logout?></a></li>
 				</ul>
 			</div>
 		</div>
@@ -102,21 +102,21 @@
 							<h2>Edit Technology</h2>
 							<form name="frmTechnology">
 								<table>
-									<?while($data=mysql_fetch_array($result))
-									{?>
+									<?php while($data=mysql_fetch_array($result))
+									{ ?>
 										<tr>
 											<td> Technology [EN] </td>
 											<td>
-												<textarea name='Descrip_En'><?=$data['Technologie_En']?></textarea>
+												<textarea name='Descrip_En'><?php echo $data['Technologie_En']?></textarea>
 											</td>
 										</tr>
 										<tr>
 											<td> Technology [TH] </td>
 											<td>
-												<textarea name='Descrip_Th'><?=$data['Technologie_Th']?></textarea>
+												<textarea name='Descrip_Th'><?php echo $data['Technologie_Th']?></textarea>
 											</td>
 										</tr>
-									<?}?>
+									<?php } ?>
 								</table>
 							</form>
 <br>

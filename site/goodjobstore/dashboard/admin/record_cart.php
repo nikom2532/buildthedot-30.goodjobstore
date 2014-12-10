@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <meta http-equiv=Content-Type content="text/html; charset=utf-8">
 
-<?
+<?php
 	$cusID = $_GET['cusID'];
 
 	//include_once '../classes/Products.php';
@@ -27,7 +27,7 @@
 <!--Permission-->
 
 <?php
-session_start(); //�Դ session
+session_start(); //�Դ session
 $ses_userid =$_SESSION[ses_userid];
 $ses_username = $_SESSION[ses_username];
 if($ses_userid <> session_id() or $ses_username =="")
@@ -56,7 +56,7 @@ exit();
 </head>
 
 <!-- connect database -->
-<?
+<?php
 	$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
 	$objDB = mysql_select_db("goodjob") or die("Can't connect Database");
 	mysql_query("SET NAMES utf8",$objCon);
@@ -95,8 +95,8 @@ exit();
 	<!--menu-->
 
 									<b><a href="order.php">Order</a></b>
-								<?if($_SESSION[ses_status] == "Super Admin") 
-			{?>
+								<?php if($_SESSION[ses_status] == "Super Admin") 
+			{ ?>
 								<!-- End Admin -->
 									<b><br><br><a href="saleReport.php">Sale Report</a>
 									<br><br><a href="record.php">Customer Record</a>
@@ -116,7 +116,7 @@ exit();
 									<br><br><a href="shopGuide_main.php">Shopping Guide</a>
 									<br><br><a href="privacy.php">Permission</a>
 									<br><br><a href="usdRate.php">USD Rate</a></b>
-			<?}?>	
+			<?php } ?>	
 
 <!--menu-->
 		   	</div>
@@ -126,7 +126,7 @@ exit();
 						<div class="overview" style="font-size:14px;">
 							<h2>Cart Record</h2>
 
-							<?=$cusID?><br>
+							<?php echo $cusID?><br>
 							<br><input type="button" value="back" style="width:60px;" onclick="window.location.href='record.php'">
 							<br><br><div id="line"></div>
 <br>
@@ -142,18 +142,18 @@ exit();
 										<td>Size</td>
 										<td>Quantity</td>
 									</tr>
-									<?$i=1;
+									<?php $i=1;
 									while ($data=mysql_fetch_array($result))
-									{?>
-										<?=($i%2==1)?'<tr style="background-color:#DDDDDD;">':'<tr style="background-color:#EEEEEE;">'?>
-											<td style="text-align:center;"><?=$data['Product_Code']?></td>
-											<td style="text-align:center;"><img src="../../public/<?=$data['Thumbnail_path']?>"></td>
-											<td style="text-align:center;"><?=$data['Pro_Name_En']?></td>
-											<td style="text-align:center;"><?=$data['name_en']?></td>
-											<td style="text-align:center;"><?=$data['Size']?></td>
-											<td style="text-align:center;"><?=$data['Qty']?></td>
+									{ ?>
+										<?php echo ($i%2==1)?'<tr style="background-color:#DDDDDD;">':'<tr style="background-color:#EEEEEE;">'?>
+											<td style="text-align:center;"><?php echo $data['Product_Code']?></td>
+											<td style="text-align:center;"><img src="../../public/<?php echo $data['Thumbnail_path']?>"></td>
+											<td style="text-align:center;"><?php echo $data['Pro_Name_En']?></td>
+											<td style="text-align:center;"><?php echo $data['name_en']?></td>
+											<td style="text-align:center;"><?php echo $data['Size']?></td>
+											<td style="text-align:center;"><?php echo $data['Qty']?></td>
 										</tr>
-									<?$i++;
+									<?php $i++;
 									}?>
 								</table>
 							</div>

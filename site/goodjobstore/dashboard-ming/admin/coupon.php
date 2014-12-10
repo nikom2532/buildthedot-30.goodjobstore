@@ -3,7 +3,7 @@
 <!--Permission-->
 
 <?php
-session_start(); //�Դ session
+session_start(); //�Դ session
 $ses_userid =$_SESSION[ses_userid];
 $ses_username = $_SESSION[ses_username];
 if($ses_userid <> session_id() or $ses_username =="")
@@ -21,7 +21,7 @@ exit();
 
 <!--Permission-->
 
-<?
+<?php
 	$cusID = $_GET['cusID'];
 
 	//include_once '../classes/Products.php';
@@ -86,8 +86,8 @@ exit();
 <!--menu-->
 
 									<b><a href="order.php">Order</a></b>
-								<?if($_SESSION[ses_status] == "Super Admin") 
-			{?>
+								<?php if($_SESSION[ses_status] == "Super Admin") 
+			{ ?>
 								<!-- End Admin -->
 									<b><br><br><a href="saleReport.php">Sale Report</a>
 									<br><br><a href="record.php">Customer Record</a>
@@ -107,7 +107,7 @@ exit();
 									<br><br><a href="shopGuide_main.php">Shopping Guide</a>
 									<br><br><a href="privacy.php">Permission</a>
 									<br><br><a href="usdRate.php">USD Rate</a></b>
-			<?}?>	
+			<?php } ?>	
 
 <!--menu-->
 		   	</div>
@@ -128,30 +128,30 @@ exit();
 							<!-- exp. date -->
 							<select id="exp_day">
 								<option value=""> -- Day -- </option>
-								<?for($d=1;$d<=31;$d++)
-								{?>
-									<option value="<?=$d?>"><?=$d?></option>
-								<?}?>
+								<?phpfor($d=1;$d<=31;$d++)
+								{ ?>
+									<option value="<?php echo $d?>"><?php echo $d?></option>
+								<?php } ?>
 							</select>
 							<select id="exp_month">
 								<option value=""> -- Month -- </option>
-								<?for($m=1;$m<=12;$m++)
-								{?>
-									<option value="<?=$m?>"><?=$m?></option>
-								<?}?>
+								<?phpfor($m=1;$m<=12;$m++)
+								{ ?>
+									<option value="<?php echo $m?>"><?php echo $m?></option>
+								<?php } ?>
 							</select>
 							<select id="exp_year">
 								<option value=""> -- Year -- </option>
-								<?
+								<?php
 								$now = date("Y");
 								$year_end = $now+70;
 								for($y=$now;$y<=$year_end;$y++)
-								{?>
-									<option value="<?=$y?>"><?=$y?></option>
-								<?}?>
+								{ ?>
+									<option value="<?php echo $y?>"><?php echo $y?></option>
+								<?php } ?>
 							</select>
 							<br>
-							<input type="button" value="Generate coupon" onclick="GenCoupon('<?=$cusID?>');" style="width:115px;">
+							<input type="button" value="Generate coupon" onclick="GenCoupon('<?php echo $cusID?>');" style="width:115px;">
 							<input type="button" value="Back" onclick="window.location.href='order.php'" style="width:60px;">
 							<br><br>
 							<div id="line"></div>

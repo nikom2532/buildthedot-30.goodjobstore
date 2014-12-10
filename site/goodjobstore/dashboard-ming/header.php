@@ -1,4 +1,4 @@
-<?
+<?php
   include_once 'classes/Customers.php';
   $login = 'Log in';
   $logout = 'Register';
@@ -36,8 +36,8 @@
 					<td style="vertical-align:middle">
 						<div id="member">
 							<ul class="member_style">
-								<li class="line"><a href="<?=$link?>"><?=$login?></a></li> 
-								<li><a href="login.php"><?=$logout?></a></li>
+								<li class="line"><a href="<?php echo $link?>"><?php echo $login?></a></li> 
+								<li><a href="login.php"><?php echo $logout?></a></li>
 							</ul>
 						</div>
 					</td>

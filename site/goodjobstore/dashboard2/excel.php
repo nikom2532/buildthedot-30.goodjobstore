@@ -3,7 +3,7 @@
 <title>ThaiCreate.Com PHP(COM) Excel.Application Tutorial</title>
 </head>
 <body>
-<?
+<?php
 	
 	//*** Get Document Path ***//
 	$strPath = realpath(basename(getenv($_SERVER["SCRIPT_NAME"]))); // C:/AppServ/www/myphp
@@ -38,6 +38,6 @@
 	$xlBook = null;
 	$xlSheet1 = null;
 ?>
-Excel Created <a href="<?=$strFileName?>">Click here</a> to Download.
+Excel Created <a href="<?php echo $strFileName?>">Click here</a> to Download.
 </body>
 </html>

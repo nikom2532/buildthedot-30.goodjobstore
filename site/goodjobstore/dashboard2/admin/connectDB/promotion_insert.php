@@ -79,7 +79,7 @@ else
 ?>
 -->
 <!--
-<?
+<?php
 	
 	$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
 	$objDB = mysql_select_db("goodjob") or die("Can't connect Database");
@@ -101,4 +101,4 @@ else
 ?>
 -->
 
-<?echo "aaaa";?>
+<?php echo "aaaa";?>

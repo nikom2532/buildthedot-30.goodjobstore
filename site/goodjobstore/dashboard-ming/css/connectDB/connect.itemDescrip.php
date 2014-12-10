@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-	<?
+	<?php
 	$strProID = $_GET["proID"];
 	$strProperty = $_GET["propertyID"];
 	$strColorID = $_GET["colorID"];
@@ -77,23 +77,23 @@
 		
 	<div id="product_head">
 		<div class="left">
-			<?
+			<?php
 			while ($data=mysql_fetch_array($result))
-			{?>
-			<h1><?echo($data['Pro_Name_En'])?></h1>
-				<div id="product_id"><?echo($data['Product_Code'])?></div>
+			{ ?>
+			<h1><?php echo($data['Pro_Name_En'])?></h1>
+				<div id="product_id"><?php echo($data['Product_Code'])?></div>
 				<div id="product_line"></div>
 				<div id="product_price">
-					<?if($data['Price_sale']!=0)
-					{?>
-						<?echo($data['Price_sale'])?> ฿<br />
+					<?php if($data['Price_sale']!=0)
+					{ ?>
+						<?php echo($data['Price_sale'])?> ฿<br />
 						instead of <span style="text-decoration: line-through;">
-						<?echo($data['Price_Buy'])?> ฿</span><br />
-					<?}
+						<?php echo($data['Price_Buy'])?> ฿</span><br />
+					<?php } 
 					else if ($data['Price_sale']==0)
-					{?>
-						<?echo($data['Price_Buy'])?> ฿</span><br />
-					<?}?>
+					{ ?>
+						<?php echo($data['Price_Buy'])?> ฿</span><br />
+					<?php } ?>
 				</div>
 		</div>
 		<!-- AddThis Button BEGIN -->
@@ -112,14 +112,14 @@
 		<div id="scrollbar1">
 			<div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
 			<div id="product_info">
-				<p><?echo($data['Description_En'])?></p>
+				<p><?php echo($data['Description_En'])?></p>
 			</div>
 			<div id="product_comment">
-				<?echo($data['Short_msg_En'])?>
+				<?php echo($data['Short_msg_En'])?>
 			</div>
 		</div>
 	</div>
-			<?}?> <!-- End while -->
+			<?php } ?> <!-- End while -->
 	<!-- Description End -->
 
 
@@ -131,38 +131,38 @@
 				<tbody>
 					<tr>
 						<td width="400px" height="60px">
-							<a href="javascript:void(0);"  onclick="filterColor(1,<?=$strFilterProp?>)"><img src="images/color_1.jpg"/></a>
-							<a href="javascript:void(0);"  onclick="filterColor(2,<?=$strFilterProp?>)"><img src="images/color_2.jpg"/></a>
-							<a href="javascript:void(0);"  onclick="filterColor(3,<?=$strFilterProp?>)"><img src="images/color_3.jpg"/></a>
-							<a href="javascript:void(0);"  onclick="filterColor(4,<?=$strFilterProp?>)"><img src="images/color_4.jpg"/></a>
-							<a href="javascript:void(0);"  onclick="filterColor(5,<?=$strFilterProp?>)"><img src="images/color_5.jpg"/></a>
+							<a href="javascript:void(0);"  onclick="filterColor(1,<?php echo $strFilterProp?>)"><img src="images/color_1.jpg"/></a>
+							<a href="javascript:void(0);"  onclick="filterColor(2,<?php echo $strFilterProp?>)"><img src="images/color_2.jpg"/></a>
+							<a href="javascript:void(0);"  onclick="filterColor(3,<?php echo $strFilterProp?>)"><img src="images/color_3.jpg"/></a>
+							<a href="javascript:void(0);"  onclick="filterColor(4,<?php echo $strFilterProp?>)"><img src="images/color_4.jpg"/></a>
+							<a href="javascript:void(0);"  onclick="filterColor(5,<?php echo $strFilterProp?>)"><img src="images/color_5.jpg"/></a>
 						</td>
 						<td>
 							<div class="right">
 								<label>Leather :</label>
 								<select name="cbo_Leather" onchange="changeLeather()">
-										<?
+										<?php
 										while ($dataLeather=mysql_fetch_array($resultLeather))
 										{
 											if ($dataLeather['Property_ID']!=$strFilterProp)
-											{?>
-												<option value="<?=$dataLeather['Property_ID']?>" title="<?$dataLeather['Name_En']?>">
-													<?echo($dataLeather['Name_En'])?>
+											{ ?>
+												<option value="<?php echo $dataLeather['Property_ID']?>" title="<?php $dataLeather['Name_En']?>">
+													<?php echo($dataLeather['Name_En'])?>
 												</option>
-											<?}
+											<?php } 
 											else
-											{?>
-												<option value="<?=$dataLeather['Property_ID']?>" title="<?$dataLeather['Name_En']?>"
+											{ ?>
+												<option value="<?php echo $dataLeather['Property_ID']?>" title="<?php $dataLeather['Name_En']?>"
 												selected="selected">
-													<?echo($dataLeather['Name_En'])?>
+													<?php echo($dataLeather['Name_En'])?>
 												</option>												
-											<?}
+											<?php } 
 										}?>
 								</select>
 							</div>
 						</td>
 					</tr>
-						<?
+						<?php
 						if($strProperty != 1){
 							$buyProperty = $strProperty;}
 						else if($strFilterProp != 1){
@@ -185,8 +185,8 @@
 						?>
 					<tr>
 						<td>
-							<a href="../wishlist/add/<?=$strProID?>/<?=$strColorID?>/<?=$buyProperty?>" class="wishlist_button">Add to wishlists</a>
-							<a href="../cart/add/<?=$strProID?>/<?=$strColorID?>/<?=$buyProperty?>" class="add_button">+ Add to cart</a>
+							<a href="../wishlist/add/<?php echo $strProID?>/<?php echo $strColorID?>/<?php echo $buyProperty?>" class="wishlist_button">Add to wishlists</a>
+							<a href="../cart/add/<?php echo $strProID?>/<?php echo $strColorID?>/<?php echo $buyProperty?>" class="add_button">+ Add to cart</a>
 						</td>
 						<td></td>
 					</tr>
@@ -205,15 +205,15 @@
 		</div>
 		<div class="img_prod">
 			<ul>
-				<?
+				<?php
 				while ($dataCross=mysql_fetch_array($resultCross))
-				{?>
+				{ ?>
 					<li>
-						<a href="../item/<?=$dataCross['Product_Cross_ID']?>" style="text-decoration:none">
-							<img src="<?=$dataCross['Thumbnail_path']?>"/>
+						<a href="../item/<?php echo $dataCross['Product_Cross_ID']?>" style="text-decoration:none">
+							<img src="<?php echo $dataCross['Thumbnail_path']?>"/>
 						</a>
 					</li>	
-				<?}?>
+				<?php } ?>
 			</ul>
 		</div>
 	</div>

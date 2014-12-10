@@ -3,7 +3,7 @@
 <!--Permission-->
 
 <?php
-session_start(); //�Դ session
+session_start(); //�Դ session
 $ses_userid =$_SESSION[ses_userid];
 $ses_username = $_SESSION[ses_username];
 if($ses_userid <> session_id() or $ses_username =="")
@@ -21,7 +21,7 @@ exit();
 
 <!--Permission-->
 
-<?
+<?php
 	$groupID = $_GET['groupID'];
 
 	//include_once '../classes/Products.php';
@@ -65,7 +65,7 @@ exit();
 </head>
 
 <!-- edit group customer -->
-<?
+<?php
 	if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "frmEditGroup")) 
 	{
 		$m_groupName = $_POST['group_name'];
@@ -106,8 +106,8 @@ exit();
 <!--menu-->
 
 									<b><a href="order.php">Order</a></b>
-								<?if($_SESSION[ses_status] == "Super Admin") 
-			{?>
+								<?php if($_SESSION[ses_status] == "Super Admin") 
+			{ ?>
 								<!-- End Admin -->
 									<b><br><br><a href="saleReport.php">Sale Report</a>
 									<br><br><a href="record.php">Customer Record</a>
@@ -127,7 +127,7 @@ exit();
 									<br><br><a href="shopGuide_main.php">Shopping Guide</a>
 									<br><br><a href="privacy.php">Permission</a>
 									<br><br><a href="usdRate.php">USD Rate</a></b>
-			<?}?>	
+			<?php } ?>	
 
 <!--menu-->
 		   	</div>
@@ -136,15 +136,15 @@ exit();
 					<div class="viewport">
 						<div class="overview">
 							<h2>Edit Customer Group</h2>
-						<?while ($data=mysql_fetch_array($result))
-						{?>
-							<h3><?=$data['Name']?></h3>
+						<?php while ($data=mysql_fetch_array($result))
+						{ ?>
+							<h3><?php echo $data['Name']?></h3>
 						 	<form action="" method="post" enctype="multipart/form-data" name="frmEditGroup" id="frmEditGroup">
 								<table>
 										<tr style="height:30px;">
 											<td style="width:100px;">Group Name</td>
 											<td style="width:15px;"><img src="../images/dot.gif" /></td>
-											<td><input type='text' name='group_name' value="<?=$data['Name']?>"></td>
+											<td><input type='text' name='group_name' value="<?php echo $data['Name']?>"></td>
 										</tr>
 										<tr>
 											<td><br></td>
@@ -155,7 +155,7 @@ exit();
 								<input type="hidden" name="MM_insert" value="frmEditGroup" />
 								<input type='button' value='Back' onclick="window.location.href='cusGroup.php'" style="width:60px">
 							</form>	
-						<?}?>
+						<?php } ?>
 <br><br>
 							<div id="line"></div>
 <div style="width: 800px; height: 350px; overflow: auto; padding: 5px">

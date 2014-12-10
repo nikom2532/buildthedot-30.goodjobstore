@@ -1,4 +1,4 @@
-<?
+<?php
 $orderID = $order->Order_ID;
 $finalPrice = $order->Final_Price;
 $orderItem = $order_items;

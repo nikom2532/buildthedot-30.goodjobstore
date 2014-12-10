@@ -1,7 +1,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
 
-<?
+<?php
 	//-- session for export to excel --
 	session_start(); 
 	unset($_SESSION['report_header']);
@@ -36,7 +36,7 @@
 			<td>Sale Qty.</td>
 		</tr>
 		<form name="frmTableOrder">
-			<?
+			<?php
 				$i=0;
 			while ($dataProduct=mysql_fetch_array($resultProduct))
 			{
@@ -53,7 +53,7 @@
 					$_SESSION['report_values'][$i][4]=$productPriceDiscount;
 				$productQty = 0;
 			?>
-				<?
+				<?php
 				$sqlSale = "SELECT order_item.Qty FROM order_item JOIN orders
 							ON order_item.Order_ID = orders.Order_ID
 							WHERE order_item.Product_ID = '$productID'
@@ -65,14 +65,14 @@
 					$productQty += $dataSale['Qty'];
 				}?>
 					<tr style="height:20px;">
-						<td style="text-align:center;"><?=$productCode?></td>
-						<td style="text-align:center;"><?=$productName?></td>
-						<td style="text-align:center;"><?=$productProperty?></td>
-						<td style="text-align:right;"><?=$productPrice?></td>
-						<td style="text-align:right;"><?=$productPriceDiscount?></td>
-						<td style="text-align:center;"><?=$productQty?></td>
+						<td style="text-align:center;"><?php echo $productCode?></td>
+						<td style="text-align:center;"><?php echo $productName?></td>
+						<td style="text-align:center;"><?php echo $productProperty?></td>
+						<td style="text-align:right;"><?php echo $productPrice?></td>
+						<td style="text-align:right;"><?php echo $productPriceDiscount?></td>
+						<td style="text-align:center;"><?php echo $productQty?></td>
 					</tr>
-			<?
+			<?php
 				$_SESSION['report_values'][$i][5]=(string)$productQty;
 				$i++;
 			}?>

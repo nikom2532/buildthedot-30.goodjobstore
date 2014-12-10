@@ -119,7 +119,7 @@ if(!empty($_POST['sign_in']))
 <body>
 	<div id="wrapper">
 		<!-- Header Section -->
-		<? include("header.php"); ?>
+		<?php include("header.php"); ?>
 
 		<!-- Welcom Section-->
 		<div id="welcome">
@@ -145,7 +145,7 @@ if(!empty($_POST['sign_in']))
 				<span class="headerblock">
 					Create an account
 					<div class="smalltext">Register here to create your personal Shopping Bag and Wishlist</div>
-					<font color="red"><?=$error;?></font>
+					<font color="red"><?php echo $error;?></font>
 					<form name="signup"action="login.php" method="POST">
 						<div id="textbox_name">Email</div>
 						<input type="text" name="Email" />
@@ -165,7 +165,7 @@ if(!empty($_POST['sign_in']))
 		</div>
 	
 		<!-- Footer Section -->
-		<? include("footer.php"); ?>
+		<?php include("footer.php"); ?>
 		
 	</div>
 </body>

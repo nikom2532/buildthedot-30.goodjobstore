@@ -11,7 +11,7 @@
 <p><img src="http://online.goodjobstore.com/public/images/order_confirmation.jpg" alt="logo"/>
 </p>
 <p>&nbsp;</p>
-<p style="font-size: 12px; color: #999; font-family: Tahoma, Geneva, sans-serif;">Hi <?=$customer->FirstName?> <?=$customer->LastName?></p>
+<p style="font-size: 12px; color: #999; font-family: Tahoma, Geneva, sans-serif;">Hi <?php echo $customer->FirstName?> <?php echo $customer->LastName?></p>
 <p style="font-size: 12px; color: #999; font-family: Tahoma, Geneva, sans-serif;">Thank you for your order. We're pretty sure you can remember what you ordered but just in case here some details to remind you.<br />
 
 </p>
@@ -23,8 +23,8 @@ order will shipped out to you upon confirmation of your payment. </p>
       <td colspan="2"><strong style="font-size:14px; font-family: Tahoma, Geneva, sans-serif;">PRODUCT DETAILS</strong></td>
     </tr>
     <tr>
-      <td width="81%"> <strong>Order Number</strong>: <?=$order->Order_ID?> </td>
-      <td width="17%"><div align="left" style="text-align: right"><?=date('d/m/Y')?></div></td>
+      <td width="81%"> <strong>Order Number</strong>: <?php echo $order->Order_ID?> </td>
+      <td width="17%"><div align="left" style="text-align: right"><?php echo date('d/m/Y')?></div></td>
     </tr>
     <tr>
       <td colspan="2"><table border="0" cellpadding="0" cellspacing="0" width="100%">
@@ -54,11 +54,11 @@ order will shipped out to you upon confirmation of your payment. </p>
 			<?php //$count_item = count($order_items) ?>
 			<?php foreach($order_items as $result): ?>
           <tr style="font-size: 12px; color: #999; font-family: Tahoma, Geneva, sans-serif;">
-            <td valign="top"><img src="http://online.goodjobstore.com/public/<?=$result->images_Thumbnail_path?>" alt="" /><br/><br/></td>
-            <td valign="top"><?=$result->products_Pro_Name_En?> x <?=$result->order_item_Qty?></td>
-            <td valign="top"><?=$result->color_Name_EN?></td>
+            <td valign="top"><img src="http://online.goodjobstore.com/public/<?php echo $result->images_Thumbnail_path?>" alt="" /><br/><br/></td>
+            <td valign="top"><?php echo $result->products_Pro_Name_En?> x <?php echo $result->order_item_Qty?></td>
+            <td valign="top"><?php echo $result->color_Name_EN?></td>
             <td align="right" valign="top">
-				<?
+				<?php
 					$exPrice = number_format(($result->order_item_Total_Price/$result->order_item_Qty), 2);
 					if(LANG=='EN')
 						echo "US$ ".google_finance_convert("THB", "USD", $exPrice);
@@ -67,7 +67,7 @@ order will shipped out to you upon confirmation of your payment. </p>
 				?>
 			</td>
             <td align="right" valign="top">
-				<?
+				<?php
 					$exPrice = number_format($result->order_item_Total_Price, 2);
 					if(LANG=='EN')
 						echo "US$ ".google_finance_convert("THB", "USD", $exPrice);
@@ -85,7 +85,7 @@ order will shipped out to you upon confirmation of your payment. </p>
             <td colspan="3"> </td>
             <td align="right" width="108" style="font-size: 12px; color: #999; font-family: Tahoma, Geneva, sans-serif;">Subtotal<br /></td>
             <td align="right" width="120" style="font-size: 12px; color: #999; font-family: Tahoma, Geneva, sans-serif;">
-				<?
+				<?php
 					$exSubTotal = number_format($order->Total_Price, 2);
 					if(LANG=='EN')
 						echo "US$ ".google_finance_convert("THB", "USD", $exSubTotal);
@@ -99,7 +99,7 @@ order will shipped out to you upon confirmation of your payment. </p>
             <td colspan="3"> </td>
             <td align="right" width="108" style="font-size: 12px; color: #999; font-family: Tahoma, Geneva, sans-serif;">Shipping<br /></td>
             <td align="right" width="120" style="font-size: 12px; color: #999; font-family: Tahoma, Geneva, sans-serif;">
-				<?
+				<?php
 					$exShipping = number_format($order->shipping_price, 2);
 					if(LANG=='EN')
 						echo "US$ ".google_finance_convert("THB", "USD", $exShipping);
@@ -113,7 +113,7 @@ order will shipped out to you upon confirmation of your payment. </p>
             <td colspan="3"> </td>
             <td align="right" width="108" style="font-size: 12px; color: #999; font-family: Tahoma, Geneva, sans-serif;">Services<br /></td>
             <td align="right" width="120" style="font-size: 12px; color: #999; font-family: Tahoma, Geneva, sans-serif;">
-				<?
+				<?php
 					$exService = number_format($order->service_price, 2);
 					if(LANG=='EN')
 						echo "US$ ".google_finance_convert("THB", "USD", $exService);
@@ -128,7 +128,7 @@ order will shipped out to you upon confirmation of your payment. </p>
             <td align="right" width="108" style="font-size: 12px;  font-family: Tahoma, Geneva, sans-serif;"><strong>Total<br />
               </strong></td>
             <td align="right" width="120" style="font-size: 12px;  font-family: Tahoma, Geneva, sans-serif;"><strong>
-				<?
+				<?php
 					$exTotalPrice = number_format($order->Final_Price, 2);
 					if(LANG=='EN')
 						echo "US$ ".google_finance_convert("THB", "USD", $exTotalPrice);
@@ -161,16 +161,16 @@ order will shipped out to you upon confirmation of your payment. </p>
 		{
 			$shipping_method = get_shipping_method($order->How_ID);?>
 			<td style="font-size: 14px; font-family: Tahoma, Geneva, sans-serif;">
-				<strong>Shipping Method</strong>: <?=(LANG=='TH')?$shipping_method->Name_Th:$shipping_method->Name_En;?>
+				<strong>Shipping Method</strong>: <?php echo (LANG=='TH')?$shipping_method->Name_Th:$shipping_method->Name_En;?>
 			</td>
-	  <?}
+	  <?php } 
 		else
 		{
 			$shippingUPS_method = get_shippingUPS_method($order->How_ID);?>
 			<td style="font-size: 14px; font-family: Tahoma, Geneva, sans-serif;">
-				<strong>Shipping Method</strong>: <?=$shippingUPS_method->type_name?>
+				<strong>Shipping Method</strong>: <?php echo $shippingUPS_method->type_name?>
 			</td>
-		<?}?>
+		<?php } ?>
       <td align="right" style="font-size: 14px;  font-family: Tahoma, Geneva, sans-serif;"><strong>Est. Delivery Time: 5 - 7 day delivery </strong><br /></td>
     </tr>
     <tr>
@@ -180,8 +180,8 @@ order will shipped out to you upon confirmation of your payment. </p>
     <tr>
       <td style="font-size: 12px; color: #999; font-family: Tahoma, Geneva, sans-serif;">
 	  <!------ shipping address ------>
-        <?=$shipping->s_Address?><br />
-        <?
+        <?php echo $shipping->s_Address?><br />
+        <?php
 			if($shipping->s_Country_ID==222)
 				echo show_city_from_id($shipping->s_City_ID);
 			else
@@ -189,9 +189,9 @@ order will shipped out to you upon confirmation of your payment. </p>
 		?>
 		<br />
         <br />
-        <?=$shipping->s_Postal_Code?><br />
+        <?php echo $shipping->s_Postal_Code?><br />
         <br />
-		<?
+		<?php
 			if($shipping->s_Country_ID==222)
 				echo "Thailand";
 			else
@@ -207,17 +207,17 @@ order will shipped out to you upon confirmation of your payment. </p>
         <br /></td>
       <td style="font-size: 12px; color: #999; font-family: Tahoma, Geneva, sans-serif;">
 	  <!------ customer address ------>
-        <?=$customer->Address?><br />
-        <?
+        <?php echo $customer->Address?><br />
+        <?php
 			if($customer->Country_ID==222)
 				echo show_city_from_id($customer->City_ID);
 			else
 				echo $customer->City_Name;
 		?><br />
         <br />
-        <?=$customer->Postal_Code?><br />
+        <?php echo $customer->Postal_Code?><br />
         <br />
-		<?
+		<?php
 			if($customer->Country_ID==222)
 				echo "Thailand";
 			else

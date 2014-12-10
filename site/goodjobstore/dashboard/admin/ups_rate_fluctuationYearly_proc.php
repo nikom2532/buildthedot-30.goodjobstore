@@ -30,5 +30,5 @@ echo $sql = "
 ";
 @mysql_query($sql, $objCon) or die(mysql_error());
 
-header("location: ./UPS_rate_fluctuationYearly.php");
+header("location: ./ups_rate_fluctuationYearly.php");
 ?>

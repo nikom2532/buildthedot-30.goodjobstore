@@ -1,6 +1,6 @@
-14/7/2555	<base href="<?=base_url()?>public/" />
-	<link rel="stylesheet" type="text/css" href="<?=base_url()?>public/css/checkout.css">
-	<script type="text/javascript" src="<?=base_url()?>public/scripts/jquery.tinyscrollbar.min.js"></script>
+14/7/2555	<base href="<?php echo base_url()?>public/" />
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>public/css/checkout.css">
+	<script type="text/javascript" src="<?php echo base_url()?>public/scripts/jquery.tinyscrollbar.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$('#scrollbar1').tinyscrollbar();
@@ -25,34 +25,34 @@
 					<div class="detail_left">
 						<div class="title">
 						<h3>Shipping Address</h3>
-						<span id="changeBt"><a href="<?=site_url('checkout/billing')?>">Change</a></span>
+						<span id="changeBt"><a href="<?php echo site_url('checkout/billing')?>">Change</a></span>
 						</div>
 						<table width="270px">
 							<tbody>
 								<tr>
 									<td width="90px">Name</td>
 									<td width="20px"><img src="images/dot.gif" /></td>
-									<td width="130px"><?=$shipping->s_FirstName?></td>
+									<td width="130px"><?php echo $shipping->s_FirstName?></td>
 								</tr>
 								<tr>
 									<td>Last Name</td>
 									<td width="5"><img src="images/dot.gif" /></td>
-									<td><?=$shipping->s_LastName?></td>
+									<td><?php echo $shipping->s_LastName?></td>
 								</tr>
 								<tr>
 									<td>Address</td>
 									<td width="5"><img src="images/dot.gif" /></td>
-									<td><?=$shipping->s_Address?></td>
+									<td><?php echo $shipping->s_Address?></td>
 								</tr>
 								<tr>
 									<td>City</td>
 									<td width="5"><img src="images/dot.gif" /></td>
-									<td><?=show_city_from_id($shipping->s_City_ID)?></td>
+									<td><?php echo show_city_from_id($shipping->s_City_ID)?></td>
 								</tr>
 								<tr>
 									<td>Post Code</td>
 									<td width="5"><img src="images/dot.gif" /></td>
-									<td><?=$shipping->s_Postal_Code?></td>
+									<td><?php echo $shipping->s_Postal_Code?></td>
 								</tr>
 							</tbody>
 						</table>
@@ -60,9 +60,9 @@
 					<div class="detail_right">
 						<div class="title">
 						<h3>Email Address</h3>
-						<span id="changeBt"><a href="<?=site_url('checkout/billing')?>">Change</a></span>
+						<span id="changeBt"><a href="<?php echo site_url('checkout/billing')?>">Change</a></span>
 						</div>
-						Email <img style="margin-left:10px; margin-right:10px;" src="images/dot.gif" /> <?=$customer->Email?>
+						Email <img style="margin-left:10px; margin-right:10px;" src="images/dot.gif" /> <?php echo $customer->Email?>
 						<div class="email">
 							Order confirmation will to be send registered e-mail.
 						</div>
@@ -103,23 +103,23 @@
 							}
 							?>
 									<div id="char_left">
-										<img src="<?=$result->images_Thumbnail_path?>" />
+										<img src="<?php echo $result->images_Thumbnail_path?>" />
 									</div>
 									<div id="char_right">
 										<table width="200px">
 											<tbody>
 												<tr>
 													<td>
-														<?=(LANG=='TH')?$result->products_Pro_Name_Th:$result->products_Pro_Name_En?><br>
-														COLOR <?=(LANG=='TH')?$result->color_Name_TH:$result->color_Name_EN?><br>
-														<?=($result->products_Size)?"Size {$result->products_Size}":'';?>
+														<?php echo (LANG=='TH')?$result->products_Pro_Name_Th:$result->products_Pro_Name_En?><br>
+														COLOR <?php echo (LANG=='TH')?$result->color_Name_TH:$result->color_Name_EN?><br>
+														<?php echo ($result->products_Size)?"Size {$result->products_Size}":'';?>
 													</td>
 												</tr>
 												<tr>
-													<td>Qty <?=$result->order_item_Qty?></td>
+													<td>Qty <?php echo $result->order_item_Qty?></td>
 												</tr>
 												<tr>
-													<td style="	text-align: right;"><span class="price"><?=number_format($result->order_item_Total_Price)?> ฿</span></td>
+													<td style="	text-align: right;"><span class="price"><?php echo number_format($result->order_item_Total_Price)?> ฿</span></td>
 												</tr>
 											</tbody>
 										</table>
@@ -141,31 +141,31 @@
 						</tr>
 						<tr>
 							<td>Subtotal</td>
-							<td style="text-align: right; padding-right: 50px;"><?=number_format($order->Total_Price)?> ฿</td>
-							<td style="text-align: center;"><a href="<?=site_url('checkout/payment')?>">Back to Detail</a></td>
+							<td style="text-align: right; padding-right: 50px;"><?php echo number_format($order->Total_Price)?> ฿</td>
+							<td style="text-align: center;"><a href="<?php echo site_url('checkout/payment')?>">Back to Detail</a></td>
 						</tr>
 						<tr>
 							<td>Shipping</td>
-							<td style="text-align: right; padding-right: 50px;"><?=number_format(cal_range_weight($order->How_ID, $order->Total_Weight))?> ฿</td>
+							<td style="text-align: right; padding-right: 50px;"><?php echo number_format(cal_range_weight($order->How_ID, $order->Total_Weight))?> ฿</td>
 							<td></td>
 						</tr>
 						<tr>
 							<td>Services</td>
-							<td style="text-align: right; padding-right: 50px;"><?=number_format(cal_price_option($order->Order_ID))?> ฿</td>
+							<td style="text-align: right; padding-right: 50px;"><?php echo number_format(cal_price_option($order->Order_ID))?> ฿</td>
 							<td></td>
 						</tr>
 						<tr>
 							<td style="font-weight: bold;"><h4>Total</h4></td>
-							<td style="text-align: right; padding-right: 50px; font-weight: bold;"><h4><?=number_format($order->Total_Price + cal_range_weight($order->How_ID, $order->Total_Weight) + cal_price_option($order->Order_ID))?> ฿</h4></td>
+							<td style="text-align: right; padding-right: 50px; font-weight: bold;"><h4><?php echo number_format($order->Total_Price + cal_range_weight($order->How_ID, $order->Total_Weight) + cal_price_option($order->Order_ID))?> ฿</h4></td>
 							<td style="text-align: center;">
 							<?php if($order->payment_id == 1): ?>
-								<?=$this->load->view('checkout/payment_1')?>
+								<?php echo $this->load->view('checkout/payment_1')?>
 							<?php elseif($order->payment_id == 2): ?>
-								<?=$this->load->view('checkout/payment_2')?>
+								<?php echo $this->load->view('checkout/payment_2')?>
 							<?php elseif($order->payment_id == 3): ?>
-								<?=$this->load->view('checkout/payment_3')?>
+								<?php echo $this->load->view('checkout/payment_3')?>
 							<?php endif; ?>
-								<!--<a href="<?=site_url("checkout/redirect_payment/{$order->Order_ID}")?>">DONE</a>-->
+								<!--<a href="<?php echo site_url("checkout/redirect_payment/{$order->Order_ID}")?>">DONE</a>-->
 							</td>
 						</tr>
 

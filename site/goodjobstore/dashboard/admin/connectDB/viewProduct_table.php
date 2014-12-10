@@ -6,7 +6,7 @@
 			$('#scrollbar1').tinyscrollbar();	
 		});
 	</script>
-<?
+<?php
 	$proCode = $_GET['proCode'];
 	$propertyName = $_GET['propertyName'];
 
@@ -41,32 +41,32 @@
 										<td></td>
 									</tr>
 
-									<?while ($data=mysql_fetch_array($result))
-									{?>	
+									<?php while ($data=mysql_fetch_array($result))
+									{ ?>	
 										<tr>
-											<td style="text-align:center;"><?=$data['Product_Code']?></td>
-											<td style="text-align:center;"><img src="../../public/<?=$data['Thumbnail_path']?>"></td>
-											<td style="text-align:center;"><?=$data['Pro_Name_En']?></td>
-											<td style="text-align:center;"><?=$data['name_en']?></td>
-											<td style="text-align:right;"><?=$data['Price_Buy']?></td>
-											<td style="text-align:right;"><?=$data['Price_sale']?></td>
-											<td style="text-align:center;"><?=$data['Qty']?></td>
+											<td style="text-align:center;"><?php echo $data['Product_Code']?></td>
+											<td style="text-align:center;"><img src="../../public/<?php echo $data['Thumbnail_path']?>"></td>
+											<td style="text-align:center;"><?php echo $data['Pro_Name_En']?></td>
+											<td style="text-align:center;"><?php echo $data['name_en']?></td>
+											<td style="text-align:right;"><?php echo $data['Price_Buy']?></td>
+											<td style="text-align:right;"><?php echo $data['Price_sale']?></td>
+											<td style="text-align:center;"><?php echo $data['Qty']?></td>
 											<td>
 												<input type="button" value="Description" style="width:75px;"
-														onclick="window.location.href='product_viewEditDescrip.php?productID=<?=$data['Product_ID']?>&proCode=<?=$proCode?>'">
+														onclick="window.location.href='product_viewEditDescrip.php?productID=<?php echo $data['Product_ID']?>&proCode=<?php echo $proCode?>'">
 											</td>
 											<td>
 												<input type="button" value="Images" style="width:60px;"
-														onclick="window.location.href='product_viewEditImage.php?productID=<?=$data['Product_ID']?>&proCode=<?=$proCode?>
-														&propertyName=<?=$data['Property_Name']?>'">
+														onclick="window.location.href='product_viewEditImage.php?productID=<?php echo $data['Product_ID']?>&proCode=<?php echo $proCode?>
+														&propertyName=<?php echo $data['Property_Name']?>'">
 											</td>
 <!--										<td>
 												<input type="button" value="Property" style="width:60px;"
-														onclick="window.location.href='product_insertPropertyImg.php?genProID=<?=$data['Product_ID']?>&proCode=<?=$proCode?>&propertyName=<?=$data['Property_Name']?>'">
+														onclick="window.location.href='product_insertPropertyImg.php?genProID=<?php echo $data['Product_ID']?>&proCode=<?php echo $proCode?>&propertyName=<?php echo $data['Property_Name']?>'">
 											</td>
 -->											<td>
-												<input type="button" value="Delete" style="width:60px;" onclick="deleteProduct('<?=$data['Product_ID']?>','<?=$proCode?>')" >
+												<input type="button" value="Delete" style="width:60px;" onclick="deleteProduct('<?php echo $data['Product_ID']?>','<?php echo $proCode?>')" >
 											</td>
 										</tr>
-									<?}?>
+									<?php } ?>
 								</table>

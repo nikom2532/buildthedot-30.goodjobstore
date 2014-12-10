@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<?
+<?php
 	$num = $_GET['num'];
 
 	$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
@@ -14,11 +14,11 @@
 
 
 
-	<select name="selectCross<?=$num?>">
-		<option value=""><-- Please Select Cross Product <?=$num?>--></option>
-		<?
+	<select name="selectCross<?php echo $num?>">
+		<option value=""><-- Please Select Cross Product <?php echo $num?>--></option>
+		<?php
 		while ($data=mysql_fetch_array($result))
-		{?>
-			<option value="<?=$data['Product_ID']?>"><?=$data['Pro_Name_En']?></option>
-		<?}?>
+		{ ?>
+			<option value="<?php echo $data['Product_ID']?>"><?php echo $data['Pro_Name_En']?></option>
+		<?php } ?>
 	</select>

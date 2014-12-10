@@ -44,7 +44,7 @@
 <body>
 	<div id="wrapper">
 		<!-- Header Section -->
-		<? include("header.php"); ?>
+		<?php include("header.php"); ?>
 
 		<!-- Body Section -->
 		<div id="product_content">
@@ -140,7 +140,7 @@
 
 
 		<!-- Footer Section -->
-		<? include("footer.php"); ?>
+		<?php include("footer.php"); ?>
 	</div>
 </body>
 </html>

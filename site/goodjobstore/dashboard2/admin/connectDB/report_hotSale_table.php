@@ -1,7 +1,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
 
-<?
+<?php
 	//-- session for export to excel --
 	session_start(); 
 	unset($_SESSION['report_header']);
@@ -71,24 +71,24 @@
 			<td>Discount Price</td>
 			<td>Sale Qty.</td>
 		</tr>
-		<?	$i=0;
+		<?php	$i=0;
 		while($dataHot=mysql_fetch_array($resultHot))
-		{?>
+		{ ?>
 			<tr style="height:20px;">
-				<td style="text-align:center;"><?=$dataHot['Product_Code']?></td>
-					<?$_SESSION['report_values'][$i][0]=$dataHot['Product_Code'];?>
-				<td style="text-align:center;"><?=$dataHot['Pro_Name_En']?></td>
-					<?$_SESSION['report_values'][$i][1]=$dataHot['Pro_Name_En'];?>
-				<td style="text-align:center;"><?=$dataHot['Property_Name']?></td>
-					<?$_SESSION['report_values'][$i][2]=$dataHot['Property_Name'];?>
-				<td style="text-align:right;"><?=$dataHot['Price']?></td>
-					<?$_SESSION['report_values'][$i][3]=$dataHot['Price'];?>
-				<td style="text-align:right;"><?=$dataHot['Discount']?></td>
-					<?$_SESSION['report_values'][$i][4]=$dataHot['Discount'];?>
-				<td style="text-align:center;"><?=$dataHot['Qty']?></td>
-					<?$_SESSION['report_values'][$i][5]=$dataHot['Qty'];?>
+				<td style="text-align:center;"><?php echo $dataHot['Product_Code']?></td>
+					<?php $_SESSION['report_values'][$i][0]=$dataHot['Product_Code'];?>
+				<td style="text-align:center;"><?php echo $dataHot['Pro_Name_En']?></td>
+					<?php $_SESSION['report_values'][$i][1]=$dataHot['Pro_Name_En'];?>
+				<td style="text-align:center;"><?php echo $dataHot['Property_Name']?></td>
+					<?php $_SESSION['report_values'][$i][2]=$dataHot['Property_Name'];?>
+				<td style="text-align:right;"><?php echo $dataHot['Price']?></td>
+					<?php $_SESSION['report_values'][$i][3]=$dataHot['Price'];?>
+				<td style="text-align:right;"><?php echo $dataHot['Discount']?></td>
+					<?php $_SESSION['report_values'][$i][4]=$dataHot['Discount'];?>
+				<td style="text-align:center;"><?php echo $dataHot['Qty']?></td>
+					<?php $_SESSION['report_values'][$i][5]=$dataHot['Qty'];?>
 			</tr>
-		<?	$i++;
+		<?php	$i++;
 		}?>
 	</tbody>
 </table>

@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<?
+<?php
 	$mainID = $_GET['mainID'];
 	$subID = $_GET['subID'];
 

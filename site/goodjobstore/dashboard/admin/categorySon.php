@@ -3,7 +3,7 @@
 <!--Permission-->
 
 <?php
-session_start(); //�Դ session
+session_start(); //�Դ session
 $ses_userid =$_SESSION[ses_userid];
 $ses_username = $_SESSION[ses_username];
 if($ses_userid <> session_id() or $ses_username =="")
@@ -20,7 +20,7 @@ exit();
 ?>
 
 <!--Permission-->
-<?
+<?php
 	$mainID = $_GET['mainID'];
 	$subID = $_GET['subID'];
 
@@ -74,7 +74,7 @@ exit();
 </head>
 <body>
 	<script>
-		viewTable('<?=$subID?>');
+		viewTable('<?php echo $subID?>');
 	</script>
 <!--logout-->
 
@@ -100,8 +100,8 @@ exit();
 			  <!--menu-->
 
 									<b><a href="order.php">Order</a></b>
-								<?if($_SESSION[ses_status] == "Super Admin") 
-			{?>
+								<?php if($_SESSION[ses_status] == "Super Admin") 
+			{ ?>
 								<!-- End Admin -->
 									<b><br><br><a href="saleReport.php">Sale Report</a>
 									<br><br><a href="record.php">Customer Record</a>
@@ -121,7 +121,7 @@ exit();
 									<br><br><a href="shopGuide_main.php">Shopping Guide</a>
 									<br><br><a href="privacy.php">Permission</a>
 									<br><br><a href="usdRate.php">USD Rate</a></b>
-			<?}?>	
+			<?php } ?>	
 
 <!--menu-->
 		   	</div>
@@ -132,9 +132,9 @@ exit();
 							<h2>Add Son Category</h2>
 								<h3>
 									&nbsp;&nbsp;&nbsp;&nbsp;
-									<?=$nameMainEN?><br>
+									<?php echo $nameMainEN?><br>
 									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									<?=$nameEn?>
+									<?php echo $nameEn?>
 								</h3><br>
 						 	<form name="frmAddCategorySon">
 								<table>
@@ -159,8 +159,8 @@ exit();
 										</tr>
 									</tbody>
 								</table>
-								<input type='button' value='Add' onclick='addCategorySon(<?=$subID?>);' style="width:60px">
-								<input type='button' value='Back' onclick="window.location.href='categorySub.php?mainID=<?=$mainID?>'" style="width:60px">
+								<input type='button' value='Add' onclick='addCategorySon(<?php echo $subID?>);' style="width:60px">
+								<input type='button' value='Back' onclick="window.location.href='categorySub.php?mainID=<?php echo $mainID?>'" style="width:60px">
 							</form>		
 <br><br>
 							<div id="line"></div>

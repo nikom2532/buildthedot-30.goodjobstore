@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<?
+<?php
 	$subID = $_GET['subID'];
 
 	$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
@@ -23,21 +23,21 @@
 			<td></td>
 			<td></td>
 		</tr>
-		<?
+		<?php
 		while ($data=mysql_fetch_array($result))
-		{?>
+		{ ?>
 			<tr style="height:20px;">
-				<td><?=$data['Name_En']?></td>
-				<td><?=$data['Name_Th']?></td>
-				<td><?=$data['son_url']?></td>
+				<td><?php echo $data['Name_En']?></td>
+				<td><?php echo $data['Name_Th']?></td>
+				<td><?php echo $data['son_url']?></td>
 
 				<td>
 					<input type="button" value="Edit" 
-					onclick="window.location.href='categorySon_viewEdit.php?subID=<?=$data['Sub_ID']?>&sonID=<?=$data['Son_ID']?>'" 
+					onclick="window.location.href='categorySon_viewEdit.php?subID=<?php echo $data['Sub_ID']?>&sonID=<?php echo $data['Son_ID']?>'" 
 					style="width:60px">
 				</td>
-				<td><input type="button" value="Delete" onclick="deleteCategorySon(<?=$data['Sub_ID']?>,<?=$data['Son_ID']?>);" style="width:60px"></td>
+				<td><input type="button" value="Delete" onclick="deleteCategorySon(<?php echo $data['Sub_ID']?>,<?php echo $data['Son_ID']?>);" style="width:60px"></td>
 			</tr>
-		<?}?>
+		<?php } ?>
 	</tbody>
 </table>

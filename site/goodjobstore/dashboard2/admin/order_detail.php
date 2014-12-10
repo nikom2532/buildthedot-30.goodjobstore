@@ -21,7 +21,7 @@ exit();
 ?>
 
 <!--Permission-->
-<?
+<?php
 	$orderID = $_GET['orderID'];
 	$cusID = $_GET['cusID'];
 	$backTo = $_GET['backTo'];
@@ -103,7 +103,7 @@ exit();
 ?>
 
 <!--Export excel-->
-<?
+<?php
 	unset($_SESSION['report_header']);
 	unset($_SESSION['report_values']);
 	$_SESSION['report_header']=array("Order ID","Product Code","Product Name","Property","Color","Qty.","Price","Total Price"); 
@@ -145,8 +145,8 @@ exit();
 <!--menu-->
 
 									<b><a href="order.php">Order</a></b>
-								<?if($_SESSION[ses_status] == "Super Admin") 
-			{?>
+								<?php if($_SESSION[ses_status] == "Super Admin") 
+			{ ?>
 								<!-- End Admin -->
 									<b><br><br><a href="saleReport.php">Sale Report</a>
 									<br><br><a href="record.php">Customer Record</a>
@@ -166,7 +166,7 @@ exit();
 									<br><br><a href="shopGuide_main.php">Shopping Guide</a>
 									<br><br><a href="privacy.php">Permission</a>
 									<br><br><a href="usdRate.php">USD Rate</a></b>
-			<?}?>	
+			<?php } ?>	
 
 <!--menu-->
 		   	</div>
@@ -174,52 +174,52 @@ exit();
 
 					<div class="viewport">
 						<div class="overview">
-							<h2>Order: <?=$orderID?></h2>
+							<h2>Order: <?php echo $orderID?></h2>
 
-							<br>Customer ID: <?=$cusID?>
-							<?while($dataCus=mysql_fetch_array($resultCus))
-							{?>
-								<br>Name: <?=$dataCus['FirstName']?> <?=$dataCus['LastName']?>
-								<br>E-mail: <?=$dataCus['Email']?>
-								<br>Tel: <?=$dataCus['Phone_Number']?>
-							<?}?>
+							<br>Customer ID: <?php echo $cusID?>
+							<?php while($dataCus=mysql_fetch_array($resultCus))
+							{ ?>
+								<br>Name: <?php echo $dataCus['FirstName']?> <?php echo $dataCus['LastName']?>
+								<br>E-mail: <?php echo $dataCus['Email']?>
+								<br>Tel: <?php echo $dataCus['Phone_Number']?>
+							<?php } ?>
 							<br><br><br>
-							<?while($dataShip=mysql_fetch_array($resultShip))
-							{?>
-								<br>Shipping Name: <?=$dataShip['s_FirstName']?> <?=$dataShip['s_LastName']?> 
-								<br>Shipping Address: <?=$dataShip['s_Address']?>
-								<?if($dataShip['s_Country_ID']==222)
-								{?>
-									<br>Province: <?=$dataShip['Name_Th']?>
-								<?}
+							<?php while($dataShip=mysql_fetch_array($resultShip))
+							{ ?>
+								<br>Shipping Name: <?php echo $dataShip['s_FirstName']?> <?php echo $dataShip['s_LastName']?> 
+								<br>Shipping Address: <?php echo $dataShip['s_Address']?>
+								<?php if($dataShip['s_Country_ID']==222)
+								{ ?>
+									<br>Province: <?php echo $dataShip['Name_Th']?>
+								<?php } 
 								else
-								{?>
-									<br>City: <?=$dataShip['s_City_Name']?>
-								<?}?>
-								<br>Country: <?=$dataShip['country_name']?>
-								<br>Postcode: <?=$dataShip['s_Postal_Code']?>
-								<br>Tel: <?=$dataShip['s_Phone_Number']?>
-							<?}
+								{ ?>
+									<br>City: <?php echo $dataShip['s_City_Name']?>
+								<?php } ?>
+								<br>Country: <?php echo $dataShip['country_name']?>
+								<br>Postcode: <?php echo $dataShip['s_Postal_Code']?>
+								<br>Tel: <?php echo $dataShip['s_Phone_Number']?>
+							<?php } 
 							while($dataShipMet=mysql_fetch_array($resultShipMet))
-							{?>
-								<br>Shipping Method: <?=$dataShipMet['Name_En']?>
-							<?}
+							{ ?>
+								<br>Shipping Method: <?php echo $dataShipMet['Name_En']?>
+							<?php } 
 							while($dataPayMet=mysql_fetch_array($resultPayMet))
-							{?>
-								<br>Payment Method: <?=$dataPayMet['name_en']?>
-							<?}?>
-<!--							<br>Gift warp: <?=(!$gift)?NO:YES;?>	-->
-							<br>Invoice: <?=(!$invoice)?NO:YES;?>
+							{ ?>
+								<br>Payment Method: <?php echo $dataPayMet['name_en']?>
+							<?php } ?>
+<!--							<br>Gift warp: <?php echo (!$gift)?NO:YES;?>	-->
+							<br>Invoice: <?php echo (!$invoice)?NO:YES;?>
 							<br><br>
-							<?if($backTo==1){?>
-								<input type="button" value="Back" style="width:60px" onclick="window.location.href='saleReport.php'"><?}
-							else if ($backTo==2){?>
-								<input type="button" value="Back" style="width:60px" onclick="window.location.href='record_order.php?cusID=<?=$cusID?>'"><?}
-							else{?>
-								<input type="button" value="Back" style="width:60px" onclick="window.location.href='order.php'"><?}?>
+							<?php if($backTo==1){ ?>
+								<input type="button" value="Back" style="width:60px" onclick="window.location.href='saleReport.php'"><?php } 
+							else if ($backTo==2){ ?>
+								<input type="button" value="Back" style="width:60px" onclick="window.location.href='record_order.php?cusID=<?php echo $cusID?>'"><?php } 
+							else{ ?>
+								<input type="button" value="Back" style="width:60px" onclick="window.location.href='order.php'"><?php } ?>
 							<br><br>
-							<?if($backTo==1){?>
-								<input type="button" style="width:100px;" value="Export to excel" onclick="window.location.href='report_export.php?fn=Order_Detail'"><?}?>
+							<?php if($backTo==1){ ?>
+								<input type="button" style="width:100px;" value="Export to excel" onclick="window.location.href='report_export.php?fn=Order_Detail'"><?php } ?>
 							<br><br>
 							<div id="line"></div>
 <div style="width: 800px; height: 250px; overflow: auto; padding: 5px">
@@ -237,28 +237,28 @@ exit();
 											<td>Price</td>
 											<td>Total Price</td>
 										</tr>
-										<?	$i=1;
+										<?php	$i=1;
 											$j=0;
 										while ($dataItem=mysql_fetch_array($resultItem))
-										{?>
-											<?=($i%2==1)?'<tr style="background-color:#DDDDDD;">':'<tr style="background-color:#EEEEEE;">'?>
-												<?if($j==0){$_SESSION['report_values'][$j][0]="#".$orderID;}
+										{ ?>
+											<?php echo ($i%2==1)?'<tr style="background-color:#DDDDDD;">':'<tr style="background-color:#EEEEEE;">'?>
+												<?php if($j==0){$_SESSION['report_values'][$j][0]="#".$orderID;}
 												else{$_SESSION['report_values'][$j][0]=" ";}?>
-												<td style="text-align:center;"><?=$dataItem['Product_Code']?></td>
-													<?$_SESSION['report_values'][$j][1]=(string)$dataItem['Product_Code'];?>
+												<td style="text-align:center;"><?php echo $dataItem['Product_Code']?></td>
+													<?php $_SESSION['report_values'][$j][1]=(string)$dataItem['Product_Code'];?>
 												<td style="text-align:center;">
-													<img src="../../public/<?=$dataItem['Thumbnail_path']?>">
+													<img src="../../public/<?php echo $dataItem['Thumbnail_path']?>">
 												</td>
-												<td style="text-align:center;"><?=$dataItem['Pro_Name_En']?></td>
-													<?$_SESSION['report_values'][$j][2]=$dataItem['Pro_Name_En'];?>
-												<td style="text-align:center;"><?=$dataItem['name_en']?></td>
-													<?$_SESSION['report_values'][$j][3]=$dataItem['name_en'];?>
-												<td style="text-align:center;"><?=$dataItem['Name_EN']?></td>
-													<?$_SESSION['report_values'][$j][4]=$dataItem['Name_EN'];?>
-												<td style="text-align:center;"><?=$dataItem['Qty']?></td>
-													<?$_SESSION['report_values'][$j][5]=$dataItem['Qty'];?>
+												<td style="text-align:center;"><?php echo $dataItem['Pro_Name_En']?></td>
+													<?php $_SESSION['report_values'][$j][2]=$dataItem['Pro_Name_En'];?>
+												<td style="text-align:center;"><?php echo $dataItem['name_en']?></td>
+													<?php $_SESSION['report_values'][$j][3]=$dataItem['name_en'];?>
+												<td style="text-align:center;"><?php echo $dataItem['Name_EN']?></td>
+													<?php $_SESSION['report_values'][$j][4]=$dataItem['Name_EN'];?>
+												<td style="text-align:center;"><?php echo $dataItem['Qty']?></td>
+													<?php $_SESSION['report_values'][$j][5]=$dataItem['Qty'];?>
 												<td style="text-align:center;">
-													<?
+													<?php
 														if($dataItem['gift_type']=='')
 															echo 'NO';
 														else
@@ -266,7 +266,7 @@ exit();
 													?>
 												</td>
 												<td style="text-align:right;">
-													<?
+													<?php
 													if($dataItem['Price_sale']==0){
 														echo $dataItem['Price_Buy'];
 														$_SESSION['report_values'][$j][6]=$dataItem['Price_Buy'];}
@@ -275,60 +275,60 @@ exit();
 														$_SESSION['report_values'][$j][6]=$dataItem['Price_sale'];}
 													?>
 												</td>
-												<td style="text-align:right;"><?=$dataItem['Total_Price']?></td>
-													<?$_SESSION['report_values'][$j][7]=$dataItem['Total_Price'];?>
+												<td style="text-align:right;"><?php echo $dataItem['Total_Price']?></td>
+													<?php $_SESSION['report_values'][$j][7]=$dataItem['Total_Price'];?>
 											</tr>
-										<?	$i++;
+										<?php	$i++;
 											$j++;
 										}?>
 									</tbody>
 								</table>
 								</div>
 							</div>
-							<?while($dataPrice=mysql_fetch_array($resultPrice))
+							<?php while($dataPrice=mysql_fetch_array($resultPrice))
 							{
 							?>
-								<br>Products Total: <b><?=$dataPrice['Total_Price']?></b> Bath.
-									<?$j++;?>
-									<?$_SESSION['report_values'][$j][0]=" ";?>
-									<?$_SESSION['report_values'][$j][1]=" ";?>
-									<?$_SESSION['report_values'][$j][2]=" ";?>
-									<?$_SESSION['report_values'][$j][3]=" ";?>
-									<?$_SESSION['report_values'][$j][4]=" ";?>
-									<?$_SESSION['report_values'][$j][5]=" ";?>
-									<?$_SESSION['report_values'][$j][6]="Products Total";?>
-									<?$_SESSION['report_values'][$j][7]=$dataPrice['Total_Price'];?>
-								<br>Shipping Price: <b><?=$dataPrice['shipping_price']?></b> Bath.
-									<?$j++;?>
-									<?$_SESSION['report_values'][$j][0]=" ";?>
-									<?$_SESSION['report_values'][$j][1]=" ";?>
-									<?$_SESSION['report_values'][$j][2]=" ";?>
-									<?$_SESSION['report_values'][$j][3]=" ";?>
-									<?$_SESSION['report_values'][$j][4]=" ";?>
-									<?$_SESSION['report_values'][$j][5]=" ";?>
-									<?$_SESSION['report_values'][$j][6]="Shipping Price";?>
-									<?$_SESSION['report_values'][$j][7]=$dataPrice['shipping_price'];?>
-								<br>Service Price: <b><?=$dataPrice['service_price']?></b> Bath.
-									<?$j++;?>
-									<?$_SESSION['report_values'][$j][0]=" ";?>
-									<?$_SESSION['report_values'][$j][1]=" ";?>
-									<?$_SESSION['report_values'][$j][2]=" ";?>
-									<?$_SESSION['report_values'][$j][3]=" ";?>
-									<?$_SESSION['report_values'][$j][4]=" ";?>
-									<?$_SESSION['report_values'][$j][5]=" ";?>
-									<?$_SESSION['report_values'][$j][6]="Service Price";?>
-									<?$_SESSION['report_values'][$j][7]=$dataPrice['service_price'];?>
-								<br>Total: <b><?=$dataPrice['Final_Price']?></b> Bath.
-									<?$j++;?>
-									<?$_SESSION['report_values'][$j][0]=" ";?>
-									<?$_SESSION['report_values'][$j][1]=" ";?>
-									<?$_SESSION['report_values'][$j][2]=" ";?>
-									<?$_SESSION['report_values'][$j][3]=" ";?>
-									<?$_SESSION['report_values'][$j][4]=" ";?>
-									<?$_SESSION['report_values'][$j][5]=" ";?>
-									<?$_SESSION['report_values'][$j][6]="Total";?>
-									<?$_SESSION['report_values'][$j][7]=$dataPrice['Final_Price'];?>
-							<?}?>
+								<br>Products Total: <b><?php echo $dataPrice['Total_Price']?></b> Bath.
+									<?php $j++;?>
+									<?php $_SESSION['report_values'][$j][0]=" ";?>
+									<?php $_SESSION['report_values'][$j][1]=" ";?>
+									<?php $_SESSION['report_values'][$j][2]=" ";?>
+									<?php $_SESSION['report_values'][$j][3]=" ";?>
+									<?php $_SESSION['report_values'][$j][4]=" ";?>
+									<?php $_SESSION['report_values'][$j][5]=" ";?>
+									<?php $_SESSION['report_values'][$j][6]="Products Total";?>
+									<?php $_SESSION['report_values'][$j][7]=$dataPrice['Total_Price'];?>
+								<br>Shipping Price: <b><?php echo $dataPrice['shipping_price']?></b> Bath.
+									<?php $j++;?>
+									<?php $_SESSION['report_values'][$j][0]=" ";?>
+									<?php $_SESSION['report_values'][$j][1]=" ";?>
+									<?php $_SESSION['report_values'][$j][2]=" ";?>
+									<?php $_SESSION['report_values'][$j][3]=" ";?>
+									<?php $_SESSION['report_values'][$j][4]=" ";?>
+									<?php $_SESSION['report_values'][$j][5]=" ";?>
+									<?php $_SESSION['report_values'][$j][6]="Shipping Price";?>
+									<?php $_SESSION['report_values'][$j][7]=$dataPrice['shipping_price'];?>
+								<br>Service Price: <b><?php echo $dataPrice['service_price']?></b> Bath.
+									<?php $j++;?>
+									<?php $_SESSION['report_values'][$j][0]=" ";?>
+									<?php $_SESSION['report_values'][$j][1]=" ";?>
+									<?php $_SESSION['report_values'][$j][2]=" ";?>
+									<?php $_SESSION['report_values'][$j][3]=" ";?>
+									<?php $_SESSION['report_values'][$j][4]=" ";?>
+									<?php $_SESSION['report_values'][$j][5]=" ";?>
+									<?php $_SESSION['report_values'][$j][6]="Service Price";?>
+									<?php $_SESSION['report_values'][$j][7]=$dataPrice['service_price'];?>
+								<br>Total: <b><?php echo $dataPrice['Final_Price']?></b> Bath.
+									<?php $j++;?>
+									<?php $_SESSION['report_values'][$j][0]=" ";?>
+									<?php $_SESSION['report_values'][$j][1]=" ";?>
+									<?php $_SESSION['report_values'][$j][2]=" ";?>
+									<?php $_SESSION['report_values'][$j][3]=" ";?>
+									<?php $_SESSION['report_values'][$j][4]=" ";?>
+									<?php $_SESSION['report_values'][$j][5]=" ";?>
+									<?php $_SESSION['report_values'][$j][6]="Total";?>
+									<?php $_SESSION['report_values'][$j][7]=$dataPrice['Final_Price'];?>
+							<?php } ?>
 						</div>
 					</div>
 

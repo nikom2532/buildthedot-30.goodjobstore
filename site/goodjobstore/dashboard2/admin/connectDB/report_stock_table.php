@@ -1,7 +1,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
 
-<?
+<?php
 	//-- session for export to excel --
 	session_start(); 
 	unset($_SESSION['report_header']);
@@ -34,21 +34,21 @@
 			<td>Qty.</td>
 		</tr>
 		<form name="frmTableOrder">
-			<?
+			<?php
 				$i=0;
 			while ($dataStock=mysql_fetch_array($resultStock))
-			{?>
+			{ ?>
 				<tr style="height:20px;">
-					<td style="text-align:center;"><?=$dataStock['Product_Code']?></td>
-						<?$_SESSION['report_values'][$i][0]=$dataStock['Product_Code'];?>
-					<td style="text-align:center;"><?=$dataStock['Group_Name_En']?></td>
-						<?$_SESSION['report_values'][$i][1]=$dataStock['Group_Name_En'];?>
-					<td style="text-align:center;"><?=$dataStock['name_en']?></td>
-						<?$_SESSION['report_values'][$i][2]=$dataStock['name_en'];?>
-					<td style="text-align:center;"><?=$dataStock['Qty']?></td>
-						<?$_SESSION['report_values'][$i][3]=$dataStock['Qty'];?>
+					<td style="text-align:center;"><?php echo $dataStock['Product_Code']?></td>
+						<?php $_SESSION['report_values'][$i][0]=$dataStock['Product_Code'];?>
+					<td style="text-align:center;"><?php echo $dataStock['Group_Name_En']?></td>
+						<?php $_SESSION['report_values'][$i][1]=$dataStock['Group_Name_En'];?>
+					<td style="text-align:center;"><?php echo $dataStock['name_en']?></td>
+						<?php $_SESSION['report_values'][$i][2]=$dataStock['name_en'];?>
+					<td style="text-align:center;"><?php echo $dataStock['Qty']?></td>
+						<?php $_SESSION['report_values'][$i][3]=$dataStock['Qty'];?>
 				</tr>
-			<?	$i++;
+			<?php	$i++;
 			}?>
 		</form>
 	</tbody>

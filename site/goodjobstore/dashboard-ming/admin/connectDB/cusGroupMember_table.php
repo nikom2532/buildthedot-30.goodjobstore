@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<?
+<?php
 	$groupID = $_GET['groupID'];
 
 	$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
@@ -26,16 +26,16 @@
 			<td style="text-align:center;">Name</td>
 			<td></td>
 		</tr>
-		<?
+		<?php
 		while ($data=mysql_fetch_array($result))
-		{?>
+		{ ?>
 			<tr>
-				<td style="text-align:center;"><?=$data['Cus_ID'];?></td>
-				<td style="text-align:center;"><?=$data['Email'];?></td>
-				<td style="text-align:center;"><?=$data['FirstName']?> <?=$data['LastName']?></td>
-				<td><input type="button" value="Delete" onclick="deleteMember(<?=$groupID?>,'<?=$data['Cus_ID']?>');" style="width:60px"></td>
+				<td style="text-align:center;"><?php echo $data['Cus_ID'];?></td>
+				<td style="text-align:center;"><?php echo $data['Email'];?></td>
+				<td style="text-align:center;"><?php echo $data['FirstName']?> <?php echo $data['LastName']?></td>
+				<td><input type="button" value="Delete" onclick="deleteMember(<?php echo $groupID?>,'<?php echo $data['Cus_ID']?>');" style="width:60px"></td>
 			</tr>
-		<?}?>
+		<?php } ?>
 	</tbody>
 </table>
 

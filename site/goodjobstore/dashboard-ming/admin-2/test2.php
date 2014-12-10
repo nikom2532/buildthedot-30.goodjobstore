@@ -2,12 +2,12 @@
 <head>
 <title>ThaiCreate.Com Tutorial</title>
 </head>
-<?
+<?php
 	mysql_connect("localhost","root","") or die(mysql_error());
 	mysql_select_db("goodjob");
 ?>
 <body>
-	<?
+	<?php
 		echo $_POST["lmName1"];
 		
 		echo "<hr>";
@@ -20,6 +20,6 @@
 	?>
 </body>
 </html>
-<?
+<?php
 	mysql_close();
 ?>

@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<?
+<?php
 	$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
 	$objDB = mysql_select_db("goodjob") or die("Can't connect Database");
 	mysql_query("SET NAMES utf8",$objCon);
@@ -21,22 +21,22 @@
 				<td></td>
 				<td></td>
 			</tr>
-			<? $i=1;
+			<?php $i=1;
 			while ($data=mysql_fetch_array($result))
-			{?>
-				<?=($i%2==1)?'<tr style="background-color:#DDDDDD;">':'<tr style="background-color:#EEEEEE;">'?>
-					<td><?=$data['name_en']?></td>
-					<td><?=$data['name_th']?></td>
-					<td><?=$data['description_en']?></td>
-					<td><?=$data['description_th']?></td>
+			{ ?>
+				<?php echo ($i%2==1)?'<tr style="background-color:#DDDDDD;">':'<tr style="background-color:#EEEEEE;">'?>
+					<td><?php echo $data['name_en']?></td>
+					<td><?php echo $data['name_th']?></td>
+					<td><?php echo $data['description_en']?></td>
+					<td><?php echo $data['description_th']?></td>
 
 					<td>
 					<input type="button" value="Edit" style="width:60px" 
-						onclick="window.location.href='payment_viewEdit.php?paymentID=<?=$data['id']?>'">
+						onclick="window.location.href='payment_viewEdit.php?paymentID=<?php echo $data['id']?>'">
 					</td>
-					<td><input type="button" value="Delete" onclick="deletePayment(<?=$data['id']?>);" style="width:60px"></td>
+					<td><input type="button" value="Delete" onclick="deletePayment(<?php echo $data['id']?>);" style="width:60px"></td>
 				</tr>
-			<? $i++;
+			<?php $i++;
 			}?>
 		</tbody>
 	</table>
