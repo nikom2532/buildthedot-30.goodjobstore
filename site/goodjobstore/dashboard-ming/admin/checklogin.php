@@ -1,6 +1,6 @@
 <?php
 session_start(); //เปิด seesion เพื่อทำงาน
-echo '<meta http-equiv=”Content-Type” content=”text/html; charset=utf-8″ />';
+echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8″ />';
 //กำหนดภาษาของเอกสารให้เป็น UTF-8
 $username = $_POST[email];
 //ประกาศซตัวแปรชื่อ username โดยการรับค่ามาจากกล่อง username ที่หน้า Login
@@ -27,7 +27,7 @@ echo "Hi Welcome Back Admin<br />";             //สร้าง session สำ
 $_SESSION[ses_userid] = session_id();            //สร้าง session สำหรับเก็บค่า ID
 $_SESSION[ses_username] = $username;      //สร้าง session สำหรับเก็บค่า Username
 $_SESSION[ses_status] = "Super Admin";                      //สร้าง session สำหรับเก็บค่า สถานะความเป็น Admin
-echo “<meta http-equiv=’refresh’ content=’1;URL=index_admin.php’>”;
+echo "<meta http-equiv=’refresh’ content=’1;URL=index_admin.php’>";
 //ส่งค่าจากหน้านี้ไปหน้า index_admin.php
 echo "waiting…………………………";
 }
@@ -35,9 +35,9 @@ else{                       //ตรวจสอบสถานะของผ�
 $_SESSION[ses_userid] = session_id();                      //สร้าง session สำหรับให้ User นำไปใช้งาน
 $_SESSION[ses_username] = $username;
 $_SESSION[ses_status] = "Admin";
-echo “<meta http-equiv=’refresh’ content=’1;URL=index_user.php’>”;
+echo "<meta http-equiv=’refresh’ content=’1;URL=index_user.php’>";
 //ส่งค่าจากหน้านี้ไปหน้า index_user.php
-echo “<br /> Waiting User…………………………”;
+echo "<br /> Waiting User…………………………";
 }
 
 }

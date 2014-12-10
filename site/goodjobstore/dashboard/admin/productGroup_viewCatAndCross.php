@@ -240,7 +240,7 @@ exit();
 													<div id="cross_product<?php echo $i?>">
 														<select name="selectCross<?php echo $i?>">
 															<option value=""><-- Please Select Cross Product <?php echo $i?>--></option>
-															<?php//-------- show all product -----
+															<?php //-------- show all product -----
 															$sqlCrossAll = "SELECT * FROM product_groups WHERE Product_Code!='$proCode'";
 															$resultCrossAll = mysql_query($sqlCrossAll, $objCon) or die(mysql_error());
 															while ($dataCrossAll=mysql_fetch_array($resultCrossAll))
@@ -269,7 +269,7 @@ exit();
 														<div id="cross_product<?php echo $j?>">
 															<select name="selectCross<?php echo $j?>">
 																<option value=""><-- Please Select Cross Product <?php echo $j?>--></option>
-																<?php//-------- show all product -----
+																<?php //-------- show all product -----
 																$sqlCrossAll = "SELECT * FROM product_groups WHERE Product_Code!='$proCode'";
 																$resultCrossAll = mysql_query($sqlCrossAll, $objCon) or die(mysql_error());
 																while ($dataCrossAll=mysql_fetch_array($resultCrossAll))

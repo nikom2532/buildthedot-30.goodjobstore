@@ -75,7 +75,7 @@
 		<!-- Header Section -->
 		<?php echo $this->load->view('templates/header')?>
 		<?php if(!$this->session->userdata('lang')): ?>
-			<?php//=$this->load->view('templates/overlay')?>
+			<?php //=$this->load->view('templates/overlay')?>
 		<?php endif; ?>
 		
 		<!-- Body Section -->

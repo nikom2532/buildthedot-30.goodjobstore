@@ -128,14 +128,14 @@ exit();
 								Start Date <img src="../images/dot.gif" /> 
 								<select id="start_day">
 									<option value=""> -- Day -- </option>
-									<?phpfor($d=1;$d<=31;$d++)
+									<?php for($d=1;$d<=31;$d++)
 									{ ?>
 										<option value="<?php echo $d?>"><?php echo $d?></option>
 									<?php } ?>
 								</select>
 								<select id="start_month">
 									<option value=""> -- Month -- </option>
-									<?phpfor($m=1;$m<=12;$m++)
+									<?php for($m=1;$m<=12;$m++)
 									{ ?>
 										<option value="<?php echo $m?>"><?php echo $m?></option>
 									<?php } ?>
@@ -160,14 +160,14 @@ exit();
 								End Date &nbsp;&nbsp;<img src="../images/dot.gif" /> 
 								<select id="end_day">
 									<option value=""> -- Day -- </option>
-									<?phpfor($d=1;$d<=31;$d++)
+									<?php for($d=1;$d<=31;$d++)
 									{ ?>
 										<option value="<?php echo $d?>" <?php if($d==$today_d){ ?>selected<?php } ?>><?php echo $d?></option>
 									<?php } ?>
 								</select>
 								<select id="end_month">
 									<option value=""> -- Month -- </option>
-									<?phpfor($m=1;$m<=12;$m++)
+									<?php for($m=1;$m<=12;$m++)
 									{ ?>
 										<option value="<?php echo $m?>" <?php if($m==$today_m){ ?>selected<?php } ?>><?php echo $m?></option>
 									<?php } ?>

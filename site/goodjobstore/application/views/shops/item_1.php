@@ -233,7 +233,7 @@
 							<?php if($dataPropType['Color_ID']!=33)
 							{ ?>
 								<h2 style="font: inherit;"><?php echo $dataPropType['name_en']?></h2>
-									<?php//------- Image Color -------
+									<?php //------- Image Color -------
 									$sqlImgColor = "SELECT color.Color_ID, Name_EN, Name_TH, color.path
 													FROM color JOIN images
 													ON color.Color_ID = images.Color_ID
