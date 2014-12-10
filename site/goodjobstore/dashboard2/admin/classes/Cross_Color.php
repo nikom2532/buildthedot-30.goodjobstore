@@ -171,3 +171,4 @@ class Cross_Color
 		}
 		return $code;
 	}
+}

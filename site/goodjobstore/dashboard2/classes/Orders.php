@@ -183,7 +183,7 @@ class Orders
 
 	public function insertAll($Order_ID,$Cus_ID,$Coupon_ID,$Total_Price,$Discount_Price,$Order_Status,$How_ID,$Total_Weight)
 	{
-	    $strSQL="INSERT INTO orders (Order_ID,Cus_ID,Coupon_ID,Total_Price,Discount_Price,Order_Status,How_ID,Total_Weight) VALUES ('".$Order_ID."','".$Cus_ID."','".$Coupon_ID."',".$Total_Price.",".$Discount_Price.",'".$Order_Status"',".$How_ID.",".$Total_Weight.")";
+	    $strSQL="INSERT INTO orders (Order_ID,Cus_ID,Coupon_ID,Total_Price,Discount_Price,Order_Status,How_ID,Total_Weight) VALUES ('".$Order_ID."','".$Cus_ID."','".$Coupon_ID."',".$Total_Price.",".$Discount_Price.",'".$Order_Status."',".$How_ID.",".$Total_Weight.")";
 		echo $strSQL;
 	    $Dbcon= new Connection();
 		$code=0;

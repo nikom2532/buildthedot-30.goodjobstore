@@ -110,12 +110,12 @@ class Permission
 		$this->Write = $newVal;
 	}
 //End Properties
-		 $this->Delete="";
-		 $this->Edit="";
-		 $this->Permission_ID="";
-		 $this->Read="";
-		 $this->User="";
-		 $this->Write="";
+		 // $this->Delete="";
+		 // $this->Edit="";
+		 // $this->Permission_ID="";
+		 // $this->Read="";
+		 // $this->User="";
+		 // $this->Write="";
 //Operation
 	private function bind($ResultSet)
 	{

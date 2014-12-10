@@ -52,9 +52,9 @@ class Shopping_Guide
 		return $this->Guide_ID;
 	}
 
-	public function getPayment_ Th()
+	public function getPayment_Th()
 	{
-		return $this->Payment_ Th;
+		return $this->Payment_Th;
 	}
 
 	public function getPayment_En()
@@ -112,9 +112,9 @@ class Shopping_Guide
 	 * 
 	 * @param newVal
 	 */
-	public function setPayment_ Th($newVal)
+	public function setPayment_Th($newVal)
 	{
-		$this->Payment_ Th = $newVal;
+		$this->Payment_Th = $newVal;
 	}
 
 	/**

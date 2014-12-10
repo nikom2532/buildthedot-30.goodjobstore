@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<!--
 <?php
+/*
 if ($_FILES["file"]["error"] > 0)
 {
 	echo "Error: " . $_FILES["file"]["error"] . "<br />";
@@ -98,7 +98,7 @@ else
 			VALUES ('".$img_data."')";
 	mysql_query($strSQL, $objCon) or die(mysql_error());
 	mysql_close($objCon);
+*/
 ?>
--->
 
 <?php echo "aaaa";?>
