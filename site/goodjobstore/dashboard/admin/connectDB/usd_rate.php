@@ -15,19 +15,19 @@
 
 
 
-<table style="width:60%; border-collapse:collapse;">
-	<tbody>
-		<form name='frmOptionPrice'>
-			<?
-			while ($data=mysql_fetch_array($result))
-			{?>
-				<tr>
-					<td style="width:30%;">US$ 1</td>
-					<td style="width:10px;"><img src="../images/dot.gif" /></td>
-					<td style="width:20%;"><input type="text" name="changeRate" value="<?=$data['rate']?>"></td>
-					<td><input type="button" value="Update" onclick="updateRate('<?=$data['id']?>');" style="width:60px"></td>
-				</tr>
-			<?}?>
-		</form>
-	</tbody>
-</table>
+<form name = "frmOptionPrice">
+	<table style="width:60%; border-collapse:collapse;">
+		<tbody>
+				<?php
+				while ($data=mysql_fetch_array($result))
+				{ ?>
+					<tr>
+						<td style="width:30%;">US$ 1</td>
+						<td style="width:10px;"><img src="../images/dot.gif" /></td>
+						<td style="width:20%;"><input type="text" name="changeRate" value="<?=$data['rate']?>"></td>
+						<td><input type="button" value="Update" onclick="updateRate('<?=$data['id']?>');" style="width:60px"></td>
+					</tr>
+				<?php } ?>
+		</tbody>
+	</table>
+</form>
