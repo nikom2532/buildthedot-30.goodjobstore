@@ -27,7 +27,7 @@
 <body>
 	<div id="checkout">
 		<!-- Header Section -->
-		<?php include("header.php"); ?>
+		<? include("header.php"); ?>
 
 		<!-- Body Section -->
 		<div id="title_head">
@@ -284,7 +284,7 @@
 			</div>
 		</div>
 		<!-- Footer Section -->
-		<?php include("footer.php"); ?>
+		<? include("footer.php"); ?>
 	</div>
 <script>
 function showMe (it, box) {

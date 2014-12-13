@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <meta http-equiv=Content-Type content="text/html; charset=utf-8">
 <?php
-session_start(); //�Դ session
+session_start(); //�Դ session
 $ses_userid =$_SESSION[ses_userid];
 $ses_username = $_SESSION[ses_username];
 if($ses_userid <> session_id() or $ses_username =="")
@@ -16,7 +16,7 @@ echo "<br><a href=index.php>Back</a>";
 exit();
 }
 ?>
-<?php
+<?
 	$mainID = $_GET['mainID'];
 
 	//include_once '../classes/Products.php';
@@ -62,7 +62,7 @@ exit();
 </head>
 
 <!-- add sub category -->
-<?php
+<?
 	if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "frmAddCategorySub")) 
 	{
 		$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
@@ -92,7 +92,7 @@ exit();
 
 <body>
 	<script>
-		viewTable('<?php echo $mainID?>');
+		viewTable('<?=$mainID?>');
 	</script>
 <!--logout-->
 
@@ -118,8 +118,8 @@ exit();
 			  <!--menu-->
 
 									<b><a href="order.php">Order</a></b>
-								<?php if($_SESSION[ses_status] == "Super Admin") 
-			{ ?>
+								<?if($_SESSION[ses_status] == "Super Admin") 
+			{?>
 								<!-- End Admin -->
 									<b><br><br><a href="saleReport.php">Sale Report</a>
 									<br><br><a href="record.php">Customer Record</a>
@@ -139,7 +139,7 @@ exit();
 									<br><br><a href="shopGuide_main.php">Shopping Guide</a>
 									<br><br><a href="privacy.php">Permission</a>
 									<br><br><a href="usdRate.php">USD Rate</a></b>
-			<?php } ?>	
+			<?}?>	
 
 <!--menu-->
 		   	</div>
@@ -149,7 +149,7 @@ exit();
 						<div class="overview">
 							<h2>Add Sub Category</h2>
 								<h3>&nbsp;&nbsp;&nbsp;&nbsp;
-									<?php echo $mainEN?>
+									<?=$mainEN?>
 								</h3><br>
 						 	<form action="" method="post" enctype="multipart/form-data" name="frmAddCategorySub" id="frmAddCategorySub">
 								<table>

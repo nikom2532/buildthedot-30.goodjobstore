@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<?php
+<?
 	$howID = $_GET['howID'];
 	$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
 	$objDB = mysql_select_db("goodjob") or die("Can't connect Database");
@@ -22,25 +22,25 @@
 				<td></td>
 				<td></td>
 			</tr>
-			<?php
+			<?
 			while ($data=mysql_fetch_array($result))
-			{ ?>
+			{?>
 				<tr>
-					<td style="text-align:center;"><?php echo $data['Weight_Start']?></td>
-					<td style="text-align:center;"><?php echo $data['Weight_End']?></td>
-					<td style="text-align:center;"><?php echo $data['Price']?></td>
+					<td style="text-align:center;"><?=$data['Weight_Start']?></td>
+					<td style="text-align:center;"><?=$data['Weight_End']?></td>
+					<td style="text-align:center;"><?=$data['Price']?></td>
 
 					<td style="width:50px;">
 						<input type="button" value="Edit" 
-						onclick="window.location.href='shipping_viewEdit.php?rangeID=<?php echo $data['Range_ID']?>
-								&howID=<?php echo $data['How_ID']?>
-								&weightStart=<?php echo $data['Weight_Start']?>
-								&weightEnd=<?php echo $data['Weight_End']?>
-								&rangePrice=<?php echo $data['Price']?>'" 
+						onclick="window.location.href='shipping_viewEdit.php?rangeID=<?=$data['Range_ID']?>
+								&howID=<?=$data['How_ID']?>
+								&weightStart=<?=$data['Weight_Start']?>
+								&weightEnd=<?=$data['Weight_End']?>
+								&rangePrice=<?=$data['Price']?>'" 
 						style="width:60px">
 					</td>
-					<td style="width:50px;"><input type="button" value="Delete" onclick="deleteShipping(<?php echo $data['Range_ID']?>);" style="width:60px"></td>
+					<td style="width:50px;"><input type="button" value="Delete" onclick="deleteShipping(<?=$data['Range_ID']?>);" style="width:60px"></td>
 				</tr>
-			<?php } ?>
+			<?}?>
 		</tbody>
 	</table>

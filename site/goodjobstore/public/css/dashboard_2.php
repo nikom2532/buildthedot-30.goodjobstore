@@ -19,7 +19,7 @@
 	min-height: 100px;
 	margin: 0px 10px 10px 10px;
 	padding: 110px 0 0 0;
-	background: url(../<?php echo $background_path?>) no-repeat top right;
+	background: url(../<?=$background_path?>) no-repeat top right;
 	height: 352px;
 	border-left:1px solid #736F6E;
 	border-left:1px solid #736F6E;

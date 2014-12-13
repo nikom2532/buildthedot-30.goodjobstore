@@ -1,4 +1,4 @@
-<?php
+<?
 	
 
 		$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());

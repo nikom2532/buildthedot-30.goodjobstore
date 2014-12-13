@@ -10,7 +10,7 @@
 <body>
 <p><img src="http://online.goodjobstore.com/public/images/logo.jpg" alt="logo" width="635" height="82" /></p>
 <?php if($customer): ?>
-<p style="font-size: 12px; color: #999; font-family: Tahoma, Geneva, sans-serif;">Hi <?php echo $customer->FirstName?> <?php echo $customer->LastName?></p>
+<p style="font-size: 12px; color: #999; font-family: Tahoma, Geneva, sans-serif;">Hi <?=$customer->FirstName?> <?=$customer->LastName?></p>
 <?php endif; ?>
 <p style="font-size: 12px; color: #999; font-family: Tahoma, Geneva, sans-serif;">This item is now ready to ship right to your door.  <br />
 </p>
@@ -24,7 +24,7 @@ If you arrive at the site and the item is already sold out, we're sorry. But, at
           <td><strong style="font-size:14px; font-family: Tahoma, Geneva, sans-serif;">PRODUCT DETAILS</strong></td>
         </tr>
         <tr>
-          <td><strong style="font-size:14px; font-family: Tahoma, Geneva, sans-serif;">Product SKU</strong>: <span style="font-size:14px;"><?php echo $product->Product_ID?></span><br /></td>
+          <td><strong style="font-size:14px; font-family: Tahoma, Geneva, sans-serif;">Product SKU</strong>: <span style="font-size:14px;"><?=$product->Product_ID?></span><br /></td>
           </tr>
         <tr>
           <td><table border="0" cellpadding="0" cellspacing="0" width="100%">
@@ -51,19 +51,19 @@ If you arrive at the site and the item is already sold out, we're sorry. But, at
                 <td align="right" valign="top">&nbsp;</td>
                 </tr>
               <tr style="font-size: 12px; color: #999; font-family: Tahoma, Geneva, sans-serif;">
-                <td valign="top"><img src="http://online.goodjobstore.com/public/<?php echo $product->Thumbnail_path?>" alt="" /><br/><br/>
-	                <?php echo $product->Pro_Name_En?>
+                <td valign="top"><img src="http://online.goodjobstore.com/public/<?=$product->Thumbnail_path?>" alt="" /><br/><br/>
+	                <?=$product->Pro_Name_En?>
                 </td>
-                <td valign="top"><?php echo $product->Description_En?></td>
+                <td valign="top"><?=$product->Description_En?></td>
                 <td valign="top">
                 	<?php $colors = get_product_color($product->Product_ID) ?>
                 	<?php foreach($colors as $color): ?>
-                		<?php echo $color->Name_EN?><br />
+                		<?=$color->Name_EN?><br />
                 	<?php endforeach; ?>
                 	Red<br />
                 	Yellow<br />
                   <br /></td>
-                <td align="right" valign="top"><?php echo ($product->Price_sale!=0)?number_format($product->Price_sale):number_format($product->Price_Buy)?></td>
+                <td align="right" valign="top"><?=($product->Price_sale!=0)?number_format($product->Price_sale):number_format($product->Price_Buy)?></td>
                 <td align="right" valign="top"><br /></td>
                 </tr>
               <tr>

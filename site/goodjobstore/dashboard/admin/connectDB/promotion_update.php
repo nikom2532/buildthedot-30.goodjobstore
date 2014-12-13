@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<?php
+<?
 	$proID = $_GET["proID"];
 	$proStat = $_GET["proStat"];
 

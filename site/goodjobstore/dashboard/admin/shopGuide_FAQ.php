@@ -3,7 +3,7 @@
 <!--Permission-->
 
 <?php
-session_start(); //�Դ session
+session_start(); //�Դ session
 $ses_userid =$_SESSION[ses_userid];
 $ses_username = $_SESSION[ses_username];
 if($ses_userid <> session_id() or $ses_username =="")
@@ -21,7 +21,7 @@ exit();
 
 <!--Permission-->
 
-<?php
+<?
 	//include_once '../classes/Products.php';
 	//Initialization
 	include_once '../classes/Employees.php';
@@ -42,7 +42,7 @@ exit();
 			} 
 ?>
 
-<?php
+<?
 	$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
 	$objDB = mysql_select_db("goodjob") or die("Can't connect Database");
 	mysql_query("SET NAMES utf8",$objCon);
@@ -102,8 +102,8 @@ exit();
 			  <!--menu-->
 
 									<b><a href="order.php">Order</a></b>
-								<?php if($_SESSION[ses_status] == "Super Admin") 
-			{ ?>
+								<?if($_SESSION[ses_status] == "Super Admin") 
+			{?>
 								<!-- End Admin -->
 									<b><br><br><a href="saleReport.php">Sale Report</a>
 									<br><br><a href="record.php">Customer Record</a>
@@ -123,7 +123,7 @@ exit();
 									<br><br><a href="shopGuide_main.php">Shopping Guide</a>
 									<br><br><a href="privacy.php">Permission</a>
 									<br><br><a href="usdRate.php">USD Rate</a></b>
-			<?php } ?>	
+			<?}?>	
 
 <!--menu-->
 		   	</div>
@@ -134,21 +134,21 @@ exit();
 							<h2>Edit FAQ</h2>
 							<form name="frmFAQ">
 								<table>
-									<?php while($data=mysql_fetch_array($result))
-									{ ?>
+									<?while($data=mysql_fetch_array($result))
+									{?>
 										<tr>
 											<td> FAQ [EN] </td>
 											<td>
-												<textarea name='Descrip_En'><?php echo $data['FAQ_En']?></textarea>
+												<textarea name='Descrip_En'><?=$data['FAQ_En']?></textarea>
 											</td>
 										</tr>
 										<tr>
 											<td> FAQ [TH] </td>
 											<td>
-												<textarea name='Descrip_Th'><?php echo $data['FAQ_Th']?></textarea>
+												<textarea name='Descrip_Th'><?=$data['FAQ_Th']?></textarea>
 											</td>
 										</tr>
-									<?php } ?>
+									<?}?>
 								</table>
 							</form>
 <br>

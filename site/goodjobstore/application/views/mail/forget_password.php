@@ -11,16 +11,16 @@
 <p><img src="http://online.goodjobstore.com/public/images/logo.jpg" alt="logo" width="611" height="82" />
 </p>
 <p>&nbsp;</p>
-<p style="font-size: 12px; color: #999; font-family: Tahoma, Geneva, sans-serif;">Hi <?php echo $customer->FirstName?> <?php echo $customer->LastName?></p>
+<p style="font-size: 12px; color: #999; font-family: Tahoma, Geneva, sans-serif;">Hi <?=$customer->FirstName?> <?=$customer->LastName?></p>
 <p style="font-size: 12px; color: #999; font-family: Tahoma, Geneva, sans-serif;">Here are your log in details:</p>
 <table border="0" cellpadding="0" cellspacing="0" height="124" width="610">
   <tbody>
     <tr>
-      <td colspan="2"><strong style="font-size: 12px; font-family: Tahoma, Geneva, sans-serif;">E-Mail Address: </strong><a href="mailto:<?php echo $customer->Email?>" target="_blank"><?php echo $customer->Email?></a><strong><br />
+      <td colspan="2"><strong style="font-size: 12px; font-family: Tahoma, Geneva, sans-serif;">E-Mail Address: </strong><a href="mailto:<?=$customer->Email?>" target="_blank"><?=$customer->Email?></a><strong><br />
       </strong></td>
     </tr>
     <tr>
-      <td width="571"><strong style="font-size: 12px; font-family: Tahoma, Geneva, sans-serif;">Password: <?php echo $customer->Password?></strong></td>
+      <td width="571"><strong style="font-size: 12px; font-family: Tahoma, Geneva, sans-serif;">Password: <?=$customer->Password?></strong></td>
       <td width="39" align="right"><strong><br />
       </strong></td>
     </tr>

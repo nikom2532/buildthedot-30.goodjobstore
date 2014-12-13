@@ -21,7 +21,7 @@
 <body>
 	<div id="wrapper">
 		<!-- Header Section -->
-		<?php include("header.php"); ?>
+		<? include("header.php"); ?>
 
 		<!-- Body Section -->
 		<div id="title_head">
@@ -60,7 +60,7 @@
 		<div id="co_space">
 		</div>
 		<!-- Footer Section -->
-		<?php include("footer.php"); ?>
+		<? include("footer.php"); ?>
 	</div>
 </body>
 </html>

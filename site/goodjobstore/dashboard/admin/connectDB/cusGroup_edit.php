@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<?php
+<?
 	$groupID = $_GET["groupID"];
 	$groupName = $_GET["groupName"];
 

@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!--
 <?php
-/*
 if ($_FILES["file"]["error"] > 0)
 {
 	echo "Error: " . $_FILES["file"]["error"] . "<br />";
@@ -77,7 +77,9 @@ else
 	echo "Invalid file";
 }
 ?>
-<?php
+-->
+<!--
+<?
 	
 	$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
 	$objDB = mysql_select_db("goodjob") or die("Can't connect Database");
@@ -96,7 +98,7 @@ else
 			VALUES ('".$img_data."')";
 	mysql_query($strSQL, $objCon) or die(mysql_error());
 	mysql_close($objCon);
-*/
 ?>
+-->
 
-<?php echo "aaaa";?>
+<?echo "aaaa";?>

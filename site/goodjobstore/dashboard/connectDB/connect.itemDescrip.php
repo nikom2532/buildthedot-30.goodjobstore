@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-	<?php
+	<?
 	$strProID = $_GET["proID"];
 	$strProCode = $_GET["proCode"];
 	$strColorID = $_GET["colorID"];
@@ -84,29 +84,29 @@
 				<tbody>
 				<!--<tr>
 						<td width="400px" height="60px">
-							<?php while($dataImgColor=mysql_fetch_array($resultImgColor))
-							{ ?>
-								<a href="javascript:void(0);" onclick="filterColor(<?php echo $dataImgColor['Color_ID']?>)" style="text-decoration:none;">
-									<img src="../../../../public/<?php echo $dataImgColor['path']?>" title="<?php echo $dataImgColor['Name_EN']?>"/>
+							<?while($dataImgColor=mysql_fetch_array($resultImgColor))
+							{?>
+								<a href="javascript:void(0);" onclick="filterColor(<?=$dataImgColor['Color_ID']?>)" style="text-decoration:none;">
+									<img src="../../../../public/<?=$dataImgColor['path']?>" title="<?=$dataImgColor['Name_EN']?>"/>
 								</a>
-							<?php } ?>
+							<?}?>
 						</td>
 					</tr>-->
 					<tr>
 						<td style="height:40px;">
-							<a href="../../../../wishlist/add/<?php echo $strProID?>/<?php echo $strColorID?>" class="wishlist_button">ADD TO WISHLIST</a>
+							<a href="../../../../wishlist/add/<?=$strProID?>/<?=$strColorID?>" class="wishlist_button">ADD TO WISHLIST</a>
 						<?php if($strQtyPro==2): ?>
-								 <a href="../../../../cart/add/<?php echo $strProID?>/<?php echo $strColorID?>" class="add_button">ADD TO CART</a> <span style="color:red;">ONLY 2 LEFT!!</span>
+								 <a href="../../../../cart/add/<?=$strProID?>/<?=$strColorID?>" class="add_button">ADD TO CART</a> <span style="color:red;">ONLY 2 LEFT!!</span>
 							<?php elseif($strQtyPro==1): ?>
-								 <a href="../../../../cart/add/<?php echo $strProID?>/<?php echo $strColorID?>" class="add_button">ADD TO CART</a> <span style="color:red;">ONLY 1 LAST!!</span>
+								 <a href="../../../../cart/add/<?=$strProID?>/<?=$strColorID?>" class="add_button">ADD TO CART</a> <span style="color:red;">ONLY 1 LAST!!</span>
 							<?php elseif($strQtyPro==0): ?>
 								<form method="post" action="../../../../cart/stock_notification" style="margin-bottom:0px !important">
 									<span class="outOfStockText">Out of Stock!</span> 
 									Email: <input type="text" name="email" id="email" class="emailInputBox" value="" /> <input type="submit" class="emailSubmitButton" value="Submit" />
-									<input type="hidden" name="Product_ID" id="Product_ID" value="<?php echo $strProID?>" />
+									<input type="hidden" name="Product_ID" id="Product_ID" value="<?=$strProID?>" />
 								</form>
 							<?php else: ?>
-								<a href="../../../../cart/add/<?php echo $strProID?>/<?php echo $strColorID?>" class="add_button">ADD TO CART</a>
+								<a href="../../../../cart/add/<?=$strProID?>/<?=$strColorID?>" class="add_button">ADD TO CART</a>
 							<?php endif; ?>
 						</td>
 						<td></td>
@@ -120,19 +120,19 @@
 	<!-- Cross Price -->
 	<div id="product_like">
 		<div class="like_title">
-				<div class="backgroundText"><?php if(mysql_num_rows($resultCross)!=0){ ?>PRODUCTS YOU MAY LIKE<?php } ?></div>
+				<div class="backgroundText"><?if(mysql_num_rows($resultCross)!=0){?>PRODUCTS YOU MAY LIKE<?}?></div>
 		</div>
 		<div class="img_prod">
 			<ul>
-				<?php
+				<?
 				while ($dataCross=mysql_fetch_array($resultCross))
-				{ ?>
+				{?>
 					<li>
-						<a href="../../../../category/<?php echo (!$dataCross['Group_Url_En'])?$dataCross['Group_Name_En']:$dataCross['Group_Url_En']?>" style="text-decoration:none">
-							<img src="../../../../public/<?php echo $dataCross['Thumbnail_path']?>"/>
+						<a href="../../../../category/<?=(!$dataCross['Group_Url_En'])?$dataCross['Group_Name_En']:$dataCross['Group_Url_En']?>" style="text-decoration:none">
+							<img src="../../../../public/<?=$dataCross['Thumbnail_path']?>"/>
 						</a>
 					</li>	
-				<?php } ?>
+				<?}?>
 			</ul>
 		</div>
 	</div>  <!-- product_like -->

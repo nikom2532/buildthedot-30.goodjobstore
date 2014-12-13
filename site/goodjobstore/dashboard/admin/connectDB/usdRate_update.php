@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<?php
+<?
 	$rateID = $_GET["rateID"];
 	$changeRate = $_GET["changeRate"];
 

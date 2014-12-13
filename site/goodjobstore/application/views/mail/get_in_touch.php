@@ -11,10 +11,10 @@
 <p><img src="http://online.goodjobstore.com/public/images/logo.jpg" alt="logo" width="611" height="82" />
 </p>
 <p>&nbsp;</p>
-<p style="font-size: 12px; color: #999; font-family: Tahoma, Geneva, sans-serif;"><strong>Name - Last Name:</strong> <?php echo $name?></p>
-<p style="font-size: 12px; color: #999; font-family: Tahoma, Geneva, sans-serif;"><strong>Country:</strong> <?php echo $country?></p>
+<p style="font-size: 12px; color: #999; font-family: Tahoma, Geneva, sans-serif;"><strong>Name - Last Name:</strong> <?=$name?></p>
+<p style="font-size: 12px; color: #999; font-family: Tahoma, Geneva, sans-serif;"><strong>Country:</strong> <?=$country?></p>
 <p style="font-size: 12px; color: #999; font-family: Tahoma, Geneva, sans-serif;"><strong>Message:</strong></p>
-<p style="font-size: 12px; color: #999; font-family: Tahoma, Geneva, sans-serif;"><?php echo $message?></p>
+<p style="font-size: 12px; color: #999; font-family: Tahoma, Geneva, sans-serif;"><?=$message?></p>
 <p style="font-size: 12px; color: #999; font-family: Tahoma, Geneva, sans-serif;">&nbsp;</p>
 <p style="font-size: 12px; color: #999; font-family: Tahoma, Geneva, sans-serif;">&nbsp;</p>
 </body>

@@ -162,7 +162,7 @@ class Checkout extends MY_Controller
 
 	function confirmation()
 	{
-
+                
 		$order = $this->_get_order_id();
 
 		if($order->payment_id == 1)
@@ -191,6 +191,7 @@ class Checkout extends MY_Controller
 		}
 		elseif($order->payment_id == 2)
 		{
+                        /*
 			$this->db->where('Order_ID', $order->Order_ID);
 			$this->db->update('orders', array('Order_Status' => 1, 'created_at'=>date("Y-m-d H:i:s")));
 
@@ -201,12 +202,12 @@ class Checkout extends MY_Controller
 			$this->db->where('Cus_ID', $order->Cus_ID);
 			$this->db->where('status', 1);
 			$this->db->update('coupon_customers', array('status'=>0));
-
+                        */
 			$data['order'] = $order;
-
+                        
 			//$this->load->view('mail/pdf', $data);
 
-			$this->_order_confirmation_direct_deposit($order);
+			//$this->_order_confirmation_direct_deposit($order);
 			//redirect('checkout/review');
 		}
 		elseif($order->payment_id == 3)
@@ -1058,6 +1059,7 @@ class Checkout extends MY_Controller
 
 	function _order_confirmation_direct_deposit($order=NULL)
 	{
+                
 		$Cus_ID = $this->session->userdata('customer')->Cus_ID;
 		//$Order_ID = $this->_update_order();
 		$Order_ID = $order->Order_ID;
@@ -1065,22 +1067,30 @@ class Checkout extends MY_Controller
 
 		if($Order_ID!=NULL)
 		{
+
+
 			$data['order'] = $this->db->get_where('orders', array('Order_ID'=>$Order_ID))->row();
 			$data['order_items'] = $this->_get_order_item_data($Order_ID);
 			$data['shipping'] = $this->db->get_where('shipping', array('Cus_ID'=>$Cus_ID))->row();
 			$data['customer'] = $this->db->get_where('customers', array('Cus_ID'=>$Cus_ID))->row();
 
 			//$this->load->view('mail/pdf', $data);
-
+                        /* kim 20141208
 			$msg = $this->load->view('mail/order_confirmation_direct_deposit', $data, TRUE);
-
-			// $email_arr = array(
-				// 'from' => 'contact@goodjobstore.com',
-				// 'to' => $data['customer']->Email,
-				// 'subject' => 'GOODJOB Order Confirmation',
-				// 'message' => $msg,
-				// 'attach' => $Order_ID
-			// );
+                         
+                         */
+                        /*
+			 $email_arr = array(
+				 'from' => 'contact@goodjobstore.com',
+				 'to' => $data['customer']->Email,
+				 'subject' => 'GOODJOB Order Confirmation',
+				 'message' => $msg,
+				 'attach' => $Order_ID
+			 );
+                         $mail_test = array($email_arr['to']);
+                         echo "<script> alert ('Email=".$mail_test."');</script>";
+                         * 
+                         */
 // 
 			// send_mail_helper($email_arr);
 			
@@ -1123,78 +1133,137 @@ class Checkout extends MY_Controller
 			// send_mail_helper($email_arr2);
 			
 			//#############################
-			
+                        
+                        //require('mail_with_smtp.inc.php');
+                              
+                                                
+                        
+                        
+                        
 			//For goodjobstore.com
-			$email_arr = array(
+			
+			//--send to the customer
+                        /*
+			$lsFrom = 'contact@goodjobstore.com';
+                        $lsFromName = 'GOODJOB';
+                        
+                        $email_arr = array(
 				'from' => 'contact@goodjobstore.com',
 				'to' => $data['customer']->Email,
 				'subject' => 'GOODJOB Order Confirmation',
 				'message' => $msg,
 				'attach' => $Order_ID
 			);
-			
-			$email_arr1 = array(
-				'from' => 'contact@goodjobstore.com',
-				'to' => 'contact@goodjobstore.com',
-				'subject' => 'GOODJOB Order Confirmation',
-				'message' => $msg,
-				'attach' => $Order_ID
-			);
-			
-			$config = Array(
-			  'protocol' => 'smtp',
-			  'smtp_host' => 'mail.goodjobstore.com',
-			  'smtp_user' => 'contact@goodjobstore.com',
-			  'smtp_pass' => 'tcatnoc1+',
-			  'mailtype' => 'html',
-			  'wordwrap' => TRUE
-			);
-			
-			$ci = get_instance();
-			$ci->load->library('email');
-			$config['protocol'] = "smtp";
-			$config['smtp_host'] = "mail.goodjobstore.com";
-			$config['smtp_port'] = "25";
-			$config['smtp_user'] = "contact@goodjobstore.com"; 
-			$config['smtp_pass'] = "tcatnoc1+";
-			$config['charset'] = "utf-8";
-			$config['mailtype'] = "html";
-			$config['newline'] = "\r\n";
-			
-			$ci->email->initialize($config);
-			
-			//send to the customer
-			$ci->email->from($email_arr['from'], 'GOODJOB');
-			$list = array($email_arr['to']);
-			$ci->email->to($list);
-			// $this->email->reply_to($email_arr['to'], 'User');
-			$this->email->reply_to($email_arr['to']);
-			$ci->email->subject($email_arr['subject']);
-			$ci->email->message($email_arr['message']);
-			
-			$attach = $email_arr['attach'];
-			$ci->email->attach("public/pdf/{$attach}.pdf");
-			
-			$ci->email->send();
+                        
+                        $lsTo = array($email_arr['to']);                       
+                        
+                        //$lsTo = 'taveesak@littleproduct.com';
+                        //$lsTo = 'contact@goodjobstore.com';
+
+                        $lsSubject = 'GOODJOB Order Confirmation';
+
+                        $lsMessage = $msg;
+
+                        $email_cc = array();
+
+                        $email_bcc = array();
+
+                        $file_attach = "public/pdf/" .$Order_ID. ".pdf";
+
+                        $file_attach = "";
+
+                        lps_smtpmail( $lsFrom , $lsFromName , $lsTo , $lsSubject, $lsMessage , $email_cc , $email_bcc , $file_attach );
+			*/
+                        //---
 			
 			
-			//send to contact@goodjobstore.com
-			$ci2 = get_instance();
-			$ci2->load->library('email');
-			$ci2->email->initialize($config);
-			
-			$ci2->email->from($email_arr1['from'], 'GOODJOB');
-			$list = array($email_arr1['to']);
-			$ci2->email->to($list);
-			$this->email->reply_to($email_arr1['to']);
-			$ci2->email->subject($email_arr1['subject']);
-			$ci2->email->message($email_arr1['message']);
-			
-			$attach = $email_arr1['attach'];
-			$ci2->email->attach("public/pdf/{$attach}.pdf");
-			
-			$ci2->email->send();
-			
+			//---send to admin
+                        
+                        
+                        //----
+                        
+			$lsFrom = 'contact@goodjobstore.com'; 
+                        $lsFromName = 'GOODJOB';
+                        $lsTo = 'taveesak@littleproduct.com';
+                        //$lsTo = 'contact@goodjobstore.com';
+
+                        $lsSubject = 'GOODJOB Order Confirmation';
+
+                        //$lsMessage = $msg;
+                        $lsMessage = "<html><head></head><body>TEST<br>ORDER</body></html>";
+
+                        $email_cc = array();
+
+                        $email_bcc = array();
+
+                        //$file_attach = "public/pdf/" .$Order_ID. ".pdf";
+
+                        $file_attach = "";
+                        
+                        //echo 'lsFrom='.$lsFrom.'<hr>';
+                        //echo 'lsFromName='.$lsFromName.'<hr>';
+                        //echo 'lsTo='.$lsTo.'<hr>';
+                        //echo 'lsSubject='.$lsSubject.'<hr>';
+
+                        // Child 30/11/2014 Start
+                        //echo "<script> alert (5);</script>";
+                        // Child 30/11/2014 End
+                        // kim
+                        require("PHPMailer_v5.1/class.phpmailer.php");
+                        
+                        // kim
+                        $mail = new PHPMailer();
+                        $mail->IsSMTP();
+                        $mail->CharSet = "utf-8";  // ในส่วนนี้ ถ้าระบบเราใช้ tis-620 หรือ windows-874 สามารถแก้ไขเปลี่ยนได้
+                        $mail->SMTPSecure = "tls";                 // sets the prefix to the server
+                        $mail->Host = "mail.littleproduct.com"; //  mail server ของเรา
+                        //$mail->Host = "mail.goodjobstore.com"; //  mail server ของเรา
+        //                $mail->Port = $port;                 // set the SMTP port for the MAIL server (Remark line to use default)
+        //                $mail->SMTPAuth = False;     //  เลือกการใช้งานส่งเมล์ แบบ SMTP
+                        $mail->SMTPAuth = True;     //  เลือกการใช้งานส่งเมล์ แบบ SMTP
+                        $mail->Username = "mailservices@littleproduct.com";   //  account e-mail ของเราที่ต้องการจะส่ง
+                        $mail->Password = "services#1234";  //  รหัสผ่าน e-mail ของเราที่ต้องการจะส่ง
+                        
+                        //$mail->Username = "contact@goodjobstore.com";   //  account e-mail ของเราที่ต้องการจะส่ง
+                        //$mail->Password = "tcatnoc1+";  //  รหัสผ่าน e-mail ของเราที่ต้องการจะส่ง
+
+                        //$mail->Username = "admin@goodjobstore.com";   //  account e-mail ของเราที่ต้องการจะส่ง
+                        //$mail->Password = "GOODJOB2005+";  //  รหัสผ่าน e-mail ของเราที่ต้องการจะส่ง
+
+                        //$mail->Priority     = 3;                   // Email priority (1 = High, 3 = Normal, 5 = low)
+                        $mail->From     = $lsFrom;  //  account e-mail ของเราที่ใช้ในการส่งอีเมล
+                        $mail->FromName = $lsFromName; //  ชื่อผู้ส่งที่แสดง เมื่อผู้รับได้รับเมล์ของเรา
+
+                        $mail->AddAddress($lsTo);            // Email ปลายทางที่เราต้องการส่ง(ไม่ต้องแก้ไข)
+
+                        foreach ($email_cc as $eachEmailCC) {
+                                $mail->AddCC($eachEmailCC);            // CC Email ปลายทางที่เราต้องการส่ง(ไม่ต้องแก้ไข)
+                        } //End foreach ($email_cc as $eachEmailCC)
+
+                        foreach ($email_bcc as $eachEmailBCC) {
+                                $mail->AddBCC($eachEmailBCC);            // BCC Email ปลายทางที่เราต้องการส่ง(ไม่ต้องแก้ไข)
+                        } //End foreach ($email_bcc as $eachEmailBCC)
+
+                        if($file_attach != '')
+                        {
+                                $mail->AddAttachment($file_attach);					
+                        }
+
+                        $mail->IsHTML(true);                  // ถ้า E-mail นี้ มีข้อความในการส่งเป็น tag html ต้องแก้ไข เป็น true
+                        $mail->Subject     =  $lsSubject;        // หัวข้อที่จะส่ง(ไม่ต้องแก้ไข)
+                        $mail->Body     = $lsMessage;                   // ข้อความ ที่จะส่ง(ไม่ต้องแก้ไข)
+                        $result = $mail->send();
+                        
+                        //lps_smtpmail( $lsFrom , $lsFromName , $lsTo , $lsSubject, $lsMessage , $email_cc , $email_bcc , $file_attach );
+                        // Child 30/11/2014 Start
+                        //echo "<script> alert (6);</script>";
+                        // Child 30/11/2014 End
+                        //------
+                       
+                         $mail_test = $data['customer']->Email;
+                         echo "<script> alert ('Email=".$mail_test."');</script>";
+                         
+                         
 			
 			//---------------------
 			

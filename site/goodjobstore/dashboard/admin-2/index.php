@@ -90,8 +90,8 @@ if(!empty($_POST['sign_in']))
 							<td style="vertical-align:middle">
 								<div id="member">
 									<ul class="member_style">
-										<li class="line"><a href="<?php echo $link?>?id=<?php echo $get_empid?>"><?php echo $login?></a></li> 
-										<li><a href="logout.php"><?php echo $logout?></a></li>
+										<li class="line"><a href="<?=$link?>?id=<?=$get_empid?>"><?=$login?></a></li> 
+										<li><a href="logout.php"><?=$logout?></a></li>
 									</ul>
 								</div>
 							</td>
@@ -132,7 +132,7 @@ if(!empty($_POST['sign_in']))
 				<span class="headerblock">
 					Log in
 					<div class="smalltext">Please sign in to view or updates your Backoffice</div>
-					<form name="signin"action="index.php?id=<?php echo $get_empid?>" method="POST">
+					<form name="signin"action="index.php?id=<?=$get_empid?>" method="POST">
 						<div id="textbox_name">Email</div>
 						<input type="text" name="email" />
 						<div id="textbox_name">Password</div>

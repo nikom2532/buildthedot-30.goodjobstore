@@ -108,7 +108,7 @@ else
 			<!--Login-->
 					Log in
 					<div class="smalltext">Please sign in to view or updates your Backoffice</div>
-					<font color="red"><?php echo $incorrectLogin;?></font>
+					<font color="red"><?=$incorrectLogin;?></font>
 					<form name="signin"action="index.php" method="POST">
 						<div id="textbox_name">Email</div>
 						<input type="text" name="email" />

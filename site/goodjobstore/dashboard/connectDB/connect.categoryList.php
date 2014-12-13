@@ -1,7 +1,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <!-- dollar exchange -->
-<?php
+<?
 	function google_finance_convert($from_Currency, $to_Currency, $amount) 
 	{
 		$amount = urlencode($amount);
@@ -33,7 +33,7 @@
 	}
 ?>
 
-	<?php
+	<?
 		//session_start();
 		$strPage = $_GET["page"];
 		$strMain_64 = $_GET["mainCat"];
@@ -163,7 +163,7 @@
 	?>
 
 	<div id="itemWrapper" class="clearfix">
-<?php
+<?
 	while ($data = mysql_fetch_array($resultPage))
 	{
 
@@ -175,25 +175,25 @@
 		<div class="item">
 			<div class="holder_wrap">  
 				<div class="holder_wrap_img"> 
-					<a href="../<?php echo $strUrl?>/<?php echo (!$data['Group_Url_En'])?$data['Group_Name_En']:$data['Group_Url_En']?>" style="text-decoration:none">
-						<img src="../../../../public/<?php echo $data['Path_Small']?>" style="width:155px; height:116px;" />
+					<a href="../<?=$strUrl?>/<?=(!$data['Group_Url_En'])?$data['Group_Name_En']:$data['Group_Url_En']?>" style="text-decoration:none">
+						<img src="../../../../public/<?=$data['Path_Small']?>" style="width:155px; height:116px;" />
 					</a>
 					<div class="inner_position_right">
-					<?php if($data['Qty']==0): ?>
+					<? if($data['Qty']==0): ?>
 							<img src="../../../../public/images/out_of_stock.png" />
-					<?php elseif($data['Group_attribute_id']==1): ?>
+					<? elseif($data['Group_attribute_id']==1): ?>
 							<img src="../../../../public/images/new_item.png" />
-					<?php elseif($data['Group_attribute_id']==2): ?>
+					<? elseif($data['Group_attribute_id']==2): ?>
 							<img src="../../../../public/images/hot_item.png" />
-					<?php elseif($data['Group_attribute_id']==3): ?>
+					<? elseif($data['Group_attribute_id']==3): ?>
 							<img src="../../../../public/images/sale_item.png" />
-					<?php endif; ?>
+					<? endif; ?>
 					</div>  <!-- inner_position_right  -->
 				</div>  <!-- holder_wrap_img -->
 			</div> <!-- holder_wrap -->
-			<div class="itemProductName"><?php echo ($language=='TH')?$data['Group_Name_Th']:$data['Group_Name_En'];?></div> 
+			<div class="itemProductName"><?=($language=='TH')?$data['Group_Name_Th']:$data['Group_Name_En'];?></div> 
 			<div class="itemPrice">
-				<?php
+				<?
 					if($language=='EN')
 						echo "US$ ".cal_rate($rate, $price, 1);
 					else
@@ -201,7 +201,7 @@
 				?>
 			</div>
 		</div>  <!-- item -->
-<?php
+<?
 	}
 ?>
 	</div>  <!-- itemWrapper -->

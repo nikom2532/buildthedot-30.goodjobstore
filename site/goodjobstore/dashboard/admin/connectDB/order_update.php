@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<?php
+<?
 	$orderID = $_GET["orderID"];
 	$changeStat = $_GET["changeStat"];
 	$shipNum = $_GET["shipNum"];

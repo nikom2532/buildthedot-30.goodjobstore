@@ -1,5 +1,5 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<?php
+	<?
 		$strPage = $_GET["page"];
 		$strMain = $_GET["mainCat"];
 		$strSub = $_GET["subCat"];

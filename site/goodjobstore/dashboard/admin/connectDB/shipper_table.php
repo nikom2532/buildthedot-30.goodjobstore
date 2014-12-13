@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<?php
+<?
 	$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
 	$objDB = mysql_select_db("goodjob") or die("Can't connect Database");
 	mysql_query("SET NAMES utf8",$objCon);
@@ -22,24 +22,24 @@
 				<td></td>
 				<td></td>
 			</tr>
-			<?php
+			<?
 			while ($data=mysql_fetch_array($result))
-			{ ?>
+			{?>
 				<tr>
-					<td><?php echo $data['Name_En']?></td>
-					<td><?php echo $data['Name_Th']?></td>
-					<td><?php echo $data['Description_En']?></td>
-					<td><?php echo $data['Description_Th']?></td>
+					<td><?=$data['Name_En']?></td>
+					<td><?=$data['Name_Th']?></td>
+					<td><?=$data['Description_En']?></td>
+					<td><?=$data['Description_Th']?></td>
 
 					<td>
-						<input type="button" value="Price" onclick="window.location.href='shipping.php?howID=<?php echo $data['How_ID']?>&nameEn=<?php echo $data['Name_En']?>'" style="width:60px">
+						<input type="button" value="Price" onclick="window.location.href='shipping.php?howID=<?=$data['How_ID']?>&nameEn=<?=$data['Name_En']?>'" style="width:60px">
 					</td>
 					<td>
 						<input type="button" value="Edit" style="width:60px" 
-						onclick="window.location.href='shipper_viewEdit.php?howID=<?php echo $data['How_ID']?>'">
+						onclick="window.location.href='shipper_viewEdit.php?howID=<?=$data['How_ID']?>'">
 					</td>
-					<td><input type="button" value="Delete" onclick="deleteShipper(<?php echo $data['How_ID']?>);" style="width:60px"></td>
+					<td><input type="button" value="Delete" onclick="deleteShipper(<?=$data['How_ID']?>);" style="width:60px"></td>
 				</tr>
-			<?php } ?>
+			<?}?>
 		</tbody>
 	</table>

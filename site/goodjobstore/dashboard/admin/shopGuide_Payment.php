@@ -3,7 +3,7 @@
 <!--Permission-->
 
 <?php
-session_start(); //�Դ session
+session_start(); //�Դ session
 $ses_userid =$_SESSION[ses_userid];
 $ses_username = $_SESSION[ses_username];
 if($ses_userid <> session_id() or $ses_username =="")
@@ -21,7 +21,7 @@ exit();
 
 <!--Permission-->
 
-<?php
+<?
 	//include_once '../classes/Products.php';
 	//Initialization
 	include_once '../classes/Employees.php';
@@ -42,7 +42,7 @@ exit();
 			} 
 ?>
 
-<?php
+<?
 	$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
 	$objDB = mysql_select_db("goodjob") or die("Can't connect Database");
 	mysql_query("SET NAMES utf8",$objCon);
@@ -87,7 +87,7 @@ exit();
 </head>
 
 <!-- update about us -->
-<?php
+<?
 	if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "frmPayment")) 
 	{
 		$m_Descrip_EN = $_POST['paymentEN'];
@@ -133,8 +133,8 @@ exit();
 <!--menu-->
 
 									<b><a href="order.php">Order</a></b>
-								<?php if($_SESSION[ses_status] == "Super Admin") 
-			{ ?>
+								<?if($_SESSION[ses_status] == "Super Admin") 
+			{?>
 								<!-- End Admin -->
 									<b><br><br><a href="saleReport.php">Sale Report</a>
 									<br><br><a href="record.php">Customer Record</a>
@@ -154,7 +154,7 @@ exit();
 									<br><br><a href="shopGuide_main.php">Shopping Guide</a>
 									<br><br><a href="privacy.php">Permission</a>
 									<br><br><a href="usdRate.php">USD Rate</a></b>
-			<?php } ?>	
+			<?}?>	
 
 <!--menu-->
 		   	</div>
@@ -173,7 +173,7 @@ exit();
 									<br>
 									<table>
 											<tr>
-												<td><textarea name='paymentEN' id='paymentEN'  style="width:450px;height:200px;"><?php echo $paymentEN?></textarea></td>
+												<td><textarea name='paymentEN' id='paymentEN'  style="width:450px;height:200px;"><?=$paymentEN?></textarea></td>
 											</tr>
 									</table>
 									<!--CKEDITOR-->
@@ -191,7 +191,7 @@ exit();
 									<br>
 									<table>
 											<tr>
-												<td><textarea name='paymentTH' id='paymentTH'  style="width:450px;height:200px;"><?php echo $paymentTH?></textarea></td>
+												<td><textarea name='paymentTH' id='paymentTH'  style="width:450px;height:200px;"><?=$paymentTH?></textarea></td>
 											</tr>
 									</table>
 									<!--CKEDITOR-->
@@ -208,7 +208,7 @@ exit();
 									<br>
 									<table>
 											<tr>
-												<td><textarea name='deliveryEN' id='deliveryEN'  style="width:450px;height:200px;"><?php echo $deliveryEN?></textarea></td>
+												<td><textarea name='deliveryEN' id='deliveryEN'  style="width:450px;height:200px;"><?=$deliveryEN?></textarea></td>
 											</tr>
 									</table>
 									<!--CKEDITOR-->
@@ -226,7 +226,7 @@ exit();
 									<br>
 									<table>
 											<tr>
-												<td><textarea name='deliveryTH' id='deliveryTH'  style="width:450px;height:200px;"><?php echo $deliveryTH?></textarea></td>
+												<td><textarea name='deliveryTH' id='deliveryTH'  style="width:450px;height:200px;"><?=$deliveryTH?></textarea></td>
 											</tr>
 									</table>
 									<!--CKEDITOR-->

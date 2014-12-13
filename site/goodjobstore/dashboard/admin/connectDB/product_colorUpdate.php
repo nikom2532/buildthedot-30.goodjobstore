@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<?php
+<?
 	$imgID = $_GET["imgID"];
 	$changeColor = $_GET["changeColor"];
 

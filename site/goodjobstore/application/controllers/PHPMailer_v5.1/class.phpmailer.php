@@ -38,6 +38,7 @@
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
 
+
 if (version_compare(PHP_VERSION, '5.0.0', '<') ) exit("Sorry, this version of PHPMailer will only run on PHP version 5 or greater!\n");
 
 class PHPMailer {
@@ -143,7 +144,9 @@ class PHPMailer {
    * @var string
    */
   public $PluginDir         = '';
-
+  //public $PluginDir         = 'application/controllers/PHPMailer_v5.1/';
+  
+  
   /**
    * Sets the email address that a reading confirmation will be sent.
    * @var string
@@ -221,8 +224,8 @@ class PHPMailer {
    * This function will not work with the win32 version.
    * @var int
    */
-  public $Timeout       = 10;
-
+  public $Timeout       = 90;
+  
   /**
    * Sets SMTP class debugging on or off.
    * @var bool
@@ -339,7 +342,7 @@ class PHPMailer {
    * Constructor
    * @param boolean $exceptions Should we throw external exceptions?
    */
-  public function __construct($exceptions = false) {
+  public function __construct($exceptions = false) {    
     $this->exceptions = ($exceptions == true);
   }
 
@@ -454,7 +457,7 @@ class PHPMailer {
       echo 'Invalid recipient array: ' . kind;
       return false;
     }
-    $address = trim($address);
+    //$address = trim($address);
     $name = trim(preg_replace('/[\r\n]+/', '', $name)); //Strip breaks and trim
     if (!self::ValidateAddress($address)) {
       $this->SetError($this->Lang('invalid_address').': '. $address);
@@ -486,7 +489,7 @@ class PHPMailer {
  * @return boolean
  */
   public function SetFrom($address, $name = '',$auto=1) {
-    $address = trim($address);
+    //$address = trim($address);
     $name = trim(preg_replace('/[\r\n]+/', '', $name)); //Strip breaks and trim
     if (!self::ValidateAddress($address)) {
       $this->SetError($this->Lang('invalid_address').': '. $address);
@@ -858,7 +861,7 @@ class PHPMailer {
       'from_failed' => 'The following From address failed: ',
       'recipients_failed' => 'SMTP Error: The following recipients failed: ',
       'data_not_accepted' => 'SMTP Error: Data not accepted.',
-      'connect_host' => 'SMTP Error: Could not connect to SMTP host.',
+      'connect_host' => 'SMTP Error1: Could not connect to SMTP host.',
       'file_access' => 'Could not access file: ',
       'file_open' => 'File Error: Could not open file: ',
       'encoding' => 'Unknown encoding: ',

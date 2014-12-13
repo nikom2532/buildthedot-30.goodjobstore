@@ -5,7 +5,7 @@
 // English language file
 // ================================================
 // Author: Alan Mendelevich, UAB Solmetra
-// Translated: Szentgyï¿½rgyi Jï¿½nos, info@dynamicart.hu
+// Translated: Szentgyörgyi János, info@dynamicart.hu
 // ------------------------------------------------
 //                                www.solmetra.com
 // ================================================
@@ -21,291 +21,291 @@ $spaw_lang_charset = 'iso-8859-2';
 
 $spaw_lang_data = array(
   'cut' => array(
-    'title' => 'Kivï¿½gï¿½s'
+    'title' => 'Kivágás'
   ),
   'copy' => array(
-    'title' => 'Mï¿½sol'
+    'title' => 'Másol'
   ),
   'paste' => array(
     'title' => 'Beilleszt'
   ),
   'undo' => array(
-    'title' => 'Visszavonï¿½s'
+    'title' => 'Visszavonás'
   ),
   'redo' => array(
-    'title' => 'Mï¿½gis'
+    'title' => 'Mégis'
   ),
   'image_prop' => array(
-    'title' => 'Kï¿½p',
+    'title' => 'Kép',
     'ok' => '   OK   ',
-    'cancel' => 'Mï¿½gsem',
-    'source' => 'Forrï¿½s',
-    'alt' => 'Alternatï¿½v szï¿½veg',
-    'align' => 'Igazï¿½tï¿½s',
+    'cancel' => 'Mégsem',
+    'source' => 'Forrás',
+    'alt' => 'Alternatív szöveg',
+    'align' => 'Igazítás',
     'left' => 'Balra',
     'right' => 'Jobbra',
     'top' => 'Fentre',
-    'middle' => 'Kï¿½zï¿½pre',
+    'middle' => 'Középre',
     'bottom' => 'Lentre',
-    'absmiddle' => 'Teljesen kï¿½zï¿½pre',
-    'texttop' => 'Szï¿½vegtetejï¿½re',
+    'absmiddle' => 'Teljesen középre',
+    'texttop' => 'Szövegtetejére',
     'baseline' => 'Alapvonalra',
-    'width' => 'Szï¿½lessï¿½g',
-    'height' => 'Magassï¿½g',
+    'width' => 'Szélesség',
+    'height' => 'Magasság',
     'border' => 'Keret',
-    'hspace' => 'Vï¿½zszintes hely',
-    'vspace' => 'Fï¿½ggï¿½leges hely',
-    'dimensions' => 'Nï¿½zetek', // <= new in 2.0.1
-    'reset_dimensions' => 'Nï¿½zetek alaphelyzetbe', // <= new in 2.0.1
-    'title_attr' => 'Cï¿½m', // <= new in 2.0.1
-    'constrain_proportions' => 'Kï¿½nyszerï¿½tett mï¿½retek', // <= new in 2.0.1
+    'hspace' => 'Vízszintes hely',
+    'vspace' => 'Függõleges hely',
+    'dimensions' => 'Nézetek', // <= new in 2.0.1
+    'reset_dimensions' => 'Nézetek alaphelyzetbe', // <= new in 2.0.1
+    'title_attr' => 'Cím', // <= new in 2.0.1
+    'constrain_proportions' => 'Kényszerített méretek', // <= new in 2.0.1
     'error' => 'Hiba',
-    'error_width_nan' => 'Szï¿½lessï¿½g nem egy szï¿½m',
-    'error_height_nan' => 'Magassï¿½g nem egy szï¿½m',
-    'error_border_nan' => 'Keret nem egy szï¿½m',
-    'error_hspace_nan' => 'Vï¿½zszintes hely nem egy szï¿½m',
-    'error_vspace_nan' => 'Fï¿½ggï¿½leges hely nem egy szï¿½m',
+    'error_width_nan' => 'Szélesség nem egy szám',
+    'error_height_nan' => 'Magasság nem egy szám',
+    'error_border_nan' => 'Keret nem egy szám',
+    'error_hspace_nan' => 'Vízszintes hely nem egy szám',
+    'error_vspace_nan' => 'Függõleges hely nem egy szám',
   ),
   'flash_prop' => array(                // <= new in 2.0
     'title' => 'Flash',
     'ok' => '   OK   ',
-    'cancel' => 'Mï¿½gse',
-    'source' => 'Forrï¿½s',
-    'width' => 'Szï¿½lessï¿½g',
-    'height' => 'Magassï¿½g',
+    'cancel' => 'Mégse',
+    'source' => 'Forrás',
+    'width' => 'Szélesség',
+    'height' => 'Magasság',
     'error' => 'Hiba',
-    'error_width_nan' => 'Szï¿½lessï¿½g nem egy szï¿½m',
-    'error_height_nan' => 'Magassï¿½g nem egy szï¿½m',
+    'error_width_nan' => 'Szélesség nem egy szám',
+    'error_height_nan' => 'Magasság nem egy szám',
   ),
   'inserthorizontalrule' => array( // <== v.2.0 changed from hr
-    'title' => 'Vï¿½zszintes elvï¿½lasztï¿½'
+    'title' => 'Vízszintes elválasztó'
   ),
   'table_create' => array(
-    'title' => 'Tï¿½bla kï¿½szï¿½tï¿½s'
+    'title' => 'Tábla készítés'
   ),
   'table_prop' => array(
-    'title' => 'Tï¿½bla tulajdonsï¿½gok',
+    'title' => 'Tábla tulajdonságok',
     'ok' => '   OK   ',
-    'cancel' => 'Mï¿½gse',
+    'cancel' => 'Mégse',
     'rows' => 'Sorok',
     'columns' => 'Oszlopok',
-    'css_class' => 'CSS osztï¿½ly',
-    'width' => 'Szï¿½lessï¿½g',
-    'height' => 'Magassï¿½g',
+    'css_class' => 'CSS osztály',
+    'width' => 'Szélesség',
+    'height' => 'Magasság',
     'border' => 'Keret',
     'pixels' => 'Pixelek',
-    'cellpadding' => 'Cella kitï¿½ltï¿½se',
-    'cellspacing' => 'Cellï¿½k kï¿½zï¿½tti hely',
-    'bg_color' => 'Hï¿½ttï¿½rszï¿½n',
-    'background' => 'Hï¿½ttï¿½rkï¿½p',
+    'cellpadding' => 'Cella kitöltése',
+    'cellspacing' => 'Cellák közötti hely',
+    'bg_color' => 'Háttérszín',
+    'background' => 'Háttérkép',
     'error' => 'Hiba',
-    'error_rows_nan' => 'Sorok nem egy szï¿½m',
-    'error_columns_nan' => 'Oszlopok nem egy szï¿½m',
-    'error_width_nan' => 'Szï¿½lessï¿½g nem egy szï¿½m',
-    'error_height_nan' => 'Magassï¿½g nem egy szï¿½m',
-    'error_border_nan' => 'Keret nem egy szï¿½m',
-    'error_cellpadding_nan' => 'Cella kitï¿½ltï¿½s nem egy szï¿½m',
-    'error_cellspacing_nan' => 'Cellï¿½k kï¿½zï¿½tti hely nem egy szï¿½m',
+    'error_rows_nan' => 'Sorok nem egy szám',
+    'error_columns_nan' => 'Oszlopok nem egy szám',
+    'error_width_nan' => 'Szélesség nem egy szám',
+    'error_height_nan' => 'Magasság nem egy szám',
+    'error_border_nan' => 'Keret nem egy szám',
+    'error_cellpadding_nan' => 'Cella kitöltés nem egy szám',
+    'error_cellspacing_nan' => 'Cellák közötti hely nem egy szám',
   ),
   'table_cell_prop' => array(
-    'title' => 'Cella tulajdonsï¿½gok',
-    'horizontal_align' => 'Vï¿½zszintes igazï¿½tï¿½s',
-    'vertical_align' => 'Fï¿½ggï¿½leges igazï¿½tï¿½s',
-    'width' => 'Szï¿½lessï¿½g',
-    'height' => 'Magassï¿½g',
-    'css_class' => 'CSS osztï¿½ly',
-    'no_wrap' => 'Nincs tï¿½rï¿½s',
-    'bg_color' => 'Hï¿½ttï¿½rszï¿½n',
-    'background' => 'Hï¿½ttï¿½rkï¿½p',
+    'title' => 'Cella tulajdonságok',
+    'horizontal_align' => 'Vízszintes igazítás',
+    'vertical_align' => 'Függõleges igazítás',
+    'width' => 'Szélesség',
+    'height' => 'Magasság',
+    'css_class' => 'CSS osztály',
+    'no_wrap' => 'Nincs törés',
+    'bg_color' => 'Háttérszín',
+    'background' => 'Háttérkép',
     'ok' => '   OK   ',
-    'cancel' => 'Mï¿½gse',
+    'cancel' => 'Mégse',
     'left' => 'Balra',
-    'center' => 'Kï¿½zï¿½pre',
+    'center' => 'Középre',
     'right' => 'Jobbra',
     'top' => 'Fentre',
-    'middle' => 'Kï¿½zï¿½pre',
+    'middle' => 'Középre',
     'bottom' => 'Lentre',
     'baseline' => 'Alapvonalra',
     'error' => 'Hiba',
-    'error_width_nan' => 'Szï¿½lessï¿½g nem egy szï¿½m',
-    'error_height_nan' => 'Magassï¿½g nem egy szï¿½m',
+    'error_width_nan' => 'Szélesség nem egy szám',
+    'error_height_nan' => 'Magasság nem egy szám',
   ),
   'table_row_insert' => array(
-    'title' => 'Sor beszï¿½rï¿½sa'
+    'title' => 'Sor beszúrása'
   ),
   'table_column_insert' => array(
-    'title' => 'Oszlop beszï¿½rï¿½sa'
+    'title' => 'Oszlop beszúrása'
   ),
   'table_row_delete' => array(
-    'title' => 'Sor tï¿½rlï¿½se'
+    'title' => 'Sor törlése'
   ),
   'table_column_delete' => array(
-    'title' => 'Oszlop tï¿½rlï¿½se'
+    'title' => 'Oszlop törlése'
   ),
   'table_cell_merge_right' => array(
-    'title' => 'Cellï¿½k egyesï¿½tï¿½se jobbra'
+    'title' => 'Cellák egyesítése jobbra'
   ),
   'table_cell_merge_down' => array(
-    'title' => 'Cellï¿½k egyesï¿½tï¿½se lefele'
+    'title' => 'Cellák egyesítése lefele'
   ),
   'table_cell_split_horizontal' => array(
-    'title' => 'Cellï¿½k vï¿½zszintes szï¿½tszakï¿½tï¿½sa'
+    'title' => 'Cellák vízszintes szétszakítása'
   ),
   'table_cell_split_vertical' => array(
-    'title' => 'Cellï¿½k fï¿½ggï¿½leges szï¿½tkaszï¿½tï¿½sa'
+    'title' => 'Cellák függõleges szétkaszítása'
   ),
   'style' => array(
-    'title' => 'Stï¿½lus'
+    'title' => 'Stílus'
   ),
   'fontname' => array( // <== v.2.0 changed from font
-    'title' => 'Betï¿½'
+    'title' => 'Betû'
   ),
   'fontsize' => array(
-    'title' => 'Mï¿½ret'
+    'title' => 'Méret'
   ),
   'formatBlock' => array( // <= v.2.0: changed from paragraph
-    'title' => 'Bekezdï¿½s'
+    'title' => 'Bekezdés'
   ),
   'bold' => array(
-    'title' => 'Fï¿½lkï¿½vï¿½r'
+    'title' => 'Félkövér'
   ),
   'italic' => array(
-    'title' => 'Dï¿½lt'
+    'title' => 'Dõlt'
   ),
   'underline' => array(
-    'title' => 'Alï¿½hï¿½zï¿½s'
+    'title' => 'Aláhúzás'
   ),
   'strikethrough' => array(
-    'title' => 'ï¿½thï¿½zï¿½s'
+    'title' => 'Áthúzás'
   ),
   'insertorderedlist' => array( // <== v.2.0 changed from ordered_list
-    'title' => 'Szï¿½mozï¿½s'
+    'title' => 'Számozás'
   ),
   'insertunorderedlist' => array( // <== v.2.0 changed from bulleted list
-    'title' => 'Felsorolï¿½s'
+    'title' => 'Felsorolás'
   ),
   'indent' => array(
-    'title' => 'Behï¿½zï¿½s nï¿½velï¿½se'
+    'title' => 'Behúzás növelése'
   ),
   'outdent' => array( // <== v.2.0 changed from unindent
-    'title' => 'Behï¿½zï¿½s csï¿½kkentï¿½se'
+    'title' => 'Behúzás csökkentése'
   ),
   'justifyleft' => array( // <== v.2.0 changed from left
     'title' => 'Balra'
   ),
   'justifycenter' => array( // <== v.2.0 changed from center
-    'title' => 'Kï¿½zï¿½pre'
+    'title' => 'Középre'
   ),
   'justifyright' => array( // <== v.2.0 changed from right
     'title' => 'Jobbra'
   ),
   'justifyfull' => array( // <== v.2.0 changed from justify
-    'title' => 'Sorkizï¿½rï¿½s'
+    'title' => 'Sorkizárás'
   ),
   'fore_color' => array(
-    'title' => 'Szï¿½n'
+    'title' => 'Szín'
   ),
   'bg_color' => array(
-    'title' => 'Hï¿½ttï¿½rszï¿½n'
+    'title' => 'Háttérszín'
   ),
   'design' => array( // <== v.2.0 changed from design_tab
-    'title' => 'Vï¿½ltï¿½s a WYSWYG (design) mï¿½dra'
+    'title' => 'Váltás a WYSWYG (design) módra'
   ),
   'html' => array( // <== v.2.0 changed from html_tab
-    'title' => 'Vï¿½ltï¿½s a HTML (kï¿½d) mï¿½dra'
+    'title' => 'Váltás a HTML (kód) módra'
   ),
   'colorpicker' => array(
-    'title' => 'Szï¿½nvï¿½lasztï¿½',
+    'title' => 'Színválasztó',
     'ok' => '   OK   ',
-    'cancel' => 'Mï¿½gse',
+    'cancel' => 'Mégse',
   ),
   'cleanup' => array(
-    'title' => 'HTML tisztï¿½tï¿½s (stï¿½lusokat megszï¿½ntet)',
-    'confirm' => 'Ezzel a cselekedettel tï¿½rli az alkalmazott stï¿½lusokat, betï¿½tï¿½pusokat ï¿½s a fï¿½lï¿½sleges adatokat a jelen dokumentumban. Valamennyi vagy minden formï¿½zï¿½s el fog veszni.',
+    'title' => 'HTML tisztítás (stílusokat megszüntet)',
+    'confirm' => 'Ezzel a cselekedettel törli az alkalmazott stílusokat, betûtípusokat és a fölösleges adatokat a jelen dokumentumban. Valamennyi vagy minden formázás el fog veszni.',
     'ok' => '   OK   ',
-    'cancel' => 'Mï¿½gse',
+    'cancel' => 'Mégse',
   ),
   'toggle_borders' => array(
-    'title' => 'Szegï¿½ly megmutatï¿½sa',
+    'title' => 'Szegély megmutatása',
   ),
   'hyperlink' => array(
-    'title' => 'Hiperhivatkozï¿½s',
-    'url' => 'Hivatkozott cï¿½m (URL)',
-    'name' => 'Nï¿½v',
-    'target' => 'Cï¿½l',
-    'title_attr' => 'Cï¿½m',
+    'title' => 'Hiperhivatkozás',
+    'url' => 'Hivatkozott cím (URL)',
+    'name' => 'Név',
+    'target' => 'Cél',
+    'title_attr' => 'Cím',
   	'a_type' => 'Tipus',
   	'type_link' => 'Link',
-  	'type_anchor' => 'Kï¿½nyvjelzï¿½',
-  	'type_link2anchor' => 'Link a kï¿½nyvjelzï¿½hï¿½z',
-  	'anchors' => 'Kï¿½nyvjelzï¿½k',
+  	'type_anchor' => 'Könyvjelzõ',
+  	'type_link2anchor' => 'Link a könyvjelzõhöz',
+  	'anchors' => 'Könyvjelzõk',
     'ok' => '   OK   ',
-    'cancel' => 'Mï¿½gse',
+    'cancel' => 'Mégse',
   ),
   'hyperlink_targets' => array( // <=== new 1.0.5
-  	'_self' => 'sajï¿½t keret (_self)',
-	'_blank' => 'ï¿½j keret (_blank)',
-	'_top' => 'legfelsï¿½ keret (_top)',
-	'_parent' => 'fï¿½ keret (_parent)'
+  	'_self' => 'saját keret (_self)',
+	'_blank' => 'új keret (_blank)',
+	'_top' => 'legfelsõ keret (_top)',
+	'_parent' => 'fõ keret (_parent)'
   ),
   'unlink' => array( // <=== new v.2.0
-    'title' => 'Hiperhivatkozï¿½s eltï¿½volï¿½tï¿½sa'
+    'title' => 'Hiperhivatkozás eltávolítása'
   ),
   'table_row_prop' => array(
-    'title' => 'Sor tulajdonsï¿½gai',
-    'horizontal_align' => 'Vï¿½zszintes igazï¿½tï¿½s',
-    'vertical_align' => 'Fï¿½ggï¿½eges igazï¿½tï¿½s',
-    'css_class' => 'CSS osztï¿½ly',
-    'no_wrap' => 'Nincs csomagolï¿½s',
-    'bg_color' => 'Hï¿½ttï¿½rszï¿½n',
+    'title' => 'Sor tulajdonságai',
+    'horizontal_align' => 'Vízszintes igazítás',
+    'vertical_align' => 'Függõeges igazítás',
+    'css_class' => 'CSS osztály',
+    'no_wrap' => 'Nincs csomagolás',
+    'bg_color' => 'Háttérszín',
     'ok' => '   OK   ',
-    'cancel' => 'Mï¿½gse',
+    'cancel' => 'Mégse',
     'left' => 'Balra',
-    'center' => 'Kï¿½zï¿½pre',
+    'center' => 'Középre',
     'right' => 'Jobbra',
-    'top' => 'Tetejï¿½re',
-    'middle' => 'Kï¿½zï¿½pre',
-    'bottom' => 'Aljï¿½ra',
+    'top' => 'Tetejére',
+    'middle' => 'Középre',
+    'bottom' => 'Aljára',
     'baseline' => 'Alapvonalra',
   ),
   'symbols' => array(
-    'title' => 'Speciï¿½lis karakterek',
+    'title' => 'Speciális karakterek',
     'ok' => '   OK   ',
-    'cancel' => 'Mï¿½gse',
+    'cancel' => 'Mégse',
   ),
   'templates' => array(
     'title' => 'Sablonok',
   ),
   'page_prop' => array(
-    'title' => 'Oldal tulajdonsï¿½gok',
-    'title_tag' => 'Cï¿½me',
-    'charset' => 'Karakter tï¿½pus',
-    'background' => 'Hï¿½ttï¿½rkï¿½p',
-    'bgcolor' => 'Hï¿½ttï¿½rszï¿½n',
-    'text' => 'Szï¿½veg szï¿½ne',
-    'link' => 'Hivatkozï¿½s szï¿½ne',
-    'vlink' => 'Lï¿½togatott hivatkozï¿½s szï¿½ne',
-    'alink' => 'Aktï¿½v hivatkozï¿½s szï¿½ne',
-    'leftmargin' => 'Bal margï¿½',
-    'topmargin' => 'Tetï¿½ margï¿½',
-    'css_class' => 'CSS osztï¿½ly',
+    'title' => 'Oldal tulajdonságok',
+    'title_tag' => 'Címe',
+    'charset' => 'Karakter típus',
+    'background' => 'Háttérkép',
+    'bgcolor' => 'Háttérszín',
+    'text' => 'Szöveg színe',
+    'link' => 'Hivatkozás színe',
+    'vlink' => 'Látogatott hivatkozás színe',
+    'alink' => 'Aktív hivatkozás színe',
+    'leftmargin' => 'Bal margó',
+    'topmargin' => 'Tetõ margó',
+    'css_class' => 'CSS osztály',
     'ok' => '   OK   ',
-    'cancel' => 'Mï¿½gse',
+    'cancel' => 'Mégse',
   ),
   'preview' => array(
-    'title' => 'Elï¿½nï¿½zet',
+    'title' => 'Elõnézet',
   ),
   'image_popup' => array(
-    'title' => 'Elï¿½ugrï¿½ kï¿½p',
+    'title' => 'Elõugró kép',
   ),
   'zoom' => array(
-    'title' => 'Nagyï¿½tï¿½s',
+    'title' => 'Nagyítás',
   ),
   'subscript' => array(
-    'title' => 'Alsï¿½index',
+    'title' => 'Alsóindex',
   ),
   'superscript' => array(
-    'title' => 'Felsï¿½index',
+    'title' => 'Felsõindex',
   ),
 );
 ?>

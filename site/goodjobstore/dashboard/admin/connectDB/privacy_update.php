@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<?php
+<?
 	$empID = $_GET["empID"];
 	$empPosition = $_GET["empPosition"];
 

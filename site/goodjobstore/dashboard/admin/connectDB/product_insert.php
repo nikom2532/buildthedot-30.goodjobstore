@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<?php
+<?
 	$genProID = $_GET["genProID"];
 	$proCode = $_GET["proCode"];
 	$propertyName = $_GET["propertyName"];

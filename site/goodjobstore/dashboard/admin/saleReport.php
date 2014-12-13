@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <meta http-equiv=Content-Type content="text/html; charset=utf-8">
 
-<?php
+<?
 	//include_once '../classes/Products.php';
 	//Initialization
 	include_once '../classes/Employees.php';
@@ -24,7 +24,7 @@
 <!--Permission-->
 
 <?php
-session_start(); //�Դ session
+session_start(); //�Դ session
 $ses_userid =$_SESSION[ses_userid];
 $ses_username = $_SESSION[ses_username];
 if($ses_userid <> session_id() or $ses_username =="")
@@ -85,8 +85,8 @@ exit();
 <!--menu-->
 
 									<b><a href="order.php">Order</a></b>
-								<?php if($_SESSION[ses_status] == "Super Admin") 
-			{ ?>
+								<?if($_SESSION[ses_status] == "Super Admin") 
+			{?>
 								<!-- End Admin -->
 									<b><br><br><a href="saleReport.php">Sale Report</a>
 									<br><br><a href="record.php">Customer Record</a>
@@ -106,7 +106,7 @@ exit();
 									<br><br><a href="shopGuide_main.php">Shopping Guide</a>
 									<br><br><a href="privacy.php">Permission</a>
 									<br><br><a href="usdRate.php">USD Rate</a></b>
-			<?php } ?>	
+			<?}?>	
 
 <!--menu-->
 
@@ -128,31 +128,31 @@ exit();
 								Start Date <img src="../images/dot.gif" /> 
 								<select id="start_day">
 									<option value=""> -- Day -- </option>
-									<?php for($d=1;$d<=31;$d++)
-									{ ?>
-										<option value="<?php echo $d?>"><?php echo $d?></option>
-									<?php } ?>
+									<?for($d=1;$d<=31;$d++)
+									{?>
+										<option value="<?=$d?>"><?=$d?></option>
+									<?}?>
 								</select>
 								<select id="start_month">
 									<option value=""> -- Month -- </option>
-									<?php for($m=1;$m<=12;$m++)
-									{ ?>
-										<option value="<?php echo $m?>"><?php echo $m?></option>
-									<?php } ?>
+									<?for($m=1;$m<=12;$m++)
+									{?>
+										<option value="<?=$m?>"><?=$m?></option>
+									<?}?>
 								</select>
 								<select id="start_year">
 									<option value=""> -- Year -- </option>
-									<?php
+									<?
 									$now = date("Y")-25;
 									$year_end = date("Y")+25;
 									for($y=$now;$y<=$year_end;$y++)
-									{ ?>
-										<option value="<?php echo $y?>"><?php echo $y?></option>
-									<?php } ?>
+									{?>
+										<option value="<?=$y?>"><?=$y?></option>
+									<?}?>
 								</select>
 								<br>
 								<!-- end date -->
-								<?php
+								<?
 									$today_d = date("d");
 									$today_m = date("m");
 									$today_y = date("Y");
@@ -160,27 +160,27 @@ exit();
 								End Date &nbsp;&nbsp;<img src="../images/dot.gif" /> 
 								<select id="end_day">
 									<option value=""> -- Day -- </option>
-									<?php for($d=1;$d<=31;$d++)
-									{ ?>
-										<option value="<?php echo $d?>" <?php if($d==$today_d){ ?>selected<?php } ?>><?php echo $d?></option>
-									<?php } ?>
+									<?for($d=1;$d<=31;$d++)
+									{?>
+										<option value="<?=$d?>" <?if($d==$today_d){?>selected<?}?>><?=$d?></option>
+									<?}?>
 								</select>
 								<select id="end_month">
 									<option value=""> -- Month -- </option>
-									<?php for($m=1;$m<=12;$m++)
-									{ ?>
-										<option value="<?php echo $m?>" <?php if($m==$today_m){ ?>selected<?php } ?>><?php echo $m?></option>
-									<?php } ?>
+									<?for($m=1;$m<=12;$m++)
+									{?>
+										<option value="<?=$m?>" <?if($m==$today_m){?>selected<?}?>><?=$m?></option>
+									<?}?>
 								</select>
 								<select id="end_year">
 									<option value=""> -- Year -- </option>
-									<?php
+									<?
 									$now = date("Y")-25;
 									$year_end = date("Y")+25;
 									for($y=$now;$y<=$year_end;$y++)
-									{ ?>
-										<option value="<?php echo $y?>" <?php if($y==$today_y){ ?>selected<?php } ?>><?php echo $y?></option>
-									<?php } ?>
+									{?>
+										<option value="<?=$y?>" <?if($y==$today_y){?>selected<?}?>><?=$y?></option>
+									<?}?>
 								</select>
 								<br>
 								<input type="button" value="Search" style="width:60px;" onclick="viewTodayFilter();">

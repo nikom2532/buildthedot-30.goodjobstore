@@ -16,11 +16,11 @@
 <table border="0" cellpadding="0" cellspacing="0" height="124" width="610">
   <tbody>
     <tr>
-      <td colspan="2"><strong style="font-size: 12px; font-family: Tahoma, Geneva, sans-serif;">E-Mail Address: </strong><a href="mailto:<?php echo $customer['Email']?>" target="_blank"><?php echo $customer['Email']?></a><strong><br />
+      <td colspan="2"><strong style="font-size: 12px; font-family: Tahoma, Geneva, sans-serif;">E-Mail Address: </strong><a href="mailto:<?=$customer['Email']?>" target="_blank"><?=$customer['Email']?></a><strong><br />
       </strong></td>
     </tr>
     <tr>
-      <td width="571"><strong style="font-size: 12px; font-family: Tahoma, Geneva, sans-serif;">Password: <?php echo $customer['Password']?></strong></td>
+      <td width="571"><strong style="font-size: 12px; font-family: Tahoma, Geneva, sans-serif;">Password: <?=$customer['Password']?></strong></td>
       <td width="39" align="right"><strong><br />
       </strong></td>
     </tr>

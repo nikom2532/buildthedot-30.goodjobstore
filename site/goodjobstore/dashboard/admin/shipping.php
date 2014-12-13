@@ -3,7 +3,7 @@
 <!--Permission-->
 
 <?php
-session_start(); //�Դ session
+session_start(); //�Դ session
 $ses_userid =$_SESSION[ses_userid];
 $ses_username = $_SESSION[ses_username];
 if($ses_userid <> session_id() or $ses_username =="")
@@ -21,7 +21,7 @@ exit();
 
 <!--Permission-->
 
-<?php
+<?
 	$howID = $_GET['howID'];
 	$nameEn = $_GET['nameEn'];
 
@@ -59,7 +59,7 @@ exit();
 </head>
 <body>
 	<script>
-		viewTable(<?php echo $howID?>);
+		viewTable(<?=$howID?>);
 	</script>
 <!--logout-->
 
@@ -86,8 +86,8 @@ exit();
 			<!--menu-->
 
 									<b><a href="order.php">Order</a></b>
-								<?php if($_SESSION[ses_status] == "Super Admin") 
-			{ ?>
+								<?if($_SESSION[ses_status] == "Super Admin") 
+			{?>
 								<!-- End Admin -->
 									<b><br><br><a href="saleReport.php">Sale Report</a>
 									<br><br><a href="record.php">Customer Record</a>
@@ -107,7 +107,7 @@ exit();
 									<br><br><a href="shopGuide_main.php">Shopping Guide</a>
 									<br><br><a href="privacy.php">Permission</a>
 									<br><br><a href="usdRate.php">USD Rate</a></b>
-			<?php } ?>	
+			<?}?>	
 
 <!--menu-->
 		   	</div>
@@ -117,7 +117,7 @@ exit();
 						<div class="overview">
 							<h2>
 								Shipping<br><br>
-								 -- <?php echo $nameEn?> --
+								 -- <?=$nameEn?> --
 							</h2>
 						 	<form name="frmAddShipping">
 								<table>
@@ -143,7 +143,7 @@ exit();
 										<tr><td><br></td></tr>
 									</tbody>
 								</table>
-								<input type='button' value='Add' onclick="addShipping(<?php echo $howID?>);" style="width:60px">
+								<input type='button' value='Add' onclick="addShipping(<?=$howID?>);" style="width:60px">
 								<input type='button' value='Back' onclick="window.location.href='shipper.php'" style="width:60px">
 								
 							</form>	

@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<?php
+<?
 	$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
 	$objDB = mysql_select_db("goodjob") or die("Can't connect Database");
 	mysql_query("SET NAMES utf8",$objCon);
@@ -17,21 +17,21 @@
 			<td></td>
 			<td></td>
 		</tr>
-		<?php
+		<?
 		while ($data=mysql_fetch_array($result))
-		{ ?>
+		{?>
 			<tr>
-				<td style="text-align:center;"><?php echo $data['name_en']?></td>
-				<td style="text-align:center;"><?php echo $data['name_th']?></td>
+				<td style="text-align:center;"><?=$data['name_en']?></td>
+				<td style="text-align:center;"><?=$data['name_th']?></td>
 				<td>
 					<input type="button" value="Edit" 
-					onclick="window.location.href='property_viewEdit.php?propID=<?php echo $data['prop_id']?>
-					&nameEN=<?php echo $data['name_en']?>
-					&nameTH=<?php echo $data['name_th']?>'" 
+					onclick="window.location.href='property_viewEdit.php?propID=<?=$data['prop_id']?>
+					&nameEN=<?=$data['name_en']?>
+					&nameTH=<?=$data['name_th']?>'" 
 					style="width:60px">
 				</td>
-				<td><input type="button" value="Delete" onclick="deleteProperty(<?php echo $data['prop_id']?>);" style="width:60px"></td>
+				<td><input type="button" value="Delete" onclick="deleteProperty(<?=$data['prop_id']?>);" style="width:60px"></td>
 			</tr>
-		<?php } ?>
+		<?}?>
 	</tbody>
 </table>

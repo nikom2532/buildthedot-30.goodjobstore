@@ -21,7 +21,7 @@ exit();
 
 <!--Permission-->
 
-<?php
+<?
 	//include_once '../classes/Products.php';
 	//Initialization
 	include_once '../classes/Employees.php';
@@ -84,8 +84,8 @@ exit();
 <!--menu-->
 
 									<b><a href="order.php">Order</a></b>
-								<?php if($_SESSION[ses_status] == "Super Admin") 
-			{ ?>
+								<?if($_SESSION[ses_status] == "Super Admin") 
+			{?>
 								<!-- End Admin -->
 									<b><br><br><a href="saleReport.php">Sale Report</a>
 									<br><br><a href="record.php">Customer Record</a>
@@ -105,7 +105,7 @@ exit();
 									<br><br><a href="shopGuide_main.php">Shopping Guide</a>
 									<br><br><a href="privacy.php">Permission</a>
 									<br><br><a href="usdRate.php">USD Rate</a></b>
-			<?php } ?>	
+			<?}?>	
 
 <!--menu-->
 		   	</div>
@@ -126,27 +126,27 @@ exit();
 							<!-- exp. date -->
 							<select id="exp_day">
 								<option value=""> -- Day -- </option>
-								<?php for($d=1;$d<=31;$d++)
-								{ ?>
-									<option value="<?php echo $d?>"><?php echo $d?></option>
-								<?php } ?>
+								<?for($d=1;$d<=31;$d++)
+								{?>
+									<option value="<?=$d?>"><?=$d?></option>
+								<?}?>
 							</select>
 							<select id="exp_month">
 								<option value=""> -- Month -- </option>
-								<?php for($m=1;$m<=12;$m++)
-								{ ?>
-									<option value="<?php echo $m?>"><?php echo $m?></option>
-								<?php } ?>
+								<?for($m=1;$m<=12;$m++)
+								{?>
+									<option value="<?=$m?>"><?=$m?></option>
+								<?}?>
 							</select>
 							<select id="exp_year">
 								<option value=""> -- Year -- </option>
-								<?php
+								<?
 								$now = date("Y");
 								$year_end = $now+70;
 								for($y=$now;$y<=$year_end;$y++)
-								{ ?>
-									<option value="<?php echo $y?>"><?php echo $y?></option>
-								<?php } ?>
+								{?>
+									<option value="<?=$y?>"><?=$y?></option>
+								<?}?>
 							</select>
 							<br>
 							<input type="button" value="Generate coupon" onclick="GenCoupon();" style="width:115px;">

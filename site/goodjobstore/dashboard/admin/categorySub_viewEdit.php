@@ -3,7 +3,7 @@
 <!--Permission-->
 
 <?php
-session_start(); //�Դ session
+session_start(); //�Դ session
 $ses_userid =$_SESSION[ses_userid];
 $ses_username = $_SESSION[ses_username];
 if($ses_userid <> session_id() or $ses_username =="")
@@ -20,7 +20,7 @@ exit();
 ?>
 
 <!--Permission-->
-<?php
+<?
 	$mainID = $_GET['mainID'];
 	$subID = $_GET['subID'];
 
@@ -76,7 +76,7 @@ exit();
 </head>
 
 <!-- edit sub category -->
-<?php
+<?
 	if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "frmAddCategorySub")) 
 	{
 		$m_NameEN = $_POST['nameEN'];
@@ -93,7 +93,7 @@ exit();
 
 <body>
 	<script>
-		viewTable(<?php echo $mainID?>);
+		viewTable(<?=$mainID?>);
 	</script>
 
 <!--logout-->
@@ -120,8 +120,8 @@ exit();
 	<!--menu-->
 
 									<b><a href="order.php">Order</a></b>
-								<?php if($_SESSION[ses_status] == "Super Admin") 
-			{ ?>
+								<?if($_SESSION[ses_status] == "Super Admin") 
+			{?>
 								<!-- End Admin -->
 									<b><br><br><a href="saleReport.php">Sale Report</a>
 									<br><br><a href="record.php">Customer Record</a>
@@ -141,7 +141,7 @@ exit();
 									<br><br><a href="shopGuide_main.php">Shopping Guide</a>
 									<br><br><a href="privacy.php">Permission</a>
 									<br><br><a href="usdRate.php">USD Rate</a></b>
-			<?php } ?>	
+			<?}?>	
 
 <!--menu-->
 		   	</div>
@@ -152,9 +152,9 @@ exit();
 							<h2>Edit Sub Category</h2>
 								<h3>
 									&nbsp;&nbsp;&nbsp;&nbsp;
-									<?php echo $nameMainEN?><br>
+									<?=$nameMainEN?><br>
 									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									<?php echo $nameEN?>
+									<?=$nameEN?>
 								</h3><br>
 						 	<form action="" method="post" enctype="multipart/form-data" name="frmAddCategorySub" id="frmAddCategorySub">
 								<table>
@@ -162,17 +162,17 @@ exit();
 										<tr style="height:30px;">
 											<td style="width:70px;">Sub [En]</td>
 											<td style="width:15px;"><img src="../images/dot.gif" /></td>
-											<td><input type='text' name='nameEN' value="<?php echo $nameEN?>"></td>
+											<td><input type='text' name='nameEN' value="<?=$nameEN?>"></td>
 										</tr>
 										<tr style="height:30px;">
 											<td style="width:70px;">Sub [Th]</td>
 											<td style="width:15px;"><img src="../images/dot.gif" /></td>
-											<td><input type='text' name='nameTH' value="<?php echo $nameTH?>"></td>
+											<td><input type='text' name='nameTH' value="<?=$nameTH?>"></td>
 										</tr>
 										<tr style="height:30px;">
 											<td style="width:70px;">Url</td>
 											<td style="width:15px;"><img src="../images/dot.gif" /></td>
-											<td><input type='text' name='subUrl' value="<?php echo $subUrl?>"></td>
+											<td><input type='text' name='subUrl' value="<?=$subUrl?>"></td>
 										</tr>
 										<tr>
 											<td><br></td>
@@ -181,7 +181,7 @@ exit();
 								</table>
 								<input type='submit' value='Edit' style="width:60px">
 								<input type="hidden" name="MM_insert" value="frmAddCategorySub" />
-								<input type='button' value='Cancel' onclick="window.location.href='categorySub.php?mainID=<?php echo $mainID?>'" style="width:60px">
+								<input type='button' value='Cancel' onclick="window.location.href='categorySub.php?mainID=<?=$mainID?>'" style="width:60px">
 							</form>		
 <br><br>
 							<div id="line"></div>

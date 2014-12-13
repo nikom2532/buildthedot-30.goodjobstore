@@ -1,5 +1,5 @@
-<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>public/css/dashboard.css">
-<script type="text/javascript" src="<?php echo base_url()?>public/scripts/jquery.tinyscrollbar.min.js"></script>
+<link rel="stylesheet" type="text/css" href="<?=base_url()?>public/css/dashboard.css">
+<script type="text/javascript" src="<?=base_url()?>public/scripts/jquery.tinyscrollbar.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$('#scrollbar_order').tinyscrollbar();	
@@ -10,7 +10,7 @@
 		Order History
 		</div>
 		<div id="content">
-		    <?php echo $this->load->view('my/menu')?>
+		    <?=$this->load->view('my/menu')?>
 		   	<div id="order_history"> 
 				<div id="scrollbar_order">
 					<div class="scrollbar">
@@ -38,13 +38,13 @@
 									
 									<?php foreach($results as $result): ?>
 									<tr class="body">
-						 				<td><img src="<?php echo base_url().'public/'.$result->images_Thumbnail_path?>" /></td>
-						 				<td><?php echo (LANG=='TH')?$result->products_Pro_Name_Th:$result->products_Pro_Name_En?></td>
-						 				<td><?php echo (LANG=='TH')?get_check_color($result->order_item_Color_ID)->Name_TH:get_check_color($result->order_item_Color_ID)->Name_EN?> Color</td>
-						 				<td><?php echo $result->order_item_Qty?></td>
-						 				<td><?php echo number_format($result->order_item_Total_Pricec)?> ฿</td>
-						 				<td><?php echo date("d M Y", strtotime($result->order_item_Create_Date))?></td>
-						 				<td class="status"><?php echo $result->order_item_Status?></td>
+						 				<td><img src="<?=base_url().'public/'.$result->images_Thumbnail_path?>" /></td>
+						 				<td><?=(LANG=='TH')?$result->products_Pro_Name_Th:$result->products_Pro_Name_En?></td>
+						 				<td><?=(LANG=='TH')?get_check_color($result->order_item_Color_ID)->Name_TH:get_check_color($result->order_item_Color_ID)->Name_EN?> Color</td>
+						 				<td><?=$result->order_item_Qty?></td>
+						 				<td><?=number_format($result->order_item_Total_Pricec)?> ฿</td>
+						 				<td><?=date("d M Y", strtotime($result->order_item_Create_Date))?></td>
+						 				<td class="status"><?=$result->order_item_Status?></td>
 									</tr>
 									<?php endforeach; ?>
 						 		</tbody>

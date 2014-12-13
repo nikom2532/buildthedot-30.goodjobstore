@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-	<?php
+	<?
 		$strProID = $_GET["proID"];
 		$strProperty = $_GET["propertyID"];
 		$strFilterProp = $_GET["filterProp"];
@@ -42,7 +42,7 @@
 
 <!------------------------------------------------------------->
 
-	<?php
+	<?
 	while ($data=mysql_fetch_array($result))
 	{
 	?>
@@ -51,8 +51,8 @@
 		</div>
 		<div class="clearfix" id="new_data">
 	
-			<a href="<?php echo $data['Path']?>" class="jqzoom" id="testjqzoom" rel='gal1'  title="" >
-				<img id="input_pic" onmouseover="javascript:testtest();" src="<?php echo $data['Path_Small']?>"  title="">
+			<a href="<?=$data['Path']?>" class="jqzoom" id="testjqzoom" rel='gal1'  title="" >
+				<img id="input_pic" onmouseover="javascript:testtest();" src="<?=$data['Path_Small']?>"  title="">
 			</a>
 		</div>
 		<br/>
@@ -60,23 +60,23 @@
 		<!-- Thumbnail Images -->
 		<div class="clearfix" id="itemSelect" >
 			<ul id="thumblist" class="clearfix">
-				<?php
+				<?
 				while ($dataLevel=mysql_fetch_array($resultLevel))
-				{ ?>
+				{?>
 					<li>
-						<a title="<?php echo $dataLevel["Path_Small"]?>"
-						dir = "<?php echo $dataLevel["Path"]?>"
-						class="zoomThumbActive testtest<?php echo $dataLevel["Image_ID"]?>" 
+						<a title="<?=$dataLevel["Path_Small"]?>"
+						dir = "<?=$dataLevel["Path"]?>"
+						class="zoomThumbActive testtest<?=$dataLevel["Image_ID"]?>" 
 						href='javascript:void(0);' 
-						rel="{gallery: 'gal1', smallimage:'<?php echo $dataLevel["Path_Small"]?>', largeimage:'<?php echo $dataLevel["Path"]?>'}"
-						onclick="javascript:testtest1(<?php echo $dataLevel["Image_ID"]?>);
-						changeImage(<?php echo $dataLevel["Property_ID"]?>,<?php echo $dataLevel["Color_ID"]?>,<?php echo $strFilterProp?>);">
-							<img src="<?php echo $dataLevel['Thumbnail_path']?>">
+						rel="{gallery: 'gal1', smallimage:'<?=$dataLevel["Path_Small"]?>', largeimage:'<?=$dataLevel["Path"]?>'}"
+						onclick="javascript:testtest1(<?=$dataLevel["Image_ID"]?>);
+						changeImage(<?=$dataLevel["Property_ID"]?>,<?=$dataLevel["Color_ID"]?>,<?=$strFilterProp?>);">
+							<img src="<?=$dataLevel['Thumbnail_path']?>">
 						</a>
-						<span class="zoomThum<?php echo $dataLevel["Image_ID"]?>" style='display:none;'>
-						<?php echo $dataLevel["Thumbnail_path"]?></span>
+						<span class="zoomThum<?=$dataLevel["Image_ID"]?>" style='display:none;'>
+						<?=$dataLevel["Thumbnail_path"]?></span>
 					</li>
-				<?php } ?>
+				<?}?>
 			</ul>
 		</div>
-	<?php } ?>
+	<?}?>

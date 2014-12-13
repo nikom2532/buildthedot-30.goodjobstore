@@ -1,6 +1,6 @@
-	<base href="<?php echo base_url()?>public/" />
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>public/css/checkout.css">
-	<script type="text/javascript" src="<?php echo base_url()?>public/scripts/jquery.tinyscrollbar.min.js"></script>
+	<base href="<?=base_url()?>public/" />
+	<link rel="stylesheet" type="text/css" href="<?=base_url()?>public/css/checkout.css">
+	<script type="text/javascript" src="<?=base_url()?>public/scripts/jquery.tinyscrollbar.min.js"></script>
 		<!-- Body Section -->
 		<div id="title_head">
 			Checkout 
@@ -16,7 +16,7 @@
 		<div id="confirmation">
 			<div id="confirmation_title">Thank you <br>for your purchase</div>
 			<div class="left">
-				<div class="back_button"><a href="<?php echo site_url()?>">Back to Shopping</a></div>
+				<div class="back_button"><a href="<?=site_url()?>">Back to Shopping</a></div>
 <!--				<div class="item">
 					<h3>This is item you bougth :</h3>
 					200 Bath. Home<br>
@@ -24,7 +24,7 @@
 				</div>-->
 				<br/>
 				<h3>Your order number is</h3>
-				<div class="code"><?php echo $order->Order_ID?></div>
+				<div class="code"><?=$order->Order_ID?></div>
 				<p>Please keep this order number for tracking letter.</p>
 			</div>
 			<div class="right">

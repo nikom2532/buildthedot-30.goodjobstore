@@ -1,17 +1,17 @@
-<base href="<?php echo base_url()?>public/" />
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>public/css/product.css" media="screen" />
+<base href="<?=base_url()?>public/" />
+	<link rel="stylesheet" type="text/css" href="<?=base_url()?>public/css/product.css" media="screen" />
 	
 	<!-- imageSlide jQuery -->
-	<link href="<?php echo base_url()?>public/css/imageSlide.css" type="text/css" rel="stylesheet">
-    <script src="<?php echo base_url()?>public/scripts/imageSlide.js"></script>
+	<link href="<?=base_url()?>public/css/imageSlide.css" type="text/css" rel="stylesheet">
+    <script src="<?=base_url()?>public/scripts/imageSlide.js"></script>
 
 	<!-- jqZoom -->
-    <link rel="stylesheet" href="<?php echo base_url()?>public/css/jquery.jqzoom.css" type="text/css">	
-	<script src="<?php echo base_url()?>public/scripts/jquery-1.6.js" type="text/javascript"></script>
-	<script src="<?php echo base_url()?>public/scripts/jquery.jqzoom-core.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="<?=base_url()?>public/css/jquery.jqzoom.css" type="text/css">	
+	<script src="<?=base_url()?>public/scripts/jquery-1.6.js" type="text/javascript"></script>
+	<script src="<?=base_url()?>public/scripts/jquery.jqzoom-core.js" type="text/javascript"></script>
 
 	<!-- tinyscrollbar -->
-	<script type="text/javascript" src="<?php echo base_url()?>public/scripts/jquery.tinyscrollbar.min.js"></script>
+	<script type="text/javascript" src="<?=base_url()?>public/scripts/jquery.tinyscrollbar.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$('#scrollbar1').tinyscrollbar();	
@@ -63,8 +63,8 @@
 	</script>
 
 	<!-- connect Database -->
-	<script src="<?php echo base_url()?>public/scripts/ajax.item.java" type="text/javascript"></script>
-	<?php
+	<script src="<?=base_url()?>public/scripts/ajax.item.java" type="text/javascript"></script>
+	<?
 		$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
 		$objDB = mysql_select_db("goodjob") or die("Can't connect Database");
 		mysql_query("SET NAMES utf8",$objCon);
@@ -125,7 +125,7 @@
 			<div id="productZoom">
 
 				<div  id="content" class="clearfix" style="height:380px;">
-					<script>viewItem('<?php echo $product_code?>','','');</script>
+					<script>viewItem('<?=$product_code?>','','');</script>
 					<!-- view Item -->
 				</div>
 
@@ -136,30 +136,30 @@
 							<div class="go_l_nav" title="Back"></div>  
 							<div class="content_slide">
 								<div id="content_slide_in"> 
-								<?php
+								<?
 								while ($dataLevel=mysql_fetch_array($resultLevel))
-								{ ?>
-									<a title="../../public/<?php echo $dataLevel["Path_Small"]?>"
-										dir = "../../public/<?php echo $dataLevel["Path"]?>"
-										class="zoomThumbActive testtest<?php echo $dataLevel["Image_ID"]?>" 
+								{?>
+									<a title="../../public/<?=$dataLevel["Path_Small"]?>"
+										dir = "../../public/<?=$dataLevel["Path"]?>"
+										class="zoomThumbActive testtest<?=$dataLevel["Image_ID"]?>" 
 										href='javascript:void(0);' 
-										rel="{gallery: 'gal1', smallimage:'../../public/<?php echo $dataLevel["Path_Small"]?>', largeimage:'../../public/<?php echo $dataLevel["Path"]?>'}"
-										onclick="javascript:testtest1(<?php echo $dataLevel["Image_ID"]?>);
-										changeImage('<?php echo $dataLevel["Product_ID"]?>',<?php echo $dataLevel["Color_ID"]?>);
-										viewHeadDetail('<?php echo $dataLevel['Product_ID']?>','','');">
-												<?php
+										rel="{gallery: 'gal1', smallimage:'../../public/<?=$dataLevel["Path_Small"]?>', largeimage:'../../public/<?=$dataLevel["Path"]?>'}"
+										onclick="javascript:testtest1(<?=$dataLevel["Image_ID"]?>);
+										changeImage('<?=$dataLevel["Product_ID"]?>',<?=$dataLevel["Color_ID"]?>);
+										viewHeadDetail('<?=$dataLevel['Product_ID']?>','','');">
+												<?
 												//------ Show shot msg title -----
 												$sqlMsg = "SELECT Group_msg_En,Group_msg_Th FROM product_groups
 															WHERE Product_Code = '$product_code'";
 												$resultMsg = mysql_query($sqlMsg, $objCon) or die(mysql_error());
-												while ($dataMsg=mysql_fetch_array($resultMsg)){ ?>
-													<img src="../../public/<?php echo $dataLevel['Thumbnail_path'] ?>" 
-													title="<?php echo (LANG=='TH')?$dataMsg['Group_msg_Th']:$dataMsg['Group_msg_En'];?>" width="100px">
-												<?php } ?>
+												while ($dataMsg=mysql_fetch_array($resultMsg)){?>
+													<img src="../../public/<?=$dataLevel['Thumbnail_path'] ?>" 
+													title="<?=(LANG=='TH')?$dataMsg['Group_msg_Th']:$dataMsg['Group_msg_En'];?>" width="100px">
+												<?}?>
 									</a>
-									<span class="zoomThum<?php echo $dataLevel["Image_ID"]?>" style='display:none;'>
-									<?php echo $dataLevel["Thumbnail_path"]?></span>
-								<?php } ?>
+									<span class="zoomThum<?=$dataLevel["Image_ID"]?>" style='display:none;'>
+									<?=$dataLevel["Thumbnail_path"]?></span>
+								<?}?>
 									</div>  <!-- content_slide_in -->
 								</div>  <!-- content_slide -->
 							<div class="go_r_nav" title="Next"></div>  
@@ -187,15 +187,15 @@
 			<?php
 			$url= curPageURL();
 			?>
-			<div class="fb-like" data-href=<?php echo $url?> data-send="false" data-layout="button_count" data-width="450" data-show-faces="true"></div>
+			<div class="fb-like" data-href=<?=$url?> data-send="false" data-layout="button_count" data-width="450" data-show-faces="true"></div>
 			<div id="product_head" class="clearfix">
 					<div class="left">
-						<?php
+						<?
 						while ($data=mysql_fetch_array($result))
-						{ ?>
-						<h1><?php echo (LANG=='TH')?$data['Group_Name_Th']:$data['Group_Name_En'];?></h1>
+						{?>
+						<h1><?=(LANG=='TH')?$data['Group_Name_Th']:$data['Group_Name_En'];?></h1>
 						<div id="head_detail">
-							<script>viewHeadDetail('<?php echo $data['Product_ID']?>','','');</script>
+							<script>viewHeadDetail('<?=$data['Product_ID']?>','','');</script>
 							<!-- view Head Detail -->
 						</div>
 					</div>  <!-- left -->
@@ -214,26 +214,26 @@
 						<div class="viewport">
 							<div class="overview">
 					
-								<?php echo (LANG=='TH')?$data['Group_Description_Th']:$data['Group_Description_En'];?>
+								<?=(LANG=='TH')?$data['Group_Description_Th']:$data['Group_Description_En'];?>
 							</div>  <!-- overview -->
 						</div>  <!-- viewport -->
 				</div>  <!-- scrollbar1 -->
 
-				<div id="product_comment"><?php echo (LANG=='TH')?$data['Group_msg_Th']:$data['Group_msg_En'];?></div>
+				<div id="product_comment"><?=(LANG=='TH')?$data['Group_msg_Th']:$data['Group_msg_En'];?></div>
 
-			<?php $QtyProduct = $data['Qty']; ?>
-			<?php } ?> <!-- End while -->
+			<? $QtyProduct = $data['Qty']; ?>
+			<?}?> <!-- End while -->
 			
 				<div id="wrapperColor">
-				<?php while($dataPropType=mysql_fetch_array($resultPropType))
+				<? while($dataPropType=mysql_fetch_array($resultPropType))
 					{
 						$propTypeID = $dataPropType['Product_ID'];
 				?>
 						<div class="colorItem">
-							<?php if($dataPropType['Color_ID']!=33)
-							{ ?>
-								<h2 style="font: inherit;"><?php echo $dataPropType['name_en']?></h2>
-									<?php //------- Image Color -------
+							<?if($dataPropType['Color_ID']!=33)
+							{?>
+								<h2 style="font: inherit;"><?=$dataPropType['name_en']?></h2>
+									<?//------- Image Color -------
 									$sqlImgColor = "SELECT color.Color_ID, Name_EN, Name_TH, color.path
 													FROM color JOIN images
 													ON color.Color_ID = images.Color_ID
@@ -245,18 +245,18 @@
 										if($dataImgColor['Color_ID']!=33)
 										{
 									?>
-											<a href="javascript:void(0);" onclick="filterColor(<?php echo $dataImgColor['Color_ID']?>,'<?php echo $propTypeID?>');" style="text-decoration:none;">
-												<img src="../../../../public/<?php echo $dataImgColor['path']?>" title="<?php echo (LANG=='TH')?$dataImgColor['Name_TH']:$dataImgColor['Name_EN'];?>"/>
+											<a href="javascript:void(0);" onclick="filterColor(<?=$dataImgColor['Color_ID']?>,'<?=$propTypeID?>');" style="text-decoration:none;">
+												<img src="../../../../public/<?=$dataImgColor['path']?>" title="<?=(LANG=='TH')?$dataImgColor['Name_TH']:$dataImgColor['Name_EN'];?>"/>
 											</a>
-										<?php } 
+										<?}
 									}?>
-							<?php } ?>
+							<?}?>
 						</div>  <!-- colorItem -->
-				<?php } ?>
+				<?}?>
 				</div> <!-- wrapperColor -->
 
 				<div id="product_BuyAndCrossPrice">
-					<script>viewDescrip('','<?php echo $product_code?>','','<?php echo $QtyProduct?>');</script>
+					<script>viewDescrip('','<?=$product_code?>','','<?=$QtyProduct?>');</script>
 					<!-- goto: connect.item.description.php -->
 				</div>  <!-- product_BuyAndCrossPrice -->
 
@@ -268,21 +268,21 @@
 
 				function changeImage(proID,select_color)
 				{
-					viewDescrip(proID,'<?php echo $product_code?>',select_color,'<?php echo $QtyProduct?>');
+					viewDescrip(proID,'<?=$product_code?>',select_color,'<?=$QtyProduct?>');
 				}
 
 				function filterColor(filter_Color,propType)
 				{
-					viewItem('<?php echo $product_code?>',filter_Color,propType);
-					viewHeadDetail(propType,filter_Color,'<?php echo $product_code?>');
-					viewDescrip(propType,'<?php echo $product_code?>',filter_Color,'<?php echo $QtyProduct?>');
+					viewItem('<?=$product_code?>',filter_Color,propType);
+					viewHeadDetail(propType,filter_Color,'<?=$product_code?>');
+					viewDescrip(propType,'<?=$product_code?>',filter_Color,'<?=$QtyProduct?>');
 				}
 
 				function filterProperty(filter_Property)
 				{
 					viewItem('','',filter_Property);
-					viewHeadDetail(filter_Property,'','<?php echo $product_code?>');
-					viewDescrip(filter_Property,'<?php echo $product_code?>','','<?php echo $QtyProduct?>');
+					viewHeadDetail(filter_Property,'','<?=$product_code?>');
+					viewDescrip(filter_Property,'<?=$product_code?>','','<?=$QtyProduct?>');
 				}
 
 			</script>

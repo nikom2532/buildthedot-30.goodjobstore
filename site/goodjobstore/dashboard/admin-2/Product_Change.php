@@ -294,8 +294,8 @@ if(!empty($_POST['ADD']))
 			<div class="logo"><a href ="../"><img src="../images/logo.jpg" /></a></div>
 			<div class="right">
 				<ul class="member_style">
-					<li class="line"><a href="<?php echo $link?>?id=<?php echo $id?>"><?php echo $login?></a></li> 
-					<li><a href="../admin/"><?php echo $logout?></a></li>
+					<li class="line"><a href="<?=$link?>?id=<?=$id?>"><?=$login?></a></li> 
+					<li><a href="../admin/"><?=$logout?></a></li>
 				</ul>
 			</div>
 		</div>
@@ -307,13 +307,13 @@ if(!empty($_POST['ADD']))
 		<div id="content">
 		    <div id="leftcolum">
 			    <ul>
-			        <li><a href="profile.php?id=<?php echo $get_empid?>">Profile</a></li>
-			        <li><a href="category.php?id=<?php echo $get_empid?>">Category</a></li>
-			        <li><a href="sub-category.php?id=<?php echo $get_empid?>">Sub Category</a></li>
-					<li><a class="active" href="product.php?id=<?php echo $get_empid?>">Product</a></li>
-					<li><a href="employee.php?id=<?php echo $get_empid?>">Employee</a></li>
-					<li><a href="customer.php?id=<?php echo $get_empid?>">Customer</a></li>
-					<li><a href="Shopping Guide.php?id=<?php echo $get_empid?>">Shopping Guide</a></li>
+			        <li><a href="profile.php?id=<?=$get_empid?>">Profile</a></li>
+			        <li><a href="category.php?id=<?=$get_empid?>">Category</a></li>
+			        <li><a href="sub-category.php?id=<?=$get_empid?>">Sub Category</a></li>
+					<li><a class="active" href="product.php?id=<?=$get_empid?>">Product</a></li>
+					<li><a href="employee.php?id=<?=$get_empid?>">Employee</a></li>
+					<li><a href="customer.php?id=<?=$get_empid?>">Customer</a></li>
+					<li><a href="Shopping Guide.php?id=<?=$get_empid?>">Shopping Guide</a></li>
 			    </ul>
 		   	</div>
 			<div id="dashboard"> 
@@ -329,7 +329,7 @@ if(!empty($_POST['ADD']))
 					<div class="viewport">
 						 <div class="overview">
 						 	<h2>Product</h2>
-						 	<form action="Product_Change.php?Product_code=<?php echo $Product_code?>" method="POST" name="product">
+						 	<form action="Product_Change.php?Product_code=<?=$Product_code?>" method="POST" name="product">
 					<table>
 						<tbody>
 							</tr>
@@ -339,7 +339,7 @@ if(!empty($_POST['ADD']))
 								<td>
 									<select name="cross1">
 									<option value=""><-- Please Select Cross Product 1--></option>
-									<?php echo $cross->getcross();?>
+									<? echo $cross->getcross();?>
 									</select>
 									
 								</td>
@@ -352,7 +352,7 @@ if(!empty($_POST['ADD']))
 								<td>
 									<select name="cross2">
 									<option value=""><-- Please Select Cross Product 2--></option>
-									<?php echo $cross->getcross();?>
+									<? echo $cross->getcross();?>
 									</select>
 									
 								</td>
@@ -365,7 +365,7 @@ if(!empty($_POST['ADD']))
 								<td>
 									<select name="cross3">
 									<option value=""><-- Please Select Cross Product 3--></option>
-									<?php echo $cross->getcross();?>
+									<? echo $cross->getcross();?>
 									</select>
 									
 								</td>
@@ -378,7 +378,7 @@ if(!empty($_POST['ADD']))
 								<td>
 									<select name="cross4">
 									<option value=""><-- Please Select Cross Product 4--></option>
-									<?php echo $cross->getcross();?>
+									<? echo $cross->getcross();?>
 									</select>
 									
 								</td>
@@ -386,28 +386,28 @@ if(!empty($_POST['ADD']))
 							<tr>
 								<td>Product Code</td>
 								<td><img src="../images/dot.gif" /></td>
-								<td><input type="text" name="Product_Code" value="<?php echo $Product_code?>"/></td>
+								<td><input type="text" name="Product_Code" value="<?=$Product_code?>"/></td>
 							</tr>
 							<tr>
 								<td>Product Name Thai</td>
 								<td><img src="../images/dot.gif" /></td>
-								<td><input type="text" name="Product_Name_Th" value="<?php echo $get_th?>"/></td>
+								<td><input type="text" name="Product_Name_Th" value="<?=$get_th?>"/></td>
 								<td>Product Name English</td>
 								<td><img src="../images/dot.gif" /></td>
-								<td><input type="text" name="Product_Name_En" value="<?php echo $get_en?>" /></td>
+								<td><input type="text" name="Product_Name_En" value="<?=$get_en?>" /></td>
 							</tr>
 							<tr>
 								<td>Description Thai</td>
 								<td><img src="../images/dot.gif" /></td>
-								<td><input type="text" name="Description_Th" value="<?php echo $get_desth?>"/></td>
+								<td><input type="text" name="Description_Th" value="<?=$get_desth?>"/></td>
 								<td>Description English</td>
 								<td><img src="../images/dot.gif" /></td>
-								<td><input type="text" name="Description_En" value="<?php echo $get_desen?>"/></td>
+								<td><input type="text" name="Description_En" value="<?=$get_desen?>"/></td>
 							</tr>
 							<tr>
 								<td width="200px">Size</td>
 								<td width="30px"><img src="../images/dot.gif" /></td>
-								<td><input type="text" name="Size" value="<?php echo $get_size?>"/></td>
+								<td><input type="text" name="Size" value="<?=$get_size?>"/></td>
 							</tr>
 							<!--	<tr>
 								<td>Property Thai</td>
@@ -468,55 +468,55 @@ if(!empty($_POST['ADD']))
 							<tr>
 									<td>Short message Thai</td>
 									<td><img src="../images/dot.gif" /></td>
-									<td><input type="text" name="Short_msg_Th" value="<?php echo $get_shortth?>"/></td>
+									<td><input type="text" name="Short_msg_Th" value="<?=$get_shortth?>"/></td>
 							</tr>
 							<tr>
 									<td>Short message English</td>
 									<td><img src="../images/dot.gif" /></td>
-									<td><input type="text" name="Short_msg_En" value="<?php echo $get_shorten?>"/></td>
+									<td><input type="text" name="Short_msg_En" value="<?=$get_shorten?>"/></td>
 							</tr>
 							<tr>
 									<td>Qty</td>
 									<td><img src="../images/dot.gif" /></td>
-									<td><input type="text" name="Qty" value="<?php echo $get_qty?>"/></td>
+									<td><input type="text" name="Qty" value="<?=$get_qty?>"/></td>
 							</tr>
 							<tr>
 									<td>Sale min</td>
 									<td><img src="../images/dot.gif" /></td>
-									<td><input type="text" name="Sale_min" value="<?php echo $get_sale_min?>"/></td>
+									<td><input type="text" name="Sale_min" value="<?=$get_sale_min?>"/></td>
 							</tr>
 							<tr>
 									<td>Sale max</td>
 									<td><img src="../images/dot.gif" /></td>
-									<td><input type="text" name="Sale_max" value="<?php echo $get_sale_max?>"/></td>
+									<td><input type="text" name="Sale_max" value="<?=$get_sale_max?>"/></td>
 							</tr>
 							<tr>
 									<td>KeyWord </td>
 									<td><img src="../images/dot.gif" /></td>
-									<td><input type="text" name="KeyWord" value="<?php echo $get_key?>"/></td>
+									<td><input type="text" name="KeyWord" value="<?=$get_key?>"/></td>
 							</tr>
 							<tr>
 									<td>Weight</td>
 									<td><img src="../images/dot.gif" /></td>
-									<td><input type="text" name="Weight" value="<?php echo $get_weight?>"/></td>
+									<td><input type="text" name="Weight" value="<?=$get_weight?>"/></td>
 							</tr>
 							<tr>
 									<!--<td>Url Thai</td>
 									<td><img src="../images/dot.gif" /></td>-->
-									<input type="hidden" name="Url_Th" value="<?php echo $get_url_th?>"/>
+									<input type="hidden" name="Url_Th" value="<?=$get_url_th?>"/>
 									<td>Url English</td>
 									<td><img src="../images/dot.gif" /></td>
-									<td><input type="text" name="Url_En" value="<?php echo $get_url_en?>"/></td>
+									<td><input type="text" name="Url_En" value="<?=$get_url_en?>"/></td>
 							</tr>
 							<tr>
 									<td>Discount Status </td>
 									<td><img src="../images/dot.gif" /></td>
-									<td><input type="text" name="Discount_Status" value="<?php echo $get_dis_stat?>"/></td>
+									<td><input type="text" name="Discount_Status" value="<?=$get_dis_stat?>"/></td>
 							</tr>
 							<tr>
 									<td>Product Status</td>
 									<td><img src="../images/dot.gif" /></td>
-									<td><input type="text" name="Product_Status" value="<?php echo $get_stat?>"/></td>
+									<td><input type="text" name="Product_Status" value="<?=$get_stat?>"/></td>
 							</tr>
 							<tr>
 							
@@ -529,8 +529,8 @@ if(!empty($_POST['ADD']))
 					</table>
 				</form>
 						 	<div id="line"></div>
-						<h2>Add Product <?php echo $product_id?><?php echo $get_name?></h2>	
-						<form action="Product_Change.php?Product_code=<?php echo $Product_code?>" method="POST" name="color_product" enctype="multipart/form-data">
+						<h2>Add Product <?=$product_id?><?=$get_name?></h2>	
+						<form action="Product_Change.php?Product_code=<?=$Product_code?>" method="POST" name="color_product" enctype="multipart/form-data">
 								Full Picture<input type="file" name="filUpload[]"><br>
 								Normal Picture<input type="file" name="filUpload[]"><br>
 								Small Picture<input type="file" name="filUpload[]"><br>
@@ -543,7 +543,7 @@ if(!empty($_POST['ADD']))
 								<td>
 									<select name="color">
 									<option value=""><-- Please Select Color --></option>
-									<?php echo $color->getcolor();?>
+									<? echo $color->getcolor();?>
 									</select>
 								</td>
 							</tr>	
@@ -554,7 +554,7 @@ if(!empty($_POST['ADD']))
 								<td>
 									<select name="property">
 									<option value=""><-- Please Select Property --></option>
-									<?php echo $property->getproperty();?>
+									<? echo $property->getproperty();?>
 									</select>
 								</td>
 							</tr>

@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<?php
+<?
 	$genProID = $_GET["genProID"];
 
 	$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());

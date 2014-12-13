@@ -17,7 +17,7 @@
 		//build menu with DIV ID="myslidemenu" on page:
 		droplinemenu.buildmenu("droplinetabs1")
 	</script>
-	 <?phpinclude("script-menu.php");?>
+	 <?include("script-menu.php");?>
 	<script type="text/javascript" src="scripts/jquery.tinyscrollbar.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
@@ -28,7 +28,7 @@
 <body>
 	<div id="wrapper">
 		<!-- Header Section -->
-		<?php include("header.php"); ?>
+		<? include("header.php"); ?>
 
 		<!-- Body Section -->
 		<div id="title_head">
@@ -68,7 +68,7 @@
 			</div>
 		</div>                
 		<!-- Footer Section -->
-		<?php include("footer.php"); ?>
+		<? include("footer.php"); ?>
 	</div>
 </body>
 </html>

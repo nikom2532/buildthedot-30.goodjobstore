@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<?php
+<?
 	$cusID = $_GET["cusID"];
 	$discount = $_GET["discount"];
 	$dis_type = $_GET["dis_type"];

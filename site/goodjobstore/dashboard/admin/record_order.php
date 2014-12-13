@@ -4,7 +4,7 @@
 <!--Permission-->
 
 <?php
-session_start(); //�Դ session
+session_start(); //�Դ session
 $ses_userid =$_SESSION[ses_userid];
 $ses_username = $_SESSION[ses_username];
 if($ses_userid <> session_id() or $ses_username =="")
@@ -35,7 +35,7 @@ exit();
 </head>
 
 <!-- connect database -->
-<?php
+<?
 	$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
 	$objDB = mysql_select_db("goodjob") or die("Can't connect Database");
 	mysql_query("SET NAMES utf8",$objCon);
@@ -73,8 +73,8 @@ exit();
 	<!--menu-->
 
 									<b><a href="order.php">Order</a></b>
-								<?php if($_SESSION[ses_status] == "Super Admin") 
-			{ ?>
+								<?if($_SESSION[ses_status] == "Super Admin") 
+			{?>
 								<!-- End Admin -->
 									<b><br><br><a href="saleReport.php">Sale Report</a>
 									<br><br><a href="record.php">Customer Record</a>
@@ -94,7 +94,7 @@ exit();
 									<br><br><a href="shopGuide_main.php">Shopping Guide</a>
 									<br><br><a href="privacy.php">Permission</a>
 									<br><br><a href="usdRate.php">USD Rate</a></b>
-			<?php } ?>	
+			<?}?>	
 
 <!--menu-->
 
@@ -104,7 +104,7 @@ exit();
 					<div class="viewport">
 						<div class="overview" style="font-size:14px;">
 							<h2>Order Record</h2>
-							<?php echo $cusID?>
+							<?=$cusID?>
 							<br><br><input type="button" value="back" style="width:60px;" onclick="window.location.href='record.php'">
 							<br><br><div id="line"></div>
 <br>
@@ -118,16 +118,16 @@ exit();
 										<td>Status</td>
 										<td>Create</td>
 									</tr>
-									<?php $i=1;
+									<?$i=1;
 									while ($data=mysql_fetch_array($result))
-									{ ?>
-										<?php echo ($i%2==1)?'<tr style="background-color:#DDDDDD;">':'<tr style="background-color:#EEEEEE;">'?>
+									{?>
+										<?=($i%2==1)?'<tr style="background-color:#DDDDDD;">':'<tr style="background-color:#EEEEEE;">'?>
 											<td style="text-align:center;">
-												<a href="order_detail.php?orderID=<?php echo $data['Order_ID']?>&cusID=<?php echo $data['Cus_ID']?>&backTo=2"><?php echo $data['Order_ID']?></a>
+												<a href="order_detail.php?orderID=<?=$data['Order_ID']?>&cusID=<?=$data['Cus_ID']?>&backTo=2"><?=$data['Order_ID']?></a>
 											</td>
-											<td style="text-align:center;"><?php echo $data['Final_Price']?></td>
+											<td style="text-align:center;"><?=$data['Final_Price']?></td>
 											<td style="text-align:center;">
-												<?php
+												<?
 													switch ($data['status']) 
 													{
 														case 1:
@@ -148,9 +148,9 @@ exit();
 													}
 												?>
 											</td>
-											<td style="text-align:center;"><?php echo $data['created_at']?></td>
+											<td style="text-align:center;"><?=$data['created_at']?></td>
 										</tr>
-									<?php $i++;
+									<?$i++;
 									}?>
 								</table>
 							</div>

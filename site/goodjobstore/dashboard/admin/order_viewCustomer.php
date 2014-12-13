@@ -3,7 +3,7 @@
 <!--Permission-->
 
 <?php
-session_start(); //�Դ session
+session_start(); //�Դ session
 $ses_userid =$_SESSION[ses_userid];
 $ses_username = $_SESSION[ses_username];
 if($ses_userid <> session_id() or $ses_username =="")
@@ -21,7 +21,7 @@ exit();
 
 <!--Permission-->
 
-<?php
+<?
 	$orderID = $_GET['orderID'];
 	$cusID = $_GET['cusID'];
 
@@ -95,8 +95,8 @@ exit();
 <!--menu-->
 
 									<b><a href="order.php">Order</a></b>
-								<?php if($_SESSION[ses_status] == "Super Admin") 
-			{ ?>
+								<?if($_SESSION[ses_status] == "Super Admin") 
+			{?>
 								<!-- End Admin -->
 									<b><br><br><a href="saleReport.php">Sale Report</a>
 									<br><br><a href="record.php">Customer Record</a>
@@ -116,31 +116,31 @@ exit();
 									<br><br><a href="shopGuide_main.php">Shopping Guide</a>
 									<br><br><a href="privacy.php">Permission</a>
 									<br><br><a href="usdRate.php">USD Rate</a></b>
-			<?php } ?>	
+			<?}?>	
 
 <!--menu-->
 		   	</div>
 			<div id="dashboard"> 
 					<div class="viewport">
 						<div class="overview">
-							<h2>Order ID <?php echo $orderID?></h2>
-							<p>Customer ID: <?php echo $cusID?></p>
-							<?php while($dataCus=mysql_fetch_array($resultCus))
-							{ ?>
-								Name: <?php echo $dataCus['FirstName']?> <?php echo $dataCus['LastName']?>
-								<br>Email: <?php echo $dataCus['Email']?>
-								<br>Tel: <?php echo $dataCus['Phone_Number']?>
-							<?php } ?>
+							<h2>Order ID <?=$orderID?></h2>
+							<p>Customer ID: <?=$cusID?></p>
+							<?while($dataCus=mysql_fetch_array($resultCus))
+							{?>
+								Name: <?=$dataCus['FirstName']?> <?=$dataCus['LastName']?>
+								<br>Email: <?=$dataCus['Email']?>
+								<br>Tel: <?=$dataCus['Phone_Number']?>
+							<?}?>
 							<br><br><br>
-							<?php while($dataShip=mysql_fetch_array($resultShip))
-							{ ?>
+							<?while($dataShip=mysql_fetch_array($resultShip))
+							{?>
 								<u><b>Shipping Address</b></u>
-								<br>Name: <?php echo $dataShip['s_FirstName']?> <?php echo $dataShip['s_LastName']?> 
-								<br>Address: <?php echo $dataShip['s_Address']?>
-								<br>City: <?php echo $dataShip['Name_Th']?>
-								<br>Postcode: <?php echo $dataShip['s_Postal_Code']?>
-								<br>Tel: <?php echo $dataShip['s_Phone_Number']?>
-							<?php } ?>
+								<br>Name: <?=$dataShip['s_FirstName']?> <?=$dataShip['s_LastName']?> 
+								<br>Address: <?=$dataShip['s_Address']?>
+								<br>City: <?=$dataShip['Name_Th']?>
+								<br>Postcode: <?=$dataShip['s_Postal_Code']?>
+								<br>Tel: <?=$dataShip['s_Phone_Number']?>
+							<?}?>
 						</div>
 					</div>
 				</div>	

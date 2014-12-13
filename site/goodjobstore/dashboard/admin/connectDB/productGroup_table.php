@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<?php
+<?
 	$proSearch = $_GET['proSearch'];
 
 	$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
@@ -32,16 +32,16 @@
 			<td></td>
 			<td></td>
 		</tr>
-		<?php while ($data=mysql_fetch_array($result))
+		<?while ($data=mysql_fetch_array($result))
 		{	$proCodeImg = $data['Product_Code'];
 		?>	
 			<tr>
 				<td style="text-align:center;">
-					<input type="text" id="number_<?php echo $data['Product_Code']?>" style="width:30px;" onKeyPress="javascript:if(event.keyCode==13)changeNumber('<?php echo $data['Product_Code']?>',<?php echo $dataRow?>);" value="<?php echo $data['sort']?>">
+					<input type="text" id="number_<?=$data['Product_Code']?>" style="width:30px;" onKeyPress="javascript:if(event.keyCode==13)changeNumber('<?=$data['Product_Code']?>',<?=$dataRow?>);" value="<?=$data['sort']?>">
 				</td>
-				<td style="text-align:center;"><?php echo $data['Product_Code']?></td>
+				<td style="text-align:center;"><?=$data['Product_Code']?></td>
 				<td style="text-align:center;">
-				<?php
+				<?
 				$sqlImg = "SELECT images.Thumbnail_path FROM product_groups
 							JOIN products ON product_groups.Product_Code = products.Product_Code
 							JOIN images ON products.Product_ID = images.Product_ID
@@ -51,44 +51,44 @@
 							LIMIT 1";
 				$resultImg = mysql_query($sqlImg, $objCon) or die(mysql_error());
 				while ($dataImg=mysql_fetch_array($resultImg))
-				{ ?>
-					<img src="../../public/<?php echo $dataImg['Thumbnail_path']?>">
-				<?php } ?>
+				{?>
+					<img src="../../public/<?=$dataImg['Thumbnail_path']?>">
+				<?}?>
 
 				</td>
-				<td style="text-align:center;"><?php echo $data['Group_Name_En']?></td>
+				<td style="text-align:center;"><?=$data['Group_Name_En']?></td>
 				<td style="text-align:center;">
-					<input type="checkbox" name="change_proStatus" id="change_proStatus_<?php echo $data['Product_Code']?>" <?php if($data['Group_Status']==1){ ?>checked<?php } ?> onclick="change_productStatus('<?php echo $data['Product_Code']?>');" value="1">
+					<input type="checkbox" name="change_proStatus" id="change_proStatus_<?=$data['Product_Code']?>" <?if($data['Group_Status']==1){?>checked<?}?> onclick="change_productStatus('<?=$data['Product_Code']?>');" value="1">
 				</td>
 			<!-- button -->
 				<td>
-					<?php if($row!=1){ ?>
-						<input type="button" value="Up" style="width:50px;" onclick="upSort('<?php echo $data['Product_Code']?>');">
-					<?php } ?>
+					<?if($row!=1){?>
+						<input type="button" value="Up" style="width:50px;" onclick="upSort('<?=$data['Product_Code']?>');">
+					<?}?>
 				</td>
 				<td>
-					<?php if($row!=$dataRow){ ?>
-						<input type="button" value="Down" style="width:50px;" onclick="downSort('<?php echo $data['Product_Code']?>')">
-					<?php } ?>
+					<?if($row!=$dataRow){?>
+						<input type="button" value="Down" style="width:50px;" onclick="downSort('<?=$data['Product_Code']?>')">
+					<?}?>
 				</td>
 				<td>
 					<input type="button" value="Products" style="width:65px;"
-							onclick="window.location.href='viewProduct.php?proCode=<?php echo $data['Product_Code']?>'">
+							onclick="window.location.href='viewProduct.php?proCode=<?=$data['Product_Code']?>'">
 				</td>
 				<td>
 					<input type="button" value="Cross & Category" style="width:120px;"
-							onclick="window.location.href='productGroup_viewCatAndCross.php?proCode=<?php echo $data['Product_Code']?>'">
+							onclick="window.location.href='productGroup_viewCatAndCross.php?proCode=<?=$data['Product_Code']?>'">
 				</td>
 				<td>
 					<input type="button" value="Description" style="width:75px;"
-							onclick="window.location.href='productGroup_viewEditDescrip.php?proCode=<?php echo $data['Product_Code']?>'">
+							onclick="window.location.href='productGroup_viewEditDescrip.php?proCode=<?=$data['Product_Code']?>'">
 				</td>
 				<td>
-					<input type="button" value="Delete" onclick="deleteProductGroup('<?php echo $data['Product_Code']?>')" style="width:60px;">
+					<input type="button" value="Delete" onclick="deleteProductGroup('<?=$data['Product_Code']?>')" style="width:60px;">
 				</td>
 			<!-- end button -->
 			</tr>
-		<?php $row+=1;
+		<?$row+=1;
 		}?>
 	</table>
 </div>

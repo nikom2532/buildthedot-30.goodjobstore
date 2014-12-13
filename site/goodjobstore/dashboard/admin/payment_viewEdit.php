@@ -3,7 +3,7 @@
 <!--Permission-->
 
 <?php
-session_start(); //�Դ session
+session_start(); //�Դ session
 $ses_userid =$_SESSION[ses_userid];
 $ses_username = $_SESSION[ses_username];
 if($ses_userid <> session_id() or $ses_username =="")
@@ -18,7 +18,7 @@ echo "<br><a href=index.php>Back</a>";
 exit();
 }
 ?>
-<?php
+<?
 	$paymentID = $_GET["paymentID"];
 
 	//include_once '../classes/Products.php';
@@ -64,7 +64,7 @@ exit();
 </head>
 
 <!-- edit payment -->
-<?php
+<?
 	if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "frmPayment")) 
 	{
 		$m_payment_EN = $_POST['Payment_En'];
@@ -117,8 +117,8 @@ exit();
 <!--menu-->
 
 									<b><a href="order.php">Order</a></b>
-								<?php if($_SESSION[ses_status] == "Super Admin") 
-			{ ?>
+								<?if($_SESSION[ses_status] == "Super Admin") 
+			{?>
 								<!-- End Admin -->
 									<b><br><br><a href="saleReport.php">Sale Report</a>
 									<br><br><a href="record.php">Customer Record</a>
@@ -138,7 +138,7 @@ exit();
 									<br><br><a href="shopGuide_main.php">Shopping Guide</a>
 									<br><br><a href="privacy.php">Permission</a>
 									<br><br><a href="usdRate.php">USD Rate</a></b>
-			<?php } ?>	
+			<?}?>	
 
 <!--menu-->
 		   	</div>
@@ -149,24 +149,24 @@ exit();
 							<h2>Payments</h2>
 						 	<form action="" method="post" enctype="multipart/form-data" name="frmPayment" id="frmPayment">
 								<table>
-									<?php while ($data=mysql_fetch_array($result))
-									{ ?>
+									<?while ($data=mysql_fetch_array($result))
+									{?>
 										<tr style="height:30px;">
 											<td style="width:200px;">Payment name [En]</td>
 											<td style="width:15px;"><img src="../images/dot.gif" /></td>
-											<td style="width:300px;"><input type='text' name='Payment_En' value="<?php echo $data['name_en']?>"></td>
+											<td style="width:300px;"><input type='text' name='Payment_En' value="<?=$data['name_en']?>"></td>
 										</tr>
 										<tr style="height:30px;">
 											<td>Payment name [Th]</td>
 											<td><img src="../images/dot.gif" /></td>
-											<td><input type='text' name='Payment_Th' value="<?php echo $data['name_th']?>"></td>
+											<td><input type='text' name='Payment_Th' value="<?=$data['name_th']?>"></td>
 										</tr>
 										</tbody>
 										</table>
 										<br>Description [En]     <img src="../images/dot.gif" style="padding-left:5.0em;" /><br><br>
 										<table>
 			
-											<td><textarea name="Descrip_En" id="Descrip_En" style="width:450px;height:200px;"/><?php echo $data['description_en']?></textarea>
+											<td><textarea name="Descrip_En" id="Descrip_En" style="width:450px;height:200px;"/><?=$data['description_en']?></textarea>
 												<!--CKEDITOR-->
 												<script type="text/javascript">
 													CKEDITOR.replace( 'Descrip_En' );
@@ -180,7 +180,7 @@ exit();
 										<br>Description [Th]     <img src="../images/dot.gif" style="padding-left:5.0em;" /><br><br>
 										<table>
 								
-											<td><textarea name="Descrip_Th" id="Descrip_Th" style="width:450px;height:200px;"/><?php echo $data['description_th']?></textarea>
+											<td><textarea name="Descrip_Th" id="Descrip_Th" style="width:450px;height:200px;"/><?=$data['description_th']?></textarea>
 												<!--CKEDITOR-->
 												<script type="text/javascript">
 													CKEDITOR.replace( 'Descrip_Th' );
@@ -188,7 +188,7 @@ exit();
 												<!--CKEDITOR-->
 											</td>
 										</tr>
-									<?php } ?>
+									<?}?>
 										</table>
 										<br><br>
 								<input type='submit' value='Edit' style="width:60px">	

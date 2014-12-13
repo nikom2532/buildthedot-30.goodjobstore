@@ -2,9 +2,9 @@
 <meta http-equiv=Content-Type content="text/html; charset=utf-8">
 <!--Permission-->
 
-<?php $proCode = $_GET['proCode'];?>
+<? $proCode = $_GET['proCode'];?>
 <?php
-session_start(); //�Դ session
+session_start(); //�Դ session
 $ses_userid =$_SESSION[ses_userid];
 $ses_username = $_SESSION[ses_username];
 if($ses_userid <> session_id() or $ses_username =="")
@@ -59,8 +59,8 @@ exit();
 <!--menu-->
 
 									<b><a href="order.php">Order</a></b>
-								<?php if($_SESSION[ses_status] == "Super Admin") 
-			{ ?>
+								<?if($_SESSION[ses_status] == "Super Admin") 
+			{?>
 								<!-- End Admin -->
 									<b><br><br><a href="saleReport.php">Sale Report</a>
 									<br><br><a href="record.php">Customer Record</a>
@@ -80,7 +80,7 @@ exit();
 									<br><br><a href="shopGuide_main.php">Shopping Guide</a>
 									<br><br><a href="privacy.php">Permission</a>
 									<br><br><a href="usdRate.php">USD Rate</a></b>
-			<?php } ?>	
+			<?}?>	
 
 <!--menu-->				
 		   	</div>
@@ -88,20 +88,20 @@ exit();
 				
 					<div class="viewport">
 						<div class="overview">
-							<h2>-- <?php echo $proCode?> -- Products</h2>
-							<input type="button" value="Add Product" style="width:100px;" onclick="window.location.href='product.php?proCode=<?php echo $proCode?>'">
+							<h2>-- <?=$proCode?> -- Products</h2>
+							<input type="button" value="Add Product" style="width:100px;" onclick="window.location.href='product.php?proCode=<?=$proCode?>'">
 							<input type="button" value="Back" style="width:60px;" onclick="window.location.href='productGroup.php'">
 <!--							<br><br>
 							<form name="searchViewProduct">
 								Search:
 								&nbsp<input type="text" name="viewProSearch">
-								&nbsp<input type="button" value="search" style="width:70px;" onclick="searchProperty('<?php echo $proCode?>');">
+								&nbsp<input type="button" value="search" style="width:70px;" onclick="searchProperty('<?=$proCode?>');">
 							</form>-->
 							<br><br>
 							<div id="line"></div>
 	<div style="width: 800px; height: 400px; overflow: auto; padding: 5px">
 							<div id="viewProduct_content">
-								<script>viewTable('<?php echo $proCode?>','');</script>
+								<script>viewTable('<?=$proCode?>','');</script>
 								<!-- show table -->
 							</div>
 						</div>

@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<?php
+<?
 	$colorID = $_GET['colorID'];
 
 	$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
@@ -23,24 +23,24 @@
 			<td></td>
 			<td></td>
 		</tr>
-		<?php
+		<?
 		while ($data=mysql_fetch_array($result))
-		{ ?>
+		{?>
 			<tr>
-				<td style="text-align:center;"><?php echo $data['Name_EN']?></td>
-				<td style="text-align:center;"><?php echo $data['Name_TH']?></td>
+				<td style="text-align:center;"><?=$data['Name_EN']?></td>
+				<td style="text-align:center;"><?=$data['Name_TH']?></td>
 				<td style="text-align:center;">
-					<?php if($data['path']!=NULL){ ?><img src="../../public/<?php echo $data['path']?>"><?php } ?>
+					<?if($data['path']!=NULL){?><img src="../../public/<?=$data['path']?>"><?}?>
 				</td>
 				<td>
 					<input type="button" value="Edit" 
-					onclick="window.location.href='color_viewEdit.php?colorID=<?php echo $data['Color_ID']?>
-					&nameEN=<?php echo $data['Name_EN']?>
-					&nameTH=<?php echo $data['Name_TH']?>'" 
+					onclick="window.location.href='color_viewEdit.php?colorID=<?=$data['Color_ID']?>
+					&nameEN=<?=$data['Name_EN']?>
+					&nameTH=<?=$data['Name_TH']?>'" 
 					style="width:60px">
 				</td>
-				<td><input type="button" value="Delete" onclick="deleteColor(<?php echo $data['Color_ID']?>);" style="width:60px"></td>
+				<td><input type="button" value="Delete" onclick="deleteColor(<?=$data['Color_ID']?>);" style="width:60px"></td>
 			</tr>
-		<?php } ?>
+		<?}?>
 	</tbody>
 </table>

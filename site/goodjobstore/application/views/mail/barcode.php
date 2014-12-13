@@ -25,7 +25,7 @@ function ImageBarcode($line1,$line2,$lin3)
 		$code->setStart("A");  //Start With Barcode 128A
 		$code->setTilde(true);
 		$crString = chr(13);  /// New Line CR  **************************************
-		$bacodeText = $line1 .$crString . $line2.$crString.$crString.$line3;  //  Input Value here  ***********
+		$bacodeText = $line1 .$crString . $line2.$crString..$crString.$line3;  //  Input Value here  ***********
 		//echo $bacodeText;
 		$code->setLabel() ;
 		$code->parse($bacodeText); // Text

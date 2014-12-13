@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <meta http-equiv=Content-Type content="text/html; charset=utf-8">
 
-<?php
+<?
 	$proCode = $_GET['proCode'];
 	$proNameEN = $_GET['proNameEN'];
 	$step = $_GET['step'];
@@ -28,7 +28,7 @@
 <!--Permission-->
 
 <?php
-session_start(); //�Դ session
+session_start(); //�Դ session
 $ses_userid =$_SESSION[ses_userid];
 $ses_username = $_SESSION[ses_username];
 if($ses_userid <> session_id() or $ses_username =="")
@@ -57,7 +57,7 @@ exit();
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
 	<script src="ajax/ajax.productGroup.java"></script>
 
-	<?php
+	<?
 		$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
 		$objDB = mysql_select_db("goodjob") or die("Can't connect Database");
 		mysql_query("SET NAMES utf8",$objCon);			
@@ -99,8 +99,8 @@ exit();
 <!--menu-->
 
 									<b><a href="order.php">Order</a></b>
-								<?php if($_SESSION[ses_status] == "Super Admin") 
-			{ ?>
+								<?if($_SESSION[ses_status] == "Super Admin") 
+			{?>
 								<!-- End Admin -->
 									<b><br><br><a href="saleReport.php">Sale Report</a>
 									<br><br><a href="record.php">Customer Record</a>
@@ -120,7 +120,7 @@ exit();
 									<br><br><a href="shopGuide_main.php">Shopping Guide</a>
 									<br><br><a href="privacy.php">Permission</a>
 									<br><br><a href="usdRate.php">USD Rate</a></b>
-			<?php } ?>	
+			<?}?>	
 
 <!--menu-->
 		   	</div>
@@ -129,14 +129,14 @@ exit();
 					<div class="viewport">
 						<div class="overview">
 							<h2>Edit Categories and Cross Product</h2>
-							<b>Code:&nbsp&nbsp<?php echo $proCode?>
+							<b>Code:&nbsp&nbsp<?=$proCode?>
 							<br>
-							Name:&nbsp<?php echo $proNameEN?></b>
+							Name:&nbsp<?=$proNameEN?></b>
 							<br><br><br>
 <div style="width: 800px; height: 400px; overflow: auto; padding: 5px">
 
 							<!---------- category product ------>
-								<?php
+								<?
 								//----- Main menu -----
 								$sqlMain = "SELECT * FROM main_menu";
 								$resultMain = mysql_query($sqlMain, $objCon) or die(mysql_error());
@@ -145,19 +145,19 @@ exit();
 									$mainID = $dataMain['main_ID'];
 								?>
 
-									<input type="checkbox" name="checkMain" id="checkMain_<?php echo $dataMain['main_ID']?>" value="<?php echo $dataMain['main_ID']?>"
-											onclick="selectMain('<?php echo $dataMain['main_ID']?>','<?php echo $proCode?>');"
-												<?php
+									<input type="checkbox" name="checkMain" id="checkMain_<?=$dataMain['main_ID']?>" value="<?=$dataMain['main_ID']?>"
+											onclick="selectMain('<?=$dataMain['main_ID']?>','<?=$proCode?>');"
+												<?
 												$sqlCheckMain = "SELECT id FROM category_products WHERE Product_Code='$proCode' AND Sub_ID='$mainID' AND Level='1'";
 												$resultCheckMain = mysql_query($sqlCheckMain, $objCon) or die(mysql_error());
 												while ($dataCheckMain=mysql_fetch_array($resultCheckMain))
-												{ ?>
-														<?php if($resultCheckMain!=NULL){ ?>checked<?php } ?>
-												<?php } ?>
+												{?>
+														<?if($resultCheckMain!=NULL){?>checked<?}?>
+												<?}?>
 									>
 									
-										<?php echo $dataMain['Name_En']?><br><br>
-									<?php
+										<?=$dataMain['Name_En']?><br><br>
+									<?
 									//----- Sub menu ------
 									$sqlSub = "SELECT * FROM sub_menu WHERE Main_ID = $mainID";
 									$resultSub = mysql_query($sqlSub, $objCon) or die(mysql_error());
@@ -166,19 +166,19 @@ exit();
 										$subID = $dataSub['Sub_ID'];
 									?>
 										&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
-										<input type="checkbox" name="checkSub" id="checkSub_<?php echo $dataSub['Sub_ID']?>" value="<?php echo $dataSub['Sub_ID']?>"
-												onclick="selectSub('<?php echo $dataSub['Sub_ID']?>','<?php echo $proCode?>');"
-													<?php
+										<input type="checkbox" name="checkSub" id="checkSub_<?=$dataSub['Sub_ID']?>" value="<?=$dataSub['Sub_ID']?>"
+												onclick="selectSub('<?=$dataSub['Sub_ID']?>','<?=$proCode?>');"
+													<?
 													$sqlCheckSub = "SELECT id FROM category_products WHERE Product_Code='$proCode' AND Sub_ID='$subID' AND Level='2'";
 													$resultCheckSub = mysql_query($sqlCheckSub, $objCon) or die(mysql_error());
 													while ($dataCheckSub=mysql_fetch_array($resultCheckSub))
-													{ ?>
-															<?php if($dataCheckSub!=NULL){ ?>checked<?php } ?>
-													<?php } ?>
+													{?>
+															<?if($dataCheckSub!=NULL){?>checked<?}?>
+													<?}?>
 										>
-										<?php echo $dataSub['Name_En']?><br><br>
+										<?=$dataSub['Name_En']?><br><br>
 										
-										<?php
+										<?
 										//----- Son menu ------
 										$sqlSon = "SELECT * FROM son_menu WHERE Sub_ID = $subID";
 										$resultSon = mysql_query($sqlSon, $objCon) or die(mysql_error());
@@ -187,19 +187,19 @@ exit();
 											$sonID = $dataSon['Son_ID'];
 										?>
 											&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
-											<input type="checkbox" name="checkSon" id="checkSon_<?php echo $dataSon['Son_ID']?>" value="<?php echo $dataSon['Son_ID']?>"
-													onclick="selectSon('<?php echo $dataSon['Son_ID']?>','<?php echo $proCode?>');"
-														<?php
+											<input type="checkbox" name="checkSon" id="checkSon_<?=$dataSon['Son_ID']?>" value="<?=$dataSon['Son_ID']?>"
+													onclick="selectSon('<?=$dataSon['Son_ID']?>','<?=$proCode?>');"
+														<?
 														$sqlCheckSon = "SELECT id FROM category_products WHERE Product_Code='$proCode' AND Sub_ID='$sonID' AND Level='3'";
 														$resultCheckSon = mysql_query($sqlCheckSon, $objCon) or die(mysql_error());
 														while ($dataCheckSon=mysql_fetch_array($resultCheckSon))
-														{ ?>
-																<?php if($dataCheckSon!=NULL){ ?>checked<?php } ?>
-														<?php } ?>
+														{?>
+																<?if($dataCheckSon!=NULL){?>checked<?}?>
+														<?}?>
 											>
-											<?php echo $dataSon['Name_En']?><br><br>
+											<?=$dataSon['Name_En']?><br><br>
 											
-											<?php
+											<?
 											//----- Thumb menu ------
 											$sqlThumb = "SELECT * FROM thumb_menu WHERE Son_ID = $sonID";
 											$resultThumb = mysql_query($sqlThumb, $objCon) or die(mysql_error());
@@ -208,18 +208,18 @@ exit();
 												$thumbID = $dataThumb['Thumb_ID'];
 											?>
 												&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
-												<input type="checkbox" name="checkThumb" id="checkThumb_<?php echo $dataThumb['Thumb_ID']?>" value="<?php echo $dataThumb['Thumb_ID']?>"
-														onclick="selectThumb('<?php echo $dataThumb['Thumb_ID']?>','<?php echo $proCode?>');"
-															<?php
+												<input type="checkbox" name="checkThumb" id="checkThumb_<?=$dataThumb['Thumb_ID']?>" value="<?=$dataThumb['Thumb_ID']?>"
+														onclick="selectThumb('<?=$dataThumb['Thumb_ID']?>','<?=$proCode?>');"
+															<?
 															$sqlCheckThumb = "SELECT id FROM category_products WHERE Product_Code='$proCode' AND Sub_ID='$thumbID' AND Level='4'";
 															$resultCheckThumb = mysql_query($sqlCheckThumb, $objCon) or die(mysql_error());
 															while ($dataCheckThumb=mysql_fetch_array($resultCheckThumb))
-															{ ?>
-																	<?php if($dataCheckThumb!=NULL){ ?>checked<?php } ?>
-															<?php } ?>
+															{?>
+																	<?if($dataCheckThumb!=NULL){?>checked<?}?>
+															<?}?>
 												>
-												<?php echo $dataThumb['Name_En']?><br><br>
-											<?php } 
+												<?=$dataThumb['Name_En']?><br><br>
+											<?}
 										}
 									}
 								}?>
@@ -230,68 +230,68 @@ exit();
 							<br>
 								<!----------- Cross Product ----------->
 									<form name="frmAddProduct">
-										<?php $i=0;
+										<?$i=0;
 										while($dataCross=mysql_fetch_array($resultCross))
 										{$i++;?>
 											<tr>
-												<td>Cross Product <?php echo $i?></td>
+												<td>Cross Product <?=$i?></td>
 												<td><img src="../images/dot.gif" /></td>
 												<td>
-													<div id="cross_product<?php echo $i?>">
-														<select name="selectCross<?php echo $i?>">
-															<option value=""><-- Please Select Cross Product <?php echo $i?>--></option>
-															<?php //-------- show all product -----
+													<div id="cross_product<?=$i?>">
+														<select name="selectCross<?=$i?>">
+															<option value=""><-- Please Select Cross Product <?=$i?>--></option>
+															<?//-------- show all product -----
 															$sqlCrossAll = "SELECT * FROM product_groups WHERE Product_Code!='$proCode'";
 															$resultCrossAll = mysql_query($sqlCrossAll, $objCon) or die(mysql_error());
 															while ($dataCrossAll=mysql_fetch_array($resultCrossAll))
-															{ ?>
-																<option value="<?php echo $dataCrossAll['Product_Code']?>"
-																	<?php if($dataCrossAll['Product_Code']==$dataCross['Product_Cross_Code'])
-																	{ ?>selected<?php } ?>
+															{?>
+																<option value="<?=$dataCrossAll['Product_Code']?>"
+																	<?if($dataCrossAll['Product_Code']==$dataCross['Product_Cross_Code'])
+																	{?>selected<?}?>
 																>
-																	<?php echo $dataCrossAll['Group_Name_En']?>
+																	<?=$dataCrossAll['Group_Name_En']?>
 																</option>
-															<?php } ?>
+															<?}?>
 														</select>
 													</div>
 												</td>
 											</tr>
-										<?php } 
+										<?}
 										
 										if($i!=4)
 										{
 											for($j=$i+1;$j<=4;$j++)
-											{ ?>
+											{?>
 												<tr>
-													<td>Cross Product <?php echo $j?></td>
+													<td>Cross Product <?=$j?></td>
 													<td><img src="../images/dot.gif" /></td>
 													<td>
-														<div id="cross_product<?php echo $j?>">
-															<select name="selectCross<?php echo $j?>">
-																<option value=""><-- Please Select Cross Product <?php echo $j?>--></option>
-																<?php //-------- show all product -----
+														<div id="cross_product<?=$j?>">
+															<select name="selectCross<?=$j?>">
+																<option value=""><-- Please Select Cross Product <?=$j?>--></option>
+																<?//-------- show all product -----
 																$sqlCrossAll = "SELECT * FROM product_groups WHERE Product_Code!='$proCode'";
 																$resultCrossAll = mysql_query($sqlCrossAll, $objCon) or die(mysql_error());
 																while ($dataCrossAll=mysql_fetch_array($resultCrossAll))
-																{ ?>
-																	<option value="<?php echo $dataCrossAll['Product_Code']?>">
-																		<?php echo $dataCrossAll['Group_Name_En']?>
+																{?>
+																	<option value="<?=$dataCrossAll['Product_Code']?>">
+																		<?=$dataCrossAll['Group_Name_En']?>
 																	</option>
-																<?php } ?>
+																<?}?>
 															</select>
 														</div>
 													</td>
 												</tr>
-											<?php } 
+											<?}
 										}?>
 									</form>
 							<!-- end cross product -->
 							</div>
 							<br>
-						<?php if($step==1){ ?>
-							<input type="button" style="width:60px;" value="Next" onclick="updateCross('<?php echo $proCode?>',1)"><?php } 
-						else{ ?>
-							<input type="button" style="width:60px;" value="Update" onclick="updateCross('<?php echo $proCode?>',2)"><?php } ?>
+						<?if($step==1){?>
+							<input type="button" style="width:60px;" value="Next" onclick="updateCross('<?=$proCode?>',1)"><?}
+						else{?>
+							<input type="button" style="width:60px;" value="Update" onclick="updateCross('<?=$proCode?>',2)"><?}?>
 							<input type="button" style="width:60px;" value="Cancel" onclick="window.location.href='productGroup.php'">
 							<div id="test_content"></div>
 					

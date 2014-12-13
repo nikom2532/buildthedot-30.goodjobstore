@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<?php
+<?
 	$rangeID = $_GET['rangeID'];
 	$weightStart = $_GET['weightStart'];
 	$weightEnd = $_GET['weightEnd'];

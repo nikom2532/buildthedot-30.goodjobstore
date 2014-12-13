@@ -62,7 +62,7 @@
 <div id="title_head">STORE LOCATOR</div>
 <hr id="hr">
 <div style="float:left; width:60%;">
-	<img width="100%" src="<?php echo base_url()?>public/images/locator.jpg" />
+	<img width="100%" src="<?=base_url()?>public/images/locator.jpg" />
 </div>
 <div style="margin-right:-15px;margin-left:15px;float:right; width:40%;">
 	<p>

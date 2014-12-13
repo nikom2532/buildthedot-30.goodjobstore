@@ -58,8 +58,8 @@ $link = 'profile.php';
 			<div class="logo"><a href ="../"><img src="../images/logo.jpg" /></a></div>
 			<div class="right">					
 				<ul class="member_style">
-					<li class="line"><a href="<?php echo $link?>?id=<?php echo $id?>"><?php echo $login?></a></li> 
-					<li><a href="../admin/"><?php echo $logout?></a></li>
+					<li class="line"><a href="<?=$link?>?id=<?=$id?>"><?=$login?></a></li> 
+					<li><a href="../admin/"><?=$logout?></a></li>
 				</ul>
 			</div>
 		</div>
@@ -71,13 +71,13 @@ $link = 'profile.php';
 		<div id="content">
 		    <div id="leftcolum">
 			    <ul>
-			        <li><a href="profile.php?id=<?php echo $get_empid?>">Profile</a></li>
-			        <li><a href="category.php?id=<?php echo $get_empid?>">Category</a></li>
-			        <li><a href="sub-category.php?id=<?php echo $get_empid?>">Sub Category</a></li>
-					<li><a class="active" href="product.php?id=<?php echo $get_empid?>">Product</a></li>
-					<li><a href="employee.php?id=<?php echo $get_empid?>">Employee</a></li>
-					<li><a href="customer.php?id=<?php echo $get_empid?>">Customer</a></li>
-					<li><a href="Shopping Guide.php?id=<?php echo $get_empid?>">Shopping Guide</a></li>
+			        <li><a href="profile.php?id=<?=$get_empid?>">Profile</a></li>
+			        <li><a href="category.php?id=<?=$get_empid?>">Category</a></li>
+			        <li><a href="sub-category.php?id=<?=$get_empid?>">Sub Category</a></li>
+					<li><a class="active" href="product.php?id=<?=$get_empid?>">Product</a></li>
+					<li><a href="employee.php?id=<?=$get_empid?>">Employee</a></li>
+					<li><a href="customer.php?id=<?=$get_empid?>">Customer</a></li>
+					<li><a href="Shopping Guide.php?id=<?=$get_empid?>">Shopping Guide</a></li>
 			    </ul>
 		   	</div>
 			<div id="dashboard"> 

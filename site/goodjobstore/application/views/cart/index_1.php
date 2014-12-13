@@ -1,6 +1,6 @@
-	<base href="<?php echo base_url()?>public/" />
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>/public/css/shopping-cart.css"> 
-	<script type="text/javascript" src="<?php echo base_url()?>/public/scripts/jquery.tinyscrollbar.min.js"></script>
+	<base href="<?=base_url()?>public/" />
+	<link rel="stylesheet" type="text/css" href="<?=base_url()?>/public/css/shopping-cart.css"> 
+	<script type="text/javascript" src="<?=base_url()?>/public/scripts/jquery.tinyscrollbar.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$('#scrollbar1').tinyscrollbar();	
@@ -41,26 +41,26 @@
 				 <div class="overview">
 				 	<table>
 				 		<tbody>
-						<?php $attributes= array('name'=>'cartForm', 'class'=>'cartForm',  'id'=>'cartForm'); ?>
-				 		<?php echo form_open('cart/move_wishlist', $attributes)?>
+						<? $attributes= array('name'=>'cartForm', 'class'=>'cartForm',  'id'=>'cartForm'); ?>
+				 		<?=form_open('cart/move_wishlist', $attributes)?>
 				 			<?php foreach($results as $result): ?>
 				 			<tr>
-					    		<td width="100px"><img src="<?php echo "../../../../public/".$result->images_Thumbnail_path?>" /></td>
-					    		<td class="tl" width="120px"><?php echo (LANG=='TH')?$result->products_Pro_Name_Th:$result->products_Pro_Name_En?></td>
-					    		<td class="tl" width="130px"><?php echo (LANG=='TH')?$result->color_Name_TH:$result->color_Name_EN?> Color <br /><?php echo $result->products_Size?></td>
+					    		<td width="100px"><img src="<?="../../../../public/".$result->images_Thumbnail_path?>" /></td>
+					    		<td class="tl" width="120px"><?=(LANG=='TH')?$result->products_Pro_Name_Th:$result->products_Pro_Name_En?></td>
+					    		<td class="tl" width="130px"><?=(LANG=='TH')?$result->color_Name_TH:$result->color_Name_EN?> Color <br /><?=$result->products_Size?></td>
 					    		<td width="110px">
-									<div id="qt_left"><?php echo $result->cart_Qty?></div>
+									<div id="qt_left"><?=$result->cart_Qty?></div>
 						    		<div id="qt_right">
 						    		<ul>
-						    			<li><a href="<?php echo site_url("cart/up/{$result->cart_Cart_ID}")?>"><img src="../../../../public/images/up.jpg" /></a></li>
-						    			<li><a href="<?php echo site_url("cart/down/{$result->cart_Cart_ID}")?>"><img src="../../../../public/images/down.jpg" /></a></li>
+						    			<li><a href="<?=site_url("cart/up/{$result->cart_Cart_ID}")?>"><img src="../../../../public/images/up.jpg" /></a></li>
+						    			<li><a href="<?=site_url("cart/down/{$result->cart_Cart_ID}")?>"><img src="../../../../public/images/down.jpg" /></a></li>
 						    		</ul>
 				    				</div>
 					    		</td>
-					    		<td width="121px"><?php echo ($result->products_Price_sale!=0)?number_format($result->products_Price_sale):number_format($result->products_Price_Buy);?> ฿</td>
-					    		<td width="122px"><input type="checkbox" value="<?php echo $result->cart_Cart_ID?>" <?php echo ($this->session->userdata('logged_in'))?'':'disabled="disabled"'?> name="move_wishlist[]"></td>
-					    		<td width="100px"><?php echo ($result->products_Price_sale!=0)?number_format($price_arr[] = $result->products_Price_sale*$result->cart_Qty):number_format($price_arr[] = $result->products_Price_Buy*$result->cart_Qty);?> ฿</td>
-					    		<td width="135px"><input type="button" name="rmItem" value="REMOVE ITEM" onClick="parent.location='<?php echo site_url("cart/delete/{$result->cart_Cart_ID}")?>'"></td>
+					    		<td width="121px"><?=($result->products_Price_sale!=0)?number_format($result->products_Price_sale):number_format($result->products_Price_Buy);?> ฿</td>
+					    		<td width="122px"><input type="checkbox" value="<?=$result->cart_Cart_ID?>" <?=($this->session->userdata('logged_in'))?'':'disabled="disabled"'?> name="move_wishlist[]"></td>
+					    		<td width="100px"><?=($result->products_Price_sale!=0)?number_format($price_arr[] = $result->products_Price_sale*$result->cart_Qty):number_format($price_arr[] = $result->products_Price_Buy*$result->cart_Qty);?> ฿</td>
+					    		<td width="135px"><input type="button" name="rmItem" value="REMOVE ITEM" onClick="parent.location='<?=site_url("cart/delete/{$result->cart_Cart_ID}")?>'"></td>
 					    	</tr>
 					    	<?php endforeach; ?>
 					    
@@ -73,10 +73,10 @@
 		</div> 
 		<div id="sc_coupon">
 			<div class="right">
-					<a href="<?php echo site_url()?>" class="continue"> <!--onclick="javascript:window.history.back();return false;"-->CONTINUE SHOPPING</a>
+					<a href="<?=site_url()?>" class="continue"> <!--onclick="javascript:window.history.back();return false;"-->CONTINUE SHOPPING</a>
 					<a href="#" class="updateCartButton" onclick="javascript:document.cartForm.submit();return false;">UPDATE CART</a>
 					<!-- <input type="submit" value="UPDATE CART"> --> <br />
-					<?php echo form_close()?>
+					<?=form_close()?>
 					<?php 
 						$price = 0;
 						if(!empty($price_arr))
@@ -87,24 +87,24 @@
 							}
 						}
 					?>
-					<div class="total">TOTAL &nbsp;&nbsp;&nbsp;&nbsp; <?php echo number_format(cal_price_from_coupon($price))?> ฿</div><br />
-					<div id="sc_checkout"><a href="<?php echo site_url('checkout')?>">CHECK OUT</a></div>
+					<div class="total">TOTAL &nbsp;&nbsp;&nbsp;&nbsp; <?=number_format(cal_price_from_coupon($price))?> ฿</div><br />
+					<div id="sc_checkout"><a href="<?=site_url('checkout')?>">CHECK OUT</a></div>
 				</form>
 			</div>
 			<div class="left">
 				<h3>COUPON CODE</h3>
 				Please enter your coupon code.
 				<br /><br />
-				<?php echo form_open('cart/add_coupon')?>
-					<input type="text" <?php echo ($this->session->userdata('logged_in'))?'':'readonly="readonly"'?> name="couponcode"><br />
-					<input type="submit" <?php echo ($this->session->userdata('logged_in'))?'':'disabled="disabled"'?> name="applycode" value="APPLY CODE">
+				<?=form_open('cart/add_coupon')?>
+					<input type="text" <?=($this->session->userdata('logged_in'))?'':'readonly="readonly"'?> name="couponcode"><br />
+					<input type="submit" <?=($this->session->userdata('logged_in'))?'':'disabled="disabled"'?> name="applycode" value="APPLY CODE">
 					<?php if($this->session->flashdata('message')): ?>
 					<?php  $message = $this->session->flashdata('message'); ?>
 					<span style="margin-left:20px;color:red;">
-							<?php echo $message['message']?>
+							<?=$message['message']?>
 					</span>
 					<?php endif; ?>
-				<?php echo form_close()?>
+				<?=form_close()?>
 			</div>
 		</div>
 		<div id="sc_space">               

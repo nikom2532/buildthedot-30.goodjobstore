@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<?php
+<?
 	$nameEN = $_GET["nameEN"];
 	$nameTH = $_GET["nameTH"];
 	$mainUrl = $_GET["mainUrl"];

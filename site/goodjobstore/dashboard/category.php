@@ -1,4 +1,4 @@
-<?php
+<?
 	session_start();
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
@@ -44,7 +44,7 @@
 	        });
 	});
 	</script>
-	<?php include("script-menu.php");?> 
+	<? include("script-menu.php");?> 
 	
 	<!-- bin/jquery.slider.min.css -->
 	<link rel="stylesheet" href="css/jslider.css" type="text/css">
@@ -69,7 +69,7 @@
 <body>
 	<div id="wrapper">
 		<!-- Header Section -->
-		<?php include("header.php"); ?>
+		<? include("header.php"); ?>
 
 		<!-- Body Section -->
 		<div id="category_content">
@@ -148,7 +148,7 @@
 		</div>
 
 		<!-- Footer Section -->
-		<?php include("footer.php"); ?>
+		<? include("footer.php"); ?>
 	</div>
 </body>
 </html>

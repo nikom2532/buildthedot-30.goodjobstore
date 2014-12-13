@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <meta http-equiv=Content-Type content="text/html; charset=utf-8">
 
-<?php
+<?
 	$proCode = $_GET['proCode'];
 	//include_once '../classes/Products.php';
 	//Initialization
@@ -33,7 +33,7 @@
 <!--Permission-->
 
 <?php
-session_start(); //�Դ session
+session_start(); //�Դ session
 $ses_userid =$_SESSION[ses_userid];
 $ses_username = $_SESSION[ses_username];
 if($ses_userid <> session_id() or $ses_username =="")
@@ -64,7 +64,7 @@ exit();
 </head>
 
 <!-- add product -->
-<?php
+<?
 	if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "frmAddProduct")) 
 	{
 		$productCode = $_POST['Product_Code'];
@@ -153,8 +153,8 @@ exit();
 <!--menu-->
 
 									<b><a href="order.php">Order</a></b>
-								<?php if($_SESSION[ses_status] == "Super Admin") 
-			{ ?>
+								<?if($_SESSION[ses_status] == "Super Admin") 
+			{?>
 								<!-- End Admin -->
 									<b><br><br><a href="saleReport.php">Sale Report</a>
 									<br><br><a href="record.php">Customer Record</a>
@@ -174,7 +174,7 @@ exit();
 									<br><br><a href="shopGuide_main.php">Shopping Guide</a>
 									<br><br><a href="privacy.php">Permission</a>
 									<br><br><a href="usdRate.php">USD Rate</a></b>
-			<?php } ?>	
+			<?}?>	
 
 <!--menu-->
 			    
@@ -183,12 +183,12 @@ exit();
 			
 					<div class="viewport">
 						<div class="overview">
-							<h2>Edit -- <?php echo $proCode?> -- Group</h2>
+							<h2>Edit -- <?=$proCode?> -- Group</h2>
 						 	<form action="" method="post" enctype="multipart/form-data" name="frmAddProduct" id="frmAddProduct">
 						<div style="width: 800px; height: 400px; overflow: auto; padding: 5px">
 								<table style="width:400px">
-									<?php while ($dataProGroup=mysql_fetch_array($resultProGroup))
-									{ ?>
+									<?while ($dataProGroup=mysql_fetch_array($resultProGroup))
+									{?>
 										<!----------- Description ----------->
 										<tr>
 										<td><br></td>
@@ -196,7 +196,7 @@ exit();
 										<tr>
 											<td>Product Code</td>
 											<td><img src="../images/dot.gif" /></td>
-											<td><input type="text" name="Product_Code" value="<?php echo $dataProGroup['Product_Code']?>"/></td>
+											<td><input type="text" name="Product_Code" value="<?=$dataProGroup['Product_Code']?>"/></td>
 										</tr>
 										<tr>
 										<td><br></td>
@@ -204,12 +204,12 @@ exit();
 										<tr>
 											<td>Product Name [En]</td>
 											<td><img src="../images/dot.gif" /><PRE>          </pre></td>
-											<td><input type="text" name="Product_Name_En" value="<?php echo $dataProGroup['Group_Name_En']?>"/></td>
+											<td><input type="text" name="Product_Name_En" value="<?=$dataProGroup['Group_Name_En']?>"/></td>
 										</tr>
 										<tr>
 											<td>Product Name [Th] </td>
 											<td><img src="../images/dot.gif" /></td>
-											<td><input type="text" name="Product_Name_Th" value="<?php echo $dataProGroup['Group_Name_Th']?>"/></td>
+											<td><input type="text" name="Product_Name_Th" value="<?=$dataProGroup['Group_Name_Th']?>"/></td>
 										</tr>
 										<tr>
 										<td><br></td>
@@ -225,7 +225,7 @@ exit();
 										<table>
 										<tr>
 											<td>
-												<textarea name="Description_En" id="Description_En" style="width:450px;height:200px;"/><?php echo $dataProGroup['Group_Description_En']?></textarea>
+												<textarea name="Description_En" id="Description_En" style="width:450px;height:200px;"/><?=$dataProGroup['Group_Description_En']?></textarea>
 											</td>
 											<!--CKEDITOR-->
 											<script type="text/javascript">
@@ -245,7 +245,7 @@ exit();
 										<table>
 										<tr>
 											<td>
-												<textarea name="Description_Th" id="Description_Th" style="width:450px;height:200px;"/><?php echo $dataProGroup['Group_Description_Th']?></textarea>
+												<textarea name="Description_Th" id="Description_Th" style="width:450px;height:200px;"/><?=$dataProGroup['Group_Description_Th']?></textarea>
 											</td>
 										</tr>
 										<!--CKEDITOR-->
@@ -264,22 +264,22 @@ exit();
 										<tr>
 											<td width="150px">Size(Cm)</td>
 											<td width="30px"><img src="../images/dot.gif" /></td>
-											<td><input type="text" name="Size" value="<?php echo $dataProGroup['Group_Size']?>"/></td>
+											<td><input type="text" name="Size" value="<?=$dataProGroup['Group_Size']?>"/></td>
 										</tr>
 -->
 											<td width="150px">Width(Cm)</td>
 											<td width="30px"><img src="../images/dot.gif" /></td>
-											<td><input type="text" name="s_width" value="<?php echo $dataProGroup['Group_width']?>"/></td>
+											<td><input type="text" name="s_width" value="<?=$dataProGroup['Group_width']?>"/></td>
 										</tr>
 										<tr>
 											<td width="150px">Length(Cm)</td>
 											<td width="30px"><img src="../images/dot.gif" /></td>
-											<td><input type="text" name="s_length" value="<?php echo $dataProGroup['Group_length']?>"/></td>
+											<td><input type="text" name="s_length" value="<?=$dataProGroup['Group_length']?>"/></td>
 										</tr>
 										<tr>
 											<td width="150px">Height(Cm)</td>
 											<td width="30px"><img src="../images/dot.gif" /></td>
-											<td><input type="text" name="s_height" value="<?php echo $dataProGroup['Group_height']?>"/></td>
+											<td><input type="text" name="s_height" value="<?=$dataProGroup['Group_height']?>"/></td>
 										</tr>
 										<tr>
 										<td><br></td>
@@ -287,7 +287,7 @@ exit();
 										<tr style="display:none;">
 											<td width="150px">Main Price</td>
 											<td width="30px"><img src="../images/dot.gif" /></td>
-											<td><input type="text" name="price" value="<?php echo $dataProGroup['price_default']?>"/></td>
+											<td><input type="text" name="price" value="<?=$dataProGroup['price_default']?>"/></td>
 										</tr>
 										<tr>
 										<td><br></td>
@@ -297,12 +297,12 @@ exit();
 										<tr>
 												<td>Short message [En]</td>
 												<td><img src="../images/dot.gif" /></td>
-												<td><input type="text" name="Short_msg_En" value="<?php echo $dataProGroup['Group_msg_En']?>"/></td>
+												<td><input type="text" name="Short_msg_En" value="<?=$dataProGroup['Group_msg_En']?>"/></td>
 										</tr>
 										<tr>
 												<td>Short message [Th]</td>
 												<td><img src="../images/dot.gif" /></td>
-												<td><input type="text" name="Short_msg_Th" value="<?php echo $dataProGroup['Group_msg_Th']?>"/></td>
+												<td><input type="text" name="Short_msg_Th" value="<?=$dataProGroup['Group_msg_Th']?>"/></td>
 										</tr>
 										<tr>
 										<td><br></td>
@@ -313,7 +313,7 @@ exit();
 										<tr>
 												<td>Tag </td>
 												<td><img src="../images/dot.gif" /></td>
-												<td><input type="text" name="KeyWord" value="<?php echo $dataProGroup['Group_KeyWord']?>"/></td>
+												<td><input type="text" name="KeyWord" value="<?=$dataProGroup['Group_KeyWord']?>"/></td>
 										</tr>
 										<tr>
 										<td><br></td>
@@ -324,13 +324,13 @@ exit();
 										<tr>
 												<td>Url [En]</td>
 												<td><img src="../images/dot.gif" /></td>
-												<td><input type="text" name="Url_En" value="<?php echo $dataProGroup['Group_Url_En']?>"/></td>
+												<td><input type="text" name="Url_En" value="<?=$dataProGroup['Group_Url_En']?>"/></td>
 										</tr>
 										
 										<tr style="display:none;">
 												<td>Url [Th]</td>
 												<td><img src="../images/dot.gif" /></td>
-												<td><input type="text" name="Url_Th" value="<?php echo $dataProGroup['Group_Url_Th']?>"/></td>
+												<td><input type="text" name="Url_Th" value="<?=$dataProGroup['Group_Url_Th']?>"/></td>
 										</tr>
 										<tr>
 										<td><br></td>
@@ -346,8 +346,8 @@ exit();
 												<td><img src="../images/dot.gif" /></td>
 												<td>
 													<select name="Product_Status">
-														<option value="0" <?php if($dataProGroup['Group_Status']==0){ ?>selected<?php } ?>>Unpublish</option>
-														<option value="1" <?php if($dataProGroup['Group_Status']==1){ ?>selected<?php } ?>>Publish</option>
+														<option value="0" <?if($dataProGroup['Group_Status']==0){?>selected<?}?>>Unpublish</option>
+														<option value="1" <?if($dataProGroup['Group_Status']==1){?>selected<?}?>>Publish</option>
 													</select>
 												</td>
 										</tr>
@@ -358,10 +358,10 @@ exit();
 											<td><img src="../images/dot.gif" /></td>
 											<td>
 												<select name="Product_Attribute">
-													<option value="0" <?php if($dataProGroup['Group_attribute_id']==0){ ?>selected<?php } ?>>none</option>
-													<option value="1" <?php if($dataProGroup['Group_attribute_id']==1){ ?>selected<?php } ?>>New</option>
-													<option value="2" <?php if($dataProGroup['Group_attribute_id']==2){ ?>selected<?php } ?>>Hot</option>
-													<option value="3" <?php if($dataProGroup['Group_attribute_id']==3){ ?>selected<?php } ?>>Sale</option>
+													<option value="0" <?if($dataProGroup['Group_attribute_id']==0){?>selected<?}?>>none</option>
+													<option value="1" <?if($dataProGroup['Group_attribute_id']==1){?>selected<?}?>>New</option>
+													<option value="2" <?if($dataProGroup['Group_attribute_id']==2){?>selected<?}?>>Hot</option>
+													<option value="3" <?if($dataProGroup['Group_attribute_id']==3){?>selected<?}?>>Sale</option>
 												</select>
 											</td>
 										<tr>
@@ -372,12 +372,12 @@ exit();
 												<td><img src="../images/dot.gif" /></td>
 												<td>
 													<select name="Product_Box">
-														<option value="1" <?php if($dataProGroup['Group_gift_box']==1){ ?>selected<?php } ?>>Box</option>
-														<option value="0" <?php if($dataProGroup['Group_gift_box']==0){ ?>selected<?php } ?>>Envelope</option>
+														<option value="1" <?if($dataProGroup['Group_gift_box']==1){?>selected<?}?>>Box</option>
+														<option value="0" <?if($dataProGroup['Group_gift_box']==0){?>selected<?}?>>Envelope</option>
 													</select>
 												</td>
 										</tr>
-									<?php } ?>
+									<?}?>
 								</table>
 								</div>
 								<div id="line"></div>

@@ -20,7 +20,7 @@ exit();
 ?>
 
 <!--Permission-->
-<?php
+<?
 	$bannerID = $_GET['bannerID'];
 
 	//include_once '../classes/Products.php';
@@ -56,7 +56,7 @@ exit();
 ?>
 
 <!-------------------------------- Upload Images (php) ------------------------>						
-<?php
+<?
 	// Include คลาส class.upload.php เข้ามา เพื่อจัดการรูปภาพ
 	require_once('classes/class.upload.php') ;
 	 
@@ -151,8 +151,8 @@ exit();
 <!--menu-->
 
 									<b><a href="order.php">Order</a></b>
-								<?php if($_SESSION[ses_status] == "Super Admin") 
-			{ ?>
+								<?if($_SESSION[ses_status] == "Super Admin") 
+			{?>
 								<!-- End Admin -->
 									<b><br><br><a href="saleReport.php">Sale Report</a>
 									<br><br><a href="record.php">Customer Record</a>
@@ -172,7 +172,7 @@ exit();
 									<br><br><a href="shopGuide_main.php">Shopping Guide</a>
 									<br><br><a href="privacy.php">Permission</a>
 									<br><br><a href="usdRate.php">USD Rate</a></b>
-			<?php } ?>	
+			<?}?>	
 
 <!--menu-->
 		   	</div>
@@ -181,7 +181,7 @@ exit();
 					<div class="viewport">
 						<div class="overview">
 							<h2>Edit Banner</h2>
-							<img src="../../public/<?php echo $path?>" style="height:150px;">
+							<img src="../../public/<?=$path?>" style="height:150px;">
 							<br><br>
 							<!------------------------- Upload Image (form) ----------------->
 
@@ -195,7 +195,7 @@ exit();
 											<tr style="height:30px;">
 												<td style="width:70px;">Url</td>
 												<td style="width:15px;"><img src="../images/dot.gif"/></td>
-												<td><input type='text' name='url_banner' value="<?php echo $banner_url?>"></td>
+												<td><input type='text' name='url_banner' value="<?=$banner_url?>"></td>
 											</tr>
 										</table>
 										<input type="submit" value="Edit" style="width:60px;" />

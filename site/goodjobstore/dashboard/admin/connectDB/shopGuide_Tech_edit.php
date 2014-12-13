@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<?php
+<?
 	$Descrip_EN = $_GET["descripEN"];
 	$Descrip_TH = $_GET["descripTH"];
 

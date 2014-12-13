@@ -29,11 +29,11 @@
 ?>
 
 <!-- jqZoom -->
-	<base href="<?php echo base_url()?>public/" />
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>public/css/category.css" media="screen" />
-    <link rel="stylesheet" href="<?php echo base_url()?>public/css/jquery.jqzoom.css" type="text/css">	
-	<script src="<?php echo base_url()?>public/scripts/jquery-1.6.js" type="text/javascript"></script>
-	<script src="<?php echo base_url()?>public/scripts/jquery.jqzoom-core.js" type="text/javascript"></script>
+	<base href="<?=base_url()?>public/" />
+	<link rel="stylesheet" type="text/css" href="<?=base_url()?>public/css/category.css" media="screen" />
+    <link rel="stylesheet" href="<?=base_url()?>public/css/jquery.jqzoom.css" type="text/css">	
+	<script src="<?=base_url()?>public/scripts/jquery-1.6.js" type="text/javascript"></script>
+	<script src="<?=base_url()?>public/scripts/jquery.jqzoom-core.js" type="text/javascript"></script>
 	<script type="text/javascript">
 	$(document).ready(function() {
 		$('.jqzoom').jqzoom({
@@ -45,28 +45,28 @@
 	});
 	</script>
 	<!-- bin/jquery.slider.min.css -->
-	<link rel="stylesheet" href="<?php echo base_url()?>public/css/jslider.css" type="text/css">
+	<link rel="stylesheet" href="<?=base_url()?>public/css/jslider.css" type="text/css">
 
 
-	<link rel="stylesheet" href="<?php echo base_url()?>public/css/jslider.round.css" type="text/css">
+	<link rel="stylesheet" href="<?=base_url()?>public/css/jslider.round.css" type="text/css">
 	
 	
 	<!-- bin/jquery.slider.min.js -->
-	<script type="text/javascript" src="<?php echo base_url()?>public/scripts/jshashtable-2.1_src.js"></script>
-	<script type="text/javascript" src="<?php echo base_url()?>public/scripts/jquery.numberformatter-1.2.3.js"></script>
-	<script type="text/javascript" src="<?php echo base_url()?>public/scripts/tmpl.js"></script>
-	<script type="text/javascript" src="<?php echo base_url()?>public/scripts/jquery.dependClass-0.1.js"></script>
-	<script type="text/javascript" src="<?php echo base_url()?>public/scripts/draggable-0.1.js"></script>
-	<script type="text/javascript" src="<?php echo base_url()?>public/scripts/jquery.slider.js"></script>
+	<script type="text/javascript" src="<?=base_url()?>public/scripts/jshashtable-2.1_src.js"></script>
+	<script type="text/javascript" src="<?=base_url()?>public/scripts/jquery.numberformatter-1.2.3.js"></script>
+	<script type="text/javascript" src="<?=base_url()?>public/scripts/tmpl.js"></script>
+	<script type="text/javascript" src="<?=base_url()?>public/scripts/jquery.dependClass-0.1.js"></script>
+	<script type="text/javascript" src="<?=base_url()?>public/scripts/draggable-0.1.js"></script>
+	<script type="text/javascript" src="<?=base_url()?>public/scripts/jquery.slider.js"></script>
 
   
 	<!-- connect database-->
-	<script type="text/javascript" src='<?php echo base_url()?>public/scripts/ajax.category.java'></script>
+	<script type="text/javascript" src='<?=base_url()?>public/scripts/ajax.category.java'></script>
 
 		<!-- Body Section -->
 		<script>		
-		     viewList('1', '<?php echo $cat_en[2]?>', '<?php echo $cat_en[3]?>', '<?php echo $cat_en[4]?>', '<?php echo $cat_en[5]?>', '<?php echo $min_value?>', '<?php echo $max_value?>','<?php echo $cat_url?>','<?php echo LANG?>');
-			 viewNav('1', '<?php echo $cat_en[2]?>', '<?php echo $cat_en[3]?>', '<?php echo $cat_en[4]?>', '<?php echo $cat_en[5]?>', '<?php echo $min_value?>', '<?php echo $max_value?>','<?php echo $cat_url?>');
+		     viewList('1', '<?=$cat_en[2]?>', '<?=$cat_en[3]?>', '<?=$cat_en[4]?>', '<?=$cat_en[5]?>', '<?=$min_value?>', '<?=$max_value?>','<?=$cat_url?>','<?=LANG?>');
+			 viewNav('1', '<?=$cat_en[2]?>', '<?=$cat_en[3]?>', '<?=$cat_en[4]?>', '<?=$cat_en[5]?>', '<?=$min_value?>', '<?=$max_value?>','<?=$cat_url?>');
 		</script>
 		<div id="category_contents">
 			<div id="category_images">
@@ -143,8 +143,8 @@
 											var myPair = null;  
 											 myPair = $("#Slider1").slider("value");
 											 var split = myPair.split(';');
-											 viewList('1', '<?php echo $cat_en[2]?>', '<?php echo $cat_en[3]?>', '<?php echo $cat_en[4]?>', '<?php echo $cat_en[5]?>', split[0], split[1],'<?php echo $cat_url?>','<?php echo LANG?>');
-											 viewNav('1', '<?php echo $cat_en[2]?>', '<?php echo $cat_en[3]?>', '<?php echo $cat_en[4]?>', '<?php echo $cat_en[5]?>', split[0], split[1],'<?php echo $cat_url?>');
+											 viewList('1', '<?=$cat_en[2]?>', '<?=$cat_en[3]?>', '<?=$cat_en[4]?>', '<?=$cat_en[5]?>', split[0], split[1],'<?=$cat_url?>','<?=LANG?>');
+											 viewNav('1', '<?=$cat_en[2]?>', '<?=$cat_en[3]?>', '<?=$cat_en[4]?>', '<?=$cat_en[5]?>', split[0], split[1],'<?=$cat_url?>');
 										}
 								 });
 								</script>

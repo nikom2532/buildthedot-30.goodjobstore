@@ -298,7 +298,7 @@ class CI_Security {
 		 *
 		 * Note: XML tags are inadvertently replaced too:
 		 *
-		 * <?phpxml
+		 * <?xml
 		 *
 		 * But it doesn't seem to pose a problem.
 		 */
@@ -311,7 +311,7 @@ class CI_Security {
 		}
 		else
 		{
-			$str = str_replace(array('<?php', '?'.'>'),  array('&lt;?', '?&gt;'), $str);
+			$str = str_replace(array('<?', '?'.'>'),  array('&lt;?', '?&gt;'), $str);
 		}
 
 		/*

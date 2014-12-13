@@ -51,7 +51,7 @@
 		//build menu with DIV ID="myslidemenu" on page:
 		droplinemenu.buildmenu("droplinetabs1")
 	</script>
-	<?phpinclude("script-menu.php");?>
+	<?include("script-menu.php");?>
 	<link rel="stylesheet" type="text/css" href="css/menu.css">
 	<script type="text/javascript" src="scripts/jquery.tinyscrollbar.min.js"></script>
 	<script type="text/javascript">
@@ -63,7 +63,7 @@
 <body>
 	<div id="wrapper">
 		<!-- Header Section -->
-		<?php include("header.php"); ?>
+		<? include("header.php"); ?>
 
 		<!-- Body Section -->
 		<div id="title_head">
@@ -72,15 +72,15 @@
 		<div id="content">
 		    <div id="leftcolum">
 			    <ul>
-					<li><a href="notification.php?id=<?php echo $get_cusid?>">Notification</a></li>
-					<li><a class="active" href="my-info.php?id=<?php echo $get_cusid?>">My info</a></li>
-					<li><a href="order-history.php?id=<?php echo $get_cusid?>">Order History</a></li>
-					<li><a href="wishlist.php?id=<?php echo $get_cusid?>">Wishlist</a></li>
-					<li><a href="shopping-cart.php?id=<?php echo $get_cusid?>">My cart</a></li>
-					<li><a href="my-coupon.php?id=<?php echo $get_cusid?>">My coupon</a></li>
+					<li><a href="notification.php?id=<?=$get_cusid?>">Notification</a></li>
+					<li><a class="active" href="my-info.php?id=<?=$get_cusid?>">My info</a></li>
+					<li><a href="order-history.php?id=<?=$get_cusid?>">Order History</a></li>
+					<li><a href="wishlist.php?id=<?=$get_cusid?>">Wishlist</a></li>
+					<li><a href="shopping-cart.php?id=<?=$get_cusid?>">My cart</a></li>
+					<li><a href="my-coupon.php?id=<?=$get_cusid?>">My coupon</a></li>
 				</ul>
 		   	</div>
-		   	<form action="my-info.php?id=<?php echo $get_cusid?>" method="POST" name="billing">
+		   	<form action="my-info.php?id=<?=$get_cusid?>" method="POST" name="billing">
 			<!-- Billing Address -->
 			<div id="content_billing">
 				<div id="line"></div>
@@ -95,27 +95,27 @@
 										<tr>
 											<td width="100px">E-mail</td>
 											<td width="30px"><img src="images/dot.gif" /></td>
-											<td><input type="text" name="email" value="<?php echo $getemail?>"/></td>
+											<td><input type="text" name="email" value="<?=$getemail?>"/></td>
 										</tr>
 										<tr>
 											<td>First name</td>
 											<td><img src="images/dot.gif" /></td>
-											<td><input type="text" name="fistname" value="<?php echo $getfirstname?>"/></td>
+											<td><input type="text" name="fistname" value="<?=$getfirstname?>"/></td>
 										</tr>
 										<tr>
 											<td>Last name</td>
 											<td><img src="images/dot.gif" /></td>
-											<td><input type="text" name="lastname" value="<?php echo $getlastname?>"/></td>
+											<td><input type="text" name="lastname" value="<?=$getlastname?>"/></td>
 										</tr>
 										<tr>
 											<td>Phone number</td>
 											<td><img src="images/dot.gif" /></td>
-											<td><input type="text" name="phonenumber" value="<?php echo $getphone?>"/></td>
+											<td><input type="text" name="phonenumber" value="<?=$getphone?>"/></td>
 										</tr>
 										<tr>
 											<td>Address</td>
 											<td><img src="images/dot.gif" /></td>
-											<td><input type="text" name="address" value="<?php echo $getaddress?>"/></td>
+											<td><input type="text" name="address" value="<?=$getaddress?>"/></td>
 										</tr>
 										<tr>
 											<td>Province</td>
@@ -136,7 +136,7 @@
 												<td>Postal code</td>
 												<td><img src="images/dot.gif" /></td>
 												<td>
-													<input type="text" name="postcode" value="<?php echo $getcode?>"/
+													<input type="text" name="postcode" value="<?=$getcode?>"/
 												</td>
 												
 										</tr>
@@ -201,7 +201,7 @@
 			</form>
 		</div>  <!-- end div content -->              
 		<!-- Footer Section -->
-		<?php include("footer.php"); ?>
+		<? include("footer.php"); ?>
 
 	</div>
 <script>

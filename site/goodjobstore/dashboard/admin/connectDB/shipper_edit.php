@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<?php
+<?
 	$howID = $_GET["howID"];
 	$m_Name_EN = $_GET["shipperEN"];
 	$Name_EN = str_replace("'","''",$m_Name_EN);

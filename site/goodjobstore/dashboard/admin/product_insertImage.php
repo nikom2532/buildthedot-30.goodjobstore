@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <meta http-equiv=Content-Type content="text/html; charset=utf-8">
 
-<?php
+<?
 	$genProID = $_GET["genProID"];
 	$proCode = $_GET["proCode"];
 	$propertyName = $_GET["propertyName"];
@@ -46,7 +46,7 @@ exit();
 
 <!--Permission-->
 
-<?php
+<?
 	$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
 	$objDB = mysql_select_db("goodjob") or die("Can't connect Database");
 	mysql_query("SET NAMES utf8",$objCon);		
@@ -80,7 +80,7 @@ exit();
 
 
 <!-------------------------------- Upload Images (php) ------------------------>						
-<?php
+<?
 	// Include คลาส class.upload.php เข้ามา เพื่อจัดการรูปภาพ
 	require_once('classes/class.upload.php') ;
 	 
@@ -219,7 +219,7 @@ exit();
 </head>
 <body>
 	<script>
-		viewTable('<?php echo $genProID?>');
+		viewTable('<?=$genProID?>');
 	</script>
 
 <!--logout-->
@@ -246,8 +246,8 @@ exit();
 	<!--menu-->
 
 									<b><a href="order.php">Order</a></b>
-								<?php if($_SESSION[ses_status] == "Super Admin") 
-			{ ?>
+								<?if($_SESSION[ses_status] == "Super Admin") 
+			{?>
 								<!-- End Admin -->
 									<b><br><br><a href="saleReport.php">Sale Report</a>
 									<br><br><a href="record.php">Customer Record</a>
@@ -267,7 +267,7 @@ exit();
 									<br><br><a href="shopGuide_main.php">Shopping Guide</a>
 									<br><br><a href="privacy.php">Permission</a>
 									<br><br><a href="usdRate.php">USD Rate</a></b>
-			<?php } ?>	
+			<?}?>	
 
 <!--menu-->
 		   	</div>
@@ -275,7 +275,7 @@ exit();
 				
 					<div class="viewport">
 						<div class="overview">
-							<h2>Add -- <?php echo $proCode?><?php echo $propertyName?> -- images</h2>
+							<h2>Add -- <?=$proCode?><?=$propertyName?> -- images</h2>
 
 <!------------------------- Upload Image (form) ----------------->
 
@@ -291,11 +291,11 @@ exit();
 					<td style="width:15px;"><img src="../images/dot.gif" /></td>
 					<td>
 						<select name="selectColor1"\>
-							<?php
+							<?
 							while ($data=mysql_fetch_array($resultColor1))
-							{ ?>
-								<option value="<?php echo $data['Color_ID']?>"><?php echo $data['Name_EN']?></option>
-							<?php } ?>
+							{?>
+								<option value="<?=$data['Color_ID']?>"><?=$data['Name_EN']?></option>
+							<?}?>
 						</select>
 					</td>
 				</tr>
@@ -309,11 +309,11 @@ exit();
 					<td>
 						<select name="selectColor2"\>
 							<option value=""><-- Please Select Color --></option>
-							<?php
+							<?
 							while ($data=mysql_fetch_array($resultColor2))
-							{ ?>
-								<option value="<?php echo $data['Color_ID']?>"><?php echo $data['Name_EN']?></option>
-							<?php } ?>
+							{?>
+								<option value="<?=$data['Color_ID']?>"><?=$data['Name_EN']?></option>
+							<?}?>
 						</select>
 					</td>
 				</tr>
@@ -335,7 +335,7 @@ exit();
 							
 		
 		<div id="line"></div>
-		<input type="button" value="Submit" style="width:60px;" onclick="window.location.href='viewProduct.php?proCode=<?php echo $proCode?>'">
+		<input type="button" value="Submit" style="width:60px;" onclick="window.location.href='viewProduct.php?proCode=<?=$proCode?>'">
 					
 						</div>
 					</div>

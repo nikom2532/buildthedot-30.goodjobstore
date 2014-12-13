@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<?php
+<?
 $orderID = $order->Order_ID;
 $finalPrice = $order->Final_Price;
 //$orderItem = $order_items;
@@ -38,7 +38,7 @@ foreach($order_items as $orderItem)
 }
 ?>
 
-	<script src="<?php echo base_url()?>public/scripts/ajax.showPDF.java" type="text/javascript"></script>
-	<script>callBarcode('<?php echo $orderID?>','<?php echo $finalPrice?>','<?php echo $item_code[0]?>','<?php echo $item_code[1]?>','<?php echo $item_code[2]?>','<?php echo $item_code[3]?>','<?php echo $item_name[0]?>','<?php echo $item_name[1]?>','<?php echo $item_name[2]?>','<?php echo $item_name[3]?>','<?php echo $item_price[0]?>','<?php echo $item_price[1]?>','<?php echo $item_price[2]?>','<?php echo $item_price[3]?>','<?php echo $shipNameEn?>','<?php echo $shipPrice?>','<?php echo $servicePrice?>','<?php echo $fName?>','<?php echo $lName?>','<?php echo $sAddress?>','<?php echo $sCityID?>','<?php echo $sPostCode?>','<?php echo $cusID?>');</script>
+	<script src="<?=base_url()?>public/scripts/ajax.showPDF.java" type="text/javascript"></script>
+	<script>callBarcode('<?=$orderID?>','<?=$finalPrice?>','<?=$item_code[0]?>','<?=$item_code[1]?>','<?=$item_code[2]?>','<?=$item_code[3]?>','<?=$item_name[0]?>','<?=$item_name[1]?>','<?=$item_name[2]?>','<?=$item_name[3]?>','<?=$item_price[0]?>','<?=$item_price[1]?>','<?=$item_price[2]?>','<?=$item_price[3]?>','<?=$shipNameEn?>','<?=$shipPrice?>','<?=$servicePrice?>','<?=$fName?>','<?=$lName?>','<?=$sAddress?>','<?=$sCityID?>','<?=$sPostCode?>','<?=$cusID?>');</script>
 
 	<div id="test_area"></div>

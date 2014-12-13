@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<?php
+<?
 	$Name_EN = $_GET["prop_en"];
 	$Name_TH = $_GET["prop_th"];
 	$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());

@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 
-<?php
+<?
 	//include_once '../classes/Products.php';
 	//Initialization
 	include_once '../classes/Employees.php';
@@ -52,8 +52,8 @@
 			<div class="logo"><a href ="../"><img src="../images/logo.jpg" /></a></div>
 			<div class="right">
 				<ul class="member_style">
-					<li class="line"><a href="<?php echo $link?>?id=<?php echo $id?>"><?php echo $login?></a></li> 
-					<li><a href="../admin/"><?php echo $logout?></a></li>
+					<li class="line"><a href="<?=$link?>?id=<?=$id?>"><?=$login?></a></li> 
+					<li><a href="../admin/"><?=$logout?></a></li>
 				</ul>
 			</div>
 		</div>

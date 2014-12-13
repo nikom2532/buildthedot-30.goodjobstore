@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<?php
+<?
 	$propID = $_GET["propID"];
 	$prop_en = $_GET["prop_en"];
 	$prop_th = $_GET["prop_th"];

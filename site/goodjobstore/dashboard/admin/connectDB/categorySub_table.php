@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<?php
+<?
 	$mainID = $_GET['mainID'];
 
 	$objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
@@ -31,38 +31,38 @@
 			<td></td>
 			<td></td>
 		</tr>
-		<?php
+		<?
 		while ($data=mysql_fetch_array($result))
-		{ ?>
+		{?>
 			<tr style="height:20px;">
 				<td style="text-align:center;">
-					<?php $number = ($data['sub_sort']*10)%10;
+					<? $number = ($data['sub_sort']*10)%10;
 					echo $number;?>
 				</td>
-				<td><?php echo $data['Name_En']?></td>
-				<td><?php echo $data['Name_Th']?></td>
-				<td><?php echo $data['sub_url']?></td>
+				<td><?=$data['Name_En']?></td>
+				<td><?=$data['Name_Th']?></td>
+				<td><?=$data['sub_url']?></td>
 				<td>
-					<?php if($row!=1){ ?>
-						<input type="button" value="Up" style="width:50px;" onclick="upSubSort('<?php echo $data['Sub_ID']?>','<?php echo $data['Main_ID']?>');">
-					<?php } ?>
+					<?if($row!=1){?>
+						<input type="button" value="Up" style="width:50px;" onclick="upSubSort('<?=$data['Sub_ID']?>','<?=$data['Main_ID']?>');">
+					<?}?>
 				</td>
 				<td>
-					<?php if($row!=$dataRow){ ?>
-						<input type="button" value="Down" style="width:50px;" onclick="downSubSort('<?php echo $data['Sub_ID']?>','<?php echo $data['Main_ID']?>');">
-					<?php } ?>
+					<?if($row!=$dataRow){?>
+						<input type="button" value="Down" style="width:50px;" onclick="downSubSort('<?=$data['Sub_ID']?>','<?=$data['Main_ID']?>');">
+					<?}?>
 				</td>
 				<td>
-					<input type="button" value="Son Category" onclick="window.location.href='categorySon.php?subID=<?php echo $data['Sub_ID']?>&mainID=<?php echo $mainID?>'" style="width:100px">
+					<input type="button" value="Son Category" onclick="window.location.href='categorySon.php?subID=<?=$data['Sub_ID']?>&mainID=<?=$mainID?>'" style="width:100px">
 				</td>
 				<td>
 					<input type="button" value="Edit" 
-					onclick="window.location.href='categorySub_viewEdit.php?mainID=<?php echo $mainID?>&subID=<?php echo $data['Sub_ID']?>'" 
+					onclick="window.location.href='categorySub_viewEdit.php?mainID=<?=$mainID?>&subID=<?=$data['Sub_ID']?>'" 
 					style="width:60px">
 				</td>
-				<td><input type="button" value="Delete" onclick="deleteCategorySub(<?php echo $data['Main_ID']?>,<?php echo $data['Sub_ID']?>);" style="width:60px"></td>
+				<td><input type="button" value="Delete" onclick="deleteCategorySub(<?=$data['Main_ID']?>,<?=$data['Sub_ID']?>);" style="width:60px"></td>
 			</tr>
-		<?php $row+=1;
+		<?$row+=1;
 		}?>
 	</tbody>
 </table>

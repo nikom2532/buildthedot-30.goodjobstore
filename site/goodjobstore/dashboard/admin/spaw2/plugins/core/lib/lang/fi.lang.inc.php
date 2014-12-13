@@ -28,7 +28,7 @@ $spaw_lang_data = array(
     'title' => 'Kopioi'
   ),
   'paste' => array(
-    'title' => 'Liitï¿½'
+    'title' => 'Liitä'
   ),
   'undo' => array(
     'title' => 'Kumoa'
@@ -40,21 +40,21 @@ $spaw_lang_data = array(
     'title' => 'Linkki'
   ),
 	'image' => array(
-    'title' => 'Kuvan nopea lisï¿½ys'
+    'title' => 'Kuvan nopea lisäys'
   ),
 /*  'image_insert' => array(
-    'title' => 'Lisï¿½ï¿½ kuva',
+    'title' => 'Lisää kuva',
     'select' => 'Valitse',
     'cancel' => 'Peruuta',
     'library' => 'Kirjasto',
     'preview' => 'Esikatselu',
     'images' => 'Kuvat',
-    'upload' => 'Lï¿½hetï¿½ kuva palvelimelle',
-    'upload_button' => 'Lï¿½hetï¿½',
+    'upload' => 'Lähetä kuva palvelimelle',
+    'upload_button' => 'Lähetä',
     'error' => 'Virhe',
     'error_no_image' => 'Et valinnut kuvaa listalta.',
-    'error_uploading' => 'Kuvan palvelimelle lï¿½hetyksessï¿½ esiintyi virhe. Yritï¿½ myÃ¶hemmin uudelleen.',
-    'error_wrong_type' => 'Lï¿½hettï¿½mï¿½si tiedosto ei ollut tuettua tiedostomuotoa',
+    'error_uploading' => 'Kuvan palvelimelle lähetyksessä esiintyi virhe. Yritä myÃ¶hemmin uudelleen.',
+    'error_wrong_type' => 'Lähettämäsi tiedosto ei ollut tuettua tiedostomuotoa',
     'error_no_dir' => 'Kirjastoa ei ole fyysisesti olemassa.',
   ),
 */  'image_prop' => array(
@@ -64,9 +64,9 @@ $spaw_lang_data = array(
     'source' => 'Kuva',
     'alt' => 'Kuvaus (ALT)',
     'align' => 'Suhde tekstiin',
-    'left' => 'kuva vasemmalla, teksti kiertï¿½ï¿½',
-    'right' => 'kuva oikealla, teksti kiertï¿½ï¿½',
-    'top' => 'teksti asettuu kuvan ylï¿½reunaan',
+    'left' => 'kuva vasemmalla, teksti kiertää',
+    'right' => 'kuva oikealla, teksti kiertää',
+    'top' => 'teksti asettuu kuvan yläreunaan',
     'middle' => 'teksti asettuu kuvan keskikork.',
     'bottom' => 'teksti asettuu kuvan alareunaan',
     'absmiddle' => 'absmiddle',
@@ -75,24 +75,24 @@ $spaw_lang_data = array(
     'width' => 'Leveys',
     'height' => 'Korkeus',
     'border' => 'Reunus',
-    'hspace' => 'Vaakas. tyhjï¿½ tila',
-    'vspace' => 'Pystys. tyhjï¿½ tila',
+    'hspace' => 'Vaakas. tyhjä tila',
+    'vspace' => 'Pystys. tyhjä tila',
     'dimensions' => 'Mitat', // <= new in 2.0.1
-    'reset_dimensions' => 'Aseta alkuperï¿½inen kuvakoko', // <= new in 2.0.1
+    'reset_dimensions' => 'Aseta alkuperäinen kuvakoko', // <= new in 2.0.1
     'title_attr' => 'Otsake', // <= new in 2.0.1
-    'constrain_proportions' => 'Sï¿½ilytï¿½ kuvasuhde', // <= new in 2.0.1
+    'constrain_proportions' => 'Säilytä kuvasuhde', // <= new in 2.0.1
     'error' => 'Virhe',
     'error_width_nan' => 'Leveyden arvo ei ole numero',
     'error_height_nan' => 'Korkeuden arvo ei ole numero',
     'error_border_nan' => 'Reunuksen arvo ei ole numero',
-    'error_hspace_nan' => 'Vaakasuoran tyhjï¿½n tilan arvo ei ole numero',
-    'error_vspace_nan' => 'Pystysuoran tyhjï¿½n tilan arvo ei ole numero',
+    'error_hspace_nan' => 'Vaakasuoran tyhjän tilan arvo ei ole numero',
+    'error_vspace_nan' => 'Pystysuoran tyhjän tilan arvo ei ole numero',
   ),
   'flash_prop' => array(                // <= new in 2.0
-    'title' => 'Flash-objektin liittï¿½minen',
+    'title' => 'Flash-objektin liittäminen',
     'ok' => '   OK   ',
     'cancel' => 'Peruuta',
-    'source' => 'Lï¿½hde',
+    'source' => 'Lähde',
     'width' => 'Leveys',
     'height' => 'Korkeus',
     'error' => 'Virhe',
@@ -110,25 +110,25 @@ $spaw_lang_data = array(
     'title' => 'Taulukon ominaisuudet',
     'ok' => '   OK   ',
     'cancel' => 'Peruuta',
-    'rows' => 'Rivejï¿½',
+    'rows' => 'Rivejä',
     'columns' => 'Sarakkeita',
     'width' => 'Leveys',
     'height' => 'Korkeus',
     'border' => 'Reunaviiva',
-    'pixels' => 'kuvapistettï¿½',
+    'pixels' => 'kuvapistettä',
     'css_class' => 'Tyyli',
-    'cellpadding' => 'Tekstin etï¿½isyys solun reunasta',
-    'cellspacing' => 'Solujen vï¿½linen tyhjï¿½ tila',
-    'bg_color' => 'Taustavï¿½ri',
+    'cellpadding' => 'Tekstin etäisyys solun reunasta',
+    'cellspacing' => 'Solujen välinen tyhjä tila',
+    'bg_color' => 'Taustaväri',
     'background' => 'Taustakuva',
     'error' => 'Virhe',
-    'error_rows_nan' => 'Rivimï¿½ï¿½rï¿½n arvo ei ole numero',
-    'error_columns_nan' => 'Sarakemï¿½ï¿½rï¿½n arvo ei ole numero',
+    'error_rows_nan' => 'Rivimäärän arvo ei ole numero',
+    'error_columns_nan' => 'Sarakemäärän arvo ei ole numero',
     'error_width_nan' => 'Leveyden arvo ei ole numero',
     'error_height_nan' => 'Korkeuden arvo ei ole numero',
     'error_border_nan' => 'Reunuksen arvo ei ole numero',
-    'error_cellpadding_nan' => 'Tekstin etï¿½isyys solun reunasta -kentï¿½n arvo ei ole numero',
-    'error_cellspacing_nan' => 'Solujen vï¿½linen tyhjï¿½ tila -arvo ei ole numero',
+    'error_cellpadding_nan' => 'Tekstin etäisyys solun reunasta -kentän arvo ei ole numero',
+    'error_cellspacing_nan' => 'Solujen välinen tyhjä tila -arvo ei ole numero',
   ),
   'table_cell_prop' => array(
     'title' => 'Taulukon solun ominaisuudet',
@@ -138,12 +138,12 @@ $spaw_lang_data = array(
     'height' => 'Korkeus',
     'css_class' => 'Tyyli',
     'no_wrap' => 'No wrap',
-    'bg_color' => 'Taustavï¿½ri',
+    'bg_color' => 'Taustaväri',
     'background' => 'Taustakuva',
     'ok' => '   OK   ',
     'cancel' => 'Peruuta',
     'justifyleft' => 'Vasen',
-    'justifycenter' => 'Keskitï¿½',
+    'justifycenter' => 'Keskitä',
     'justifyright' => 'Oikea',
     'top' => 'YlÃ¶s',
     'middle' => 'Keskelle',
@@ -155,10 +155,10 @@ $spaw_lang_data = array(
     
   ),
   'table_row_insert' => array(
-    'title' => 'Lisï¿½ï¿½ rivi taulukkoon'
+    'title' => 'Lisää rivi taulukkoon'
   ),
   'table_column_insert' => array(
-    'title' => 'Lisï¿½ï¿½ sarake taulukkoon'
+    'title' => 'Lisää sarake taulukkoon'
   ),
   'table_row_delete' => array(
     'title' => 'Poista rivi taulukosta'
@@ -167,10 +167,10 @@ $spaw_lang_data = array(
     'title' => 'Poista sarake taulukosta'
   ),
   'table_cell_merge_right' => array(
-    'title' => 'Yhdistï¿½ oikealla puolella olevaan soluun'
+    'title' => 'Yhdistä oikealla puolella olevaan soluun'
   ),
   'table_cell_merge_down' => array(
-    'title' => 'Yhdistï¿½ alapuolella olevaan soluun'
+    'title' => 'Yhdistä alapuolella olevaan soluun'
   ),
   'table_cell_split_horizontal' => array(
     'title' => 'Jaa solu vaakasuunnassa'
@@ -206,16 +206,16 @@ $spaw_lang_data = array(
     'title' => 'Luettelomerkit'
   ),
   'indent' => array(
-    'title' => 'Sisennï¿½'
+    'title' => 'Sisennä'
   ),
   'outdent' => array(
-    'title' => 'Poista sisennystï¿½'
+    'title' => 'Poista sisennystä'
   ),
   'justifyleft' => array(
     'title' => 'Tasaa vasempaan reunaan'
   ),
   'justifycenter' => array(
-    'title' => 'Keskitï¿½'
+    'title' => 'Keskitä'
   ),
   'justifyright' => array(
     'title' => 'Tasaa oikeaan reunaan'
@@ -224,30 +224,30 @@ $spaw_lang_data = array(
     'title' => 'Tasaa molemmat reunat'
   ),
   'fore_color' => array(
-    'title' => 'Tekstin vï¿½ri'
+    'title' => 'Tekstin väri'
   ),
   'bg_color' => array(
-    'title' => 'Tekstin taustavï¿½ri'
+    'title' => 'Tekstin taustaväri'
   ),
   'design' => array(
-    'title' => 'Vaihda sisï¿½ltï¿½editorin tekstinkï¿½sittelyn kaltaiseen  WYSIWYG (design) -tilaan.'
+    'title' => 'Vaihda sisältöeditorin tekstinkäsittelyn kaltaiseen  WYSIWYG (design) -tilaan.'
   ),
   'html' => array(
     'title' => 'Vaihda HTML-kooditilaan'
   ),
   'colorpicker' => array(
-    'title' => 'Vï¿½rivalitsin',
+    'title' => 'Värivalitsin',
     'ok' => '   OK   ',
     'cancel' => 'Peruuta',
   ),
 	  'cleanup' => array(
-    'title' => 'HTML-koodin puhdistus (poistaa tyylimï¿½ï¿½rittelyt)',
-    'confirm' => 'Tï¿½mï¿½ toiminto poistaa tï¿½mï¿½n sivun sisï¿½llï¿½stï¿½ kaikki tyylimï¿½ï¿½rittelyt, fonttimï¿½ï¿½rittelyt ja tarpeettomat komennot. Kaikki tekstin muotoilu tai osa muotoilusta voi kadota.',
+    'title' => 'HTML-koodin puhdistus (poistaa tyylimäärittelyt)',
+    'confirm' => 'Tämä toiminto poistaa tämän sivun sisällöstä kaikki tyylimäärittelyt, fonttimäärittelyt ja tarpeettomat komennot. Kaikki tekstin muotoilu tai osa muotoilusta voi kadota.',
     'ok' => '   OK   ',
     'cancel' => 'Peruuta',
   ),
   'toggle_borders' => array(
-    'title' => 'Nï¿½ytï¿½/Piilota reunuksettomien taulukkojen reunat',
+    'title' => 'Näytä/Piilota reunuksettomien taulukkojen reunat',
   ),
   'hyperlink' => array(
     'title' => 'Linkki',
@@ -267,7 +267,7 @@ $spaw_lang_data = array(
   ),
   'hyperlink_targets' => array(
   	'_self' => 'Sama ikkuna (_self)',
-  	'_blank' => 'Uusi tyhjï¿½ ikkuna (_blank)',
+  	'_blank' => 'Uusi tyhjä ikkuna (_blank)',
   	'_top' => 'top frame (_top)',
   	'_parent' => 'parent frame (_parent)'
   ),
@@ -280,13 +280,13 @@ $spaw_lang_data = array(
     'vertical_align' => 'Tasaus Pystysuunnassa',
     'css_class' => 'CSS tyyli',
     'no_wrap' => 'No wrap',
-    'bg_color' => 'Taustavï¿½ri',
+    'bg_color' => 'Taustaväri',
     'ok' => '   OK   ',
     'cancel' => 'Peruuta',
     'justifyleft' => 'Vasen',
-    'justifycenter' => 'Keskitï¿½',
+    'justifycenter' => 'Keskitä',
     'justifyright' => 'Oikea',
-    'top' => 'Ylï¿½s',
+    'top' => 'Ylös',
     'middle' => 'Keskelle',
     'bottom' => 'Alas',
     'baseline' => 'Alareunaan',
@@ -304,13 +304,13 @@ $spaw_lang_data = array(
     'title_tag' => 'Otsikko (Title)',
     'charset' => 'Charset',
     'background' => 'Taustakuva',
-    'bgcolor' => 'Taustavï¿½ri',
-    'text' => 'Tekstin vï¿½ri',
-    'link' => 'Linkin vï¿½ri',
-    'vlink' => 'Vieraillun linkin vï¿½ri',
-    'alink' => 'Aktiivisen linkin vï¿½ri',
+    'bgcolor' => 'Taustaväri',
+    'text' => 'Tekstin väri',
+    'link' => 'Linkin väri',
+    'vlink' => 'Vieraillun linkin väri',
+    'alink' => 'Aktiivisen linkin väri',
     'leftmargin' => 'Vasen reunus',
-    'topmargin' => 'Ylï¿½reunus',
+    'topmargin' => 'Yläreunus',
     'css_class' => 'CSS luokka',
     'ok' => '   OK   ',
     'cancel' => 'Peruuta',
