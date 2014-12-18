@@ -250,6 +250,7 @@ exit();
 			{?>
 								<!-- End Admin -->
 									<b><br><br><a href="saleReport.php">Sale Report</a>
+									<br><br><a href="ups_rate_fluctuationyearly.php">UPS Rate</a>
 									<br><br><a href="record.php">Customer Record</a>
 									<br><br><a href="productGroup.php">Product</a>
 									<br><br><a href="category.php">Category</a>

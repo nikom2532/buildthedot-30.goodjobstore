@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <meta http-equiv=Content-Type content="text/html; charset=utf-8">
 <?php
-session_start(); //à»Ô´ session
+session_start(); //ï¿½Ô´ session
 $ses_userid =$_SESSION[ses_userid];
 $ses_username = $_SESSION[ses_username];
 if($ses_userid <> session_id() or $ses_username =="")
@@ -89,6 +89,7 @@ exit();
 			{?>
 								<!-- End Admin -->
 									<b><br><br><a href="saleReport.php">Sale Report</a>
+									<br><br><a href="ups_rate_fluctuationyearly.php">UPS Rate</a>
 									<br><br><a href="record.php">Customer Record</a>
 									<br><br><a href="productGroup.php">Product</a>
 									<br><br><a href="category.php">Category</a>
@@ -121,7 +122,7 @@ exit();
 										<tr>
 											<td style="width:150px;">Weight Start</td>
 											<td style="width:15px;"><img src="../images/dot.gif" /></td>
-											<td style="width:-¨0px;"><input type='text' name='weight_start' value="<?=$weightStart?>"></td>
+											<td style="width:-ï¿½0px;"><input type='text' name='weight_start' value="<?=$weightStart?>"></td>
 										</tr>
 																				<tr><td><br></td></tr>
 
