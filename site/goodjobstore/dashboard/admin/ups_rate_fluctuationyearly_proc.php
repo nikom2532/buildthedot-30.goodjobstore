@@ -23,12 +23,19 @@ $objCon = mysql_connect("localhost","dev","0823248713") or die(mysql_error());
 $objDB = mysql_select_db("goodjob") or die("Can't connect Database");
 mysql_query("SET NAMES utf8",$objCon);
 
-echo $sql = "
+$sql = "
 	UPDATE `ups_rate_fluctuationyearly` 
 	SET  `rate` =  {$ups_rate} 
 	WHERE  `ups_rate_fluctuationyearly`.`year` = 2014;
 ";
-@mysql_query($sql, $objCon) or die(mysql_error());
+$result = @mysql_query($sql, $objCon) or die(mysql_error());
 
-header("location: ./ups_rate_fluctuationyearly.php");
+if($result){
+	$return = "y";
+}
+else{
+	$return = "n";
+}
+
+header("location: ./ups_rate_fluctuationyearly.php?s=".$return);
 ?>

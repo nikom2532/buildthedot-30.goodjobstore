@@ -92,7 +92,7 @@ exit();
 					<div class="overview">
 						<h2>UPS Rate</h2>
 						<div style="text-align:center;">
-							<form action="ups_rate_fluctuationYearly_proc.php" name="UPS_rate_form" id="UPS_rate_form" method="post" >
+							<form action="ups_rate_fluctuationyearly_proc.php" name="UPS_rate_form" id="UPS_rate_form" method="post" >
 								<table border="0">
 									<tr>
 											<td style="width:70px;">UPS Rate</td>
@@ -116,7 +116,11 @@ exit();
 											
 											<td><input type="submit" value="Submit" style="width:70px;" ></td>
 									</tr>
-									<tr><td><br /></td></tr>
+									<tr><td><br /><?php 
+										if($_GET["s"] == "y"){
+											echo "Success recorded UPS Fluctuation Yearly";
+										}
+									?></td></tr>
 								</table>
 							</form>
 							<div id="line"></div>
