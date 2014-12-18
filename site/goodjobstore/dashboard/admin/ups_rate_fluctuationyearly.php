@@ -116,14 +116,15 @@ exit();
 											
 											<td><input type="submit" value="Submit" style="width:70px;" ></td>
 									</tr>
-									<tr><td><br /><?php 
-										if($_GET["s"] == "y"){
-											echo "Success recorded UPS Fluctuation Yearly";
-										}
-									?></td></tr>
+									<tr><td><br /></td></tr>
 								</table>
 							</form>
 							<div id="line"></div>
+							<?php 
+								if($_GET["s"] == "y"){
+									echo "Success recorded UPS Fluctuation Yearly";
+								}
+							?>
 						</div>
 					</div>
 				</div>	
